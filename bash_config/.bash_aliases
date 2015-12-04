@@ -33,8 +33,8 @@ alias mdv='/home/alex/Documents/Apps/Others/terminal_markdown_viewer/mdv.py'
 
 
 # Appends last command to my system_install.sh script to reinstall environement easy.
-alias sav='~/.config/perso/saveCommand.sh !!'
-alias editsav='vim ~/Documents/Apps/Scripts/saveCommand.sh'
+alias sav='~/.config/perso/saveCommand.sh'
+alias editsav='vim ~/.config/perso/saveCommand.sh'
 
 alias editsys='vim ~/.config/perso/system_install.sh'
 

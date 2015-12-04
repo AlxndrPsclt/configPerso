@@ -1,0 +1,19 @@
+#Useful Shortcuts
+##Terminal
+	* Edit shortcuts
+		`$ eshortcuts`
+	* Auto-correct 404 errors in ppa
+		`$ banish404`
+	* Append last command to ~/.config/perso/system_install.sh
+		`$ sav !!`
+
+
+##Vim
+####Emmet-vim
+	* Autocomplete le snippet Emmet
+		`<C-y\> ,`
+####Command T:
+	* Ouvrir le dash
+		`, t`
+	* Ouvrir une selection du dash dans un nouvel onglet
+		`<C-t\>`
