@@ -155,3 +155,6 @@ source ~/.xsh
 
 PATH=$PATH:$HOME/bin
 MANPATH=$MANPATH:$HOME/share/man
+
+#Tmuxinator config
+source ~/.config/perso/tmux_config/tmuxinator.bash

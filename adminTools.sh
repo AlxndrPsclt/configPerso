@@ -10,6 +10,7 @@ options=("Show shortcuts"
 "Source bashrc/_aliases/_profile"
 "Edit bashrc"
 "Edit bash_aliases"
+"Edit your /etc/environment"
 )
 
 echo "$title"
@@ -24,11 +25,12 @@ select opt in "${options[@]}" "Quit"; do
     4 ) vim ~/.config/perso/system_install.sh;;
     5 ) vim ~/.config/perso/adminTools.sh;
       break;;
-	6 ) source ~/.config/perso/.bash_config/bashrc;
-		source ~/.config/perso/.bash_config/bash_profile;
-		source ~/.config/perso/.bash_config/bash_aliases;;
-	7 ) vim ~/.config/perso/bash_config/bashrc;;
-	8 ) vim ~/.config/perso/bash_config/bash_aliases;;
+	6 ) source ~/.config/perso/bash_config/bashrc;
+		source ~/.config/perso/bash_config/bash_profile;
+		source ~/.config/perso/bash_config/bash_aliases;;
+	7 ) vim ~/.config/perso/bash_config/.bashrc;;
+	8 ) vim ~/.config/perso/bash_config/.bash_aliases;;
+	9 ) sudo vim /etc/environment;;
 
     $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     *) echo "Invalid option. Try another one.";continue;;
