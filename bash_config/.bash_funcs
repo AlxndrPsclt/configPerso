@@ -1,0 +1,41 @@
+# Update only the last added repo
+update-repo() {
+    for source in "$@"; do
+        sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/${source}" \
+        -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"    
+    done
+}
+
+
+# Marking and jumping functions
+export MARKPATH=$HOME/.marks
+function jump { 
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark { 
+    rm -i $MARKPATH/$1 
+}
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+
+
+
+function undozip(){
+  unzip -l "$1" |  awk 'BEGIN { OFS="" ; ORS="" } ; { for ( i=4; i<NF; i++ ) print $i " "; print $NF "\n" }' | xargs -I{} rm -r {}
+}
+
+
+
+function mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+
+
+n (){
+($* ; notify-send "Command over" "$*")
+}

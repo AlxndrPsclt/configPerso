@@ -100,6 +100,15 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Function definitions
+if [ -f ~/.bash_funcs ]; then
+    .  ~/.bash_funcs
+fi
+
+# Completiton definitions
+if [ -f ~/.bash_completion ]; then
+    .  ~/.bash_completion
+fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -151,7 +160,7 @@ complete -F _completemarks jump unmark
 #[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 
-source ~/.xsh
+source ~/Documents/Apps/Misc/xiki-master/bin/.xsh
 
 PATH=$PATH:$HOME/bin
 MANPATH=$MANPATH:$HOME/share/man

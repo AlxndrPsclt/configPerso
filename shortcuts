@@ -6,7 +6,8 @@
 		`$ banish404`
 	* Append last command to ~/.config/perso/system_install.sh
 		`$ sav !!`
-
+	* Pulls repository update from only one repo (not like apt-get update who updates everything)
+		`$ update-repo <tab> <tab>`
 
 ##Vim
 ####Emmet-vim

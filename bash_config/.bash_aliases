@@ -40,34 +40,7 @@ alias editsys='vim ~/.config/perso/system_install.sh'
 
 alias adminTools='~/.config/perso/adminTools.sh'
 
-export MARKPATH=$HOME/.marks
-function jump { 
-    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
-}
-function mark { 
-    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
-}
-function unmark { 
-    rm -i $MARKPATH/$1 
-}
-function marks {
-    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
-}
 
+# New soft to read markdown in terminal in color
+alias mdv='~/Documents//mdv.py'
 
-
-
-function undozip(){
-  unzip -l "$1" |  awk 'BEGIN { OFS="" ; ORS="" } ; { for ( i=4; i<NF; i++ ) print $i " "; print $NF "\n" }' | xargs -I{} rm -r {}
-}
-
-
-
-function mcd() {
-  mkdir -p "$1" && cd "$1";
-}
-
-
-n (){
-($* ; notify-send "Command over" "$*")
-}
