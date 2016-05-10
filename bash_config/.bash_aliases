@@ -44,3 +44,4 @@ alias adminTools='~/.config/perso/adminTools.sh'
 # New soft to read markdown in terminal in color
 alias mdv='~/Documents//mdv.py'
 
+alias vidle="python -m idlelib &"

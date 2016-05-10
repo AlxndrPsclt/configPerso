@@ -129,8 +129,6 @@ function google() { firefox http://www.google.com/search?hl=en#q="`encode $@`" ;
 
 
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
 
 
 
@@ -160,10 +158,21 @@ complete -F _completemarks jump unmark
 #[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 
-source ~/Documents/Apps/Misc/xiki-master/bin/.xsh
 
 PATH=$PATH:$HOME/bin
 MANPATH=$MANPATH:$HOME/share/man
 
 #Tmuxinator config
 source ~/.config/perso/tmux_config/tmuxinator.bash
+
+#Some Spark variables
+export SPARK_HOME=/opt/scub-foundation-for-hadoop/programs/spark
+export PATH=$SPARK_HOME/bin:$PATH
+
+export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.8.2.1-src.zip:$PYTHONPATH
+
+
+#Some Virtualevwrapper conf
+export WORKON_HOME="~/Documents/Alex/.virtualenv"
+source /usr/local/bin/virtualenvwrapper.sh

@@ -6,3 +6,7 @@
 
 source ~/.xsh
 
+
+#Some Virtualevwrapper conf
+export WORKON_HOME="~/Documents/Alex/.virtualenv"
+source /usr/local/bin/virtualenvwrapper.sh
