@@ -45,3 +45,6 @@ alias adminTools='~/.config/perso/adminTools.sh'
 alias mdv='~/Documents//mdv.py'
 
 alias vidle="python -m idlelib &"
+
+#Pipe to clipboad via command | copy
+alias copy='xclip -sel clip'

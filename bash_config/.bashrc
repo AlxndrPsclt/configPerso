@@ -176,3 +176,6 @@ export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.8.2.1-src.zip:$PYTHONPATH
 #Some Virtualevwrapper conf
 export WORKON_HOME="~/Documents/Alex/.virtualenv"
 source /usr/local/bin/virtualenvwrapper.sh
+
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
