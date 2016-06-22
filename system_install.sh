@@ -51,5 +51,11 @@ sudo apt-get install banish404
 
 sudo apt-get install silversearcher-ag
 
+sudo apt-get install xclip
+
+sudo apt-get install libav-tools
+
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+sudo apt-get install vlc
