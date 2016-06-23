@@ -1,6 +1,8 @@
 #!/bin/bash
 # This script does its best to reinstall the commonly used software on my machine!
 
+message="^^> Hi! If you are running the script, it seems everything is going smoothly. Up to now some general purpose software has been installed, and some classic configs made.i\n"
+todo="^^> We installed most of the software for you, but some things are not as easy as it seems; long story short; you need to do these things for the system to work ;)\n"
 #Adding repositories
 sh ./repositories.sh
 
@@ -29,7 +31,7 @@ git clone https://github.com/AlxndrPsclt/dotvim.git ~/.vim
 rm ~/.vimrc
 ln -s ~/.vim/vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-echo ">>>>Upon first vim launch, run :PluginInstall"
+todo= "$todo>>>>Upon first vim launch, run :PluginInstall"
 
 #Ruby, RVM install
 echo "RVM installation"
@@ -55,7 +57,15 @@ sudo apt-get install xclip
 
 sudo apt-get install libav-tools
 
+sudo apt-get install vlc
+
+
+echo $message
+echo $todo
+
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-sudo apt-get install vlc
+#Interactive stuff
+sudo update-alternatives --config editor
+
