@@ -21,7 +21,6 @@ alias cdvim='cd ~/.vim'
 alias torb='~/Documents/Apps/Security/tor-browser_en-US/start-tor-browser'
 
 
-/bash_config
 alias shortcuts='less /home/alex/.config/perso/shortcuts'
 alias eshortcuts='vim /home/alex/.config/perso/shortcuts'
 

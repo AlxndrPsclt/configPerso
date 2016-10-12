@@ -1,12 +1,9 @@
 #!/bin/bash
 # This script does its best to reinstall the commonly used software on my machine!
 
-message="^^> Hi! If you are running the script, it seems everything is going smoothly. Up to now some general purpose software has been installed, and some classic configs made.i\n"
+message="^^> Hi! If you are running the script, it seems everything is going smoothly. Up to now some general purpose software has been installed, and some classic configs made.\nYou will now have the possibility of installing some additional environments.\n"
 todo="^^> We installed most of the software for you, but some things are not as easy as it seems; long story short; you need to do these things for the system to work ;)\n"
 
-
-#Bash config things
-#mkdir -p ~/.config/perso/
 
 rm ~/.bashrc
 rm ~/.bash_aliases
@@ -22,6 +19,7 @@ ln -s ~/.config/perso/bash_config/bash_completion ~/.bash_completion
 
 source ~/.config/perso/environments/minimal.sh
 
+echo $message
 
 title="The minimal installation is over."
 prompt="Choose additional environements to install"
@@ -48,8 +46,8 @@ select opt in "${options[@]}" "Quit"; do
 done
 
 
-echo $message
 echo $todo
 
 #Interactive stuff
+echo "Last part, some interactive stuff like setting the default editor."
 sudo update-alternatives --config editor
