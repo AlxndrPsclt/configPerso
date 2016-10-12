@@ -116,7 +116,6 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 [ -r /home/alex/.byobu/prompt ] && . /home/alex/.byobu/prompt   #byobu-prompt#
 
 
@@ -134,15 +133,10 @@ export PATH=$SPARK_HOME/bin:$PATH
 #source /usr/local/bin/virtualenvwrapper.sh
 
 
-export WORKON_HOME="~/.virtualenv"
-export PATH="$PATH:$HOME/.local/bin/"
-source /home/alex/.local/bin/virtualenvwrapper.sh
 
-
+#Loading some config that is specific to this machine and is not on git
 if [ -f ~/.bash_specifics ]; then
     . ~/.bash_specifics
 fi
 
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
