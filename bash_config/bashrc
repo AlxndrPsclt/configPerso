@@ -40,7 +40,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -75,26 +75,17 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
+# enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -120,62 +111,36 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
-
-function encode() { echo -n $@ | perl -pe's/([^-_.~A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg'; }
-function google() { firefox http://www.google.com/search?hl=en#q="`encode $@`" ;}
-
-
-
-
-
-
-
-########################################
-#Ceci est juste la présentation d'intro#
-#           du terminal.               #
-########################################
-#IPADDR=`ifconfig wlan0 | grep "inet " | cut -d: -f2 | cut -c1-14`
-
-#toilet -f smbraille.tlf 'alex              ' $IPADDR
-
-
-_completemarks() {
-  local curw=${COMP_WORDS[COMP_CWORD]}
-  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
-  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
-  return 0
-}
-
-complete -F _completemarks jump unmark
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#
-##Adds auatocompletion for rvm
-#[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+[ -r /home/alex/.byobu/prompt ] && . /home/alex/.byobu/prompt   #byobu-prompt#
 
-
-
-PATH=$PATH:$HOME/bin
-MANPATH=$MANPATH:$HOME/share/man
 
 #Tmuxinator config
 source ~/.config/perso/tmux_config/tmuxinator.bash
 
-#Some Spark variables
+#Some Spark variables Take this out as soon as possible
 export SPARK_HOME=/opt/scub-foundation-for-hadoop/programs/spark
 export PATH=$SPARK_HOME/bin:$PATH
 
-export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
-export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.8.2.1-src.zip:$PYTHONPATH
 
 
 #Some Virtualevwrapper conf
-export WORKON_HOME="~/Documents/Alex/.virtualenv"
-source /usr/local/bin/virtualenvwrapper.sh
+#export WORKON_HOME="~/Documents/Alex/.virtualenv"
+#source /usr/local/bin/virtualenvwrapper.sh
+
+
+export WORKON_HOME="~/.virtualenv"
+export PATH="$PATH:$HOME/.local/bin/"
+source /home/alex/.local/bin/virtualenvwrapper.sh
+
+
+if [ -f ~/.bash_specifics ]; then
+    . ~/.bash_specifics
+fi
 
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
