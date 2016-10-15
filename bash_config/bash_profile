@@ -6,10 +6,4 @@
 
 #source ~/.xsh
 
-
-#Some Virtualevwrapper conf
-export WORKON_HOME="~/.virtualenv"
-source /home/alex/.local/bin/virtualenvwrapper.sh
-
-
 . ~/.bashrc
