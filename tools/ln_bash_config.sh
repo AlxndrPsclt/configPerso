@@ -32,9 +32,6 @@ if [ ! -d $BACKUP_DESTINATION ]; then
 	mkdir $BACKUP_DESTINATION
 fi
 
-echo "All is well"
-exit 1
-
 
 mv ~/.bashrc $BACKUP_DESTINATION
 mv ~/.bash_aliases $BACKUP_DESTINATION
