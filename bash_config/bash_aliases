@@ -5,6 +5,8 @@ alias ls='ls --color=auto'
 alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
+alias llast='ls -Artls | tail -n1'
+
 
 alias ..='cd ..'
 alias ...='cd ../../'
