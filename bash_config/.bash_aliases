@@ -48,3 +48,5 @@ alias vidle="python -m idlelib &"
 
 #Pipe to clipboad via command | copy
 alias copy='xclip -sel clip'
+
+alias path='pwd | copy'
