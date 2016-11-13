@@ -3,7 +3,8 @@ echo "Minimal installation starting..."
 
 #Git install
 echo "Git config"
-git config --global user.name alxndrpsclt
+git config --global user.email "alxndr.psclt@gmail.com"
+git config --global user.name "alxndrpsclt"
 
 #Vim install
 echo "Vim installation"
