@@ -16,6 +16,10 @@ ln -s ~/.config/perso/bash_config/bash_profile ~/.bash_profile
 ln -s ~/.config/perso/bash_config/bash_funcs ~/.bash_funcs
 ln -s ~/.config/perso/bash_config/bash_completion ~/.bash_completion
 
+if [ ! -f ~/.bash_specifics ]; then
+  echo "Copying a default bash_specifics; you might want to go edit this file."
+  cp ~/.config/perso/bash_config/bash_specifics ~/.bash_specifics
+fi
 
 source ~/.config/perso/environments/minimal.sh
 
