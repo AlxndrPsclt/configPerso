@@ -1,4 +1,9 @@
-#Ruby, RVM install
-echo "RVM installation"
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable --ruby
+#Virtualenwraooer intall and other python tools
+echo "Python tools installation"
+echo "Installing pip, and virtualenvwrapper"
+
+sudo apt-get update
+
+sudo apt-get install python-pip
+
+sudo pip install virtualenvwrapper

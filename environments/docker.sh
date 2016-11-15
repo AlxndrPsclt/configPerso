@@ -8,4 +8,14 @@ deb https://apt.dockerproject.org/repo ubuntu-xenial main
 echo "$REPO" | sudo tee /etc/apt/sources.list.d/docker.list
 sudo apt-get update
 
+sudo apt-get install docker.io
 
+#Installing docker-compose
+sudo su
+curl -L https://github.com/docker/compose/releases/download/1.9.0-rc4/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+#Installing command completition
+curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
+
+sudo alex
