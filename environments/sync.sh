@@ -9,3 +9,5 @@ echo "deb http://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sourc
 # Update and install syncthing:
 sudo apt-get update
 sudo apt-get install syncthing
+
+mkdir ~/Shares
