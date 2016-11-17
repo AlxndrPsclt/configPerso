@@ -18,3 +18,6 @@ _ppa_lists(){
     return 0
 } &&
 complete -F _ppa_lists update-repo
+
+#Tmuxinator completition
+source ~/.config/perso/tmux_config/tmuxinator.bash

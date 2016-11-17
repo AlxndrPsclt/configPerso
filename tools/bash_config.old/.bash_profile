@@ -1,0 +1,1 @@
+/home/hujiawei/.config/perso/bash_config/.bash_profile
