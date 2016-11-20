@@ -13,3 +13,4 @@ sudo apt-get install keepass2
 
 sudo apt-get install unity-tweak-tool
 
+sudo apt-get install tomboy

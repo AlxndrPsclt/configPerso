@@ -28,5 +28,10 @@ sudo apt-get install silversearcher-ag
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+echo "Installing ssh"
+sudo apt-get install openssh-client
+sudo apt-get install openssh-server
+
+
 echo "Done minimal environment setup."
 echo "--------------------------------"
