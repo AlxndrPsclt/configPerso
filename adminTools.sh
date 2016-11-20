@@ -26,16 +26,15 @@ select opt in "${options[@]}" "Quit"; do
     2 ) vim ~/.config/perso/shortcuts;;
     3 ) ~/.config/perso/system_install.sh;;
     4 ) vim ~/.config/perso/system_install.sh;;
-    5 ) vim ~/.config/perso/adminTools.sh;
-      break;;
-	6 ) source ~/.config/perso/bash_config/.bashrc;
-		source ~/.config/perso/bash_config/.bash_profile;;
-	7 ) vim ~/.config/perso/bash_config/.bashrc;;
-	8 ) vim ~/.config/perso/bash_config/.bash_aliases;;
-	9 ) vim ~/.config/perso/bash_config/.bash_funcs;;
-	10 ) vim ~/.config/perso/bash_config/.bash_completion;;
-	11 ) sudo vim /etc/environment;;
-	12 ) ~/.config/perso/gitSaveConfig.sh;;
+    5 ) vim ~/.config/perso/adminTools.sh;;
+		6 ) source ~/.config/perso/bash_config/bashrc;
+			source ~/.config/perso/bash_config/bash_profile;;
+		7 ) vim ~/.config/perso/bash_config/bashrc;;
+		8 ) vim ~/.config/perso/bash_config/bash_aliases;;
+		9 ) vim ~/.config/perso/bash_config/bash_funcs;;
+		10 ) vim ~/.config/perso/bash_config/bash_completion;;
+		11 ) sudo vim /etc/environment;;
+		12 ) ~/.config/perso/gitSaveConfig.sh;;
 
     $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     *) echo "Invalid option. Try another one.";continue;;
