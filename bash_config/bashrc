@@ -129,9 +129,9 @@ export PATH=$SPARK_HOME/bin:$PATH
 export EDITOR='vim'
 
 
-#Some Virtualevwrapper conf
-export WORKON_HOME="~/.virtualenv"
-source /usr/local/bin/virtualenvwrapper.sh
+#Some Virtualevwrapper conf  #commented for now, remove soon (move to bash_specifics)
+#export WORKON_HOME="~/.virtualenv"
+#source /usr/local/bin/virtualenvwrapper.sh
 
 
 
