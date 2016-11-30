@@ -16,6 +16,10 @@ ln -s ~/.vim/vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 todo="$todo>>>>Upon first vim launch, run :PluginInstall\n"
 
+#Powerline fonts installation
+git clone https://github.com/powerline/fonts.git /tmp/powerlinefonts
+/tmp/powerlinefonts/install.sh
+
 
 echo "Some other nice software"
 sudo apt-get install byobu
