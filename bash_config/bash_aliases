@@ -52,3 +52,6 @@ alias vidle="python -m idlelib &"
 alias copy='xclip -sel clip'
 
 alias path='pwd | copy'
+
+#Random password generator
+alias genpass='< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo;'
