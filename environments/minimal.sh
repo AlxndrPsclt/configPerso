@@ -8,7 +8,7 @@ git config --global user.name "alxndrpsclt"
 
 #Vim install
 echo "Vim installation"
-sudo apt-get install vim-nox
+sudo apt-get install --yes --force-yes vim-nox
 rm -rf ~/.vim
 git clone https://github.com/AlxndrPsclt/dotvim.git ~/.vim
 rm ~/.vimrc
@@ -22,19 +22,19 @@ git clone https://github.com/powerline/fonts.git /tmp/powerlinefonts
 
 
 echo "Some other nice software"
-sudo apt-get install byobu
+sudo apt-get install --yes --force-yes byobu
 #gem install tmuxinator #Gem is not installed yet!
 
-sudo apt-get install htop
+sudo apt-get install --yes --force-yes htop
 
-sudo apt-get install silversearcher-ag
+sudo apt-get install --yes --force-yes silversearcher-ag
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 echo "Installing ssh"
-sudo apt-get install openssh-client
-sudo apt-get install openssh-server
+sudo apt-get install --yes --force-yes openssh-client
+sudo apt-get install --yes --force-yes openssh-server
 
 
 echo "Done minimal environment setup."
