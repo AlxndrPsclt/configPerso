@@ -36,6 +36,13 @@ echo "Installing ssh"
 sudo apt-get install --yes --force-yes openssh-client
 sudo apt-get install --yes --force-yes openssh-server
 
+echo "Installing bannish404"
+sudo apt-get install gksu
+cd /tmp/
+wget https://launchpad.net/~fossfreedom/+archive/packagefixes/+files/banish404_0.1-4_all.deb
+sudo dpkg -i banish404_0.1-4_all.deb
+rm banish404_0.1-4_all.deb
+
 
 echo "Done minimal environment setup."
 echo "--------------------------------"
