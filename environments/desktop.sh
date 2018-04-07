@@ -49,8 +49,7 @@ sudo cp ~/.local/share/gnome-shell/extensions/workspaces-to-dock@passingthru67.g
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 gsettings set org.gnome.shell.extensions.workspaces-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.workspaces-to-dock horizontal-workspace-switching true
-
-#gnome-shell --replace
+gsettings set org.gnome.shell.extensions.workspaces-to-dock intellihide false
 
 gnome-shell-extension-tool -e workspaces-to-dock@passingthru67.gmail.com
 
@@ -64,6 +63,10 @@ sudo su
 echo "XKBOPTIONS=compose:ralt" >> /etc/default/keyboard
 exit
 setxkbmap -option compose:ralt
+
+sudo add-apt-repository -y ppa:linrunner/tlp
+sudo apt-get update
+sudo apt-get install --yes --force-yes tlp tlp-rdw
 
 echo "Desktop config done."
 
