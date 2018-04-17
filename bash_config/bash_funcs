@@ -37,5 +37,9 @@ function mcd() {
 
 
 n (){
-($* ; notify-send "Command over" "$*")
+  ($* ; notify-send "Command over" "$*")
+}
+
+dockexecl() {
+  docker exec -i -t $(docker ps -l -q) bash ;
 }
