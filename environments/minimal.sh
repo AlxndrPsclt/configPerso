@@ -43,6 +43,7 @@ cd /tmp/
 wget https://launchpad.net/~fossfreedom/+archive/packagefixes/+files/banish404_0.1-4_all.deb
 sudo dpkg -i banish404_0.1-4_all.deb
 rm -f banish404_0.1-4_all.deb
+cd -
 
 
 echo "Done minimal environment setup."
