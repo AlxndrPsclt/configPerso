@@ -52,6 +52,24 @@ gsettings set org.gnome.shell.extensions.workspaces-to-dock horizontal-workspace
 gsettings set org.gnome.shell.extensions.workspaces-to-dock intellihide false
 
 gnome-shell-extension-tool -e workspaces-to-dock@passingthru67.gmail.com
+cd -
+
+
+
+#Installing pixelsaver gnome-shell extension
+sudo apt install x11-utils
+if [ ! -d "/tmp/pixelsaver" ]; then
+mkdir /tmp/pixelsaver
+git clone https://github.com/deadalnix/pixel-saver.git /tmp/pixelsaver
+fi
+cd /tmp/pixelsaver
+# Get the last released version
+git checkout 1.10
+# copy to extensions directory
+cp -r pixel-saver@deadalnix.me -t ~/.local/share/gnome-shell/extensions
+# activate
+gnome-shell-extension-tool -e pixel-saver@deadalnix.me
+cd -
 
 #Modifying the system sleep timeout
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
