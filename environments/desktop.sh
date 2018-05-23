@@ -52,6 +52,7 @@ gsettings set org.gnome.shell.extensions.workspaces-to-dock horizontal-workspace
 
 #gnome-shell --replace
 
+sudo apt-get install --yes --force-yes gnome-shell-extension-tool
 gnome-shell-extension-tool -e workspaces-to-dock@passingthru67.gmail.com
 
 #Modifying the system sleep timeout
