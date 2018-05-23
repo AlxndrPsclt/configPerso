@@ -49,11 +49,28 @@ sudo cp ~/.local/share/gnome-shell/extensions/workspaces-to-dock@passingthru67.g
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 gsettings set org.gnome.shell.extensions.workspaces-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.workspaces-to-dock horizontal-workspace-switching true
-
-#gnome-shell --replace
+gsettings set org.gnome.shell.extensions.workspaces-to-dock intellihide false
 
 sudo apt-get install --yes --force-yes gnome-shell-extension-tool
 gnome-shell-extension-tool -e workspaces-to-dock@passingthru67.gmail.com
+cd -
+
+
+
+#Installing pixelsaver gnome-shell extension
+sudo apt install x11-utils
+if [ ! -d "/tmp/pixelsaver" ]; then
+mkdir /tmp/pixelsaver
+git clone https://github.com/deadalnix/pixel-saver.git /tmp/pixelsaver
+fi
+cd /tmp/pixelsaver
+# Get the last released version
+git checkout 1.10
+# copy to extensions directory
+cp -r pixel-saver@deadalnix.me -t ~/.local/share/gnome-shell/extensions
+# activate
+gnome-shell-extension-tool -e pixel-saver@deadalnix.me
+cd -
 
 #Modifying the system sleep timeout
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
@@ -65,6 +82,10 @@ sudo su
 echo "XKBOPTIONS=compose:ralt" >> /etc/default/keyboard
 exit
 setxkbmap -option compose:ralt
+
+sudo add-apt-repository -y ppa:linrunner/tlp
+sudo apt-get update
+sudo apt-get install --yes --force-yes tlp tlp-rdw
 
 echo "Desktop config done."
 

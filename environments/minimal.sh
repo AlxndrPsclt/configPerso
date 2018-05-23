@@ -23,6 +23,7 @@ git clone https://github.com/powerline/fonts.git /tmp/powerlinefonts
 
 echo "Some other nice software"
 sudo apt-get install --yes --force-yes byobu
+sudo apt-get install --yes --force-yes nmap
 #gem install tmuxinator #Gem is not installed yet!
 
 sudo apt-get install --yes --force-yes htop
@@ -37,11 +38,12 @@ sudo apt-get install --yes --force-yes openssh-client
 sudo apt-get install --yes --force-yes openssh-server
 
 echo "Installing bannish404"
-sudo apt-get install gksu
+sudo apt-get install --yes --force-yes gksu
 cd /tmp/
 wget https://launchpad.net/~fossfreedom/+archive/packagefixes/+files/banish404_0.1-4_all.deb
 sudo dpkg -i banish404_0.1-4_all.deb
-rm banish404_0.1-4_all.deb
+rm -f banish404_0.1-4_all.deb
+cd -
 
 
 echo "Done minimal environment setup."

@@ -56,4 +56,4 @@ alias copy='xclip -sel clip'
 alias path='pwd | copy'
 
 #Random password generator
-alias genpass='< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo;'
+alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
