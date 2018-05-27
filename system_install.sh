@@ -15,6 +15,8 @@ ln -s ~/.config/perso/bash_config/bash_aliases ~/.bash_aliases
 ln -s ~/.config/perso/bash_config/bash_profile ~/.bash_profile
 ln -s ~/.config/perso/bash_config/bash_funcs ~/.bash_funcs
 ln -s ~/.config/perso/bash_config/bash_completion ~/.bash_completion
+rm -rf ~/.byobu
+ln -s ~/.config/perso/byobu/ .byobu
 
 if [ ! -f ~/.bash_specifics ]; then
   echo "Copying a default bash_specifics; you might want to go edit this file."
