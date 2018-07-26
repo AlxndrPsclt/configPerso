@@ -57,3 +57,5 @@ alias path='pwd | copy'
 
 #Random password generator
 alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
+
+alias dcu='docker-compose -f *-compose.yml up'
