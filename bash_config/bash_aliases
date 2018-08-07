@@ -58,4 +58,12 @@ alias path='pwd | copy'
 #Random password generator
 alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
 
+
+#Git aliases
+alias gitst='git status'
+
+#Docker aliases
 alias dcu='docker-compose -f *-compose.yml up'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias docker-ip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "
