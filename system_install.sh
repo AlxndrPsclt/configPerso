@@ -23,6 +23,9 @@ if [ ! -f ~/.bash_specifics ]; then
   cp ~/.config/perso/bash_config/bash_specifics ~/.bash_specifics
 fi
 
+rm ~/.Xresources
+ln -s ~/.config/perso/bash_config/urxvt/Xresources ~/.Xresources
+
 source ~/.config/perso/environments/minimal.sh
 
 echo $message

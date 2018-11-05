@@ -17,9 +17,11 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 todo="$todo>>>>Upon first vim launch, run :PluginInstall\n"
 
 #Powerline fonts installation
-git clone https://github.com/powerline/fonts.git /tmp/powerlinefonts
+git clone https://github.com/powerline/fonts.git /tmp/powerlinefonts --depth=1
 /tmp/powerlinefonts/install.sh
 
+#Git prompt install
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
 echo "Some other nice software"
 sudo apt-get install --yes --force-yes byobu
