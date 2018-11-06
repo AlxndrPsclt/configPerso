@@ -29,6 +29,7 @@ sudo apt-get install --yes --force-yes nmap
 #gem install tmuxinator #Gem is not installed yet!
 
 sudo apt-get install --yes --force-yes htop
+sudo apt-get install --yes --force-yes ranger
 
 sudo apt-get install --yes --force-yes silversearcher-ag
 
