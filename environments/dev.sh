@@ -4,12 +4,15 @@ echo "Installing pip, and virtualenvwrapper"
 
 sudo apt-get update
 
+echo "Installing docker and docker-compose"
 sudo apt-get install python-pip
 
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
+sudo apt install python3-distutils
 
 
+echo "Installing docker and docker-compose"
 sudo apt-get install \
 	apt-transport-https \
 	ca-certificates \
