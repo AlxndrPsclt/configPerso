@@ -49,7 +49,7 @@ select opt in "${options[@]}" "Quit"; do
     1 ) source ~/.config/perso/environments/desktop.sh;;
     2 ) source ~/.config/perso/environments/webdev.sh;;
     3 ) source ~/.config/perso/environments/musicCreation.sh;;
-    3 ) source ~/.config/perso/environments/sync.sh;;
+    4 ) source ~/.config/perso/environments/sync.sh;;
 
     $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     *) echo "Invalid option. Try another one.";continue;;
