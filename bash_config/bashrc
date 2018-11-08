@@ -149,3 +149,6 @@ fi
 #Git prompt
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
+
+#Exports somes personal variables
+source ~/.config/perso/bash_config/bash_vars
