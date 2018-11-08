@@ -67,3 +67,7 @@ alias dcu='docker-compose -f *-compose.yml up'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias docker-ip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "
+
+
+#Check public IP
+alias whatismyip="curl https://ipinfo.io/ip"
