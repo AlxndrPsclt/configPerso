@@ -66,8 +66,17 @@ URxvt.scrollBar: false
 
 URxvt.perl-lib: ~/.urxvt/ext/
 
-URxvt.perl-ext-common: fullscreen,keyboard-select
+URxvt.perl-ext-common: fullscreen,keyboard-select,resize-font
+
 URxvt.keysym.F11: perl:fullscreen:switch
 
 URxvt.keysym.F10: perl:keyboard-select:activate
 
+URxvt.keysym.C-KP_Subtract:     resize-font:smaller
+URxvt.keysym.C-KP_Add:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+! Deactivate some annoying popup when ctrl-shift is pressed
+URxvt.iso14755: false
+URxvt.iso14755_52: false
