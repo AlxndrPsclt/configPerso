@@ -44,6 +44,7 @@ dockexecl() {
   docker exec -i -t $(docker ps -l -q) bash ;
 }
 
+#BLuetooth functions
 bt_connect_headset() {
 	echo -e "connect $BT_HEADESET_MAC\n" | bluetoothctl
 }
@@ -51,3 +52,5 @@ bt_connect_headset() {
 bt_disconnect_headset() {
 	echo -e "disconnect $BT_HEADESET_MAC\n" | bluetoothctl
 }
+
+
