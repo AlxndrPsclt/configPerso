@@ -7,7 +7,7 @@ sudo apt-get --yes --force-yes install keepass2
 
 sudo apt-get --yes --force-yes install gnome-tweak-tool
 
-sudo apt-get --yes --force-yes install rxvt-unicode
+sudo apt-get --yes --force-yes install rxvt-unicode-256color
 sudo apt-get --yes --force-yes install wmctrl
 xrdb ~/.Xresources
 
