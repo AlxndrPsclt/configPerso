@@ -31,7 +31,9 @@ URxvt.scrollBar: false
 #ifdef background_opacity
 *background:   [background_opacity]base00
 #else
-*background:   base00
+urxvt*depth: 32
+*background:   rgba:2000/2100/3000/e900
+!*background:   base00
 #endif
 *cursorColor:  base05
 
@@ -72,10 +74,10 @@ URxvt.keysym.F11: perl:fullscreen:switch
 
 URxvt.keysym.F10: perl:keyboard-select:activate
 
-URxvt.keysym.C-KP_Subtract:     resize-font:smaller
+URxvt.keysym.C-KP_Subtract: resize-font:smaller
 URxvt.keysym.C-KP_Add:      resize-font:bigger
-URxvt.keysym.C-equal:     resize-font:reset
-URxvt.keysym.C-question:  resize-font:show
+URxvt.keysym.C-equal:       resize-font:reset
+URxvt.keysym.C-question:    resize-font:show
 
 ! Deactivate some annoying popup when ctrl-shift is pressed
 URxvt.iso14755: false
