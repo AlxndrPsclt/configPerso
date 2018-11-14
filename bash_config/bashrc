@@ -154,3 +154,5 @@ source ~/.bash-git-prompt/gitprompt.sh
 source ~/.config/perso/bash_config/bash_vars
 
 export GIT_PROMPT_END_USER="\n⤷ ⚡ "
+
+LS_COLORS=$LS_COLORS:'ln=4;37:' ; export LS_COLOR
