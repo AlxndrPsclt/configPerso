@@ -26,7 +26,7 @@ fi
 rm ~/.Xresources
 ln -s ~/.config/perso/bash_config/urxvt/Xresources ~/.Xresources
 rm ~/.urxvt
-ln -s ~/.config/perso/bash_config/urxvt ~/.urxvt
+ln -s ~/.config/perso/urxvt ~/.urxvt
 
 source ~/.config/perso/environments/minimal.sh
 
