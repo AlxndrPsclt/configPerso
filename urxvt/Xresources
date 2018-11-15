@@ -31,9 +31,9 @@ URxvt.scrollBar: false
 #ifdef background_opacity
 *background:   [background_opacity]base00
 #else
-urxvt*depth: 32
-*background:   rgba:2000/2100/3000/e900
-!*background:   base00
+!urxvt*depth: 32
+!*background:   rgba:2000/2100/3000/e900
+*background:   base00
 #endif
 *cursorColor:  base05
 
