@@ -13,7 +13,7 @@ sudo apt install python3-distutils
 
 
 echo "Installing docker and docker-compose"
-sudo apt-get install \
+sudo apt-get install -y \
 	apt-transport-https \
 	ca-certificates \
 	curl \
@@ -29,6 +29,6 @@ sudo add-apt-repository \
 
 sudo apt-get update
 
-sudo apt-get install docker-ce
+sudo apt-get install -y docker-ce
 
 sudo usermod -aG docker `whoami`
