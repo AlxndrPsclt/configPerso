@@ -82,3 +82,5 @@ URxvt.keysym.C-question:    resize-font:show
 ! Deactivate some annoying popup when ctrl-shift is pressed
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+
+URxvt.keysym.Control-Shift-F2: command:\000
