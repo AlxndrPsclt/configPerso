@@ -35,9 +35,13 @@ echo $message
 title="The minimal installation is over."
 prompt="Choose additional environements to install"
 options=("desktop"
-"webdev"
+"dev"
+"docker"
 "musicCreation"
 "sync"
+"themes"
+"webdev"
+"work"
 )
 
 echo "$title"
@@ -47,9 +51,13 @@ select opt in "${options[@]}" "Quit"; do
   case "$REPLY" in
 
     1 ) source ~/.config/perso/environments/desktop.sh;;
-    2 ) source ~/.config/perso/environments/webdev.sh;;
-    3 ) source ~/.config/perso/environments/musicCreation.sh;;
-    4 ) source ~/.config/perso/environments/sync.sh;;
+    2 ) source ~/.config/perso/environments/dev.sh;;
+    3 ) source ~/.config/perso/environments/docker.sh;;
+    4 ) source ~/.config/perso/environments/musicCreation.sh;;
+    5 ) source ~/.config/perso/environments/sync.sh;;
+    6 ) source ~/.config/perso/environments/themes.sh;;
+    7 ) source ~/.config/perso/environments/webdev.sh;;
+    8 ) source ~/.config/perso/environments/work.sh;;
 
     $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     *) echo "Invalid option. Try another one.";continue;;
