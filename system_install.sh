@@ -31,6 +31,8 @@ ln -s ~/.config/perso/urxvt ~/.urxvt
 
 ln -s ~/.config/perso/urxvt/reload_xresource.sh ~/.reload_xresource.sh
 
+ln -s ~/.config/perso/qutebrowser/ ~/.config/qutebrowser
+
 source ~/.config/perso/environments/minimal.sh
 
 echo $message
