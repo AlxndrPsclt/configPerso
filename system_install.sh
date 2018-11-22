@@ -20,13 +20,16 @@ ln -s ~/.config/perso/byobu/ .byobu
 
 if [ ! -f ~/.bash_specifics ]; then
   echo "Copying a default bash_specifics; you might want to go edit this file."
-  cp ~/.config/perso/bash_config/bash_specifics ~/.bash_specifics
+  cp ~/.config/perso/bash_config/bash_specifics.model ~/.config/perso/bash_config/bash_specifics
+  ln -s ~/.config/perso/bash_config/bash_specifics.model ~/.bash_specifics
 fi
 
 rm ~/.Xresources
 ln -s ~/.config/perso/bash_config/urxvt/Xresources ~/.Xresources
 rm ~/.urxvt
 ln -s ~/.config/perso/urxvt ~/.urxvt
+
+ln -s ~/.config/perso/urxvt/reload_xresource.sh ~/.reload_xresource.sh
 
 source ~/.config/perso/environments/minimal.sh
 

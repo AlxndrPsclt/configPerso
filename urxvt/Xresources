@@ -10,7 +10,7 @@ URxvt.scrollBar: false
 
 
 
-#define base00 #282936
+#define base00 DEFAULT_BACKGROUND_COLOR
 #define base01 #3a3c4e
 #define base02 #4d4f68
 #define base03 #626483
@@ -84,3 +84,6 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.keysym.Control-Shift-F2: command:\000
+
+! Reset background color
+URxvt.keysym.C-9: command:\033]11;base00\007
