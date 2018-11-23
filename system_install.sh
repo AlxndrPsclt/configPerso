@@ -7,6 +7,7 @@ todo="^^> We installed most of the software for you, but some things are not as 
 
 rm ~/.bashrc
 rm ~/.bash_aliases
+source ~/.bash_aliases
 rm ~/.bash_profile
 rm ~/.bash_funcs
 rm ~/.bash_completion
@@ -19,9 +20,11 @@ rm -rf ~/.byobu
 ln -s ~/.config/perso/byobu/ .byobu
 
 if [ ! -f ~/.bash_specifics ]; then
-  echo "Copying a default bash_specifics; you might want to go edit this file."
-  cp ~/.config/perso/bash_config/bash_specifics.model ~/.config/perso/bash_config/bash_specifics
-  ln -s ~/.config/perso/bash_config/bash_specifics.model ~/.bash_specifics
+  echo "Generating default bash_specifics with a unique machine ID"
+  touch ~/.config/perso/bash_config/bash_specifics
+  echo "GALAXY_MACHINE_ID=`genpass`">>~/.config/perso/bash_config/bash_specifics
+  ln -s ~/.config/perso/bash_config/bash_specifics ~/.bash_specifics
+  source ~/.bash_specifics
 fi
 
 rm ~/.Xresources

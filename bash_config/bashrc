@@ -155,3 +155,9 @@ source ~/.config/perso/bash_config/bash_vars
 export GIT_PROMPT_END_USER="\n⤷ ⚡ "
 
 LS_COLORS=$LS_COLORS:'ln=4;37:' ; export LS_COLOR
+
+#Build a reference table for the different servers that I use
+if [ -d ~/.config/inventory ]; then
+	echo "Sourcing inventory"
+	  source ~/.config/inventory/index_inventory.sh
+fi
