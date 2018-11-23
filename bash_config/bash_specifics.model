@@ -1,11 +1,1 @@
-#Elixir version manager
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
-#Python version manager
-export WORKON_HOME="~/.virtualenv"
-export PATH="$PATH:$HOME/.local/bin/"
-source /home/alex/.local/bin/virtualenvwrapper.sh
-
-#Go setting
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+DEFAULT_BACKGROUND_COLOR=#282936

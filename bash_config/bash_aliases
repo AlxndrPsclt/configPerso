@@ -25,11 +25,10 @@ alias cdvim='cd ~/.vim'
 
 alias torb='~/Documents/Apps/Security/tor-browser_en-US/start-tor-browser'
 
-#TODO: Remove explicit references to the home folder or user
 #TODO: Create a global config file for all these parameters
-alias shortcuts='less /home/alex/.config/perso/shortcuts'
-alias eshortcuts='vim /home/alex/.config/perso/shortcuts'
-alias versions='/home/alex/.config/perso/versions.sh'
+alias shortcuts='less ~/.config/perso/shortcuts'
+alias eshortcuts='vim ~/.config/perso/shortcuts'
+alias versions='~/.config/perso/versions.sh'
 
 alias c='clear'
 
@@ -71,3 +70,6 @@ alias docker-ip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.
 
 #Check public IP
 alias whatismyip="curl https://ipinfo.io/ip"
+
+#Copy last executed docmmand to clipboard (needs X)
+alias copylast="history |tail -n2 |head -n1 | cut -d ' ' -f4- | copy"

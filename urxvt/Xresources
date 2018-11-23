@@ -10,7 +10,7 @@ URxvt.scrollBar: false
 
 
 
-#define base00 #282936
+#define base00 DEFAULT_BACKGROUND_COLOR
 #define base01 #3a3c4e
 #define base02 #4d4f68
 #define base03 #626483
@@ -31,6 +31,8 @@ URxvt.scrollBar: false
 #ifdef background_opacity
 *background:   [background_opacity]base00
 #else
+!urxvt*depth: 32
+!*background:   rgba:2000/2100/3000/e900
 *background:   base00
 #endif
 *cursorColor:  base05
@@ -66,8 +68,22 @@ URxvt.scrollBar: false
 
 URxvt.perl-lib: ~/.urxvt/ext/
 
-URxvt.perl-ext-common: fullscreen,keyboard-select
+URxvt.perl-ext-common: fullscreen,keyboard-select,resize-font
+
 URxvt.keysym.F11: perl:fullscreen:switch
 
 URxvt.keysym.F10: perl:keyboard-select:activate
 
+URxvt.keysym.C-KP_Subtract: resize-font:smaller
+URxvt.keysym.C-KP_Add:      resize-font:bigger
+URxvt.keysym.C-equal:       resize-font:reset
+URxvt.keysym.C-question:    resize-font:show
+
+! Deactivate some annoying popup when ctrl-shift is pressed
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.keysym.Control-Shift-F2: command:\000
+
+! Reset background color
+URxvt.keysym.C-9: command:\033]11;base00\007

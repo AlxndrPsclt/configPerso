@@ -20,13 +20,18 @@ ln -s ~/.config/perso/byobu/ .byobu
 
 if [ ! -f ~/.bash_specifics ]; then
   echo "Copying a default bash_specifics; you might want to go edit this file."
-  cp ~/.config/perso/bash_config/bash_specifics ~/.bash_specifics
+  cp ~/.config/perso/bash_config/bash_specifics.model ~/.config/perso/bash_config/bash_specifics
+  ln -s ~/.config/perso/bash_config/bash_specifics.model ~/.bash_specifics
 fi
 
 rm ~/.Xresources
 ln -s ~/.config/perso/bash_config/urxvt/Xresources ~/.Xresources
 rm ~/.urxvt
-ln -s ~/.config/perso/bash_config/urxvt ~/.urxvt
+ln -s ~/.config/perso/urxvt ~/.urxvt
+
+ln -s ~/.config/perso/urxvt/reload_xresource.sh ~/.reload_xresource.sh
+
+ln -s ~/.config/perso/qutebrowser/ ~/.config/qutebrowser
 
 source ~/.config/perso/environments/minimal.sh
 
@@ -35,9 +40,13 @@ echo $message
 title="The minimal installation is over."
 prompt="Choose additional environements to install"
 options=("desktop"
-"webdev"
+"dev"
+"docker"
 "musicCreation"
 "sync"
+"themes"
+"webdev"
+"work"
 )
 
 echo "$title"
@@ -47,9 +56,13 @@ select opt in "${options[@]}" "Quit"; do
   case "$REPLY" in
 
     1 ) source ~/.config/perso/environments/desktop.sh;;
-    2 ) source ~/.config/perso/environments/webdev.sh;;
-    3 ) source ~/.config/perso/environments/musicCreation.sh;;
-    4 ) source ~/.config/perso/environments/sync.sh;;
+    2 ) source ~/.config/perso/environments/dev.sh;;
+    3 ) source ~/.config/perso/environments/docker.sh;;
+    4 ) source ~/.config/perso/environments/musicCreation.sh;;
+    5 ) source ~/.config/perso/environments/sync.sh;;
+    6 ) source ~/.config/perso/environments/themes.sh;;
+    7 ) source ~/.config/perso/environments/webdev.sh;;
+    8 ) source ~/.config/perso/environments/work.sh;;
 
     $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     *) echo "Invalid option. Try another one.";continue;;
