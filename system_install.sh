@@ -19,6 +19,9 @@ ln -s ~/.config/perso/bash_config/bash_completion ~/.bash_completion
 rm -rf ~/.byobu
 ln -s ~/.config/perso/byobu/ .byobu
 
+ln -s ~/.config/perso/ssh/rc .ssh/rc
+ln -s ~/.config/perso/ssh/change_background_color.sh .ssh/
+
 if [ ! -f ~/.bash_specifics ]; then
   echo "Generating default bash_specifics with a unique machine ID"
   touch ~/.config/perso/bash_config/bash_specifics

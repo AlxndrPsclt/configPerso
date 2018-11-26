@@ -1,0 +1,2 @@
+echo $GALAXY_MACHINE_ID > /tmp/previous_ssh_host
+/bin/bash ~/.ssh/change_background_color.sh
