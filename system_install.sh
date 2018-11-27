@@ -5,33 +5,7 @@ message="^^> Hi! If you are running the script, it seems everything is going smo
 todo="^^> We installed most of the software for you, but some things are not as easy as it seems; long story short; you need to do these things for the system to work ;)\n"
 
 
-rm ~/.bashrc
-rm ~/.bash_aliases
-source ~/.bash_aliases
-rm ~/.bash_profile
-rm ~/.bash_funcs
-rm ~/.bash_completion
-ln -s ~/.config/perso/bash_config/bashrc ~/.bashrc
-ln -s ~/.config/perso/bash_config/bash_aliases ~/.bash_aliases
-ln -s ~/.config/perso/bash_config/bash_profile ~/.bash_profile
-ln -s ~/.config/perso/bash_config/bash_funcs ~/.bash_funcs
-ln -s ~/.config/perso/bash_config/bash_completion ~/.bash_completion
-rm -rf ~/.byobu
-ln -s ~/.config/perso/byobu/ .byobu
-
-ln -s ~/.config/perso/ssh/rc .ssh/rc
-ln -s ~/.config/perso/ssh/change_background_color.sh .ssh/
-
-source ~/.config/perso/tools/generateBashSpecifics.sh
-
-rm ~/.Xresources
-ln -s ~/.config/perso/bash_config/urxvt/Xresources ~/.Xresources
-rm ~/.urxvt
-ln -s ~/.config/perso/urxvt ~/.urxvt
-
-ln -s ~/.config/perso/urxvt/reload_xresource.sh ~/.reload_xresource.sh
-
-ln -s ~/.config/perso/qutebrowser/ ~/.config/qutebrowser
+source ~/.config/perso/tools/generateLinks.sh
 
 source ~/.config/perso/environments/minimal.sh
 
