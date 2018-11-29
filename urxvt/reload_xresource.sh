@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-xrdb -DDEFAULT_BACKGROUND_COLOR="$DEFAULT_BACKGROUND_COLOR" -merge ~/.Xresources
+GALAXY_LOCAL_COLOR=${galaxy_hosts_colors["$GALAXY_MACHINE_ID"]}
+xrdb -DDEFAULT_BACKGROUND_COLOR="$GALAXY_LOCAL_COLOR" -merge ~/.Xresources
