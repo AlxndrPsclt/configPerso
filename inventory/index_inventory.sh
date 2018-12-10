@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-source ~/.config/inventory/hosts_names.sh
-source ~/.config/inventory/hosts_colors.sh
+source ~/.config/perso/inventory/hosts_names.sh
+source ~/.config/perso/inventory/hosts_colors.sh
