@@ -25,7 +25,7 @@ ln -s ~/.config/perso/ssh/rc .ssh/rc
 ln -s ~/.config/perso/ssh/change_background_color.sh .ssh/
 
 rm ~/.Xresources
-ln -s ~/.config/perso/bash_config/urxvt/Xresources ~/.Xresources
+ln -s ~/.config/perso/urxvt/Xresources ~/.Xresources
 
 rm ~/.urxvt
 ln -s ~/.config/perso/urxvt ~/.urxvt
