@@ -11,4 +11,5 @@ galaxy_hosts_colors["hN3YswOuvNcoXmMDmmP46k"]=#282936
 
 #Home computer
 galaxy_hosts_colors["1sxMc4HuTy8CDbRavcQkO5"]=#282936
+galaxy_hosts_colors["uHrkAgqeUpHZcUEpS7smMM"]=#282936
 

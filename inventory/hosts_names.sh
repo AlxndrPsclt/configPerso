@@ -10,4 +10,5 @@ galaxy_hosts_names["hN3YswOuvNcoXmMDmmP46k"]=innov-l028
 
 #Home computer
 galaxy_hosts_names["1sxMc4HuTy8CDbRavcQkO5"]=destiny
+galaxy_hosts_names["uHrkAgqeUpHZcUEpS7smMM"]=soyuz
 
