@@ -78,6 +78,9 @@ URxvt.keysym.C-KP_Subtract: resize-font:smaller
 URxvt.keysym.C-KP_Add:      resize-font:bigger
 URxvt.keysym.C-equal:       resize-font:reset
 URxvt.keysym.C-question:    resize-font:show
+URxvt.keysym.A-S-Left:      string:\033[1;4D
+URxvt.keysym.A-S-Right:     string:\033[1;4C
+
 
 ! Deactivate some annoying popup when ctrl-shift is pressed
 URxvt.iso14755: false
