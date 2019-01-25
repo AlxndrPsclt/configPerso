@@ -16,9 +16,12 @@ nord = {
     # Aurora
     'nord11': '#bf616a',
     'nord12': '#d08770',
-    'nord13': '#ebcb8b',
-    'nord14': '#a3be8c',
+    'nord13': '#fb2975',
+    'nord13back': '#ebcb8b',
+    'nord14': '#46c9b3',
     'nord15': '#b48ead',
+    'additional': '#9ac1cc',
+    'additional2': '#222b2d',
 }
 
 ## Background color of the completion widget category headers.
@@ -316,19 +319,19 @@ c.colors.tabs.odd.fg = nord['nord5']
 
 # ## Background color of selected even tabs.
 # ## Type: QtColor
-c.colors.tabs.selected.even.bg = nord['nord0']
+c.colors.tabs.selected.even.bg = nord['additional']
 
 # ## Foreground color of selected even tabs.
 # ## Type: QtColor
-c.colors.tabs.selected.even.fg = nord['nord5']
+c.colors.tabs.selected.even.fg = nord['additional2']
 
 # ## Background color of selected odd tabs.
 # ## Type: QtColor
-c.colors.tabs.selected.odd.bg = nord['nord0']
+c.colors.tabs.selected.odd.bg = nord['additional']
 
 # ## Foreground color of selected odd tabs.
 # ## Type: QtColor
-c.colors.tabs.selected.odd.fg = nord['nord5']
+c.colors.tabs.selected.odd.fg = nord['additional2']
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color)
