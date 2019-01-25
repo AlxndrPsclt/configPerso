@@ -5,3 +5,4 @@
 
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
+config.source('./themes/nord-qutebrowser.py')

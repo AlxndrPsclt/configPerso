@@ -31,4 +31,6 @@ rm ~/.urxvt
 ln -s ~/.config/perso/urxvt ~/.urxvt
 ln -s ~/.config/perso/urxvt/reload_xresource.sh ~/.reload_xresource.sh
 
+rm ~/.config/qutebrowser
+mkdir qsettings
 ln -s ~/.config/perso/qutebrowser/ ~/.config/qutebrowser
