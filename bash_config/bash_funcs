@@ -64,3 +64,7 @@ bt_disconnect_speaker() {
 qrterm() {
 	qrencode -t UTF8 -o /tmp/qr.txt "$@" | cat /tmp/qr.txt
 }
+
+qrpass() {
+	pass "$@" | qrencode -t UTF8 -o /tmp/qr.txt "$@" | cat /tmp/qr.txt
+}
