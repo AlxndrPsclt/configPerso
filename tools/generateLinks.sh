@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+CONFIG_PERSO=$HOME/.config/perso
 
 rm ~/.bashrc
 rm ~/.bash_aliases
@@ -8,29 +9,32 @@ rm ~/.bash_funcs
 rm ~/.bash_completion
 rm ~/.bash_logout
 
-ln -s ~/.config/perso/bash_config/bashrc ~/.bashrc
-ln -s ~/.config/perso/bash_config/bash_aliases ~/.bash_aliases
+ln -s $CONFIG_PERSO/bash_config/bashrc ~/.bashrc
+ln -s $CONFIG_PERSO/bash_config/bash_aliases ~/.bash_aliases
 source ~/.bash_aliases
-ln -s ~/.config/perso/bash_config/profile ~/.profile
-ln -s ~/.config/perso/bash_config/bash_funcs ~/.bash_funcs
-ln -s ~/.config/perso/bash_config/bash_completion ~/.bash_completion
-ln -s ~/.config/perso/bash_config/bash_logout ~/.bash_logout
+ln -s $CONFIG_PERSO/bash_config/profile ~/.profile
+ln -s $CONFIG_PERSO/bash_config/bash_funcs ~/.bash_funcs
+ln -s $CONFIG_PERSO/bash_config/bash_completion ~/.bash_completion
+ln -s $CONFIG_PERSO/bash_config/bash_logout ~/.bash_logout
 
-source ~/.config/perso/tools/generateBashSpecifics.sh
+source $CONFIG_PERSO/tools/generateBashSpecifics.sh
 
 rm -rf ~/.byobu
-ln -s ~/.config/perso/byobu/ .byobu
+ln -s $CONFIG_PERSO/byobu/ .byobu
 
-ln -s ~/.config/perso/ssh/rc .ssh/rc
-ln -s ~/.config/perso/ssh/change_background_color.sh .ssh/
+ln -s $CONFIG_PERSO/ssh/rc .ssh/rc
+ln -s $CONFIG_PERSO/ssh/change_background_color.sh .ssh/
 
 rm ~/.Xresources
-ln -s ~/.config/perso/urxvt/Xresources ~/.Xresources
+ln -s $CONFIG_PERSO/urxvt/Xresources ~/.Xresources
 
 rm ~/.urxvt
-ln -s ~/.config/perso/urxvt ~/.urxvt
-ln -s ~/.config/perso/urxvt/reload_xresource.sh ~/.reload_xresource.sh
+ln -s $CONFIG_PERSO/urxvt ~/.urxvt
+ln -s $CONFIG_PERSO/urxvt/reload_xresource.sh ~/.reload_xresource.sh
 
 rm ~/.config/qutebrowser
 mkdir qsettings
-ln -s ~/.config/perso/qutebrowser/ ~/.config/qutebrowser
+ln -s $CONFIG_PERSO/qutebrowser/ ~/.config/qutebrowser
+
+#Adds completition for in terminal qrcode version of pass
+sudo ln -s $CONFIG_PERSO/pass/qrpass /usr/share/bash-completion/completions/qrpass
