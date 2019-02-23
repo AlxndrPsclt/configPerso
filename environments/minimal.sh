@@ -19,6 +19,7 @@ todo="$todo>>>>Upon first vim launch, run :PluginInstall\n"
 #Powerline fonts installation
 git clone https://github.com/powerline/fonts.git /tmp/powerlinefonts --depth=1
 /tmp/powerlinefonts/install.sh
+rm -rf /tmp/powerlinefonts
 
 #Git prompt install
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
@@ -40,6 +41,8 @@ echo "Installing ssh"
 sudo apt-get install --yes --force-yes openssh-client
 sudo apt-get install --yes --force-yes openssh-server
 
+echo "Installing sc-im, a terminal spreadsheet editor"
+source ~/.config/perso/environements/software/sc-im.sh
 
 echo "Done minimal environment setup."
 echo "--------------------------------"
