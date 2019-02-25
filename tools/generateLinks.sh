@@ -32,6 +32,9 @@ rm ~/.urxvt
 ln -s $CONFIG_PERSO/urxvt ~/.urxvt
 ln -s $CONFIG_PERSO/urxvt/reload_xresource.sh ~/.reload_xresource.sh
 
+rm ~/.bash_logout
+ln -s $CONFIG_PERSO/i3/ ~/.config/i3
+
 rm ~/.config/qutebrowser
 mkdir qsettings
 ln -s $CONFIG_PERSO/qutebrowser/ ~/.config/qutebrowser
