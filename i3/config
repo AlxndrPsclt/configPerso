@@ -96,13 +96,14 @@ bindsym $mod+a focus parent
 
 set $workspace1 "1:"
 set $workspace2 "2:"
+set $workspace3 "3:"
 set $workspace9 "9:♠️"
 set $workspace10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -114,7 +115,7 @@ bindsym $mod+0 workspace $workspace10
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -186,9 +187,12 @@ bar {
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Oxygen Mono Display 18"
 
 
+#Assigns some windows to specific workspaces or specific display type
+#To find a window class, use:
 for_window [class="Pavucontrol"] floating enable
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
+assign [title="SuperCollider Help"] → $workspace3
 
 #Gaps config
 smart_gaps on
