@@ -70,5 +70,5 @@ qrpass() {
 }
 
 vimo() {
-	fzf | xargs -r -I % $EDITOR %;
+	$EDITOR "$(fzf)"
 }
