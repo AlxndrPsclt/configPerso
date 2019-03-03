@@ -70,5 +70,5 @@ qrpass() {
 }
 
 vimo() {
-	$EDITOR "$(fzf)"
+	$EDITOR "$(fzf --border --height=25)"
 }
