@@ -11,3 +11,5 @@ TODO: Add autolock
 TODO: Add hibernate to polybar poweroff menu
 TODO: Change the byobu colorscheme
 TODO: Add brightness keys support
+TODO: Add dunst notifications
+TODO: Configure rofi
