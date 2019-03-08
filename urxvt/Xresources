@@ -2,7 +2,8 @@
 ! fc-list | grep -i powerline
 !
 ! URxvt.font: xft:Meslo LG L DZ for Powerline:style=Regular:size=12
-URxvt.font: xft:Cousine for Powerline:style=Regular:size=12
+URxvt.font: xft:Cousine for Powerline:style=Regular:size=12, \
+xft:FontAwesome:style=Bold:size=12
 ! URxvt.font: xft:Meslo LG M for Powerline:style=Regular:size=12
 
 URxvt.scrollBar: false
@@ -28,13 +29,13 @@ URxvt.scrollBar: false
 #define base0F #00f769
 
 *foreground:   base05
-#ifdef background_opacity
-*background:   [background_opacity]base00
-#else
-!urxvt*depth: 32
-!*background:   rgba:2000/2100/3000/e900
-*background:   base00
-#endif
+!#ifdef background_opacity
+!*background:   [background_opacity]base00
+!#else
+urxvt*depth: 32
+*background:   rgba:2600/2700/3500/f000
+!*background:   base00
+!#endif
 *cursorColor:  base05
 
 *color0:       base00

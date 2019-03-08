@@ -5,7 +5,7 @@ sudo apt-get --yes --force-yes install vlc
 
 sudo apt-get --yes --force-yes install keepass2
 
-sudo apt-get --yes --force-yes install gnome-tweak-tool
+#sudo apt-get --yes --force-yes install gnome-tweak-tool
 
 sudo apt-get --yes --force-yes install rxvt-unicode-256color
 sudo apt-get --yes --force-yes install wmctrl
@@ -24,6 +24,9 @@ setxkbmap -option compose:ralt
 sudo add-apt-repository -y ppa:linrunner/tlp
 sudo apt-get update
 sudo apt-get install --yes --force-yes tlp tlp-rdw
+
+sudo apt install hibernate
+sudo apt install dunst
 
 echo "Desktop config done."
 

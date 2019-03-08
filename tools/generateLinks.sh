@@ -36,8 +36,14 @@ rm ~/.bash_logout
 ln -s $CONFIG_PERSO/i3/ ~/.config/i3
 
 rm ~/.config/qutebrowser
-mkdir qsettings
+#mkdir qsettings  #Don'tknow what this is for??
 ln -s $CONFIG_PERSO/qutebrowser/ ~/.config/qutebrowser
+
+rm ~/.config/i3
+ln -s $CONFIG_PERSO/i3/ ~/.config/i3
+
+rm ~/.config/polybar
+ln -s $CONFIG_PERSO/polybar/ ~/.config/polybar
 
 #Adds completition for in terminal qrcode version of pass
 sudo ln -s $CONFIG_PERSO/pass/qrpass /usr/share/bash-completion/completions/qrpass
