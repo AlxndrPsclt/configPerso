@@ -144,6 +144,7 @@ label-unfocused-font = 4
 label-urgent-font = 4
 label-visible-font = 4
 
+#ICONS
 ;ws-icon-0 = 1;
 ws-icon-0 = 1;
 ws-icon-1 = 2;
