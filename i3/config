@@ -33,7 +33,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt
 bindsym $mod+i exec qutebrowser
-bindsym $mod+n exec ranger
+bindsym $mod+n exec urxvt -e ranger
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -91,6 +91,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+bindcode $mod+49 workspace back_and_forth
+bindsym $mod+49 workspace back_and_forth
+
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -101,6 +104,7 @@ bindsym $mod+a focus parent
 set $WS1 "1"
 set $WS2 "2"
 set $WS3 "3"
+set $WS8 "8"
 set $WS9 "9"
 set $WS10 "10"
 
@@ -112,7 +116,7 @@ bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
+bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS10
 
@@ -124,7 +128,7 @@ bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
 
@@ -160,6 +164,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+bindsym $mod+p exec firefox https://nitrogensports.eu/poker/play
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
@@ -247,3 +253,6 @@ exec_always feh --bg-scale /home/alex/Pictures/wallpapers/104787-pixel_sorting-g
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
 exec_always --no-startup-id compton
 
+exec --no-startup-id dunst
+
+exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
