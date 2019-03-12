@@ -45,5 +45,8 @@ ln -s $CONFIG_PERSO/i3/ ~/.config/i3
 rm ~/.config/polybar
 ln -s $CONFIG_PERSO/polybar/ ~/.config/polybar
 
+rm ~/.config/rofi
+ln -s $CONFIG_PERSO/rofi ~/.rofi
+
 #Adds completition for in terminal qrcode version of pass
 sudo ln -s $CONFIG_PERSO/pass/qrpass /usr/share/bash-completion/completions/qrpass
