@@ -1,1 +1,1 @@
-source blue.tmuxtheme
+source $BYOBU_PREFIX/share/byobu/profiles/tmux
