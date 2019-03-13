@@ -13,3 +13,4 @@ TODO: Change the byobu colorscheme
 TODO: Add brightness keys support
 TODO: Add dunst notifications
 TODO: Configure rofi
+TODO: Add commands to rofi: post some link on a fb group

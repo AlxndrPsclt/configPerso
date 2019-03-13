@@ -33,7 +33,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt
 bindsym $mod+i exec qutebrowser
-bindsym $mod+n exec ranger
+bindsym $mod+n exec urxvt -e ranger
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -82,7 +82,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -90,6 +90,9 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+
+bindcode $mod+49 workspace back_and_forth
+bindsym $mod+49 workspace back_and_forth
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -101,6 +104,7 @@ bindsym $mod+a focus parent
 set $WS1 "1"
 set $WS2 "2"
 set $WS3 "3"
+set $WS8 "8"
 set $WS9 "9"
 set $WS10 "10"
 
@@ -112,7 +116,7 @@ bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
+bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS10
 
@@ -124,7 +128,7 @@ bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
 
@@ -161,6 +165,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+p exec firefox https://nitrogensports.eu/poker/play
+
+bindsym $mod+y exec notify-send yo
+
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -175,24 +183,10 @@ client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
 
-# bar
-#bar {
-#  status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-#    position top
-#    colors {
-#      background $bg-color
-#        separator #757575
-##                  border             background         text
-#        focused_workspace  $bg-color          $bg-color          $text-color
-#        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-#        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#    }
-#}
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Oxygen Mono Display 18"
+#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Oxygen Mono Display 18"
+bindsym $mod+d exec rofi -show run -theme material
+bindsym $mod+w exec rofi -show window -theme material
 
 
 #Assigns some windows to specific workspaces or specific display type
@@ -202,6 +196,8 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="^.*"] border pixel 1
 
 assign [title="SuperCollider Help"] → $WS3
+assign [class="Messenger for Desktop"] → $WS9
+for_window [class="Messenger for Desktop"] fullscreen enable
 
 #Gaps config
 smart_gaps on
@@ -217,12 +213,6 @@ gaps bottom -8
 gaps left -1
 
 
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
 
 bindsym $mod+Shift+x exec i3lock
 
@@ -241,9 +231,14 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec urxvt
+exec urxvt -e byobu
 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always feh --bg-scale /home/alex/Pictures/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
 exec_always --no-startup-id compton
 
+exec --no-startup-id dunst
+exec messengerfordesktop
+
+exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"

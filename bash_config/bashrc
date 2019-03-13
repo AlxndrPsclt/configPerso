@@ -123,17 +123,7 @@ fi
 #Tmuxinator config
 source ~/.config/perso/tmux_config/tmuxinator.bash
 
-#Some Spark variables Take this out as soon as possible
-export SPARK_HOME=/opt/scub-foundation-for-hadoop/programs/spark
-export PATH=$SPARK_HOME/bin:$PATH
-
 export EDITOR='vim'
-
-
-#Some Virtualevwrapper conf  #commented for now, remove soon (move to bash_specifics)
-#export WORKON_HOME="~/.virtualenv"
-#source /usr/local/bin/virtualenvwrapper.sh
-
 
 
 #Loading some config that is specific to this machine and is not on git
@@ -159,3 +149,5 @@ LS_COLORS=$LS_COLORS:'ln=4;37:' ; export LS_COLOR
 if [ -d ~/.config/perso/inventory ]; then
 	  source ~/.config/perso/inventory/index_inventory.sh
 fi
+
+export PATH=~/.local/bin:$PATH
