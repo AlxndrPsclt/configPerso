@@ -31,8 +31,8 @@ alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/
 alias torb='~/Documents/Apps/Security/tor-browser_en-US/start-tor-browser'
 
 #TODO: Create a global config file for all these parameters
-alias shortcuts='less ~/.config/perso/shortcuts'
-alias eshortcuts='vim ~/.config/perso/shortcuts'
+alias shortcuts='less ~/.config/perso/tools/shortcuts'
+alias eshortcuts='vim ~/.config/perso/tools/shortcuts'
 alias versions='~/.config/perso/tools/versions.sh'
 
 alias c='clear'
@@ -53,6 +53,9 @@ alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
 
 #Git aliases
 alias gitst='git status'
+alias gitpl='git pull'
+alias gitps='git push'
+alias gitswitch='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
 
 #Docker aliases
 alias dcu='docker-compose -f *-compose.yml up'
