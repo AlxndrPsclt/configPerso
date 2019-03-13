@@ -24,7 +24,7 @@ alias cdvim='cd ~/.vim'
 alias editvim='vim ~/.vim/vimrc'
 alias editbash='vim -p ~/.config/perso/bash_config/bashrc ~/.config/perso/bash_config/bash_aliases ~/.config/perso/bash_config/bash_funcs ~/.config/perso/bash_config/bash_specifics ~/.config/perso/bash_config/bash_vars ~/.config/perso/bash_config/profile ~/.config/perso/bash_config/bash_completion'
 
-alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/dunst/dunstrc'
+alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/rofi/social.rasi ~/.config/perso/dunst/dunstrc'
 
 
 #TODO: install to browser
