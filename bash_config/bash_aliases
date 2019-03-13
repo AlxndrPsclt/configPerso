@@ -20,19 +20,20 @@ alias .5='cd ../../../../..'
 alias 'p'='cd -'
 alias d='du -sh *'
 
-alias vimrc='vim ~/.vim/vimrc'
-alias bashedit='vim -p ~/.config/perso/bash_config/bashrc ~/.config/perso/bash_config/bash_aliases ~/.config/perso/bash_config/bash_funcs ~/.config/perso/bash_config/bash_specifics ~/.config/perso/bash_config/bash_vars ~/.config/perso/bash_config/profile ~/.config/perso/bash_config/bash_completion'
-
-alias i3edit='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config'
-
 alias cdvim='cd ~/.vim'
+alias editvim='vim ~/.vim/vimrc'
+alias editbash='vim -p ~/.config/perso/bash_config/bashrc ~/.config/perso/bash_config/bash_aliases ~/.config/perso/bash_config/bash_funcs ~/.config/perso/bash_config/bash_specifics ~/.config/perso/bash_config/bash_vars ~/.config/perso/bash_config/profile ~/.config/perso/bash_config/bash_completion'
 
+alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/dunst/dunstrc'
+
+
+#TODO: install to browser
 alias torb='~/Documents/Apps/Security/tor-browser_en-US/start-tor-browser'
 
 #TODO: Create a global config file for all these parameters
 alias shortcuts='less ~/.config/perso/shortcuts'
 alias eshortcuts='vim ~/.config/perso/shortcuts'
-alias versions='~/.config/perso/versions.sh'
+alias versions='~/.config/perso/tools/versions.sh'
 
 alias c='clear'
 
@@ -40,18 +41,6 @@ alias c='clear'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-
-
-
-
-# Appends last command to my system_install.sh script to reinstall environement easy.
-alias sav='~/.config/perso/saveCommand.sh'
-alias editsav='vim ~/.config/perso/saveCommand.sh'
-
-alias adminTools='~/.config/perso/adminTools.sh'
-
-
-alias vidle="python -m idlelib &"
 
 #Pipe to clipboad via command | copy
 alias copy='xclip -sel clip'

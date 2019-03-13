@@ -185,8 +185,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 #bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Oxygen Mono Display 18"
-bindsym $mod+d exec rofi -show run -theme material
-bindsym $mod+w exec rofi -show window -theme material
+bindsym $mod+d exec rofi -show run -theme launcher
+bindsym $mod+w exec rofi -show window -theme window_switcher
 
 
 #Assigns some windows to specific workspaces or specific display type

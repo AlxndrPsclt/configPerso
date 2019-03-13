@@ -41,7 +41,7 @@ n (){
 }
 
 dockexecl() {
-  docker exec -i -t $(docker ps -l -q) bash ;
+  docker exec -it $(docker ps -l -q) /bin/bash ;
 }
 
 #BLuetooth functions
