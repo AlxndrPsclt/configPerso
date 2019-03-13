@@ -46,7 +46,7 @@ mainbox {
 	padding: 20px 40px 10px 20px;
 	border: 0px;
 	border-color: @base0D;
-	background-color: #263238BC; /*base00 + CC (80% opacity)*/
+	background-color: #263238CC; /*base00 + CC (80% opacity)*/
 
 }
 
