@@ -1,48 +1,47 @@
 #!/bin/bash
 
-link="$(xsel --output --clipboard)"
-[[ -z "$link" ]] && { echo "Clipboard empty" ; exit 1 ; }
-echo $link
+LINK="$(xsel --output --clipboard)"
+[[ -z "$LINK" ]] && { echo "Clipboard empty" ; exit 1 ; }
+echo $LINK
 
 
-url_regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
-if [[ $link =~ $url_regex ]]
+URL_REGEX='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+if [[ $LINK =~ $URL_REGEX ]]
 then 
-  url_yt_regex='(https?)://(www\.)?(youtube.com|youtu.be|yt.be)[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
-  if [[ $link =~ $url_yt_regex ]]
+  URL_YT_REGEX='(https?)://(www\.)?(youtube.com|youtu.be|yt.be)[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+  if [[ $LINK =~ $URL_YT_REGEX ]]
   then
     echo "Valid youtube link."
-    url_yt_groups_regex='(https://(www\.)?(youtube.com|youtu.be|yt.be)/watch\?v=((\w|-)*))(\&list=(.*)&index=([[:digit:]]*))?'
-    yt_video_link=$([[ "$yt_link" =~ $url_yt_groups_regex ]] && echo "${BASH_REMATCH[1]}")
-    if [[ ! -z $yt_video_link ]]; then
-      echo "Extracting youtube link $yt_video_link without playlist or index"
-      $link=$yt_video_link
+    URL_YT_GROUPS_REGEX='(https://(www\.)?(youtube.com|youtu.be|yt.be)/watch\?v=((\w|-)*))(\&list=(.*)&index=([[:digit:]]*))?'
+    YT_VIDEO_LINK=$([[ "$yt_link" =~ $URL_YT_GROUPS_REGEX ]] && echo "${BASH_REMATCH[1]}")
+    if [[ ! -z $YT_VIDEO_LINK ]]; then
+      echo "Extracting youtube link $YT_VIDEO_LINK without playlist or index"
+      $LINK=$YT_VIDEO_LINK
     fi
   else
-    continue=`echo "yes
-    no" | rofi -dmenu -theme social -p "No YTlink in clipboard; proceed anyway? $link."`
-    if [ $continue != "yes" ]; then
-      echo "Chose to leave"
+    CONTINUE=`printf "yes\nno" | rofi -dmenu -theme social -p "No YTlink in clipboard; proceed anyway? $LINK."`
+    if [ $CONTINUE != "yes" ]; then
+      echo "Abort sending to social media"
       exit 1
     fi
   fi
 else
-  continue=`printf "yes\nno" | rofi -dmenu -theme social -p "No link in clipboard; proceed anyway? $link."`
-  if [ $continue != "yes" ]; then
+  CONTINUE=`printf "yes\nno" | rofi -dmenu -theme social -p "No link in clipboard; proceed anyway? $LINK."`
+  if [ $CONTINUE != "yes" ]; then
     echo "Abort sending to social media"
     exit 1
   fi
 fi
 
 
-group_to_post_to=$(cat ~/.config/perso/rofi/scripts/data/social_destinations | rofi -dmenu -theme social -p "Where to post $link ?")
+group_to_post_to=$(cat ~/.config/perso/rofi/scripts/data/social_destinations | rofi -dmenu -theme social -p "Where to post $LINK ?")
 
 [[ -z $group_to_post_to ]] && exit 1
 echo $group_to_post_to
-notify-send "Preparing to post\n$link\nto\n$group_to_post_to"
+notify-send "Preparing to post\n$LINK\nto\n$group_to_post_to"
 
 text=$(rofi -dmenu -theme social -p "Message to add to link")
 
 echo $text
-notify-send "Posted\n$link\nto\n$group_to_post_to:\n$text"
+notify-send "Posted\n$LINK\nto\n$group_to_post_to:\n$text"
 
