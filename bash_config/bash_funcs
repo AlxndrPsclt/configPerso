@@ -77,3 +77,41 @@ qrpass() {
 vimo() {
 	$EDITOR "$(fzf --border --height=25)"
 }
+
+paste2file() {
+  DEFAULT=/tmp/clip.txt
+	FILE=${1-$DEFAULT}
+	DIR=$(dirname "${FILE}")
+  if [ $FILE != $DEFAULT ] ; then
+		if [ -f $FILE ] ; then
+			if [ -w $FILE ]; then
+					read -p "File $FILE already exists; overwrite? y/n`echo $'\n> '` " yn
+					case $yn in
+						[Yy]* ) echo "Overwrite file";;
+						[Nn]* ) return ;;
+					esac 
+			else
+				echo "The file $FILE exists and is not writable, using default: $DEFAULT"
+				FILE="$DEFAULT"
+			fi
+		else
+			if [ -w $DIR ]; then
+				:
+			else
+				echo "The file $FILE does not exist and cannot be created, using default: $DEFAULT"
+				FILE="$DEFAULT"
+			fi
+		fi
+	fi
+	xsel --output --clipboard > $FILE
+
+	echo "Pasted clipboard content to $FILE"
+	NUMBER_OF_PASTED_LINES=$(wc -l /tmp/clip.txt | awk '{print $1}')
+
+
+  if [ $NUMBER_OF_PASTED_LINES -gt 6 ] ; then
+		echo "..."
+  fi
+	tail -6 $FILE
+  echo ""
+}

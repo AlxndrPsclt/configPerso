@@ -3,5 +3,37 @@
 
 config_version: 2
 settings:
+  colors.webpage.bg:
+    global: white
+  completion.cmd_history_max_items:
+    global: 1000
+  completion.height:
+    global: 64%
+  completion.shrink:
+    global: false
+  fonts.completion.category:
+    global: bold 14pt monospace
+  fonts.completion.entry:
+    global: 14pt monospace
+  fonts.debug_console:
+    global: 14pt monospace
+  fonts.downloads:
+    global: 14pt monospace
+  fonts.hints:
+    global: bold 14pt monospace
+  fonts.keyhint:
+    global: 14pt monospace
+  fonts.messages.error:
+    global: 14pt monospace
+  fonts.messages.info:
+    global: 14pt monospace
+  fonts.messages.warning:
+    global: 14pt monospace
+  fonts.prompts:
+    global: 14pt sans-serif
+  fonts.statusbar:
+    global: 14pt monospace
+  fonts.tabs:
+    global: 12pt monospace
   zoom.default:
     global: 125%
