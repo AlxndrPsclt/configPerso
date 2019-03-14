@@ -114,4 +114,5 @@ paste2file() {
   fi
 	tail -6 $FILE
   echo ""
+
 }
