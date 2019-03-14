@@ -2,7 +2,6 @@
 
 LINK="$(xsel --output --clipboard)"
 [[ -z "$LINK" ]] && { echo "Clipboard empty" ; exit 1 ; }
-echo $LINK
 
 
 URL_REGEX='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
@@ -20,14 +19,14 @@ then
     fi
   else
     CONTINUE=`printf "yes\nno" | rofi -dmenu -theme social -p "No YTlink in clipboard; proceed anyway? $LINK."`
-    if [ $CONTINUE != "yes" ]; then
+    if [ "$CONTINUE" != "yes" ]; then
       echo "Abort sending to social media"
       exit 1
     fi
   fi
 else
   CONTINUE=`printf "yes\nno" | rofi -dmenu -theme social -p "No link in clipboard; proceed anyway? $LINK."`
-  if [ $CONTINUE != "yes" ]; then
+  if [ "$CONTINUE" != "yes" ]; then
     echo "Abort sending to social media"
     exit 1
   fi
