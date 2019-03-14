@@ -12,11 +12,11 @@ then
   if [[ $LINK =~ $URL_YT_REGEX ]]
   then
     echo "Valid youtube link."
-    URL_YT_GROUPS_REGEX='(https://(www\.)?(youtube.com|youtu.be|yt.be)/watch\?v=((\w|-)*))(\&list=(.*)&index=([[:digit:]]*))?'
-    YT_VIDEO_LINK=$([[ "$yt_link" =~ $URL_YT_GROUPS_REGEX ]] && echo "${BASH_REMATCH[1]}")
+		URL_YT_GROUPS_REGEX='(https://(www\.)?(youtube.com|youtu.be|yt.be)/watch\?v=((\w|-)*))(&list=(.*)|&index=([[:digit:]]*)|&t=([[:digit:]]*)s)+'
+    YT_VIDEO_LINK=$([[ "$LINK" =~ $URL_YT_GROUPS_REGEX ]] && echo "${BASH_REMATCH[1]}")
     if [[ ! -z $YT_VIDEO_LINK ]]; then
       echo "Extracting youtube link $YT_VIDEO_LINK without playlist or index"
-      $LINK=$YT_VIDEO_LINK
+      LINK="$YT_VIDEO_LINK"
     fi
   else
     CONTINUE=`printf "yes\nno" | rofi -dmenu -theme social -p "No YTlink in clipboard; proceed anyway? $LINK."`
