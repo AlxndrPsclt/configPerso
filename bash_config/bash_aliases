@@ -52,9 +52,11 @@ alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
 
 
 #Git aliases
-alias gitst='git status'
+alias gits='git status'
+alias gita='git add -A'
+alias gitc='git commit -m '
 alias gitpl='git pull'
-alias gitps='git push'
+alias gitp='git push'
 alias gitswitch='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
 
 #Docker aliases

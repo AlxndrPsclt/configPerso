@@ -79,6 +79,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod+t exec gvim -u ~/.vim/vimrc_alt ~/.config/perso/focus/focus_default_text.md
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
