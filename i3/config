@@ -79,7 +79,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-bindsym $mod+t exec gvim -u ~/.vim/vimrc_alt ~/.config/perso/focus/focus_default_text.md
+bindsym $mod+t exec ~/.config/perso/focus/focus_urxvt.sh
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
@@ -105,6 +105,7 @@ bindsym $mod+a focus parent
 set $WS1 "1"
 set $WS2 "2"
 set $WS3 "3"
+set $WS7 "7"
 set $WS8 "8"
 set $WS9 "9"
 set $WS10 "10"
@@ -116,7 +117,7 @@ bindsym $mod+3 workspace $WS3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
+bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS10
@@ -204,6 +205,12 @@ for_window [class="Messenger for Desktop"] fullscreen enable
 #Gaps config
 smart_gaps on
 smart_borders on
+
+for_window [title="FocusVim"] smart_borders off
+for_window [title="FocusVim"] smart_gaps off
+for_window [title="FocusVim"] fullscreen enable
+for_window [title="FocusVim"] border pixel 0
+
 
 gaps inner 15
 gaps outer 0

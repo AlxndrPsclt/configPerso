@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vim -u ~/.vim/vimrc_alt $1

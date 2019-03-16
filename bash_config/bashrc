@@ -131,7 +131,7 @@ fi
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 
-export GIT_PROMPT_END_USER="\n⤷ ⚡ "
+export GIT_PROMPT_END_USER="\n ⚡ "
 
 LS_COLORS=$LS_COLORS:'ln=4;37:' ; export LS_COLOR
 
