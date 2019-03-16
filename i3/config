@@ -241,11 +241,11 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Desktop screenshot
-bindsym --release Print exec "scrot ~/Pictures/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
+bindsym --release Print exec "scrot ~/Pictures/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f' ; notify-send 'Full desktop screenshot taken.'"
 # # Choose window
-bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window id:.*/ {print $4}'` ~/Pictures/screenshots/$(date --iso-8601='seconds').png"
+bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window id:.*/ {print $4}'` ~/Pictures/screenshots/$(date --iso-8601='seconds').png; notify-send 'Window screenshot taken.'"
 # # Selection screenshot
-bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
+bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'; notify-send 'Screenshot of selected zone taken.'"
 
 exec urxvt -e byobu
 
