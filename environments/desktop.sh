@@ -9,6 +9,7 @@ sudo apt-get --yes --force-yes install keepass2
 
 sudo apt-get --yes --force-yes install rxvt-unicode-256color
 sudo apt-get --yes --force-yes install wmctrl
+sudo apt-get --yes --force-yes install scrot
 xrdb ~/.Xresources
 
 #sudo apt-get --yes --force-yes install tomboy
