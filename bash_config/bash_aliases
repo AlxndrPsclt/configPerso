@@ -53,6 +53,7 @@ alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
 
 #Git aliases
 alias gits='git status'
+alias gitd='git diff'
 alias gita='git add -A'
 alias gitc='git commit -m '
 alias gitpl='git pull'
