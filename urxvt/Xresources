@@ -2,7 +2,7 @@
 ! fc-list | grep -i powerline
 !
 ! URxvt.font: xft:Meslo LG L DZ for Powerline:style=Regular:size=12
-URxvt.font: xft:Cousine for Powerline:style=Regular:size=15, xft:FontAwesome:size=15
+URxvt.font: xft:Cousine for Powerline:style=Regular:size=16, xft:FontAwesome:size=16
 ! URxvt.font: xft:Meslo LG M for Powerline:style=Regular:size=12
 
 URxvt.scrollBar: false

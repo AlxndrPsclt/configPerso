@@ -258,3 +258,9 @@ exec --no-startup-id dunst
 exec messengerfordesktop
 
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
+
+# Keys
+exec_always xmodmap -e "clear lock" #disable caps lock switch
+exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+
+
