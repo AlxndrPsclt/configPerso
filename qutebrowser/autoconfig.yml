@@ -28,7 +28,11 @@ settings:
   fonts.messages.info:
     global: 14pt monospace
   fonts.messages.warning:
-    global: 14pt monospace
+    global: 10pt monospace
+  fonts.monospace:
+    global: Hack, "Oxygen Mono", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans
+      Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier,
+      "Liberation Mono", monospace, Fixed, Consolas, Terminal
   fonts.prompts:
     global: 14pt sans-serif
   fonts.statusbar:
