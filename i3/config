@@ -213,7 +213,7 @@ for_window [title="FocusVim"] fullscreen enable
 for_window [title="FocusVim"] border pixel 0
 
 
-gaps inner 15
+gaps inner 25
 gaps outer 0
 gaps horizontal 0
 gaps vertical 0
@@ -251,7 +251,8 @@ bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/$(date --iso-86
 exec urxvt -e byobu
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always feh --bg-scale /home/alex/Pictures/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg
+#exec_always feh --bg-scale /home/alex/Pictures/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg
+exec_always feh --bg-scale /home/alex/Pictures/wallpapers/_2x.gif
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
 exec_always --no-startup-id compton
 

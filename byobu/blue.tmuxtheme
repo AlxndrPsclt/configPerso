@@ -12,7 +12,7 @@
 set -g status-interval 1
 
 # Basic status bar colors
-set -g status-fg colour240
+set -g status-fg colour245
 set -g status-bg colour0
 # set -g status-fg colour240
 # set -g status-bg colour233
@@ -33,9 +33,9 @@ set -g status-right "#[fg=colour235,bg=black]#[fg=colour240,bg=colour235] %H:
 set -g window-status-format " #I:#W#F "
 set -g window-status-current-format " #I:#W#F "
 
-# Current window status
-set -g window-status-current-bg colour24
-set -g window-status-current-fg colour45
+# Current window status There is a bug that inverts bg and fg
+set -g window-status-current-bg colour2
+set -g window-status-current-fg colour240
 
 # Window with activity status
 set -g window-status-activity-bg colour31  # fg and bg are flipped here due to
