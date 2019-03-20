@@ -51,5 +51,8 @@ ln -s $CONFIG_PERSO/rofi ~/.config/rofi
 rm ~/.config/dunst
 ln -s $CONFIG_PERSO/dunst ~/.config/dunstrc
 
+rm ~/.config/conky
+ln -s $CONFIG_PERSO/conky ~/.config/conky
+
 #Adds completition for in terminal qrcode version of pass
 sudo ln -s $CONFIG_PERSO/pass/qrpass /usr/share/bash-completion/completions/qrpass

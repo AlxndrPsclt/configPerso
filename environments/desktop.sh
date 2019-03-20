@@ -28,6 +28,7 @@ sudo apt-get install --yes --force-yes tlp tlp-rdw
 
 sudo apt install hibernate
 sudo apt install dunst
+sudo apt install conky
 
 echo "Desktop config done."
 
