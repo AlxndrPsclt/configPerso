@@ -30,6 +30,8 @@ sudo apt install hibernate
 sudo apt install dunst
 sudo apt install conky
 
+echo '%adm ALL = NOPASSWD: /usr/bin/light' | sudo EDITOR='tee -a' visudo
+
 echo "Desktop config done."
 
 todo="$todo>>>>You need to logout then log back in for the compose key to take effect.\n"

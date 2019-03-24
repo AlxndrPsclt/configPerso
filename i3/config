@@ -106,6 +106,7 @@ bindsym $mod+a focus parent
 set $WS1 "1"
 set $WS2 "2"
 set $WS3 "3"
+set $WS4 "4"
 set $WS7 "7"
 set $WS8 "8"
 set $WS9 "9"
@@ -115,7 +116,7 @@ set $WS10 "10"
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
 bindsym $mod+3 workspace $WS3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $WS4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace $WS7
@@ -199,7 +200,8 @@ for_window [class="Pavucontrol"] floating enable
 
 for_window [class="^.*"] border pixel 1
 
-assign [title="SuperCollider Help"] → $WS3
+assign [title="SuperCollider Help"] → $WS4
+assign [class="SuperCollider"] → $WS4
 assign [class="Messenger for Desktop"] → $WS9
 for_window [class="Messenger for Desktop"] fullscreen enable
 
@@ -232,8 +234,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec sudo light -U 5 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
