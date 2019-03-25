@@ -48,6 +48,8 @@ alias copy='xclip -sel clip'
 
 alias path='pwd | copy'
 
+alias rlk='~/.config/perso/tools/rlk.sh'
+
 #Random password generator
 alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
 
