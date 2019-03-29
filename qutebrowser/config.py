@@ -6,3 +6,8 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 config.load_autoconfig()
 config.source('./themes/nord-qutebrowser.py')
+c.bindings.key_mappings['<Alt+Right>'] = '<Shift-j>'
+c.bindings.key_mappings['<Alt+Left>'] = '<Shift-k>'
+
+
+

@@ -254,8 +254,8 @@ exec urxvt -e byobu
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg
-exec_always feh --bg-scale /home/alex/Pictures/wallpapers/_2x.gif
-#exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
+#exec_always feh --bg-scale /home/alex/Pictures/wallpapers/_2x.gif
+exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
 exec_always --no-startup-id compton
 
 exec --no-startup-id dunst

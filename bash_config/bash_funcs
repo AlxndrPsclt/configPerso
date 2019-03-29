@@ -116,3 +116,7 @@ paste2file() {
   echo ""
 
 }
+
+vimall() {
+	ag . -l | xargs bash -c '</dev/tty vim -p "$@"' ignoreme
+}
