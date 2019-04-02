@@ -117,8 +117,8 @@ bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
 bindsym $mod+3 workspace $WS3
 bindsym $mod+4 workspace $WS4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
@@ -128,10 +128,10 @@ bindsym $mod+0 workspace $WS10
 bindsym $mod+Shift+1 move container to workspace $WS1
 bindsym $mod+Shift+2 move container to workspace $WS2
 bindsym $mod+Shift+3 move container to workspace $WS3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
@@ -204,6 +204,7 @@ assign [title="SuperCollider Help"] → $WS4
 assign [class="SuperCollider"] → $WS4
 assign [class="Messenger for Desktop"] → $WS9
 for_window [class="Messenger for Desktop"] fullscreen enable
+assign [class="Conky"] → $WS1
 
 #Gaps config
 smart_gaps on
@@ -215,7 +216,7 @@ for_window [title="FocusVim"] fullscreen enable
 for_window [title="FocusVim"] border pixel 0
 
 
-gaps inner 25
+gaps inner 20
 gaps outer 0
 gaps horizontal 0
 gaps vertical 0
@@ -250,13 +251,16 @@ bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window i
 # # Selection screenshot
 bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'; notify-send 'Screenshot of selected zone taken.'"
 
-exec urxvt -e byobu
+# exec urxvt -e byobu
+exec --no-startup-id "/usr/local/bin/conky -c ~/.config/perso/conky/conky.conf"
+exec --no-startup-id i3-msg 'workspace $WS2; exec urxvt -e byobu'
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/_2x.gif
-exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
-exec_always --no-startup-id compton
+#exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
+exec_always feh --bg-scale file:///home/alex/Pictures/wallpapers/nord_pixel_sorting-glitch_art-aurorae.jpg
+exec_always --no-startup-id compton --config ~/.config/compton.conf
 
 exec --no-startup-id dunst
 exec messengerfordesktop
