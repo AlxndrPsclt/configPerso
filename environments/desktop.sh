@@ -1,9 +1,9 @@
-sudo apt-get --yes --force-yes install vlc
+#sudo apt-get --yes --force-yes install vlc
 #sudo apt-get --yes --force-yes install chromium-browser
 
-#sudo apt-get --yes --force-yes install xclip
+sudo apt-get --yes --force-yes install xclip
 
-sudo apt-get --yes --force-yes install keepass2
+#sudo apt-get --yes --force-yes install keepass2
 
 #sudo apt-get --yes --force-yes install gnome-tweak-tool
 
@@ -29,6 +29,10 @@ sudo apt-get install --yes --force-yes tlp tlp-rdw
 sudo apt install hibernate
 sudo apt install dunst
 sudo apt install conky
+
+# TODO: install image paletizer https://github.com/pureasbestos/image-palettizer (my own fork to use command line)
+# TODO: automate paletizer apply to wallpaper
+# TODO: install tools to auto hibernate and lock
 
 echo '%adm ALL = NOPASSWD: /usr/bin/light' | sudo EDITOR='tee -a' visudo
 
