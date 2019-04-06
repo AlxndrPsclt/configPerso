@@ -54,5 +54,8 @@ ln -s $CONFIG_PERSO/dunst ~/.config/dunstrc
 rm ~/.config/conky
 ln -s $CONFIG_PERSO/conky ~/.config/conky
 
+rm ~/.taskrc
+ln -s $CONFIG_PERSO/taskwarrior/taskrc ~/.taskrc
+
 #Adds completition for in terminal qrcode version of pass
 sudo ln -s $CONFIG_PERSO/pass/qrpass /usr/share/bash-completion/completions/qrpass
