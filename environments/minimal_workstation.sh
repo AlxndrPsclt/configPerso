@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Taskwarrior install
+
 old_dir=$(pwd)
 cd /tmp
 git clone --recursive -b 2.6.0 https://github.com/GothenburgBitFactory/taskwarrior.git
@@ -12,3 +14,7 @@ cmake -DCMAKE_BUILD_TYPE=release .
 make
 sudo make install
 
+echo "Taskwarior installed"
+
+
+# TODO: Add uberzug install
