@@ -21,6 +21,7 @@ options=("desktop"
 "themes"
 "webdev"
 "work"
+"minimal workstation"
 )
 
 echo "$title"
@@ -37,6 +38,7 @@ select opt in "${options[@]}" "Quit"; do
     6 ) source ~/.config/perso/environments/themes.sh;;
     7 ) source ~/.config/perso/environments/webdev.sh;;
     8 ) source ~/.config/perso/environments/work.sh;;
+    8 ) source ~/.config/perso/environments/minimal_workstation.sh;;
 
     $(( ${#options[@]}+1 )) ) echo "Goodbye!"; break;;
     *) echo "Invalid option. Try another one.";continue;;
