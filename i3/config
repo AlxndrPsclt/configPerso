@@ -213,7 +213,7 @@ smart_borders on
 
 for_window [title="FocusVim"] smart_borders off
 for_window [title="FocusVim"] smart_gaps off
-for_window [title="FocusVim"] fullscreen enable
+#for_window [title="FocusVim"] fullscreen enable
 for_window [title="FocusVim"] border pixel 0
 
 
