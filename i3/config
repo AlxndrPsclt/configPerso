@@ -35,7 +35,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt
 bindsym $mod+i exec qutebrowser
-bindsym $mod+n exec urxvt -e ranger
+bindsym $mod+n exec urxvt -e vifm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -231,10 +231,9 @@ gaps left -1
 bindsym $mod+Shift+x exec i3lock-fancy -g -f Oxygen-Mono
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/alex/.config/perso/pulseaudio/change-vol.sh +
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/alex/.config/perso/pulseaudio/change-vol.sh -
+bindsym XF86AudioMute exec --no-startup-id /home/alex/.config/perso/pulseaudio/change-vol.sh 0
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec sudo light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec sudo light -U 5 # decrease screen brightness
@@ -265,12 +264,5 @@ exec_always feh --bg-scale file:///home/alex/Pictures/wallpapers/2nord/Image-pal
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 
 exec --no-startup-id dunst
-exec messengerfordesktop
 
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
-
-# Keys
-exec_always xmodmap -e "clear lock" #disable caps lock switch
-exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
-
-

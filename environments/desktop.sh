@@ -30,6 +30,15 @@ sudo apt install hibernate
 sudo apt install dunst
 sudo apt install conky
 
+sudo apt install libboost-program-options-dev
+old_dir=$(pwd)
+cd /tmp
+git clone https://github.com/cdemoulins/pamixer.git
+cd pamixer
+make
+sudo mv pamixer /usr/bin/
+cd $old_dir
+
 # TODO: install image paletizer https://github.com/pureasbestos/image-palettizer (my own fork to use command line)
 # TODO: automate paletizer apply to wallpaper
 # TODO: install tools to auto hibernate and lock

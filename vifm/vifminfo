@@ -5,6 +5,10 @@
 	/home/alex/
 	..
 1554422124
+'p
+	/media/usb2/video
+	Networks v Ecosystems-Sqn3MAyDaso.mp4
+1556565579
 
 # Bookmarks:
 
@@ -99,6 +103,39 @@ d/home/alex/Music
 d/home/alex/Music/collection
 	climber_tracks
 4
+d/media/usb2/video
+	..
+0
+d/media/usb2
+	music
+2
+d/media/usb2/music
+	..
+0
+d/media/usb2
+	..
+0
+d/media
+	..
+0
+d/
+	media
+10
+d/home/alex
+	Documents
+4
+d/home/alex/Documents
+	usb_copy
+6
+d/home/alex/Documents/usb_copy
+	videos
+3
+d/home/alex/Documents/usb_copy/videos
+	poker
+2
+d/home/alex/Documents/usb_copy/videos/poker
+	Poker Breakdown - Did Gus Hansen Give Johnny Chan Too Many Chips-kDs-ZKH7vb4.mp4
+1
 d
 
 # Right window history (oldest to newest):
@@ -169,6 +206,7 @@ D
 :past
 :copy &
 :jobs
+:cd
 :q
 
 # Search history (oldest to newest):
@@ -179,11 +217,23 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/alex/Music/collection/climber_tracks
+""/home/alex/.local/share/vifm/Trash/000_4_20 Uber Rides-1r8fwFp1pco.mp4
 
 # Directory stack (oldest to newest):
 
 # Trash content:
+t/home/alex/.local/share/vifm/Trash/000_Galaxy Fold - A Mistake Only Samsung Could Make-fJATz_Mu2Wg.mp4
+	/home/alex/Documents/usb_copy/videos/Galaxy Fold - A Mistake Only Samsung Could Make-fJATz_Mu2Wg.mp4
+t/home/alex/.local/share/vifm/Trash/000_He Used To Be Trans?Here?s What He Wants Everyone To Know-qlRkLtKqSrY.mp4
+	/home/alex/Documents/usb_copy/videos/He Used To Be Trans?Here?s What He Wants Everyone To Know-qlRkLtKqSrY.mp4
+t/home/alex/.local/share/vifm/Trash/000_Mutt Wizard - Command Line Email at 156% Efficiency-mPiQuWbF57M.mp4
+	/home/alex/Documents/usb_copy/videos/Mutt Wizard - Command Line Email at 156% Efficiency-mPiQuWbF57M.mp4
+t/home/alex/.local/share/vifm/Trash/000_The NETFLIX Problem-fDF-S68kx5o.mp4
+	/home/alex/Documents/usb_copy/videos/The NETFLIX Problem-fDF-S68kx5o.mp4
+t/home/alex/.local/share/vifm/Trash/000_When Is It Okay To Hit A Woman-eE3FDE9kCCQ.mp4
+	/home/alex/Documents/usb_copy/videos/When Is It Okay To Hit A Woman-eE3FDE9kCCQ.mp4
+t/home/alex/.local/share/vifm/Trash/000_4_20 Uber Rides-1r8fwFp1pco.mp4
+	/home/alex/Documents/usb_copy/videos/4_20 Uber Rides-1r8fwFp1pco.mp4
 
 # State:
 f
