@@ -18,3 +18,7 @@ echo "Taskwarior installed"
 
 
 # TODO: Add uberzug install
+
+
+# TODO: Add terminal_velocity install
+sudo pip install terminal_velocity
