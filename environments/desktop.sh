@@ -42,7 +42,7 @@ cd $old_dir
 # TODO: install image paletizer https://github.com/pureasbestos/image-palettizer (my own fork to use command line)
 # TODO: automate paletizer apply to wallpaper
 # TODO: install tools to auto hibernate and lock
-
+# TODO: install qutebrowser python scripting tools https://github.com/hiway/python-qutescript
 echo '%adm ALL = NOPASSWD: /usr/bin/light' | sudo EDITOR='tee -a' visudo
 
 echo "Desktop config done."
