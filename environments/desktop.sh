@@ -43,12 +43,13 @@ cd $old_dir
 # TODO: automate paletizer apply to wallpaper
 # TODO: install tools to auto hibernate and lock
 
-# TODO: install qutebrowser python scripting tools https://github.com/hiway/python-qutescript
-# ln -s ~/.config/perso/qutebrowser/userscripts/ ~/.local/share/qutebrowser/userscripts
+# TODO: install qutebrowser python scripting tools https://github.com/hiway/python-qutescript (useless now with virtualenv)
+ln -s ~/.config/perso/qutebrowser/userscripts/ ~/.local/share/qutebrowser/userscripts
+# Create virtualenvs for qutebrowser scripts execution
+. ~/.config/perso/qutebrowser/userscripts/virtualenvs/create_virtualenvs.sh
 
 #Tool allowing QRcode scan from webcam
 sudo apt install zbarcam
-
 
 echo '%adm ALL = NOPASSWD: /usr/bin/light' | sudo EDITOR='tee -a' visudo
 

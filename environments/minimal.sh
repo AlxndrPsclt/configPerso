@@ -44,5 +44,8 @@ sudo apt-get install --yes --force-yes openssh-server
 echo "Installing sc-im, a terminal spreadsheet editor"
 source ~/.config/perso/environements/software/sc-im.sh
 
+echo "Linking some private tool scripts"
+sudo ln -s ~/.config/perso/tool/virtualpy /usr/local/bin/
+
 echo "Done minimal environment setup."
 echo "--------------------------------"

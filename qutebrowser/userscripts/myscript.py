@@ -9,6 +9,7 @@ from shutil import copyfile
 @userscript
 def parse_youtube_url(request):
 
+
     copyfile(request.html, '/tmp/savedHTML.html')
 
     request.send_text(request.as_dict())

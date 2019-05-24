@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+	echo "No virtualenv specified"
+	exit 1
+fi
+
+if [ -z "$2" ]; then
+	echo "No script specified"
+	exit 1
+fi
+
+source `which virtualenvwrapper.sh`
+
+if [ ! -d "$WORKON_HOME/$1" ]; then
+	echo "Specified virtualenv not found in $WORKON_HOME"
+	exit 1
+fi
+
+workon $1
+python "${@:2}"
+deactivate
