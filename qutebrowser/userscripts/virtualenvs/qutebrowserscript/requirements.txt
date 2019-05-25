@@ -1,3 +1,6 @@
 appdirs==1.4.3
 micawber==0.4.0
 git+https://github.com/hiway/python-qutescript
+furl==2.0.0
+orderedmultidict==1.0
+six==1.12.0
