@@ -3,6 +3,16 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      w: session-save
+      wq: quit --save
+  auto_save.interval:
+    global: 15000
+  auto_save.session:
+    global: true
+  backend:
+    global: webengine
   bindings.commands:
     global:
       normal:
@@ -16,6 +26,14 @@ settings:
     global: 64%
   completion.shrink:
     global: false
+  editor.command:
+    global:
+    - urxvt
+    - -e
+    - vim
+    - '{}'
+  editor.encoding:
+    global: utf-8
   fonts.completion.category:
     global: bold 14pt monospace
   fonts.completion.entry:
