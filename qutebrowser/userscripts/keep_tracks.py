@@ -65,7 +65,7 @@ def parse_youtube_url(request):
 
             prompt=prompt[:cur]+'     \n'+"{:.50}".format(prompt[cur:].strip())
 
-        command_ask_rofi="rofi -dmenu -matching fuzzy -theme social -p '{} ?'".format(prompt)
+        command_ask_rofi="rofi -dmenu -matching fuzzy -columns 2 -theme social -p '{} ?'".format(prompt)
         res=subprocess.run(shlex.split(command_ask_rofi), input=all_files, encoding='utf-8', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         chosen_note=str(res.stdout).strip("\n")
         logger.info("Chosen note is %s", chosen_note)
