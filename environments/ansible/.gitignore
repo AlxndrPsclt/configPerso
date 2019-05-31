@@ -1,0 +1,7 @@
+*.swp
+playbook.retry
+brouillon.md
+
+vars/users/user_keys/
+!vars/users/user_keys/user1.example.pub
+

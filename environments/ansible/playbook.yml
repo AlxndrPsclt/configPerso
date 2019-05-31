@@ -1,0 +1,93 @@
+---
+#TODO: When the time comes, split this file in different roles
+#TODO: Create dynamic inventory using nmap to find RPIs on the network (using their mac adresses), and a redis/consul/etcd shared truth
+- hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Install package avahi from repo
+      become: yes
+      pacman:
+        name: avahi
+        state: present
+
+    - name: Install package pass from repo
+      become: yes
+      pacman:
+        name: pass
+        state: present
+
+    - meta: end_play    #Usefull for dev: ends the play right here
+
+    - name: Install virtualenv & cie using pip
+      become: yes
+      pip:
+        name: ['virtualenv', 'virtualenvwrapper']
+
+    - name: Remove dependencies that are no longer required
+      become: yes
+      apt:
+        autoremove: yes
+
+#################################
+##Creating directories structure#
+#################################
+    - name: Create multiple directory example
+      become: yes
+      file:
+        path: "{{ item.dest }}"
+        group: "{{ item.group }}"
+        mode: "{{ item.mode }}"
+        state: directory
+      with_items:
+        - { dest: '/docker', group: 'root', mode: '0755' }
+        - { dest: '/docker/src', group: 'docker', mode: '0775' }
+        - { dest: '/docker/volumes', group: 'docker', mode: '0775' }
+        - { dest: '/docker/configs', group: 'docker', mode: '0775' }
+        - { dest: '/ansible', group: 'ansible', mode: '0775' }
+
+    ##TODO: Clone dockerfiles and Docker-composes: complete template
+    # - name: Clone docker projects to run cluster services
+    #   git:
+    #     repo: ssh://git@github.com/mylogin/hello.git
+    #     dest: /docker
+
+
+
+############################
+#Syncronise time on servers#
+############################
+    # - name: Set timezone to Europe/Paris
+    #   timezone:
+    #     name: Europe/Paris
+
+    - name: Creates a link to update timezone
+      become: yes
+      file:
+        src: /usr/share/zoneinfo/Europe/Paris
+        dest: /etc/localtime
+        state: link
+
+#
+#    - meta: end_play    #Usefull for dev: ends the play right here
+
+###################################
+#Changes pi passwords for security#   #TODO: Think a little bit if this is really the appropriate place for this
+####################################
+#
+#    - name: Load pi password from a file
+#      #Passwords must be stored in the file located in vars/users/user_passwords.yml. This file contains entries for each account to create, associated to passwords hashed with sha512
+#      include_vars:
+#        file: users/pi_password.yml
+#        name: pi_password
+#
+#    - name: Change pi password
+#      become: yes
+#      user:
+#        name: pi
+#        password: "{{item.value}}"
+#      with_dict: "{{ pi_password }}"
+#
+##    If needed:
+##    - debug:
+##        var: user_passwords
