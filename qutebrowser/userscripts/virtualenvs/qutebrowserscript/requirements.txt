@@ -1,6 +1,8 @@
 appdirs==1.4.3
-micawber==0.4.0
-git+https://github.com/hiway/python-qutescript
+dbus-python==1.2.8
 furl==2.0.0
+micawber==0.4.0
+notify2==0.3.1
 orderedmultidict==1.0
+git+https://github.com/hiway/python-qutescript
 six==1.12.0

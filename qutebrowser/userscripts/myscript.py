@@ -9,8 +9,8 @@ import logging
 import subprocess
 import shlex
 import glob
-import glob
 import os
+#import notify2
 
 
 NOTES_PATH="/home/alex/Notes"
