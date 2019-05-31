@@ -78,3 +78,5 @@ alias copylast="history |tail -n2 |head -n1 | cut -d ' ' -f4- | copy"
 alias cl=copylast
 
 alias listignored="find . -type f  | git check-ignore --stdin"
+
+alias dmenu=" rofi -dmenu"
