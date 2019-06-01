@@ -1,0 +1,46 @@
+---
+# tasks file for minimal
+- name: Install packages for minimal install
+  become: yes
+  pacman:
+    name:
+      - avahi
+      - git
+      - vim
+      - pass
+    state: present
+
+- name: enable services avahi-daemon and ensure it is not masked
+  systemd:
+    name: avahi-daemon
+    state: started
+    enabled: yes
+    masked: no
+
+- name: Configs git usual name
+  git_config:
+    name: user.name
+    scope: global
+    value: 'alxndrpsclt'
+
+- name: Configs git usual email
+  git_config:
+    name: user.email
+    scope: global
+    value: 'alxndr.psclt@gmail.com'
+
+- name: Configs git editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- name: Clone personal bashconfig and other usefull configs
+  git:
+    repo: 'https://github.com/AlxndrPsclt/dotvim.git'
+    dest: /tmp/vimconfig
+
+- name: Clone personal vimconfig
+  git:
+    repo: 'https://github.com/AlxndrPsclt/dotvim.git'
+    dest: /tmp/vimconfig
