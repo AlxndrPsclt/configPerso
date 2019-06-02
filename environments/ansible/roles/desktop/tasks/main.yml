@@ -1,2 +1,14 @@
 ---
 # tasks file for desktop
+- name: Install virtualenv & cie using pip
+  become: yes
+  pip:
+    name: ['virtualenv', 'virtualenvwrapper']
+
+- name: Install packages for desktops
+  become: yes
+  pacman:
+    name:
+      - powerline-fonts
+      - awesome-terminal-fonts
+    state: present

@@ -1,10 +1,30 @@
 ---
-#TODO: When the time comes, split this file in different roles
-#TODO: Create dynamic inventory using nmap to find RPIs on the network (using their mac adresses), and a redis/consul/etcd shared truth
 - hosts: all
   gather_facts: yes
 
-  #Minimal config
-
   roles:
+    #Minimal config
     - role: minimal
+
+#    - meta: end_play    #Usefull for dev: ends the play right here
+
+###################################
+#Changes pi passwords for security#   #TODO: Think a little bit if this is really the appropriate place for this
+####################################
+#
+#    - name: Load pi password from a file
+#      #Passwords must be stored in the file located in vars/users/user_passwords.yml. This file contains entries for each account to create, associated to passwords hashed with sha512
+#      include_vars:
+#        file: users/pi_password.yml
+#        name: pi_password
+#
+#    - name: Change pi password
+#      become: yes
+#      user:
+#        name: pi
+#        password: "{{item.value}}"
+#      with_dict: "{{ pi_password }}"
+#
+##    If needed:
+##    - debug:
+##        var: user_passwords
