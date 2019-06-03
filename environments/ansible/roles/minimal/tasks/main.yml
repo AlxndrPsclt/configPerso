@@ -4,6 +4,27 @@
 
 # Installing basic tools needed for future installs
 
+
+#- name: Allow 'wheel' group to have passwordless sudo
+#  lineinfile:
+#    dest: /etc/sudoers
+#    state: present
+#    regexp: '^%wheel'
+#    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+#    validate: visudo -cf %s
+
+- name: test perso
+  yay:
+    name:
+      - byobu
+  register: res
+
+
+- debug: var=res
+
+- meta: end_play    #Usefull for dev: ends the play right here
+
+
 - name: Install packages for minimal install
   become: yes
   pacman:
@@ -35,7 +56,6 @@
 
 #- aur: name=byobu
 
-- meta: end_play    #Usefull for dev: ends the play right here
 
 
 - name: debug through ansible.env
