@@ -27,17 +27,15 @@
       - mpv
       - wmctrl
       - scrot
+      - rtorrent
       - tlp
     state: present
 
 
-
-- name: enable service redshift and ensure it is not masked
-  systemd:
-    name: redshift
-    state: started
-    enabled: yes
-    masked: no
+- name: Create qutebrowser directory if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/qutebrowser"
+    state: directory
 
 - name: Create symbolic link for qutebrowser userscripts
   become: yes
