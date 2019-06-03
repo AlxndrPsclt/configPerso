@@ -2,10 +2,6 @@
 # tasks file for minimal
 #
 
-
-
-
-
 # Installing basic tools needed for future installs
 
 - name: Install packages for minimal install
@@ -107,7 +103,6 @@
     name:
       - byobu
       - bash-git-prompt
-  register: res
 
 - name: Deactivale 'wheel' group passwordless sudo
   become: yes
@@ -128,5 +123,4 @@
 
 
   #- debug: var=res
-
   #- meta: end_play    #Usefull for dev: ends the play right here
