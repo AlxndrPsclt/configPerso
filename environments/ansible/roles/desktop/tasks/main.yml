@@ -17,10 +17,38 @@
       - pulseaudio
       - pulseaudio-alsa
       - pulseaudio-bluetooth
+      - pamixer
       - rxvt-unicode
       - powerline-fonts
       - awesome-terminal-fonts
+      - qutebrowser
+      - chromium
+      - zathura
+      - zathura-pdf-poppler
+      - conky
+      - dunst
+      - redshift
       - mpv
       - wmctrl
       - scrot
+      - tlp
     state: present
+
+
+
+- name: enable service redshift and ensure it is not masked
+  systemd:
+    name: redshift
+    state: started
+    enabled: yes
+    masked: no
+
+- name: Create symbolic link for qutebrowser userscripts
+  become: yes
+  file:
+    src: "{{ ansible_env.HOME }}/.config/perso/qutebrowser/userscripts"
+    dest: "{{ ansible_env.HOME }}/.local/share/qutebrowser/userscripts"
+    state: link
+
+
+ln -s ~/.config/perso/qutebrowser/userscripts/ ~/.local/share/qutebrowser/userscripts

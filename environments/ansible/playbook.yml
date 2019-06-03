@@ -6,4 +6,6 @@
     #Minimal config
     - role: minimal
 
+    - role: desktop
+
 #    - meta: end_play    #Usefull for dev: ends the play right here
