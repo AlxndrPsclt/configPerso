@@ -6,12 +6,14 @@
   pacman:
     name:
       - python-pip
-      - terminal_velocity
     state: present
 
 
 - name: Install virtualenv & cie using pip
   become: yes
   pip:
-    name: ['virtualenv', 'virtualenvwrapper']
+    name:
+      - virtualenv
+      - virtualenvwrapper
+      - terminal_velocity
 
