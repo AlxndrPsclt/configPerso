@@ -2,28 +2,11 @@
 # tasks file for minimal
 #
 
+
+
+
+
 # Installing basic tools needed for future installs
-
-
-#- name: Allow 'wheel' group to have passwordless sudo
-#  lineinfile:
-#    dest: /etc/sudoers
-#    state: present
-#    regexp: '^%wheel'
-#    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-#    validate: visudo -cf %s
-
-- name: test perso
-  yay:
-    name:
-      - byobu
-  register: res
-
-
-- debug: var=res
-
-- meta: end_play    #Usefull for dev: ends the play right here
-
 
 - name: Install packages for minimal install
   become: yes
@@ -32,6 +15,7 @@
       - base-devel
       - git
     state: present
+
 
 - name: Check if yay is already present
   command: pacman -Q yay
@@ -54,19 +38,17 @@
   when: is_yay_present.stdout == ""
 
 
-#- aur: name=byobu
-
-
-
-- name: debug through ansible.env
-  debug: var=ansible_env.HOME
-
 - name: Install packages for minimal install
   become: yes
   pacman:
     name:
       - avahi
       - vim
+      - htop
+      - nmap
+      - the_silver_searcher
+      - fzf
+      - vifm
     state: present
 
 - name: enable services avahi-daemon and ensure it is not masked
@@ -111,3 +93,40 @@
     repo: 'https://github.com/AlxndrPsclt/dotvim.git'
     dest: "{{ ansible_env.HOME }}/.vim"
 
+- name: Allow 'wheel' group to have passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+- name: Installing some software using yay
+  yay:
+    name:
+      - byobu
+      - bash-git-prompt
+  register: res
+
+- name: Deactivale 'wheel' group passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+- name: Create symbolic link for virtualpy tool
+  become: yes
+  file:
+    src: "{{ ansible_env.HOME }}/.config/perso/tools/virtualpy"
+    dest: "/usr/local/bin/virtualpy"
+    state: link
+
+
+
+  #- debug: var=res
+
+  #- meta: end_play    #Usefull for dev: ends the play right here

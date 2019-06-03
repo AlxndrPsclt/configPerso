@@ -9,6 +9,18 @@
   become: yes
   pacman:
     name:
+      - xorg
+      - xorg-xinit
+      - i3-gaps
+      - rvtx-unicode
+      - xclip
+      - pulseaudio
+      - pulseaudio-alsa
+      - pulseaudio-bluetooth
+      - rxvt-unicode
       - powerline-fonts
       - awesome-terminal-fonts
+      - mpv
+      - wmctrl
+      - scrot
     state: present
