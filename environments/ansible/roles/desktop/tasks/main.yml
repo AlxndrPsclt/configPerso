@@ -14,7 +14,6 @@
       - pulseaudio-alsa
       - pulseaudio-bluetooth
       - pamixer
-      - rxvt-unicode
       - powerline-fonts
       - awesome-terminal-fonts
       - qutebrowser
