@@ -31,6 +31,29 @@
     state: present
 
 
+- name: Allow 'wheel' group to have passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+- name: Installing some software using yay
+  yay:
+    name:
+      - ttf-oxygen-gf
+
+- name: Deactivale 'wheel' group passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
 
 
 

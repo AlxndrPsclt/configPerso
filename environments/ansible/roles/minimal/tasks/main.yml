@@ -50,6 +50,7 @@
       - the_silver_searcher
       - fzf
       - vifm
+      - mlocate
     state: present
 
 - name: enable services avahi-daemon and ensure it is not masked
