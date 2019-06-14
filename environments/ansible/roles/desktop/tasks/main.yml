@@ -42,3 +42,10 @@
     src: "{{ ansible_env.HOME }}/.config/perso/qutebrowser/userscripts"
     dest: "{{ ansible_env.HOME }}/.local/share/qutebrowser/userscripts"
     state: link
+
+- name: Create symbolic link for qutebrowser userscripts
+  become: yes
+  file:
+    src: "{{ ansible_env.HOME }}/.config/perso/qutebrowser/userscripts"
+    dest: "{{ ansible_env.HOME }}/.local/share/qutebrowser/userscripts"
+    state: link

@@ -4,3 +4,5 @@ all:
     vars:
       ansible_connection: ssh
       ansible_user: alex
+      HOME: "{{ hostvars['bebop.local']['ansible_env']['HOME'] }}"
+      CONFIG_PERSO: "{{ HOME }}/.config/perso"

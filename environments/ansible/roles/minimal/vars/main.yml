@@ -1,2 +1,25 @@
 ---
 # vars file for minimal
+links_to_create :
+  - { dest: '{{ HOME }}/.bashrc', src: '{{ CONFIG_PERSO }}/bash_config/bashrc' }
+    #  - { dest: '{{ HOME }}/.bash_aliases', src: '{{ CONFIG_PERSO }}/bash_config/bash_aliases' }
+    #  - { dest: '{{ HOME }}/.profile', src: '{{ CONFIG_PERSO }}/bash_config/profile' }
+    #  - { dest: '{{ HOME }}/.bash_funcs', src: '{{ CONFIG_PERSO }}/bash_config/bash_funcs' }
+    #  - { dest: '{{ HOME }}/.bash_completion', src: '{{ CONFIG_PERSO }}/bash_config/bash_completion' }
+    #  - { dest: '{{ HOME }}/.bash_logout', src: '{{ CONFIG_PERSO }}/bash_config/bash_logout' }
+    #  - { dest: '.byobu', src: '{{ CONFIG_PERSO }}/byobu/' }
+    #  - { dest: '{{ HOME }}/.Xresources', src: '{{ CONFIG_PERSO }}/urxvt/Xresources' }
+    #  - { dest: '{{ HOME }}/.urxvt', src: '{{ CONFIG_PERSO }}/urxvt' }
+    #  - { dest: '{{ HOME }}/.reload_xresource.sh', src: '{{ CONFIG_PERSO }}/urxvt/reload_xresource.sh' }
+    #  - { dest: '{{ HOME }}/.config/qutebrowser', src: '{{ CONFIG_PERSO }}/qutebrowser/' }
+    #  - { dest: '{{ HOME }}/.config/i3', src: '{{ CONFIG_PERSO }}/i3/' }
+    #  - { dest: '{{ HOME }}/.config/rofi', src: '{{ CONFIG_PERSO }}/rofi' }
+    #  - { dest: '{{ HOME }}/.config/dunstrc', src: '{{ CONFIG_PERSO }}/dunst' }
+    #  - { dest: '{{ HOME }}/.config/conky', src: '{{ CONFIG_PERSO }}/conky' }
+    #  - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
+
+#Adds completition for in terminal qrcode version of pass
+#  - { dest: '/usr/share/bash-completion/completions/qrpass', src: '{{ CONFIG_PERSO }}/pass/qrpass' }
+#
+#  - { dest: '.ssh/rc', src: '{{ CONFIG_PERSO }}/ssh/rc' }
+#  - { dest: '.ssh/', src: '{{ CONFIG_PERSO }}/ssh/change_background_color.sh' }

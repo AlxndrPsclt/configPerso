@@ -1,6 +1,45 @@
 ---
 # tasks file for minimal
 #
+- debug:
+    var: hostvars['bebop.local']['ansible_env']['HOME']
+
+- debug:
+    var: CONFIG_PERSO
+
+
+- name: Register existence of minimal config links
+  stat:
+    path: "{{ item.dest }}"
+  loop: "{{ links_to_create }}"
+  register: link_register
+
+
+- name: Remove file to create links
+  file:
+    path: "{{ item.stat.path }}"
+    state: absent
+  loop: "{{ link_register.results }}"
+  when: item.stat.islnk is defined and item.stat.islnk == False
+
+- name: Create symbolic link for virtualpy tool
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop: "{{ links_to_create }}"
+
+
+- debug:
+    var: link_register.results[0].item
+
+- meta: end_play    #Usefull for dev: ends the play right here
+
+
+  #
+  #source $CONFIG_PERSO/tools/generateBashSpecifics.sh
+
+
 
 # Installing basic tools needed for future installs
 
