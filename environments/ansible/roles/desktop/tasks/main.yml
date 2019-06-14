@@ -31,6 +31,30 @@
     state: present
 
 
+
+
+
+
+- name: Register existence of desktop config links
+  stat:
+    path: "{{ item.dest }}"
+  loop: "{{ links_to_create }}"
+  register: link_register
+
+- name: Remove desktop config file if some default exists (not links)
+  file:
+    path: "{{ item.stat.path }}"
+    state: absent
+  loop: "{{ link_register.results }}"
+  when: item.stat.islnk is defined and item.stat.islnk == False
+
+- name: Create symbolic link for desktop config tools
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop: "{{ links_to_create }}"
+
 - name: Create qutebrowser directory if it does not exist
   file:
     path: "{{ ansible_env.HOME }}/.local/share/qutebrowser"
@@ -39,13 +63,7 @@
 - name: Create symbolic link for qutebrowser userscripts
   become: yes
   file:
-    src: "{{ ansible_env.HOME }}/.config/perso/qutebrowser/userscripts"
-    dest: "{{ ansible_env.HOME }}/.local/share/qutebrowser/userscripts"
+    src: "{{ CONFIG_PERSO }}/qutebrowser/userscripts"
+    dest: "{{ HOME }}/.local/share/qutebrowser/userscripts"
     state: link
 
-- name: Create symbolic link for qutebrowser userscripts
-  become: yes
-  file:
-    src: "{{ ansible_env.HOME }}/.config/perso/qutebrowser/userscripts"
-    dest: "{{ ansible_env.HOME }}/.local/share/qutebrowser/userscripts"
-    state: link

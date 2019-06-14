@@ -1,2 +1,7 @@
 ---
 # vars file for workstation
+#
+#Adds completition for in terminal qrcode version of pass
+links_to_create :
+  - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
+  - { dest: '/usr/share/bash-completion/completions/qrpass', src: '{{ CONFIG_PERSO }}/pass/qrpass' }
