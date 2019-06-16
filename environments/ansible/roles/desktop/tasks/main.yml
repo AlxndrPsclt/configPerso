@@ -16,6 +16,7 @@
       - pamixer
       - powerline-fonts
       - awesome-terminal-fonts
+      - libnotify
       - qutebrowser
       - chromium
       - zathura
@@ -27,6 +28,7 @@
       - redshift
       - mpv
       - wmctrl
+      - xsel
       - scrot
       - rtorrent
       - tlp
@@ -46,6 +48,7 @@
   yay:
     name:
       - ttf-oxygen-gf
+      - i3lock-fancy-git
 
 - name: Deactivale 'wheel' group passwordless sudo
   become: yes
