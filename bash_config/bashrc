@@ -125,7 +125,7 @@ if [ -f ~/.bash_specifics ]; then
 fi
 
 
-. /usr/local/bin/virtualenvwrapper.sh
+. /usr/bin/virtualenvwrapper.sh
 
 #Git prompt
 GIT_PROMPT_ONLY_IN_REPO=1
