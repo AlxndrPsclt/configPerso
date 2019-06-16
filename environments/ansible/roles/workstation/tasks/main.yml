@@ -49,6 +49,8 @@
     repo: 'https://github.com/AlxndrPsclt/configPerso.git'
     dest: "{{ HOME }}/.config/perso"
 
+  #source $CONFIG_PERSO/tools/generateBashSpecifics.sh
+
 - name: Clone personal vimconfig
   git:
     repo: 'https://github.com/AlxndrPsclt/dotvim.git'

@@ -3,10 +3,6 @@
 #
 
 
-  #source $CONFIG_PERSO/tools/generateBashSpecifics.sh
-
-
-
 # Installing basic tools needed for future installs
 
 - name: Install packages for minimal install
