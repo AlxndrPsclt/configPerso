@@ -44,13 +44,6 @@
   pacman:
     name:
       - avahi
-      - vim
-      - htop
-      - nmap
-      - the_silver_searcher
-      - fzf
-      - vifm
-      - mlocate
     state: present
 
 - name: enable services avahi-daemon and ensure it is not masked
@@ -66,87 +59,6 @@
     state: started
     enabled: yes
     masked: no
-
-- name: Configs git usual name
-  git_config:
-    name: user.name
-    scope: global
-    value: 'alxndrpsclt'
-
-- name: Configs git usual email
-  git_config:
-    name: user.email
-    scope: global
-    value: 'alxndr.psclt@gmail.com'
-
-- name: Configs git editor
-  git_config:
-    name: core.editor
-    scope: global
-    value: vim
-
-- name: Clone personal bashconfig and other usefull configs
-  git:
-    repo: 'https://github.com/AlxndrPsclt/configPerso.git'
-    dest: "{{ HOME }}/.config/perso"
-
-- name: Clone personal vimconfig
-  git:
-    repo: 'https://github.com/AlxndrPsclt/dotvim.git'
-    dest: "{{ HOME }}/.vim"
-
-- name: Allow 'wheel' group to have passwordless sudo
-  become: yes
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
-    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-    validate: visudo -cf %s
-
-- name: Installing some software using yay
-  yay:
-    name:
-      - byobu
-      - bash-git-prompt
-
-- name: Deactivale 'wheel' group passwordless sudo
-  become: yes
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
-    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
-    validate: visudo -cf %s
-
-- name: Create symbolic link for virtualpy tool
-  become: yes
-  file:
-    src: "{{ ansible_env.HOME }}/.config/perso/tools/virtualpy"
-    dest: "/usr/local/bin/virtualpy"
-    state: link
-
-
-
-- name: Register existence of minimal config links
-  stat:
-    path: "{{ item.dest }}"
-  loop: "{{ links_to_create }}"
-  register: link_register
-
-- name: Remove file to create links
-  file:
-    path: "{{ item.stat.path }}"
-    state: absent
-  loop: "{{ link_register.results }}"
-  when: item.stat.islnk is defined and item.stat.islnk == False
-
-- name: Create symbolic link for minimal tool
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
-  loop: "{{ links_to_create }}"
 
 
   #- debug: var=res

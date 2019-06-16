@@ -1,13 +1,6 @@
 ---
 # vars file for minimal
-links_to_create :
-  - { dest: '{{ HOME }}/.bashrc', src: '{{ CONFIG_PERSO }}/bash_config/bashrc' }
-  - { dest: '{{ HOME }}/.bash_aliases', src: '{{ CONFIG_PERSO }}/bash_config/bash_aliases' }
-  - { dest: '{{ HOME }}/.profile', src: '{{ CONFIG_PERSO }}/bash_config/profile' }
-  - { dest: '{{ HOME }}/.bash_funcs', src: '{{ CONFIG_PERSO }}/bash_config/bash_funcs' }
-  - { dest: '{{ HOME }}/.bash_completion', src: '{{ CONFIG_PERSO }}/bash_config/bash_completion' }
-  - { dest: '{{ HOME }}/.bash_logout', src: '{{ CONFIG_PERSO }}/bash_config/bash_logout' }
-  - { dest: '{{ HOME }}/.byobu', src: '{{ CONFIG_PERSO }}/byobu' }
+#links_to_create :
 
 #
 #  - { dest: '.ssh/rc', src: '{{ CONFIG_PERSO }}/ssh/rc' }

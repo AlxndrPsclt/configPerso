@@ -1,13 +1,39 @@
 ---
 # tasks file for workstation
 
+- name: Configs git usual name
+  git_config:
+    name: user.name
+    scope: global
+    value: 'alxndrpsclt'
+
+- name: Configs git usual email
+  git_config:
+    name: user.email
+    scope: global
+    value: 'alxndr.psclt@gmail.com'
+
+- name: Configs git editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+
 - name: Install packages for workstation
   become: yes
   pacman:
     name:
       - python-pip
+      - vim
+      - htop
+      - nmap
+      - the_silver_searcher
+      - fzf
+      - vifm
+      - mlocate
+      - strace
     state: present
-
 
 - name: Install virtualenv & cie using pip
   become: yes
@@ -16,6 +42,23 @@
       - virtualenv
       - virtualenvwrapper
       - terminal_velocity
+
+
+- name: Clone personal bashconfig and other usefull configs
+  git:
+    repo: 'https://github.com/AlxndrPsclt/configPerso.git'
+    dest: "{{ HOME }}/.config/perso"
+
+- name: Clone personal vimconfig
+  git:
+    repo: 'https://github.com/AlxndrPsclt/dotvim.git'
+    dest: "{{ HOME }}/.vim"
+
+- name: Clone Vundle for vim plugins
+  git:
+    repo: 'https://github.com/VundleVim/Vundle.vim.git'
+    dest: "{{ HOME }}/.vim/bundle/Vundle.vim"
+
 
 - name: Register existence of workstation config links
   stat:
@@ -35,6 +78,54 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     state: link
-  become: true
   loop: "{{ links_to_create }}"
+
+- name: Register existence of workstation config links needing sudo
+  stat:
+    path: "{{ item.dest }}"
+  loop: "{{ links_to_create_sudo }}"
+  register: link_register_sudo
+
+- name: Remove file to create links (sudo)
+  file:
+    path: "{{ item.stat.path }}"
+    state: absent
+  loop: "{{ link_register_sudo.results }}"
+  when: item.stat.islnk is defined and item.stat.islnk == False
+
+- name: Create symbolic link for workstation tools needing sudo
+  become: true
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop: "{{ links_to_create_sudo }}"
+
+
+
+- name: Allow 'wheel' group to have passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+- name: Installing some software using yay
+  yay:
+    name:
+      - byobu
+      - bash-git-prompt
+
+- name: Deactivale 'wheel' group passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+
 

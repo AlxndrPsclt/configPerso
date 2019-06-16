@@ -20,6 +20,7 @@
       - chromium
       - zathura
       - zathura-pdf-poppler
+      - rofi
       - conky
       - dunst
       - redshift
