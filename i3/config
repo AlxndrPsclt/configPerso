@@ -40,12 +40,6 @@ bindsym $mod+n exec urxvt -e vifm
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -170,8 +164,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+p exec firefox https://nitrogensports.eu/poker/play
-
 bindsym $mod+y exec notify-send yo
 
 set $bg-color 	         #2f343f
@@ -189,7 +181,6 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
 
 
-#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Oxygen Mono Display 18"
 bindsym $mod+d exec rofi -show run -theme launcher
 bindsym $mod+w exec rofi -show window -theme window_switcher
 bindsym $mod+s exec ~/.config/perso/rofi/scripts/social.sh
@@ -252,7 +243,8 @@ bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window i
 bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'; notify-send 'Screenshot of selected zone taken.'"
 
 # exec urxvt -e byobu
-exec --no-startup-id "/usr/local/bin/conky -c ~/.config/perso/conky/conky.conf"
+exec --no-startup-id "/usr/bin/redshift"
+exec --no-startup-id "/usr/bin/conky -c ~/.config/perso/conky/conky.conf"
 exec --no-startup-id i3-msg 'workspace $WS2; exec urxvt -e byobu'
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
