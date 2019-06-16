@@ -21,6 +21,7 @@
       - zathura
       - zathura-pdf-poppler
       - rofi
+      - compton
       - conky
       - dunst
       - redshift
