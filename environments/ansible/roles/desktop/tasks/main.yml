@@ -27,6 +27,7 @@
       - dunst
       - redshift
       - mpv
+      - pass
       - wmctrl
       - xsel
       - scrot
@@ -95,3 +96,12 @@
     dest: "{{ HOME }}/.local/share/qutebrowser/userscripts"
     state: link
 
+
+
+# Clones private repos (passwords and stuff)
+- include_vars: credentials.yml
+
+- name: Clone personal password vault
+  git:
+    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/password-store.git"
+    dest: "{{ HOME }}/.password-store"

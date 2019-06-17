@@ -2,7 +2,6 @@
 # tasks file for minimal
 #
 
-
 # Installing basic tools needed for future installs
 
 - name: Install packages for minimal install
