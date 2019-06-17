@@ -14,7 +14,6 @@
       - pulseaudio-alsa
       - pulseaudio-bluetooth
       - pamixer
-      - powerline-fonts
       - awesome-terminal-fonts
       - libnotify
       - qutebrowser
@@ -49,6 +48,7 @@
   yay:
     name:
       - ttf-oxygen-gf
+      - powerline-fonts-git
       - i3lock-fancy-git
 
 - name: Deactivale 'wheel' group passwordless sudo
@@ -105,3 +105,8 @@
   git:
     repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/password-store.git"
     dest: "{{ HOME }}/.password-store"
+
+- name: Clone personal music diggings notes
+  git:
+    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/music-diggings.git"
+    dest: "{{ HOME }}/Notes"
