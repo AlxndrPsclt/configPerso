@@ -110,3 +110,8 @@
   git:
     repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/music-diggings.git"
     dest: "{{ HOME }}/Notes"
+
+- name: Clone personal wallpapers folder
+  git:
+    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
+    dest: "{{ HOME }}/Pictures/wallpapers"
