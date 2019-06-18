@@ -1,6 +1,8 @@
 ! To change the fonts you can view the listing of available powerline fonts with:
 ! fc-list | grep -i powerline
 !
+!
+!URxvt
 ! URxvt.font: xft:Meslo LG L DZ for Powerline:style=Regular:size=12
 URxvt.font: xft:Cousine for Powerline:style=Regular:size=16, xft:FontAwesome:size=16, xft:Hack:style=Regular:size=16
 ! URxvt.font: xft:Meslo LG M for Powerline:style=Regular:size=12
@@ -8,6 +10,15 @@ URxvt.font: xft:Cousine for Powerline:style=Regular:size=16, xft:FontAwesome:siz
 URxvt.scrollBar: false
 
 !URxvt.internalBorder:  20
+
+!ST
+!! Transparency (0-1):
+st.alpha: 0.92
+
+!! Set a default font and font size as below:
+
+!st.font: Monospace-11;
+st.font: Cousine for Powerline-18
 
 
 

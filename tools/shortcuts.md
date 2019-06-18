@@ -11,10 +11,20 @@
 
   - Autocomplete le snippet Emmet
       `<C-y\> ,`
+  - NeerdtreeToggle
+      `<Leader> f`
+  - Mundotoggle
+      `<Leader> f`
+  - Move between splits
+      `SIMPLE ARROWS!!`
+  - Move between splits
+      `SIMPLE ARROWS!!`
 
 #Tmux
 
   - Splits window vrtically
+      `<C-F2\> % (Carefull on the function key)
       `<C-a\> % (=5 on azerty)`
   - Splits window horizontaly
+      `<S-F4\> % (Carefull on the function key)
       `<C-a\> | (=* on azerty)`

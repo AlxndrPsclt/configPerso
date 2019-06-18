@@ -33,7 +33,8 @@ font pango: Cousine for Powerline:style=Regular 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
+bindsym $mod+o exec urxvt
 bindsym $mod+i exec qutebrowser
 bindsym $mod+n exec urxvt -e vifm
 
@@ -253,6 +254,7 @@ exec --no-startup-id i3-msg 'workspace $WS2; exec urxvt -e byobu'
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/244436.jpg
 #exec_always feh --bg-scale file:///home/alex/Pictures/wallpapers/nord_pixel_sorting-glitch_art-aurorae.jpg
 exec_always feh --bg-scale file:///home/alex/Pictures/wallpapers/current_wallpaper
+
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 
 exec --no-startup-id dunst
