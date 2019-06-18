@@ -27,6 +27,8 @@ alias editbash='vim -p ~/.config/perso/bash_config/bashrc ~/.config/perso/bash_c
 
 alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/rofi/social.rasi ~/.config/perso/dunst/dunstrc'
 
+alias editansible='vim -p ~/.config/perso/environments/ansible/roles/minimal/tasks/main.yml ~/.config/perso/environments/ansible/roles/workstation/tasks/main.yml ~/.config/perso/environments/ansible/roles/desktop/tasks/main.yml ~/.config/perso/environments/ansible/roles/minimal/vars/main.yml ~/.config/perso/environments/ansible/roles/workstation/vars/main.yml ~/.config/perso/environments/ansible/roles/desktop/vars/main.yml'
+
 
 #TODO: install to browser
 alias torb='~/Documents/Apps/Security/tor-browser_en-US/start-tor-browser'
