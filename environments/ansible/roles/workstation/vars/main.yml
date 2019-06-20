@@ -1,7 +1,5 @@
 ---
 # vars file for workstation
-#
-#Adds completition for in terminal qrcode version of pass
 links_to_create :
   - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
   - { dest: '{{ HOME }}/.bashrc', src: '{{ CONFIG_PERSO }}/bash_config/bashrc' }

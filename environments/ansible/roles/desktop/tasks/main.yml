@@ -50,6 +50,7 @@
       - ttf-oxygen-gf
       - powerline-fonts-git
       - i3lock-fancy-git
+      - st-luke-git
 
 - name: Deactivale 'wheel' group passwordless sudo
   become: yes

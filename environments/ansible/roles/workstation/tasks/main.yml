@@ -1,6 +1,8 @@
 ---
 # tasks file for workstation
 
+- debug: var=links_to_create
+
 - name: Configs git usual name
   git_config:
     name: user.name
