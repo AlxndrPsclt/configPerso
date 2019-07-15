@@ -227,8 +227,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id /home/alex/.config/perso/pulse
 bindsym XF86AudioLowerVolume exec --no-startup-id /home/alex/.config/perso/pulseaudio/change-vol.sh -
 bindsym XF86AudioMute exec --no-startup-id /home/alex/.config/perso/pulseaudio/change-vol.sh 0
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec sudo light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec sudo light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec sudo light -U 1 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -246,7 +246,7 @@ bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/$(date --iso-86
 # exec urxvt -e byobu
 exec --no-startup-id "/usr/bin/redshift"
 exec --no-startup-id "/usr/bin/conky -c ~/.config/perso/conky/conky.conf"
-exec --no-startup-id i3-msg 'workspace $WS2; exec urxvt -e byobu'
+exec --no-startup-id i3-msg 'workspace $WS2; exec st -e byobu'
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always feh --bg-scale /home/alex/Pictures/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg

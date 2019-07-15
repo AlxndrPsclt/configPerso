@@ -24,6 +24,15 @@ function marks {
 function sj {
     jump $(ls ~/.marks | fzf)
 }
+function media {
+    cd /media/$(ls /media | fzf)
+}
+function er {
+    $EDITOR $(ls -u | fzf)
+}
+function scd {
+    cd $(ls -d */ | fzf)
+}
 
 
 
@@ -79,6 +88,14 @@ qrpass() {
 
 vimo() {
 	$EDITOR "$(fzf --border --height=25)"
+}
+
+fzf_mount() {
+	sudo mount `ls /dev/sd* | fzf` /media/alex/`ls /media/alex/ | fzf`
+}
+
+fzf_umount() {
+	sudo umount /media/alex/`ls /media/alex/ | fzf`
 }
 
 paste2file() {
