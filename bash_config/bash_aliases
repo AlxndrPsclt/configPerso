@@ -23,7 +23,7 @@ alias d='du -sh *'
 alias cdvim='cd ~/.vim'
 alias editvim='vim ~/.vim/vimrc'
 alias editbyobu='vim -p ~/.byobu/color.tmux ~/.byobu/blue.tmuxtheme ~/.byobu/datetime.tmux ~/.byobu/profile.tmux ~/.byobu/keybindings.tmux ~/.byobu/.tmux.conf'
-alias editbash='vim -p ~/.config/perso/bash_config/bashrc ~/.config/perso/bash_config/bash_aliases ~/.config/perso/bash_config/bash_funcs ~/.config/perso/bash_config/bash_specifics ~/.config/perso/bash_config/bash_vars ~/.config/perso/bash_config/profile ~/.config/perso/bash_config/bash_completion'
+alias editbash='vim -p $F_CONFIG_BASH/bashrc $F_CONFIG_BASH/bash_aliases $F_CONFIG_BASH/bash_funcs $F_CONFIG_BASH/bash_specifics $F_CONFIG_BASH/bash_vars $F_CONFIG_BASH/profile $F_CONFIG_BASH/bash_completion $F_CONFIG_BASH/bash_paths'
 
 alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/rofi/social.rasi ~/.config/perso/dunst/dunstrc'
 
