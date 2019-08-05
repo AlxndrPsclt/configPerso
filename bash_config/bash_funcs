@@ -27,7 +27,7 @@ function sj {
 function media {
     cd /media/$(ls /media | fzf)
 }
-function er {
+function svim {
     $EDITOR $(ls -u | fzf)
 }
 function scd {
@@ -90,11 +90,11 @@ vimo() {
 	$EDITOR "$(fzf --border --height=25)"
 }
 
-fzf_mount() {
+smount() {
 	sudo mount `ls /dev/sd* | fzf` /media/alex/`ls /media/alex/ | fzf`
 }
 
-fzf_umount() {
+sumount() {
 	sudo umount /media/alex/`ls /media/alex/ | fzf`
 }
 

@@ -10,12 +10,15 @@ sc https://soundcloud.com/discover
 gm https://mail.google.com/mail/u/0/#inbox
 gdrive https://drive.google.com/drive/my-drive
 dr recordevice https://drive.google.com/drive/folders/1WNTjltFxVqQ4KjYXLW1FxlrbVrP0afd9
+flowdrive https://drive.google.com/drive/folders/1RpfV7DyV91RD_D6NgO13grcnzodnuglq
+flowchat https://riot.flowcashless.network/
 fpts https://www.facebook.com/groups/faisPeterTonOnss/
 deepspace https://www.facebook.com/groups/deepspacedreams/
 mes https://www.messenger.com/t/
 mes gaynor https://www.messenger.com/t/gaynor.duprat
 mes art https://www.messenger.com/t/artex.elmanjeurdepasteks
 mes sam https://www.messenger.com/t/samir.abarghaz
+mes yas https://www.messenger.com/t/Rougui.Y
 mes geof https://www.messenger.com/t/geo.amiot
 mes matthieu https://www.messenger.com/t/matthieutache
 play hatelab https://www.youtube.com/playlist?playnext=1&list=UULXM6lFu1s7MjInzUk5bfNA&index=1
@@ -34,3 +37,4 @@ ytmyhistory https://www.youtube.com/feed/history
 outlook https://outlook.office365.com/mail/compose
 freewifi https://wifi.free.fr
 supercollider search archive https://www.listarc.bham.ac.uk/lists/sc-users/search/
+aws https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#Instances:sort=instanceId
