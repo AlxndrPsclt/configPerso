@@ -65,6 +65,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Shift+s move workspace to output right
+
 bindsym $mod+Tab exec i3-msg workspace next_on_output
 bindsym $mod+shift+Tab exec i3-msg workspace prev_on_output
 
@@ -260,3 +262,4 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id dunst
 
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
+
