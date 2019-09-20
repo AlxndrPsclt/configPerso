@@ -187,6 +187,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bindsym $mod+d exec rofi -show run -theme launcher
 bindsym $mod+w exec rofi -show window -theme window_switcher
 bindsym $mod+s exec ~/.config/perso/rofi/scripts/social.sh
+bindsym $mod+p exec ~/.config/perso/tools/rpass
 
 
 #Assigns some windows to specific workspaces or specific display type
