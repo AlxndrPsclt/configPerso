@@ -1,8 +1,8 @@
-export F_DOCUMENTS=`xdg-user-dir DOCUMENTS`
-export F_MUSIC=`xdg-user-dir MUSIC`
-export F_DOWNLOADS=`xdg-user-dir DOWNLOADS`
-export F_PICTURES=`xdg-user-dir PICTURES`
-export F_VIDEOS=`xdg-user-dir VIDEOS`
+export F_DOCUMENTS=$HOME/Documents/
+export F_MUSIC=$HOME/Music/
+export F_DOWNLOADS=$HOME/Downloads/
+export F_PICTURES=$HOME/Pictures/
+export F_VIDEOS=$HOME/Videos/
 export F_SYNC=$HOME/Sync/
 export F_KEYS=$HOME/.ssh/keys/
 export F_NOTES=$HOME/Notes/

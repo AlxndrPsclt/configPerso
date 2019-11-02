@@ -91,11 +91,11 @@ vimo() {
 }
 
 smount() {
-	sudo mount `ls /dev/sd* | fzf` /media/alex/`ls /media/alex/ | fzf`
+	sudo mount `ls /dev/sd* | fzf` /mnt/`ls /mnt/ | fzf`
 }
 
 sumount() {
-	sudo umount /media/alex/`ls /media/alex/ | fzf`
+	sudo umount /mnt/`ls /mnt/ | fzf`
 }
 
 paste2file() {
