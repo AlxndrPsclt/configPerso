@@ -1,8 +1,8 @@
 all:
     hosts:
-      bebop.local
+      192.168.1.42
     vars:
       ansible_connection: ssh
       ansible_user: alex
-      HOME: "{{ hostvars['bebop.local']['ansible_env']['HOME'] }}"
+      HOME: "{{ hostvars['192.168.1.42']['ansible_env']['HOME'] }}"
       CONFIG_PERSO: "{{ HOME }}/.config/perso"
