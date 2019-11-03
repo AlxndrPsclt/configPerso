@@ -41,12 +41,12 @@
       - avahi
     state: present
 
-- name: enable services avahi-daemon and ensure it is not masked
-  systemd:
-    name: avahi-daemon
-    state: started
-    enabled: yes
-    masked: no
+    #- name: enable services avahi-daemon and ensure it is not masked
+    #  systemd:
+    #    name: avahi-daemon
+    #    state: started
+    #    enabled: yes
+    #    masked: no
 
 - name: enable services sshd and ensure it is not masked
   systemd:
