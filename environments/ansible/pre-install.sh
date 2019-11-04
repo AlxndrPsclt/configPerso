@@ -10,3 +10,4 @@ swapon /dev/sda2
 pacstrap /mnt base base-devel linux linux-firmware vim python NetworkManager openssh git
 genfstab -U /mnt > /mnt/etc/fstab.conf
 arch-chroot /mnt
+## Add line to enable multilib
