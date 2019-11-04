@@ -32,7 +32,7 @@ indicate_hidden = yes
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
-alignment = center
+alignment = right
 
 # The frequency with wich text that is longer than the notification
 # window allows bounces back and forth.
@@ -115,7 +115,7 @@ show_indicators = no
 # The height of a single line.  If the height is smaller than the
 # font height, it will get raised to the font height.
 # This adds empty space above and under the text.
-line_height = 28
+line_height = 58
 
 # Draw a line of "separatpr_height" pixel height between two
 # notifications.

@@ -35,6 +35,7 @@
       - feh
     state: present
 
+##Add nixshell install
 
 - name: Allow 'wheel' group to have passwordless sudo
   become: yes
