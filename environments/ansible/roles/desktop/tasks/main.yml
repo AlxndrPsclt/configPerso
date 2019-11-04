@@ -51,6 +51,14 @@
       - powerline-fonts-git
       - i3lock-fancy-git
       - st-luke-git
+      - ly-git
+
+- name: enable service ly
+  systemd:
+    name: ly
+    state: started
+    enabled: yes
+    masked: no
 
 - name: Deactivale 'wheel' group passwordless sudo
   become: yes

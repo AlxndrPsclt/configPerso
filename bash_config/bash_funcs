@@ -28,7 +28,7 @@ function media {
     cd /media/$(ls /media | fzf)
 }
 function svim {
-    $EDITOR $(ls -u | fzf)
+    $EDITOR $(find . -type f | fzf)
 }
 function scd {
     cd $(ls -d */ | fzf)
