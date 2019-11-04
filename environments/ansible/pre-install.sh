@@ -11,3 +11,5 @@ pacstrap /mnt base base-devel linux linux-firmware vim python NetworkManager ope
 genfstab -U /mnt > /mnt/etc/fstab.conf
 arch-chroot /mnt
 ## Add line to enable multilib
+## Add line to set locales
+## Add line to set hwclock
