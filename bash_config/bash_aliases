@@ -8,6 +8,7 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 alias llast='ls -Artls | tail -n1'
+alias lll='ls -Ahrtls | tail -n5'
 
 
 alias ..='cd ..'

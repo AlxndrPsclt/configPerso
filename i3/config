@@ -65,6 +65,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Shift+s move workspace to output right
+
 bindsym $mod+Tab exec i3-msg workspace next_on_output
 bindsym $mod+shift+Tab exec i3-msg workspace prev_on_output
 
@@ -185,6 +187,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bindsym $mod+d exec rofi -show run -theme launcher
 bindsym $mod+w exec rofi -show window -theme window_switcher
 bindsym $mod+s exec ~/.config/perso/rofi/scripts/social.sh
+bindsym $mod+p exec ~/.config/perso/tools/rpass
 
 
 #Assigns some windows to specific workspaces or specific display type
@@ -257,6 +260,7 @@ exec_always feh --bg-scale file:///home/alex/Pictures/wallpapers/current_wallpap
 
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 
-exec --no-startup-id dunst
+exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc
 
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
+

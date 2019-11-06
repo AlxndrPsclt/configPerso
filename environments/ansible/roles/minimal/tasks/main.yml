@@ -34,27 +34,33 @@
   when: is_yay_present.stdout == ""
 
 
+  #http://brainxploit.com/2019/03/27/how-to-set-up-avahi-on-arch-linux/
 - name: Install packages for minimal install
   become: yes
   pacman:
     name:
       - avahi
+      - nss-mdns
+      - gtk3
+      - python-dbus
+      - python-gobject
     state: present
 
+- name: Set to resolve MDNS names
+  become: yes
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    state: present
+    regexp: '^hosts: files mymachines myhostname resolve \[\!UNAVAIL=return\] dns'
+    line: 'hosts: files mymachines myhostname mdns4_minimal \[NOTFOUND=return\] resolve \[\!UNAVAIL=return\] dns'
+
 - name: enable services avahi-daemon and ensure it is not masked
+  become: yes
   systemd:
     name: avahi-daemon
     state: started
     enabled: yes
     masked: no
-
-- name: enable services sshd and ensure it is not masked
-  systemd:
-    name: sshd
-    state: started
-    enabled: yes
-    masked: no
-
 
   #- debug: var=res
   #- meta: end_play    #Usefull for dev: ends the play right here

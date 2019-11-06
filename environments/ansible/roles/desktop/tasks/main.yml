@@ -32,8 +32,10 @@
       - scrot
       - rtorrent
       - tlp
+      - feh
     state: present
 
+##Add nixshell install
 
 - name: Allow 'wheel' group to have passwordless sudo
   become: yes
@@ -51,6 +53,14 @@
       - powerline-fonts-git
       - i3lock-fancy-git
       - st-luke-git
+      - ly-git
+
+- name: enable service ly
+  systemd:
+    name: ly
+    state: started
+    enabled: yes
+    masked: no
 
 - name: Deactivale 'wheel' group passwordless sudo
   become: yes

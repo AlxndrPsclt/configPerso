@@ -1,0 +1,2 @@
+#!/bin/bash
+pass -c $(find $HOME/.password-store/ -name *.gpg | sed "s|$HOME/.password-store/||" | sed "s/\.gpg$//" | rofi -dmenu -theme social -p "Which password do you need ?")
