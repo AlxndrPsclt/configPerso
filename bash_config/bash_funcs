@@ -24,14 +24,11 @@ function marks {
 function sj {
     jump $(ls ~/.marks | fzf)
 }
-function media {
-    cd /media/$(ls /media | fzf)
-}
 function svim {
     $EDITOR $(find . -type f | fzf)
 }
 function scd {
-    cd $(ls -d */ | fzf)
+    cd $(find . -type d | fzf)
 }
 
 

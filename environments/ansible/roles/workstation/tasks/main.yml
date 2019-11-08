@@ -35,6 +35,7 @@
       - vifm
       - mlocate
       - strace
+      - qrencore
     state: present
 
 - name: Install virtualenv & cie using pip

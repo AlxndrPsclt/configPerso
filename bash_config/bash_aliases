@@ -1,7 +1,5 @@
 shopt -s expand_aliases
 
-alias search="apt-cache search"
-
 # some more ls aliases
 alias ls='ls --color=auto'
 alias ll='ls -alhF'
