@@ -33,6 +33,7 @@
       - rtorrent
       - tlp
       - feh
+      - light
     state: present
 
 ##Add nixshell install
