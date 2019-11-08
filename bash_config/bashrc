@@ -111,6 +111,11 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+[ /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+[ /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
+
+
+
 [ -r /home/alex/.byobu/prompt ] && . /home/alex/.byobu/prompt   #byobu-prompt#
 
 
