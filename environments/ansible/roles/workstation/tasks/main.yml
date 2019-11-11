@@ -45,6 +45,7 @@
       - virtualenv
       - virtualenvwrapper
       - terminal_velocity
+      - youtube-dl
 
 
 - name: Clone personal bashconfig and other usefull configs
