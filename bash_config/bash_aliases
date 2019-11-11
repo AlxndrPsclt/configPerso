@@ -64,6 +64,14 @@ alias gitpl='git pull'
 alias gitp='git push'
 alias gitswitch='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
 
+#Task aliases
+alias taska='task add'
+alias taskm='task modify'
+
+alias taskaf='task add project:flow'
+
+
+
 #Docker aliases
 alias dcu='docker-compose -f *-compose.yml up'
 alias dps='docker ps'

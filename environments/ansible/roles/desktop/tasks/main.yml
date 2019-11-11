@@ -56,6 +56,7 @@
       - i3lock-fancy-git
       - st-luke-git
       - ly-git
+      - vit
 
 - name: enable service ly
   systemd:
