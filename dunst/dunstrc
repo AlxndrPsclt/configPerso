@@ -107,7 +107,7 @@ follow = none
 sticky_history = yes
 
 # Maximum amount of notifications kept in history
-history_length = 15
+history_length = 10
 
 # Display indicators for URLs (U) and actions (A).
 show_indicators = no
@@ -115,7 +115,7 @@ show_indicators = no
 # The height of a single line.  If the height is smaller than the
 # font height, it will get raised to the font height.
 # This adds empty space above and under the text.
-line_height = 58
+line_height = 100
 
 # Draw a line of "separatpr_height" pixel height between two
 # notifications.
@@ -154,8 +154,8 @@ max_icon_size = 80
 # Paths to default icons.
 icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
-frame_width = 8
-frame_color = "#8EC07C"
+frame_width = 2
+frame_color = "#651731"
 
 [shortcuts]
 
@@ -181,23 +181,23 @@ context = ctrl+shift+period
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#3B7C87"
+frame_color = "#665fb3"
 foreground = "#3B7C87"
-background = "#191311"
+background = "#651731"
 #background = "#2B313C"
 timeout = 4
 
 [urgency_normal]
 frame_color = "#5B8234"
-foreground = "#5B8234"
-background = "#191311"
+foreground = "#651731"
+background = "#651731"
 #background = "#2B313C"
 timeout = 6
 
 [urgency_critical]
 frame_color = "#B7472A"
 foreground = "#B7472A"
-background = "#191311"
+background = "#651731"
 #background = "#2B313C"
 timeout = 8
 
