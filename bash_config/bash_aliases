@@ -69,7 +69,12 @@ alias taska='task add'
 alias taskm='task modify'
 
 alias taskaf='task add project:flow'
+alias taskafl='task add project:flow priority:L'
+alias taskafm='task add project:flow priority:M'
+alias taskafh='task add project:flow priority:H'
 
+
+alias vitf='vit project:flow'
 
 
 #Docker aliases

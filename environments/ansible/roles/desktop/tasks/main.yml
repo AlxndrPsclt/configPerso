@@ -132,3 +132,9 @@
   git:
     repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
     dest: "{{ HOME }}/Pictures/wallpapers"
+
+- name: Clone personal tasklist
+  git:
+    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/tasks.git"
+    dest: "{{ HOME }}/.task"
+
