@@ -143,12 +143,28 @@ screenrec() {
   notify-send "Starting screen recording to file: $output_filename"
 	ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
   notify-send "Screenrecording to $output_filename stopped"
-	read -p  "Screen recording to $output_filename stopped, do you want to keep it? (y/n) " choice
-	case "$choice" in 
-		y|Y ) echo "Saved screencast to $output_filename";;
-		n|N ) rm $output_filename; echo "Nothing saved";;
-		* ) echo "invalid";;
-	esac
+
+	while true; do
+		read -p  "Screen recording to $output_filename stopped, do you want to keep it? (y/n) " choice
+		case "$choice" in 
+			y|Y ) echo "Saved screencast to $output_filename"; break;;
+			n|N ) rm $output_filename; echo "Nothing saved"; return 1;;
+			* ) echo "invalid";;
+		esac
+	done
+
+  read -e -i "$output_filename" -p "Do you want to rename it? " new_name
+	if [[ -z "$new_name" ]];
+	then
+    echo "Done"
+  else
+    if [[ "$new_name" != "$output_filename" ]];
+      then
+				mv $output_filename $new_name
+				echo "Renamed to $new_name"
+		fi
+		echo "Done"
+  fi
 }
 
 rlk () {

@@ -35,6 +35,7 @@
       - feh
       - light
       - task
+      - ffmpeg
     state: present
 
 ##Add nixshell install
@@ -113,6 +114,11 @@
 - name: Create virtualenvs required for qutebrowser userscripts
   command: ~/.config/perso/qutebrowser/userscripts/virtualenvs/create_virtualenvs.sh
 
+
+- name: Create screencasting directory if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/Videos/screencapture"
+    state: directory
 
 
 # Clones private repos (passwords and stuff)
