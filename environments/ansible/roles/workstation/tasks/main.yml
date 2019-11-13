@@ -36,6 +36,7 @@
       - mlocate
       - strace
       - qrencore
+      - youtube-dl
     state: present
 
 - name: Install virtualenv & cie using pip
@@ -45,7 +46,6 @@
       - virtualenv
       - virtualenvwrapper
       - terminal_velocity
-      - youtube-dl
 
 
 - name: Clone personal bashconfig and other usefull configs

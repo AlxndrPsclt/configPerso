@@ -13,7 +13,7 @@ URxvt.scrollBar: false
 
 !ST
 !! Transparency (0-1):
-st.alpha: 0.92
+st.alpha: 1
 
 !! Set a default font and font size as below:
 
