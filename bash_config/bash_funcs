@@ -137,3 +137,27 @@ paste2file() {
 vimall() {
 	ag . -l | xargs bash -c '</dev/tty vim -p "$@"' ignoreme
 }
+
+screenrec() {
+  output_filename="/home/alex/Videos/screencapture/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
+  notify-send "Starting screen recording to file: $output_filename"
+	ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
+  notify-send "Screenrecording to $output_filename stopped"
+	read -p  "Screen recording to $output_filename stopped, do you want to keep it? (y/n) " choice
+	case "$choice" in 
+		y|Y ) echo "Saved screencast to $output_filename";;
+		n|N ) rm $output_filename; echo "Nothing saved";;
+		* ) echo "invalid";;
+	esac
+}
+
+rlk () {
+	if [ -z $@ ];
+		then
+			link=$(readlink -f ./)
+		else
+			link=$(readlink -f $@)
+	fi
+echo $link | copy
+echo "Copied: $link"
+}

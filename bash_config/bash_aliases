@@ -6,7 +6,8 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 alias llast='ls -Artls | tail -n1'
-alias lll='ls -Ahrtls | tail -n5'
+alias lll='ls -Ahtls'
+alias lll5='ls -Ahrtls | tail -n5 | tac'
 
 
 alias ..='cd ..'
@@ -29,12 +30,10 @@ alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/
 alias editansible='vim -p ~/.config/perso/environments/ansible/roles/minimal/tasks/main.yml ~/.config/perso/environments/ansible/roles/workstation/tasks/main.yml ~/.config/perso/environments/ansible/roles/desktop/tasks/main.yml ~/.config/perso/environments/ansible/roles/minimal/vars/main.yml ~/.config/perso/environments/ansible/roles/workstation/vars/main.yml ~/.config/perso/environments/ansible/roles/desktop/vars/main.yml'
 
 
-#TODO: install to browser
+#TODO: install tor browser
 alias torb='~/Documents/Apps/Security/tor-browser_en-US/start-tor-browser'
 
 #TODO: Create a global config file for all these parameters
-alias shortcuts='less ~/.config/perso/tools/shortcuts'
-alias eshortcuts='vim ~/.config/perso/tools/shortcuts'
 alias versions='~/.config/perso/tools/versions.sh'
 
 alias c='clear'
@@ -48,8 +47,6 @@ alias fgrep='fgrep --color=auto'
 alias copy='xclip -sel clip'
 
 alias path='pwd | copy'
-
-alias rlk='~/.config/perso/tools/rlk.sh'
 
 #Random password generator
 alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
@@ -94,3 +91,4 @@ alias cl=copylast
 alias listignored="find . -type f  | git check-ignore --stdin"
 
 alias dmenu=" rofi -dmenu"
+
