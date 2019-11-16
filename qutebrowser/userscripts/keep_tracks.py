@@ -52,7 +52,7 @@ def parse_youtube_url(request):
         files = map(lambda file: file.replace(NOTES_PATH+'/', '').replace('.md',''), files)
         all_files="\n".join(files)
 
-        prompt='Where to add {}'.format(analysis['title'])
+        prompt="Where to add {}".format(analysis['title'].replace("'"," "))
 
         if len(prompt)>50:
             cur=50
