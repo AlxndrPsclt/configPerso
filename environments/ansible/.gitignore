@@ -1,7 +1,28 @@
-*.swp
-playbook.retry
-brouillon.md
 
-vars/users/user_keys/
-!vars/users/user_keys/user1.example.pub
+# Created by https://www.gitignore.io/api/vim,ansible
+# Edit at https://www.gitignore.io/?templates=vim,ansible
 
+### Ansible ###
+*.retry
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+# End of https://www.gitignore.io/api/vim,ansible
