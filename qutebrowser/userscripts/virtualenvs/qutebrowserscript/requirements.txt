@@ -6,3 +6,4 @@ notify2
 orderedmultidict
 git+https://github.com/hiway/python-qutescript
 six
+pyyaml

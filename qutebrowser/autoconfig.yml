@@ -29,12 +29,13 @@ settings:
     global: 64%
   completion.shrink:
     global: false
+  content.notifications:
+    https://freemp3.cc: false
   downloads.location.directory:
     global: /tmp/
   editor.command:
     global:
-    - urxvt
-    - -e
+    - st
     - vim
     - '{}'
   editor.encoding:
@@ -67,5 +68,9 @@ settings:
     global: 14pt monospace
   fonts.tabs:
     global: 12pt monospace
+  session.lazy_restore:
+    global: true
+  spellcheck.languages:
+    global: null
   zoom.default:
     global: 125%

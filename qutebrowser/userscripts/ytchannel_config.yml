@@ -1,0 +1,21 @@
+categories:
+  music:
+    tags:
+      - techno:
+        - techno
+        - deep
+        - acid
+        - bang
+      - house:
+        - house
+        - micro
+        - soulfull
+      - others:
+        - sdvsv
+  blockchain:
+    tags:
+      - holochain
+  electronics:
+    tags:
+      - esp32
+
