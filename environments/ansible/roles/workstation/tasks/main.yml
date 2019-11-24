@@ -109,6 +109,11 @@
     state: link
   loop: "{{ links_to_create_sudo }}"
 
+- name: Create local/run directory for mpd if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/.local/run/mpd"
+    state: directory
+
 
 
 - name: Allow 'wheel' group to have passwordless sudo
