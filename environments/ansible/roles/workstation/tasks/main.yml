@@ -37,6 +37,8 @@
       - strace
       - qrencore
       - youtube-dl
+      - mpd
+      - mpc
     state: present
 
 - name: Install virtualenv & cie using pip
@@ -133,5 +135,13 @@
     line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
     validate: visudo -cf %s
 
+
+- name: enable service ly
+  systemd:
+    name: mpd
+    scope: user
+    state: started
+    enabled: yes
+    masked: no
 
 

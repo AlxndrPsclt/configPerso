@@ -125,6 +125,8 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 " :mark mark /full/directory/path [filename]
 
 mark h ~/
+mark m ~/Music/collection
+mark p ~/Music/collection/podcasts
 
 " ------------------------------------------------------------------------------
 
@@ -201,6 +203,8 @@ filextype *.djvu
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
+       \ {Play using mpc}
+       \ ~/.config/perso/mpd/playnow.sh %d/%c,
        \ {Play using ffplay}
        \ ffplay -nodisp -autoexit %c,
        \ {Play using MPlayer}

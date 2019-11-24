@@ -149,3 +149,6 @@ fi
 export PATH=~/.local/bin:$PATH
 export PATH="$PATH:/opt/flutter/bin"
 export PATH="$PATH:/opt/android-studio/bin"
+
+export MPD_HOST=~/.local/run/mpd/socket
+
