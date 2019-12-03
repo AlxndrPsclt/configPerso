@@ -36,7 +36,7 @@ floating_modifier $mod
 bindsym $mod+Return exec st
 bindsym $mod+o exec urxvt
 bindsym $mod+i exec qutebrowser
-bindsym $mod+n exec urxvt -e vifm
+bindsym $mod+n exec st vifm
 
 # kill focused window
 bindsym $mod+Shift+q kill

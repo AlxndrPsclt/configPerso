@@ -7,6 +7,7 @@
     name:
       - xorg
       - xorg-xinit
+      - lightdm
       - i3-gaps
       - rxvt-unicode
       - xclip
@@ -56,8 +57,8 @@
       - powerline-fonts-git
       - i3lock-fancy-git
       - st-luke-git
-      - ly-git
       - vit
+      - lightdm-mini-greeter
 
 - name: enable service ly
   systemd:
