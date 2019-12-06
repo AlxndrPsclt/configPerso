@@ -9,13 +9,12 @@ swapon /dev/sda2
 
 timectl set-ntp true
 mount /dev/sda3 /mnt
-mkdir -p /mnt/boot
+mkdir -p /mnt/boot/efi
 mkdir /mnt/home
 mkdir /mnt/var
 mount /dev/sda4 /mnt/var
 mount /dev/sda5 /mnt/home
-mount /dev/sda1 /mnt/boot
-mkdir /mnt/boot/EFI
+mount /dev/sda1 /mnt/boot/efi
 
 #then:
 pacstrap /mnt base base-devel linux linux-firmware sudo vim python dhcpcd wifi-menu dialog networkmanager openssh git grub efibootmgr os-prober
