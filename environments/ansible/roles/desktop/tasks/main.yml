@@ -27,7 +27,7 @@
   become: yes
   pacman:
     name:
-      #      - qutebrowser
+      - qutebrowser
       - awesome-terminal-fonts
     state: present
 
@@ -169,7 +169,7 @@
     #- name: Clone personal wallpapers folder
     #  git:
     #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
-    #    dest: "{{ HOME }}/Pictures/wallpapers"
+    #    dest: "{{ HOME }}/images/wallpapers"
     #
     #- name: Clone personal tasklist
     #  git:
