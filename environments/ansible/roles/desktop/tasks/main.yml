@@ -11,18 +11,42 @@
       - i3-gaps
       - rxvt-unicode
       - xclip
+    state: present
+
+- name: Install packages for desktops2
+  become: yes
+  pacman:
+    name:
       - pulseaudio
       - pulseaudio-alsa
       - pulseaudio-bluetooth
       - pamixer
+    state: present
+
+- name: Install packages for desktops2B
+  become: yes
+  pacman:
+    name:
+      #      - qutebrowser
       - awesome-terminal-fonts
+    state: present
+
+- name: Install packages for desktops2C
+  become: yes
+  pacman:
+    name:
       - libnotify
-      - qutebrowser
       - chromium
+    state: present
+
+- name: Install packages for desktops 3
+  become: yes
+  pacman:
+    name:
       - zathura
       - zathura-pdf-poppler
       - rofi
-      - compton
+      - picom
       - conky
       - dunst
       - redshift
@@ -60,13 +84,13 @@
       - vit
       - lightdm-mini-greeter
 
-- name: enable service ly
-  systemd:
-    name: ly
-    state: started
-    enabled: yes
-    masked: no
-
+        #- name: enable service ly
+        #  systemd:
+        #    name: ly
+        #    state: started
+        #    enabled: yes
+        #    masked: no
+        #
 - name: Deactivale 'wheel' group passwordless sudo
   become: yes
   lineinfile:
@@ -129,26 +153,26 @@
     state: directory
 
 
-# Clones private repos (passwords and stuff)
-- include_vars: credentials.yml
-
-- name: Clone personal password vault
-  git:
-    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/password-store.git"
-    dest: "{{ HOME }}/.password-store"
-
-- name: Clone personal music diggings notes
-  git:
-    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/music-diggings.git"
-    dest: "{{ HOME }}/Notes"
-
-- name: Clone personal wallpapers folder
-  git:
-    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
-    dest: "{{ HOME }}/Pictures/wallpapers"
-
-- name: Clone personal tasklist
-  git:
-    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/tasks.git"
-    dest: "{{ HOME }}/.task"
-
+    ## Clones private repos (passwords and stuff)
+    #- include_vars: credentials.yml
+    #
+    #- name: Clone personal password vault
+    #  git:
+    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/password-store.git"
+    #    dest: "{{ HOME }}/.password-store"
+    #
+    #- name: Clone personal music diggings notes
+    #  git:
+    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/music-diggings.git"
+    #    dest: "{{ HOME }}/Notes"
+    #
+    #- name: Clone personal wallpapers folder
+    #  git:
+    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
+    #    dest: "{{ HOME }}/Pictures/wallpapers"
+    #
+    #- name: Clone personal tasklist
+    #  git:
+    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/tasks.git"
+    #    dest: "{{ HOME }}/.task"
+    #
