@@ -139,7 +139,7 @@ vimall() {
 }
 
 screenrec() {
-  output_filename="/home/alex/Videos/screencapture/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
+  output_filename="/home/alex/videos/screencapture/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
   notify-send "Starting screen recording to file: $output_filename"
 	ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
   notify-send "Screenrecording to $output_filename stopped"

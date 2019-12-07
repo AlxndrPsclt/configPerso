@@ -32,7 +32,7 @@ alias editansible='vim -p ~/.config/perso/environments/ansible/roles/minimal/tas
 
 
 #TODO: install tor browser
-alias torb='~/Documents/Apps/Security/tor-browser_en-US/start-tor-browser'
+alias torb='~/documents/Apps/Security/tor-browser_en-US/start-tor-browser'
 
 #TODO: Create a global config file for all these parameters
 alias versions='~/.config/perso/tools/versions.sh'

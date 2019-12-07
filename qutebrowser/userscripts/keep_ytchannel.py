@@ -10,7 +10,7 @@ import subprocess
 import notify2
 import yaml
 
-NOTES_PATH="/home/alex/Notes"
+NOTES_PATH="/home/alex/notes"
 CONFIG_FILE="/home/alex/.config/perso/qutebrowser/userscripts/ytchannel_config.yml"
 
 

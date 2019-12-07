@@ -149,7 +149,7 @@
 
 - name: Create screencasting directory if it does not exist
   file:
-    path: "{{ ansible_env.HOME }}/Videos/screencapture"
+    path: "{{ ansible_env.HOME }}/videos/screencapture"
     state: directory
 
 
@@ -164,12 +164,12 @@
     #- name: Clone personal music diggings notes
     #  git:
     #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/music-diggings.git"
-    #    dest: "{{ HOME }}/Notes"
+    #    dest: "{{ HOME }}/notes"
     #
     #- name: Clone personal wallpapers folder
     #  git:
     #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
-    #    dest: "{{ HOME }}/images/wallpapers"
+    #    dest: "{{ HOME }}/image/wallpapers"
     #
     #- name: Clone personal tasklist
     #  git:

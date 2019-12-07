@@ -13,7 +13,7 @@ import sys
 import notify2
 
 
-NOTES_PATH="/home/alex/Notes"
+NOTES_PATH="/home/alex/notes"
 
 
 logging.basicConfig(filename="/var/log/qutebrowser_scripts.log", 
