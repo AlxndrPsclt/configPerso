@@ -114,6 +114,29 @@
     path: "{{ ansible_env.HOME }}/.local/run/mpd"
     state: directory
 
+- name: enable service systemd-netword
+  systemd:
+    name: systemd-networkd
+    scope: user
+    state: started
+    enabled: yes
+    masked: no
+
+- name: enable service systemd-resolved
+  systemd:
+    name: systemd-resolved
+    scope: user
+    state: started
+    enabled: yes
+    masked: no
+
+- name: enable service wpa_supplicant@wlp2s0
+  systemd:
+    name: systemd-resolved
+    scope: user
+    state: started
+    enabled: yes
+    masked: no
 
 
 - name: Allow 'wheel' group to have passwordless sudo
@@ -139,7 +162,6 @@
     regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
     line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
     validate: visudo -cf %s
-
 
 - name: enable service mpd
   systemd:

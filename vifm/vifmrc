@@ -125,8 +125,8 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 " :mark mark /full/directory/path [filename]
 
 mark h ~/
-mark m ~/Music/collection
-mark p ~/Music/collection/podcasts
+mark m ~/music/collection
+mark p ~/music/collection/podcasts
 
 " ------------------------------------------------------------------------------
 

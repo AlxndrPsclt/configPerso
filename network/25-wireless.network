@@ -1,0 +1,11 @@
+[Match]
+Name=wl*
+
+[Network]
+DHCP=yes
+MulticastDNS=true
+
+#DNS=8.8.8.8
+#Address=10.1.10.9/24
+#Gateway=10.1.10.1
+#DNS=10.1.10.1
