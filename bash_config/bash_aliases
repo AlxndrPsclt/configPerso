@@ -28,7 +28,7 @@ alias editbash='vim -p $F_CONFIG_BASH/bashrc $F_CONFIG_BASH/bash_aliases $F_CONF
 
 alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/rofi/social.rasi ~/.config/perso/dunst/dunstrc'
 
-alias editansible='vim -p ~/.config/perso/environments/ansible/roles/minimal/tasks/main.yml ~/.config/perso/environments/ansible/roles/workstation/tasks/main.yml ~/.config/perso/environments/ansible/roles/desktop/tasks/main.yml ~/.config/perso/environments/ansible/roles/minimal/vars/main.yml ~/.config/perso/environments/ansible/roles/workstation/vars/main.yml ~/.config/perso/environments/ansible/roles/desktop/vars/main.yml'
+alias editansible='vim -p ~/.config/perso/install/roles/minimal/tasks/main.yml ~/.config/perso/install/roles/workstation/tasks/main.yml ~/.config/perso/install/roles/desktop/tasks/main.yml ~/.config/perso/install/roles/minimal/vars/main.yml ~/.config/perso/install/roles/workstation/vars/main.yml ~/.config/perso/install/roles/desktop/vars/main.yml'
 
 
 #TODO: install tor browser
@@ -93,3 +93,5 @@ alias listignored="find . -type f  | git check-ignore --stdin"
 
 alias dmenu=" rofi -dmenu"
 
+alias pmsearch="pacman -Ss"
+alias pminstall="sudo pacman -Suy"

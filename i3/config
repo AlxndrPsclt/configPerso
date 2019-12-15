@@ -250,7 +250,7 @@ bindsym --release Shift+Print exec "scrot ~/images/screenshots/$(date --iso-8601
 # exec urxvt -e byobu
 exec --no-startup-id "/usr/bin/redshift"
 exec --no-startup-id "/usr/bin/conky -c ~/.config/perso/conky/conky.conf"
-exec --no-startup-id i3-msg 'workspace $WS2; exec st -e byobu'
+exec --no-startup-id i3-msg 'workspace $WS2; exec st -e tmux'
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always feh --bg-scale /home/alex/images/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg

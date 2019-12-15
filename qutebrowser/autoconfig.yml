@@ -29,6 +29,8 @@ settings:
     global: 64%
   completion.shrink:
     global: false
+  content.mouse_lock:
+    global: false
   content.notifications:
     https://freemp3.cc: false
     https://www.reddit.com: false

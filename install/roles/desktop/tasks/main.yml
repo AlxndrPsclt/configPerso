@@ -61,6 +61,8 @@
       - light
       - task
       - ffmpeg
+      - bluez
+      - bluez-utils
     state: present
 
 ##Add nixshell install
@@ -145,6 +147,14 @@
 
 - name: Create virtualenvs required for qutebrowser userscripts
   command: ~/.config/perso/qutebrowser/userscripts/virtualenvs/create_virtualenvs.sh
+
+- name: Create file for qutebrowser log
+  become: yes
+  file:
+    path: "/var/log/qutebrowser_scripts.log"
+    owner: alex
+    group: wheel
+    mode: '0644'
 
 
 - name: Create screencasting directory if it does not exist

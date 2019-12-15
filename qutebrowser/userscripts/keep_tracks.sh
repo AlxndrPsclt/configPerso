@@ -5,3 +5,4 @@
 
 QUTEBROWSER_SCRIPTS_PATH="$HOME/.config/perso/qutebrowser/userscripts"
 analysis=`virtualpy qutebrowserscript "$QUTEBROWSER_SCRIPTS_PATH/keep_tracks.py"`
+exho $analysis &>> /tmp/qtlog.txt
