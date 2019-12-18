@@ -76,6 +76,14 @@
     line: '%wheel ALL=(ALL) NOPASSWD: ALL'
     validate: visudo -cf %s
 
+- name: Allow auto powering of bluetooth device on startup
+  become: yes
+  lineinfile:
+    dest: /etc/bluetooth/main.conf
+    state: present
+    regexp: '^#AutoEnable=false'
+    line: 'AutoEnable=true'
+
 - name: Installing some software using yay
   yay:
     name:
