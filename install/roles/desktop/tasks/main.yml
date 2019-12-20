@@ -93,6 +93,7 @@
       - st-luke-git
       - vit
       - lightdm-mini-greeter
+      - pulsemixer
 
         #- name: enable service ly
         #  systemd:
@@ -163,7 +164,6 @@
     owner: alex
     group: wheel
     mode: '0644'
-
 
 - name: Create screencasting directory if it does not exist
   file:
