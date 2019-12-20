@@ -135,6 +135,11 @@
   loop: "{{ link_register.results }}"
   when: item.stat.islnk is defined and item.stat.islnk == False
 
+- name: Create applications directory if it does not exist (will containing xdg-config)
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/applications"
+    state: directory
+
 - name: Create symbolic link for desktop config tools
   file:
     src: "{{ item.src }}"
