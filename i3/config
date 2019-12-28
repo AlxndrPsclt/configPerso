@@ -81,8 +81,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+t exec ~/.config/perso/focus/focus_urxvt.sh
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -185,8 +185,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 bindsym $mod+d exec rofi -show run -theme launcher
-bindsym $mod+w exec rofi -show window -theme window_switcher
-bindsym $mod+s exec ~/.config/perso/rofi/scripts/social.sh
+#bindsym $mod+w exec rofi -show window -theme window_switcher
+#bindsym $mod+s exec ~/.config/perso/rofi/scripts/social.sh
 bindsym $mod+p exec ~/.config/perso/tools/rpass
 
 

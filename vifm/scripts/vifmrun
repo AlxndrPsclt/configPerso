@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+echo $@
+
 export FIFO_UEBERZUG="/tmp/vifm-ueberzug-${PPID}"
 
 function cleanup {
@@ -11,5 +14,5 @@ mkfifo "$FIFO_UEBERZUG"
 trap cleanup EXIT
 tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser bash &
 
-vifm
+vifm $@
 cleanup
