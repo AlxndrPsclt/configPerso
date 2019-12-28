@@ -8,7 +8,7 @@ links_to_create :
   - { dest: '{{ HOME }}/.config/i3', src: '{{ CONFIG_PERSO }}/i3/' }
   - { dest: '{{ HOME }}/.config/rofi', src: '{{ CONFIG_PERSO }}/rofi' }
   - { dest: '{{ HOME }}/.config/compton', src: '{{ CONFIG_PERSO }}/compton/compton.conf' }
-  - { dest: '{{ HOME }}/.config/dunstrc', src: '{{ CONFIG_PERSO }}/dunst' }
+  - { dest: '{{ HOME }}/.config/dunst', src: '{{ CONFIG_PERSO }}/dunst' }
   - { dest: '{{ HOME }}/.config/conky', src: '{{ CONFIG_PERSO }}/conky' }
   - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
   - { dest: '{{ HOME }}/.xinitrc', src: '{{ CONFIG_PERSO }}/x/xinitrc' }

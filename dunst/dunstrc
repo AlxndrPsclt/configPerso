@@ -1,5 +1,5 @@
 [global]
-font = Iosevka Term 11
+font = Iosevka Term 15
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -32,7 +32,7 @@ indicate_hidden = yes
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
-alignment = right
+alignment = center
 
 # The frequency with wich text that is longer than the notification
 # window allows bounces back and forth.
@@ -53,7 +53,7 @@ word_wrap = yes
 ignore_newline = no
 
 # Hide duplicate's count and stack them
-stack_duplicates = yes
+stack_duplicates = no
 hide_duplicates_count = yes
 
 
@@ -70,7 +70,7 @@ hide_duplicates_count = yes
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
 #geometry = "250x50-40+40"
-geometry = "300x50-15+49"
+geometry = "0x50-30+30"
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
@@ -79,7 +79,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 50
+transparency = 10
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -148,14 +148,14 @@ dmenu = /usr/bin/dmenu -p dunst:
 browser = /usr/bin/qutebrowser
 
 # Align icons left/right/off
-icon_position = off
+icon_position = left
 max_icon_size = 80
 
 # Paths to default icons.
 icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
-frame_width = 2
-frame_color = "#651731"
+frame_width = 5
+frame_color = "#4C566A"
 
 [shortcuts]
 
@@ -183,21 +183,21 @@ context = ctrl+shift+period
 # Otherwise the "#" and following would be interpreted as a comment.
 frame_color = "#665fb3"
 foreground = "#3B7C87"
-background = "#651731"
+background = "#4C566A"
 #background = "#2B313C"
-timeout = 4
+timeout = 3
 
 [urgency_normal]
-frame_color = "#5B8234"
-foreground = "#651731"
-background = "#651731"
+frame_color =  "#4C566A"
+foreground = "#D8DEE9"
+background = "#4C566A"
 #background = "#2B313C"
-timeout = 6
+timeout = 5
 
 [urgency_critical]
-frame_color = "#B7472A"
-foreground = "#B7472A"
-background = "#651731"
+frame_color = "#BF616A"
+foreground = "#D8DEE9"
+background = "#4C566A"
 #background = "#2B313C"
 timeout = 8
 
