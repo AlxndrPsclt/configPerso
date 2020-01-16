@@ -30,7 +30,7 @@
 	spacing: 0;
 	background-color: transparent;
 
-	font: "Oxygen Mono 20";
+	font: "Iosevka 20";
 }
 
 window {
