@@ -29,6 +29,8 @@ settings:
     global: 64%
   completion.shrink:
     global: false
+  content.media_capture:
+    https://teams.microsoft.com: true
   content.mouse_lock:
     global: false
   content.notifications:
