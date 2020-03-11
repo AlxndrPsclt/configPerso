@@ -88,7 +88,7 @@ vimo() {
 }
 
 smount() {
-	sudo mount `ls /dev/sd* | fzf` /mnt/`ls /mnt/ | fzf`
+	sudo mount `ls /dev/sd* /dev/mmc* | fzf` /mnt/`ls /mnt/ | fzf`
 }
 
 sumount() {
