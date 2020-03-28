@@ -36,18 +36,19 @@ def parse_youtube_url(request):
     files = map(lambda file: file.replace(NOTES_PATH+'/', '').replace('.yml',''), files)
     all_files="\n".join(files)
 
-    prompt="Where to add {}".format(analysis['title'].replace("'"," "))
+    #prompt="Where to add {}".format(analysis['title'].replace("'"," "))
+    prompt="Where to add this video?"
 
-    if len(prompt)>50:
-        cur=50
-        while prompt[cur]!=' ':
-            if cur==0:
-                cur=50
-                break
-            else:
-                cur=cur-1
-
-        prompt=prompt[:cur]+'     \n'+"{:.50}".format(prompt[cur:].strip())
+#    if len(prompt)>50:
+#        cur=50
+#        while prompt[cur]!=' ':
+#            if cur==0:
+#                cur=50
+#                break
+#            else:
+#                cur=cur-1
+#
+#        prompt=prompt[:cur]+'     \n'+"{:.50}".format(prompt[cur:].strip())
 
     command_ask_rofi="rofi -dmenu -matching fuzzy -columns 2 -theme social -p '{} ?'".format(prompt)
     res=subprocess.run(shlex.split(command_ask_rofi), input=all_files, encoding='utf-8', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -61,7 +62,7 @@ def parse_youtube_url(request):
         sys.exit(1)
 
     chosen_folder=os.path.dirname(chosen_note)
-    chosen_filename=os.path.basename(chosen_note)+'.md'
+    chosen_filename=os.path.basename(chosen_note)+'.yml'
 
     full_chosen_folder=os.path.join(NOTES_PATH, chosen_folder)
     full_chosen_note=os.path.join(full_chosen_folder, chosen_filename)
@@ -86,10 +87,10 @@ def parse_youtube_url(request):
         read_note.close()
     except FileNotFoundError:
         logger.info("The desired note doesn't exist yet, will be created %s", full_chosen_note)
-        last_char='\n'   #Needed to not start the file on a blank line
+        last_char=b'\n'   #Needed to not start the file on a blank line
     except Exception as e:
         logger.exception("There was an error while trying to read file %s", full_chosen_note)
-        n = notify2.Notification("Error in saving track","Could not read existing note {}.".format(chosen_note))
+        n = notify2.Notification("Error in saving link","Could not read existing note {}.".format(chosen_note))
         n.show()
         sys.exit(1)
 
@@ -100,7 +101,7 @@ def parse_youtube_url(request):
         if last_char != b'\n':
             fh.write('\n')
             logger.info("Adds an endofline")
-        fh.write("- {} (link)[{}]".format(analysis['title'], analysis['url']))
+        fh.write("- {}".format(request.url))
         fh.close()
     except IOError:
         logger.exception("There was an error while trying to create file %s", full_chosen_note)
@@ -108,10 +109,10 @@ def parse_youtube_url(request):
         n.show()
         sys.exit(1)
 
-    n = notify2.Notification("Track {} was added to note {}".format(analysis['title'], chosen_note))
+    n = notify2.Notification("Track {} was added to note {}".format(request.url, chosen_note))
     n.show()
 
-    request.send_text(full_chosen_folder+" <br/> "+full_chosen_note+" <br/> "+analysis['title'])
+    request.send_text(full_chosen_folder+" <br/> "+full_chosen_note+" <br/> "+request.url)
 else:
     logger.exception("A non youtube link was provided {}", request.url)
     n = notify2.Notification("Error in saving track","A non youtube link was provided {}. This is not yet supported.".format(request.url))

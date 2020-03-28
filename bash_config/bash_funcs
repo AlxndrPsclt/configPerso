@@ -62,6 +62,15 @@ bt_disconnect_headset() {
 	echo -e "disconnect $BT_HEADSET_MAC\n" | bluetoothctl
 }
 
+bt_connect_bose_headset() {
+	echo -e "connect $BT_BOSEONEARWIRELESS_MAC\n" | bluetoothctl
+}
+
+bt_disconnect_bose_headset() {
+	echo -e "disconnect $BT_BOSEONEARWIRELESS_MAC\n" | bluetoothctl
+}
+
+
 bt_connect_speaker() {
 	echo -e "connect $BT_SPEAKER_MAC\n" | bluetoothctl
 }
