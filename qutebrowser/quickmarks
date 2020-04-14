@@ -52,3 +52,4 @@ read ffmpeg encode RTMP mutliple outputs https://gist.github.com/bnerd/4069082
 read ffmpeg encoding with the x264 codec http://www.mplayerhq.hu/DOCS/HTML/en/menc-feat-x264.html
 read ffmpeg sendcmd and overlay mailing list discussion https://www.mail-archive.com/ffmpeg-user@ffmpeg.org/msg23927.html
 read stream server https://github.com/klaxa/mkvserver_mk2
+read git concept explained tutorial https://www.sbf5.com/~cduan/technical/git/
