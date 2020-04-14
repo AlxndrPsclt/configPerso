@@ -42,3 +42,13 @@ astek pilotage https://groupeastek365.sharepoint.com/sites/LAB/pilotage/default.
 astek interne https://groupeastek365.sharepoint.com/sites/LAB/interne/default.aspx
 astek kronos https://kronos.groupeastek.com/
 read supercollider01 http://technogems.blogspot.com/
+docs 136 regles induites https://groupeastek365.sharepoint.com/sites/LAB/interne/136/default.aspx?RootFolder=%2Fsites%2FLAB%2Finterne%2F136%2FDocuments%20partages%2F01%20-%20Notes%20Techniques&FolderCTID=0x012000913AE51CEAF46448ABDA79F97C8A48C6&View=%7B902F18BA-7BE5-41FF-9674-545595313466%7D
+doc 105 bealysis Profilage https://groupeastek365.sharepoint.com/sites/LAB/interne/105/default.aspx?RootFolder=%2Fsites%2FLAB%2Finterne%2F105%2FDocuments%20partages%2F01%20-%20Notes%20Techniques&FolderCTID=0x0120003991B891FC37CE47BD4052E50A61B15B&View=%7B7B70FFDE-15F7-440F-B010-8C377CB61E69%7D
+doc 138 smartmow Audit IA https://groupeastek365.sharepoint.com/sites/LAB/interne/138/default.aspx?RootFolder=%2Fsites%2FLAB%2Finterne%2F138%2FDocuments%20partages%2F01%20-%20Notes%20Techniques&FolderCTID=0x0120006BA298E825018948A57D2C98B4A78906&View=%7BCEE2FE9E-10EB-468D-8573-B43D8B25A65E%7D
+doc 114 recsys classification des articles https://groupeastek365.sharepoint.com/sites/LAB/interne/114/default.aspx?RootFolder=%2Fsites%2FLAB%2Finterne%2F114%2FDocuments%20partages%2F01%20-%20Notes%20Techniques&FolderCTID=0x012000F729C9E40025DE4FAC298A03AA0D4BAF&View=%7B42230568-A3F4-4266-8EE3-463A8F870BB0%7D
+stream fb https://www.facebook.com/live/producer/2497737823875349/?source=CAMERA
+doc 131 démonstrateur cuisine https://groupeastek365.sharepoint.com/sites/LAB/interne/131/Documents%20partages/Forms/AllItems.aspx?viewid=18e5d251-72e8-412f-8bf2-984d28a33007&id=%2Fsites%2FLAB%2Finterne%2F131%2FDocuments%20partages%2F01%20-%20Notes%20Techniques
+read ffmpeg encode RTMP mutliple outputs https://gist.github.com/bnerd/4069082
+read ffmpeg encoding with the x264 codec http://www.mplayerhq.hu/DOCS/HTML/en/menc-feat-x264.html
+read ffmpeg sendcmd and overlay mailing list discussion https://www.mail-archive.com/ffmpeg-user@ffmpeg.org/msg23927.html
+read stream server https://github.com/klaxa/mkvserver_mk2
