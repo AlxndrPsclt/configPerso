@@ -10,6 +10,7 @@ links_to_create :
   - { dest: '{{ HOME }}/.config/compton', src: '{{ CONFIG_PERSO }}/compton/compton.conf' }
   - { dest: '{{ HOME }}/.config/dunst', src: '{{ CONFIG_PERSO }}/dunst' }
   - { dest: '{{ HOME }}/.config/conky', src: '{{ CONFIG_PERSO }}/conky' }
+  - { dest: '{{ HOME }}/.config/zathura', src: '{{ CONFIG_PERSO }}/zathura' }
   - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
   - { dest: '{{ HOME }}/.xinitrc', src: '{{ CONFIG_PERSO }}/x/xinitrc' }
   - { dest: '{{ HOME }}/.local/share/applications/defaults.list', src: '{{ CONFIG_PERSO }}/xdg-config/defaults.list' }
