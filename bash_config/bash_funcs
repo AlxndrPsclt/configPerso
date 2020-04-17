@@ -79,6 +79,14 @@ bt_disconnect_speaker() {
 	echo -e "disconnect $BT_SPEAKER_MAC\n" | bluetoothctl
 }
 
+bt_connect_anker_speaker() {
+	echo -e "connect $BT_ANKER_SPEAKER_MAC\n" | bluetoothctl
+}
+
+bt_disconnect_speaker() {
+	echo -e "disconnect $BT_ANKER_SPEAKER_MAC\n" | bluetoothctl
+}
+
 qrterm() {
 	qrencode -t UTF8 -o /tmp/qr.txt "$@" && cat /tmp/qr.txt && rm /tmp/qr.txt
 }
