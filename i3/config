@@ -36,7 +36,7 @@ floating_modifier $mod
 bindsym $mod+Return exec st
 bindsym $mod+o exec urxvt
 bindsym $mod+i exec qutebrowser
-bindsym $mod+n exec st vifm
+bindsym $mod+n exec st vifmi
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -78,7 +78,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-bindsym $mod+t exec ~/.config/perso/focus/focus_urxvt.sh
+bindsym $mod+t exec ~/.config/perso/focus/focus_st.sh
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
