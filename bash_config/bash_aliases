@@ -61,9 +61,10 @@ alias gita='git add -A'
 alias gitc='git commit -m '
 alias gitpl='git pull'
 alias gitp='git push'
+alias gitpom='git push -u origin master'
 alias gittree='git log --graph --abbrev-commit --oneline'
 alias gitswitch='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
-
+alias gitignore='wget https://www.gitignore.io/api/vim -O .gitignore'
 #Task aliases
 alias taska='task add'
 alias taskm='task modify'
