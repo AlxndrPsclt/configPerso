@@ -36,6 +36,8 @@ settings:
   content.notifications:
     https://freemp3.cc: false
     https://www.reddit.com: false
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: false
   downloads.location.directory:
     global: /tmp/
   editor.command:
@@ -46,33 +48,35 @@ settings:
   editor.encoding:
     global: utf-8
   fonts.completion.category:
-    global: bold 14pt monospace
+    global: bold 14pt default_family
   fonts.completion.entry:
-    global: 14pt monospace
+    global: 14pt default_family
   fonts.debug_console:
-    global: 14pt monospace
+    global: 14pt default_family
+  fonts.default_family:
+    global:
+    - Hack
+    - Oxygen Mono
+    - xos4 Terminus
+    - Terminus
   fonts.downloads:
-    global: 14pt monospace
+    global: 14pt default_family
   fonts.hints:
-    global: bold 14pt monospace
+    global: bold 14pt default_family
   fonts.keyhint:
-    global: 14pt monospace
+    global: 14pt default_family
   fonts.messages.error:
-    global: 14pt monospace
+    global: 14pt default_family
   fonts.messages.info:
-    global: 14pt monospace
+    global: 14pt default_family
   fonts.messages.warning:
-    global: 10pt monospace
-  fonts.monospace:
-    global: Hack, "Oxygen Mono", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans
-      Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier,
-      "Liberation Mono", monospace, Fixed, Consolas, Terminal
+    global: 10pt default_family
   fonts.prompts:
     global: 14pt sans-serif
   fonts.statusbar:
-    global: 14pt monospace
+    global: 14pt default_family
   fonts.tabs:
-    global: 12pt monospace
+    global: 12pt default_family
   session.lazy_restore:
     global: true
   spellcheck.languages:

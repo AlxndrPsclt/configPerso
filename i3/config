@@ -37,6 +37,9 @@ bindsym $mod+Return exec st
 bindsym $mod+o exec urxvt
 bindsym $mod+i exec qutebrowser
 bindsym $mod+n exec st vifmi
+#bindsym $mod+a exec st -c pop-pulsemixer pulsemixer
+bindsym $mod+a [class="pop-pulsemixer"] scratchpad show
+bindsym $mod+b [class="pop-pulsemixer"] resize set 1920 520; move window to position 0 0
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -95,7 +98,7 @@ bindcode $mod+49 workspace back_and_forth
 bindsym $mod+49 workspace back_and_forth
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -192,9 +195,14 @@ bindsym $mod+p exec ~/.config/perso/tools/rpass
 
 #Assigns some windows to specific workspaces or specific display type
 #To find a window class, use:
-for_window [class="Pavucontrol"] floating enable
-
 for_window [class="^.*"] border pixel 1
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="pop-pulsemixer"] floating enable
+for_window [class="pop-pulsemixer"] resize set 1920 350
+for_window [class="pop-pulsemixer"] move window to position 0 0
+for_window [class="pop-pulsemixer"] border pixel 0
+for_window [class="pop-pulsemixer"] move scratchpad
 
 assign [title="SuperCollider Help"] → $WS4
 assign [class="SuperCollider"] → $WS4
@@ -240,6 +248,10 @@ bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window i
 # # Selection screenshot
 bindsym --release Shift+Print exec "scrot ~/images/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'; notify-send 'Screenshot of selected zone taken.'"
 
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+backslash scratchpad show
+
+
 # exec urxvt -e byobu
 exec --no-startup-id "/usr/bin/redshift"
 exec --no-startup-id "/usr/bin/conky -c ~/.config/perso/conky/conky.conf"
@@ -257,6 +269,6 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc
 
 exec --no-startup-id compton
-
+exec_always --no-startup-id st -c pop-pulsemixer pulsemixer
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
 

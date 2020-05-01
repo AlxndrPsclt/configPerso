@@ -15,6 +15,7 @@ URxvt.scrollBar: false
 !! Transparency (0-1):
 st.alpha: 1
 
+
 !! Set a default font and font size as below:
 
 st.font: Cousine for Powerline-18
