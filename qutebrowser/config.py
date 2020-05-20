@@ -10,4 +10,6 @@ c.bindings.key_mappings['<Alt+Right>'] = '<Shift-j>'
 c.bindings.key_mappings['<Alt+Left>'] = '<Shift-k>'
 config.bind(',k', 'spawn --userscript keep_tracks.sh')
 config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
+config.bind('<Ctrl-]>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 2.2")
+config.bind('<Ctrl-[>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 1")
 c.aliases['foo'] = 'message-info foo'

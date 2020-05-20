@@ -1,2 +1,3 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
+#application/vnd.openxmlformats-officedocument.wordprocessingml.document=

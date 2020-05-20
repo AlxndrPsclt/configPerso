@@ -28,7 +28,7 @@ function svim {
     $EDITOR $(find . -type f | fzf)
 }
 function scd {
-    cd $(find . -type d | fzf)
+    cd $(fd --type d . / | fzf)
 }
 
 
@@ -49,7 +49,7 @@ n (){
   ($* ; notify-send "Command over" "$*")
 }
 
-dockexecl() {
+dockerxecl() {
   docker exec -it $(docker ps -l -q) /bin/bash ;
 }
 
@@ -193,4 +193,16 @@ rlk () {
 	fi
 echo $link | copy
 echo "Copied: $link"
+}
+# fuzzy grep open via ag with line number
+vg() {
+  local file
+  local line
+
+  read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+
+  if [[ -n $file ]]
+  then
+     vim $file +$line
+  fi
 }

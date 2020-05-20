@@ -36,10 +36,15 @@ floating_modifier $mod
 bindsym $mod+Return exec st
 bindsym $mod+o exec urxvt
 bindsym $mod+i exec qutebrowser
-bindsym $mod+n exec st vifmi
+bindsym $mod+e exec st vifmi
 #bindsym $mod+a exec st -c pop-pulsemixer pulsemixer
 bindsym $mod+a [class="pop-pulsemixer"] scratchpad show
-bindsym $mod+b [class="pop-pulsemixer"] resize set 1920 520; move window to position 0 0
+
+bindsym $mod+t [class="pop-taskwarrior"] scratchpad show
+
+bindsym XF86Search [class="pop-finder"] scratchpad show
+
+bindsym XF86Calculator [class="pop-calculator"] scratchpad show
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -81,18 +86,18 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-bindsym $mod+t exec ~/.config/perso/focus/focus_st.sh
+bindsym $mod+n exec ~/.config/perso/focus/focus_st.sh
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+q layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 bindcode $mod+49 workspace back_and_forth
 bindsym $mod+49 workspace back_and_forth
@@ -198,11 +203,30 @@ bindsym $mod+p exec ~/.config/perso/tools/rpass
 for_window [class="^.*"] border pixel 1
 
 for_window [class="Pavucontrol"] floating enable
+
 for_window [class="pop-pulsemixer"] floating enable
 for_window [class="pop-pulsemixer"] resize set 1920 350
 for_window [class="pop-pulsemixer"] move window to position 0 0
 for_window [class="pop-pulsemixer"] border pixel 0
 for_window [class="pop-pulsemixer"] move scratchpad
+
+for_window [class="pop-taskwarrior"] floating enable
+for_window [class="pop-taskwarrior"] resize set 900 1080
+for_window [class="pop-taskwarrior"] move window to position 1020 0
+for_window [class="pop-taskwarrior"] border pixel 0
+for_window [class="pop-taskwarrior"] move scratchpad
+
+for_window [class="pop-finder"] floating enable
+for_window [class="pop-finder"] resize set 1920 500
+for_window [class="pop-finder"] move window to position 0 580
+for_window [class="pop-finder"] border pixel 0
+for_window [class="pop-finder"] move scratchpad
+
+for_window [class="pop-calculator"] floating enable
+for_window [class="pop-calculator"] resize set 900 1080
+for_window [class="pop-calculator"] move window to position 1021 0
+for_window [class="pop-calculator"] border pixel 0
+for_window [class="pop-calculator"] move scratchpad
 
 assign [title="SuperCollider Help"] → $WS4
 assign [class="SuperCollider"] → $WS4
@@ -255,7 +279,7 @@ bindsym $mod+backslash scratchpad show
 # exec urxvt -e byobu
 exec --no-startup-id "/usr/bin/redshift"
 exec --no-startup-id "/usr/bin/conky -c ~/.config/perso/conky/conky.conf"
-exec --no-startup-id i3-msg 'workspace $WS2; exec st -e tmux'
+exec --no-startup-id i3-msg 'workspace $WS2; exec st -e tmux new -s main'
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always feh --bg-scale /home/alex/images/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg
@@ -269,6 +293,9 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc
 
 exec --no-startup-id compton
-exec_always --no-startup-id st -c pop-pulsemixer pulsemixer
+exec --no-startup-id st -c pop-pulsemixer pulsemixer
+exec --no-startup-id st -c pop-taskwarrior tmuxinator tasks
+exec --no-startup-id st -c pop-finder ~/.config/perso/tools/finder
+exec --no-startup-id ~/documents/apps/tools/st-calc -c pop-calculator insect
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
 
