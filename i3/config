@@ -298,4 +298,5 @@ exec --no-startup-id st -c pop-taskwarrior tmuxinator tasks
 exec --no-startup-id st -c pop-finder ~/.config/perso/tools/finder
 exec --no-startup-id ~/documents/apps/tools/st-calc -c pop-calculator insect
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
+exec --no-startup-id sxhkd
 

@@ -39,7 +39,15 @@ settings:
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   downloads.location.directory:
-    global: /tmp/
+    global: /home/alex/downloads
+  downloads.location.prompt:
+    global: true
+  downloads.location.suggestion:
+    global: path
+  downloads.position:
+    global: bottom
+  downloads.remove_finished:
+    global: -1
   editor.command:
     global:
     - st
@@ -81,5 +89,13 @@ settings:
     global: true
   spellcheck.languages:
     global: null
+  tabs.position:
+    global: top
+  tabs.select_on_remove:
+    global: next
+  tabs.width:
+    global: 2%
+  tabs.wrap:
+    global: true
   zoom.default:
     global: 125%
