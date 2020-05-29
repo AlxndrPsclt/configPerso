@@ -43,8 +43,12 @@ bindsym $mod+a [class="pop-pulsemixer"] scratchpad show
 bindsym $mod+t [class="pop-taskwarrior"] scratchpad show
 
 bindsym XF86Search [class="pop-finder"] scratchpad show
+bindsym $mod+space [class="pop-finder"] scratchpad show
+bindsym $mod+m [class="pop-music-finder"] scratchpad show
 
 bindsym XF86Calculator [class="pop-calculator"] scratchpad show
+
+bindsym $mod+p [class="pop-pass"] scratchpad show
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -196,7 +200,6 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bindsym $mod+d exec rofi -show run -theme launcher
 #bindsym $mod+w exec rofi -show window -theme window_switcher
 #bindsym $mod+s exec ~/.config/perso/rofi/scripts/social.sh
-bindsym $mod+p exec ~/.config/perso/tools/rpass
 
 
 #Assigns some windows to specific workspaces or specific display type
@@ -223,11 +226,23 @@ for_window [class="pop-finder"] move window to position 0 580
 for_window [class="pop-finder"] border pixel 0
 for_window [class="pop-finder"] move scratchpad
 
+for_window [class="pop-music-finder"] floating enable
+for_window [class="pop-music-finder"] resize set 1920 500
+for_window [class="pop-music-finder"] move window to position 0 580
+for_window [class="pop-music-finder"] border pixel 0
+for_window [class="pop-music-finder"] move scratchpad
+
 for_window [class="pop-calculator"] floating enable
 for_window [class="pop-calculator"] resize set 900 1080
 for_window [class="pop-calculator"] move window to position 1021 0
 for_window [class="pop-calculator"] border pixel 0
 for_window [class="pop-calculator"] move scratchpad
+
+for_window [class="pop-pass"] floating enable
+for_window [class="pop-pass"] resize set 1920 350
+for_window [class="pop-pass"] move window to position 0 0
+for_window [class="pop-pass"] border pixel 0
+#for_window [class="pop-pulsemixer"] move scratchpad
 
 assign [title="SuperCollider Help"] → $WS4
 assign [class="SuperCollider"] → $WS4
@@ -296,8 +311,11 @@ exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc
 exec --no-startup-id compton
 exec --no-startup-id st -c pop-pulsemixer pulsemixer
 exec --no-startup-id st -c pop-taskwarrior tmuxinator tasks
-exec --no-startup-id st -c pop-finder ~/.config/perso/tools/finder
+exec_always --no-startup-id st -c pop-finder ~/.config/perso/tools/finder
+exec_always --no-startup-id st -c pop-music-finder ~/.config/perso/tools/finder-music
+exec --no-startup-id st -c pop-pass ~/.config/perso/tools/passmanager
 exec --no-startup-id ~/documents/apps/tools/st-calc -c pop-calculator insect
+
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
 exec --no-startup-id sxhkd
 exec_always --no-startup-id xset b off  #Sets system beep off
