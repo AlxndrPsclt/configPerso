@@ -176,6 +176,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindsym $mod+y exec notify-send yo
+bindsym hyper+y exec notify-send yohyper
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
@@ -299,4 +300,6 @@ exec --no-startup-id st -c pop-finder ~/.config/perso/tools/finder
 exec --no-startup-id ~/documents/apps/tools/st-calc -c pop-calculator insect
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
 exec --no-startup-id sxhkd
+exec_always --no-startup-id xset b off  #Sets system beep off
+exec_always --no-startup-id setxkbmap -option "caps:hyper"
 

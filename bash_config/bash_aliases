@@ -99,3 +99,5 @@ alias dmenu=" rofi -dmenu"
 
 alias pmsearch="pacman -Ss"
 alias pminstall="sudo pacman -Suy"
+
+alias yta="youtube-dl -x -f bestaudio/best"

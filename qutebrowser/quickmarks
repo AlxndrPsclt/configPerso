@@ -81,3 +81,5 @@ watch cluster switch cisco setup tutorial https://www.youtube.com/watch?v=n_3CHv
 watch diy nettle threads https://www.youtube.com/watch?v=VSq4ynO-lRs
 read cluster glusterfs raspberry keepalived vrrp https://nickhowell.co.uk/2016/07/23/raspberry-pi-nas-with-gluster/
 read cluster keepalived tutorial https://raymii.org/s/tutorials/Keepalived-Simple-IP-failover-on-Ubuntu.html
+read blog alex elis kubernetes cloud technologies https://blog.alexellis.io/
+read tutorial kubernetes hard way https://github.com/kelseyhightower/kubernetes-the-hard-way

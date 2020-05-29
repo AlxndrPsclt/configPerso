@@ -206,3 +206,7 @@ vg() {
      vim $file +$line
   fi
 }
+
+replace() {
+	grep -rl "$1" | xargs -n 1 sed "s/$1/$2/g"
+}
