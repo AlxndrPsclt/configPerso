@@ -208,5 +208,9 @@ vg() {
 }
 
 replace() {
-	grep -rl "$1" | xargs -n 1 sed "s/$1/$2/g"
+	grep -rl "$1" | xargs -n 1 sed -i "s/$1/$2/g"
+}
+
+sanitize() {
+	echo $1 | sed -e 's/[,.;/><|:&]//g' -e 's/ /_/g'
 }
