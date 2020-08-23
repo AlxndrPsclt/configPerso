@@ -177,3 +177,9 @@ rlk () {
 echo $link | copy
 echo "Copied: $link"
 }
+
+
+connect() {
+	chosen_network = $(sudo iw dev wlan0 scan | grep SSID | awk '{print $2}' | fzf)
+	echo $chosen_network
+}
