@@ -36,7 +36,19 @@ floating_modifier $mod
 bindsym $mod+Return exec st
 bindsym $mod+o exec urxvt
 bindsym $mod+i exec qutebrowser
-bindsym $mod+n exec st vifm
+bindsym $mod+e exec st vifmi
+#bindsym $mod+a exec st -c pop-pulsemixer pulsemixer
+bindsym $mod+a [class="pop-pulsemixer"] scratchpad show
+
+bindsym $mod+t [class="pop-taskwarrior"] scratchpad show
+
+bindsym XF86Search [class="pop-finder"] scratchpad show
+bindsym $mod+space [class="pop-finder"] scratchpad show
+bindsym $mod+m [class="pop-music-finder"] scratchpad show
+
+bindsym XF86Calculator [class="pop-calculator"] scratchpad show
+
+bindsym $mod+p [class="pop-pass"] scratchpad show
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -78,24 +90,24 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-bindsym $mod+t exec ~/.config/perso/focus/focus_urxvt.sh
+bindsym $mod+n exec ~/.config/perso/focus/focus_st.sh
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+q layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 bindcode $mod+49 workspace back_and_forth
 bindsym $mod+49 workspace back_and_forth
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -168,6 +180,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindsym $mod+y exec notify-send yo
+bindsym hyper+y exec notify-send yohyper
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
@@ -187,14 +200,49 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bindsym $mod+d exec rofi -show run -theme launcher
 #bindsym $mod+w exec rofi -show window -theme window_switcher
 #bindsym $mod+s exec ~/.config/perso/rofi/scripts/social.sh
-bindsym $mod+p exec ~/.config/perso/tools/rpass
 
 
 #Assigns some windows to specific workspaces or specific display type
 #To find a window class, use:
+for_window [class="^.*"] border pixel 1
+
 for_window [class="Pavucontrol"] floating enable
 
-for_window [class="^.*"] border pixel 1
+for_window [class="pop-pulsemixer"] floating enable
+for_window [class="pop-pulsemixer"] resize set 1920 350
+for_window [class="pop-pulsemixer"] move window to position 0 0
+for_window [class="pop-pulsemixer"] border pixel 0
+for_window [class="pop-pulsemixer"] move scratchpad
+
+for_window [class="pop-taskwarrior"] floating enable
+for_window [class="pop-taskwarrior"] resize set 900 1080
+for_window [class="pop-taskwarrior"] move window to position 1020 0
+for_window [class="pop-taskwarrior"] border pixel 0
+for_window [class="pop-taskwarrior"] move scratchpad
+
+for_window [class="pop-finder"] floating enable
+for_window [class="pop-finder"] resize set 1920 500
+for_window [class="pop-finder"] move window to position 0 580
+for_window [class="pop-finder"] border pixel 0
+for_window [class="pop-finder"] move scratchpad
+
+for_window [class="pop-music-finder"] floating enable
+for_window [class="pop-music-finder"] resize set 1920 500
+for_window [class="pop-music-finder"] move window to position 0 580
+for_window [class="pop-music-finder"] border pixel 0
+for_window [class="pop-music-finder"] move scratchpad
+
+for_window [class="pop-calculator"] floating enable
+for_window [class="pop-calculator"] resize set 900 1080
+for_window [class="pop-calculator"] move window to position 1021 0
+for_window [class="pop-calculator"] border pixel 0
+for_window [class="pop-calculator"] move scratchpad
+
+for_window [class="pop-pass"] floating enable
+for_window [class="pop-pass"] resize set 1920 350
+for_window [class="pop-pass"] move window to position 0 0
+for_window [class="pop-pass"] border pixel 0
+#for_window [class="pop-pulsemixer"] move scratchpad
 
 assign [title="SuperCollider Help"] → $WS4
 assign [class="SuperCollider"] → $WS4
@@ -214,13 +262,6 @@ for_window [title="FocusVim"] border pixel 0
 
 gaps inner 20
 gaps outer 0
-#gaps horizontal 0
-#gaps vertical 0
-#gaps top -5
-#gaps right -1
-#gaps bottom -8
-#gaps left -1
-
 
 
 bindsym $mod+Shift+x exec i3lock-fancy -g -f Oxygen-Mono
@@ -247,10 +288,14 @@ bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window i
 # # Selection screenshot
 bindsym --release Shift+Print exec "scrot ~/images/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'; notify-send 'Screenshot of selected zone taken.'"
 
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+backslash scratchpad show
+
+
 # exec urxvt -e byobu
 exec --no-startup-id "/usr/bin/redshift"
 exec --no-startup-id "/usr/bin/conky -c ~/.config/perso/conky/conky.conf"
-exec --no-startup-id i3-msg 'workspace $WS2; exec st -e tmux'
+exec --no-startup-id i3-msg 'workspace $WS2; exec st -e tmux new -s main'
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always feh --bg-scale /home/alex/images/wallpapers/104787-pixel_sorting-glitch_art-aurorae.jpg
@@ -264,6 +309,15 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc
 
 exec --no-startup-id compton
+exec --no-startup-id st -c pop-pulsemixer pulsemixer
+exec --no-startup-id st -c pop-taskwarrior tmuxinator tasks
+exec_always --no-startup-id st -c pop-finder ~/.config/perso/tools/finder
+exec_always --no-startup-id st -c pop-music-finder ~/.config/perso/tools/finder-music
+exec --no-startup-id st -c pop-pass ~/.config/perso/tools/passmanager
+exec --no-startup-id ~/documents/apps/tools/st-calc -c pop-calculator insect
 
 exec --no-startup-id "sleep 1; setxkbmap -option compose:ralt"
+exec --no-startup-id sxhkd
+exec_always --no-startup-id xset b off  #Sets system beep off
+exec_always --no-startup-id setxkbmap -option "caps:hyper"
 

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+convert $1 -remap /home/alex/.config/perso/colors/nord-palette.png /home/alex/images/wallpapers/output.png
+

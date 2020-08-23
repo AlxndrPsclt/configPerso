@@ -22,11 +22,13 @@ alias 'p'='cd -'
 alias d='du -sh *'
 
 alias cdvim='cd ~/.vim'
+alias vim='vim -p'
 alias editvim='vim ~/.vim/vimrc'
+alias editssh='vim -p ~/.ssh/config ~/.ssh/known_hosts'
 alias editbyobu='vim -p ~/.byobu/color.tmux ~/.byobu/blue.tmuxtheme ~/.byobu/datetime.tmux ~/.byobu/profile.tmux ~/.byobu/keybindings.tmux ~/.byobu/.tmux.conf'
 alias editbash='vim -p $F_CONFIG_BASH/bashrc $F_CONFIG_BASH/bash_aliases $F_CONFIG_BASH/bash_funcs $F_CONFIG_BASH/bash_specifics $F_CONFIG_BASH/bash_vars $F_CONFIG_BASH/profile $F_CONFIG_BASH/bash_completion $F_CONFIG_BASH/bash_paths'
 
-alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/polybar/config ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/rofi/social.rasi ~/.config/perso/dunst/dunstrc'
+alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/x/Xresources ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/rofi/social.rasi ~/.config/perso/dunst/dunstrc'
 
 alias editinstall='vim -p ~/.config/perso/install/roles/*/tasks/main.yml ~/.config/perso/install/roles/*/vars/main.yml'
 
@@ -60,8 +62,10 @@ alias gita='git add -A'
 alias gitc='git commit -m '
 alias gitpl='git pull'
 alias gitp='git push'
+alias gitpom='git push -u origin master'
+alias gittree='git log --graph --abbrev-commit --oneline'
 alias gitswitch='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
-
+alias gitignore='wget https://www.gitignore.io/api/vim -O .gitignore'
 #Task aliases
 alias taska='task add'
 alias taskm='task modify'
@@ -95,3 +99,12 @@ alias dmenu=" rofi -dmenu"
 
 alias pmsearch="pacman -Ss"
 alias pminstall="sudo pacman -Suy"
+
+alias yta="youtube-dl -x -f bestaudio/best"
+
+alias myip="ip -br addr show"
+
+alias glusterstatus="sudo gluster peer status"
+alias glusterprobe="sudo gluster peer probe"
+
+alias config='/usr/bin/git --git-dir=$HOME/.config/cfg-perso --work-tree=$HOME'

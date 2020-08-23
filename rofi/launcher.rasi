@@ -25,6 +25,24 @@
 	base0E: #C792EA;
 	base0F: #FF5370;
 
+
+	base00: #2E3440;
+	base01: #3B4252;
+	base02: #434C5E;
+	base03: #4C566A;
+	base04: #D8DEE9;
+	base05: #E5E9F0;
+	base06: #ECEFF4;
+	base07: #8FBCBB;
+	base08: #88C0D0;
+	base09: #81A1C1;
+	base0A: #5E81AC;
+	base0B: #BF616A;
+	base0C: #D08770;
+	base0D: #EBCB8B;
+	base0E: #A3BE8C;
+	base0F: #B48EAD;
+
 	/*base0D: #00BCD4;*/
 
 	spacing: 0;
@@ -36,17 +54,17 @@
 window {
 	transparency: "real";
 	fullscreen: true;
-	background-color: #263238AA; /*base00 + CC (80% opacity)*/
+	background-color: #2E3440AA; /*base00 + CC (80% opacity)*/
 }
 
 mainbox {
 	children: [inputbar, message, listview];
 	/*spacing: 30px;*/
 	margin: 20%;
-	padding: 20px 40px 10px 20px;
+	padding: 40px 40px 10px 20px;
 	border: 0px;
 	border-color: @base0D;
-	background-color: #263238CC; /*base00 + CC (80% opacity)*/
+	background-color: #2E3440AA; /*base00 + CC (80% opacity)*/
 
 }
 
@@ -56,18 +74,18 @@ inputbar {
 }
 
 prompt {
-	text-color: @base0D;
+	text-color: @base0F;
 }
 
 textbox-prompt-colon {
 	expand: false;
 	str: ":";
 	margin: 0 1ch 0 0;
-	text-color: @base0D;
+	text-color: @base0F;
 }
 
 entry {
-	text-color: @base07;
+	text-color: @base0F;
 }
 
 case-indicator {
@@ -108,15 +126,16 @@ element normal {
 }
 
 element selected {
-	background-color: @base0D;
+	background-color: @base09;
+	text-color: @base00;
 }
 
 element alternate {
 	/*background-color: @base03;*/
 }
 
-element normal normal, element selected normal, element alternate normal {
-	text-color: @base07;
+element normal normal, element alternate normal {
+	text-color: @base09;
 }
 
 element normal urgent, element selected urgent, element alternate urgent {
