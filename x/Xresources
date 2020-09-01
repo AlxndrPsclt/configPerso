@@ -4,7 +4,7 @@
 !
 !URxvt
 ! URxvt.font: xft:Meslo LG L DZ for Powerline:style=Regular:size=12
-URxvt.font: xft:Cousine for Powerline:style=Regular:size=16, xft:FontAwesome:size=16, xft:DejaVu Sans:style=Regular:size=16
+URxvt.font: xft:Iosevka:style=Regular:size=16, xft:Cousine for Powerline:style=Regular:size=16, xft:FontAwesome:size=16, xft:Hack:style=Regular:size=16
 ! URxvt.font: xft:Meslo LG M for Powerline:style=Regular:size=12
 
 URxvt.scrollBar: false

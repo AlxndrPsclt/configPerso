@@ -48,7 +48,7 @@
 	spacing: 0;
 	background-color: transparent;
 
-	font: "Oxygen Mono 26";
+	font: "Iosevka 26";
 }
 
 window {

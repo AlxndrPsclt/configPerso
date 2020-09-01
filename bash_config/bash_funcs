@@ -105,7 +105,7 @@ vimo() {
 }
 
 smount() {
-	sudo mount `ls /dev/sd* | fzf` /mnt/`ls /mnt/ | fzf`
+	sudo mount `ls /dev/sd* /dev/mmc* | fzf` /mnt/`ls /mnt/ | fzf`
 }
 
 sumount() {
@@ -194,6 +194,13 @@ rlk () {
 echo $link | copy
 echo "Copied: $link"
 }
+
+
+connect() {
+	chosen_network = $(sudo iw dev wlan0 scan | grep SSID | awk '{print $2}' | fzf)
+	echo $chosen_network
+}
+
 # fuzzy grep open via ag with line number
 vg() {
   local file
