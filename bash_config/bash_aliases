@@ -108,3 +108,6 @@ alias glusterstatus="sudo gluster peer status"
 alias glusterprobe="sudo gluster peer probe"
 
 alias config='/usr/bin/git --git-dir=$HOME/.config/cfg-perso --work-tree=$HOME'
+
+alias today='date "+%Y-%m-%d"'
+alias now='date "+%H:%M:%S"'
