@@ -25,10 +25,10 @@ function sj {
     jump $(ls ~/.marks | fzf)
 }
 function svim {
-    $EDITOR $(find . -type f | fzf)
+    $EDITOR $(fd --type f . ./ | fzf)
 }
 function scd {
-    cd $(fd --type d . / | fzf)
+    cd $(fd --type d . ./ | fzf)
 }
 
 
