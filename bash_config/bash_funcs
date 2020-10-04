@@ -53,6 +53,10 @@ dockerxecl() {
   docker exec -it $(docker ps -l -q) /bin/bash ;
 }
 
+bt_connect() {
+	bluetoothctl -- connect $(bluetoothctl -- devices | cut -f 2- -d ' ' | fzf | cut -f 1 -d ' ')
+}
+
 #BLuetooth functions
 bt_connect_headset() {
 	echo -e "connect $BT_HEADSET_MAC\n" | bluetoothctl
