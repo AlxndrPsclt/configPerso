@@ -24,7 +24,7 @@ alias d='du -sh *'
 alias cdvim='cd ~/.vim'
 alias vim='vim -p'
 alias editvim='vim ~/.vim/vimrc'
-alias editssh='vim -p ~/.ssh/config ~/.ssh/known_hosts'
+alias editssh='vim -p ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
 alias editbyobu='vim -p ~/.byobu/color.tmux ~/.byobu/blue.tmuxtheme ~/.byobu/datetime.tmux ~/.byobu/profile.tmux ~/.byobu/keybindings.tmux ~/.byobu/.tmux.conf'
 alias editbash='vim -p $F_CONFIG_BASH/bashrc $F_CONFIG_BASH/bash_aliases $F_CONFIG_BASH/bash_funcs $F_CONFIG_BASH/bash_specifics $F_CONFIG_BASH/bash_vars $F_CONFIG_BASH/profile $F_CONFIG_BASH/bash_completion $F_CONFIG_BASH/bash_paths'
 
