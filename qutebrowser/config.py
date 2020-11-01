@@ -199,22 +199,6 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - ask
 config.set('content.media_capture', True, 'https://teams.microsoft.com')
 
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications', False, 'https://freemp3.cc')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications', False, 'https://www.reddit.com')
-
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
 # Type: BoolAsk
