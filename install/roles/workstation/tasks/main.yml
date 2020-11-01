@@ -108,26 +108,26 @@
     state: link
   loop: "{{ links_to_create_sudo }}"
 
-- name: Create local/run directory for mpd if it does not exist
-  file:
-    path: "{{ ansible_env.HOME }}/.local/run/mpd"
-    state: directory
+#- name: Create local/run directory for mpd if it does not exist
+#  file:
+#    path: "{{ ansible_env.HOME }}/.local/run/mpd"
+#    state: directory
 
 - name: Copies files for network setup with systemd-networkd
   copy:
-    src: {{ ansible_env.CONFIG_PERSO }}/network/*
+    src: "{{ ansible_env.CONFIG_PERSO }}/network/*"
     dest: /etc/systemd/network/
     owner: root
     group: root
     mode: u=rw,g=r,o=r
 
-- name: Copies files for wifi setup with wpa_supplicant
-  copy:
-    src: {{ ansible_env.CONFIG_PERSO }}/wpa_supplicant/*
-    dest: /etc/wpa_supplicant/
-    owner: root
-    group: root
-    mode: u=rw,g=r,o=r
+      #- name: Copies files for wifi setup with wpa_supplicant
+      #  copy:
+      #    src: "{{ ansible_env.CONFIG_PERSO }}/wpa_supplicant/*"
+      #    dest: /etc/wpa_supplicant/
+      #    owner: root
+      #    group: root
+      #    mode: u=rw,g=r,o=r
 
 - name: enable service systemd-networkd
   systemd:
@@ -145,7 +145,7 @@
     enabled: yes
     masked: no
 
-- name: enable service wpa_supplicant@wlp2s0
+- name: enable service wpa_supplicant@wlp3s0
   systemd:
     name: systemd-resolved
     scope: user
@@ -174,7 +174,6 @@
 - name: Installing some software using yay
   yay:
     name:
-      - byobu
       - bash-git-prompt
 
 - name: Deactivale 'wheel' group passwordless sudo
@@ -186,12 +185,12 @@
     line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
     validate: visudo -cf %s
 
-- name: enable service mpd
-  systemd:
-    name: mpd
-    scope: user
-    state: started
-    enabled: yes
-    masked: no
+      #- name: enable service mpd
+      #  systemd:
+      #    name: mpd
+      #    scope: user
+      #    state: started
+      #    enabled: yes
+      #    masked: no
 
 
