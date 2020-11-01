@@ -39,6 +39,13 @@
       - youtube-dl
     state: present
 
+- name: Clone password-store from server
+  git:
+    repo: 'git@gitlab.com:AlxndrPsclt/password-store.git'
+    dest: "{{ HOME }}/.password-store"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.gitlab.priv"
+
+
 - name: Install virtualenv & cie using pip
   become: yes
   pip:

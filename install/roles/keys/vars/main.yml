@@ -1,0 +1,7 @@
+---
+# vars file for keys
+ssh_known_hosts_command: "ssh-keyscan -H -T 10"
+ssh_known_hosts_file: "{{ HOME }}/.ssh/known_hosts"
+ssh_known_hosts:
+  - gitlab.com
+  - github.com
