@@ -10,6 +10,7 @@
     name:
       - base-devel
       - git
+      - tmux
     state: present
 
 
