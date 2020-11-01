@@ -8,18 +8,19 @@
       - xorg
       - xorg-xinit
       - lightdm
-      - i3-gaps
       - rxvt-unicode
       - xclip
     state: present
 
-- name: Install packages for desktops2
+- name: Install packages for audio
   become: yes
   pacman:
     name:
       - pulseaudio
       - pulseaudio-alsa
       - pulseaudio-bluetooth
+      - bluez
+      - bluez-utils
       - pamixer
     state: present
 
@@ -45,9 +46,9 @@
     name:
       - zathura
       - zathura-pdf-poppler
-      - rofi
+#      - rofi
       - picom
-      - conky
+#      - conky
       - dunst
       - redshift
       - mpv
@@ -55,14 +56,12 @@
       - wmctrl
       - xsel
       - scrot
-      - rtorrent
+#      - rtorrent
       - tlp
       - feh
       - light
-      - task
-      - ffmpeg
-      - bluez
-      - bluez-utils
+#      - task
+#      - ffmpeg
     state: present
 
 ##Add nixshell install
@@ -89,9 +88,9 @@
     name:
       - ttf-oxygen-gf
       - powerline-fonts-git
-      - i3lock-fancy-git
-      - st-luke-git
-      - vit
+#      - i3lock-fancy-git
+#      - st-luke-git
+#      - vit
       - lightdm-mini-greeter
       - pulsemixer
 

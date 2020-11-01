@@ -37,8 +37,6 @@
       - strace
       - qrencode
       - youtube-dl
-      - mpd
-      - mpc
     state: present
 
 - name: Install virtualenv & cie using pip
@@ -47,7 +45,7 @@
     name:
       - virtualenv
       - virtualenvwrapper
-      - terminal_velocity
+#      - terminal_velocity
 
 
         #- name: Clone personal bashconfig and other usefull configs
