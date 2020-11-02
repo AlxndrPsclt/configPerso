@@ -19,7 +19,7 @@
     src: "{{ LOCAL_HOME }}/.gpg"
     dest: "{{ HOME }}"
     owner: "{{ USER }}"
-    group: "{{ USER }}"
+    group: "wheel"
     mode: '0744'
   register: new_key
 
@@ -45,7 +45,7 @@
   become: yes
   file:
     path: "{{ HOME }}/.ssh/keys"
-    group: "{{ USER }}"
+    group: "wheel"
     owner: "{{ USER }}"
     mode: "0755"
     state: directory
@@ -55,7 +55,7 @@
     src: "{{ item }}"
     dest: "{{ HOME }}/.ssh/keys/{{ item | basename }}"
     owner: "{{ USER }}"
-    group: "{{ USER }}"
+    group: "wheel"
     mode: '0755'
   with_fileglob:
     - '{{ LOCAL_HOME }}/.ssh/keys/*.pub'
@@ -65,7 +65,7 @@
     src: "{{ item }}"
     dest: "{{ HOME }}/.ssh/keys/{{ item | basename }}"
     owner: "{{ USER }}"
-    group: "{{ USER }}"
+    group: "wheel"
     mode: '0600'
   with_fileglob:
     - '{{ LOCAL_HOME }}/.ssh/keys/*.priv'
@@ -80,7 +80,7 @@
     path: "{{ ssh_known_hosts_file }}"
     state: file
     owner: "{{ USER }}"
-    group: "{{ USER }}"
+    group: "wheel"
     mode: '0644'
 
 - name: Check host name availability

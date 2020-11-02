@@ -6,6 +6,8 @@ all:
       ansible_user: alex
       ansible_ssh_pass: alex
       ansible_become_pass: alex
+      ansible_sudo_pass: alex
       USER: "alex"
       HOME: "/home/{{ USER }}"
       CONFIG_PERSO: "{{ HOME }}/.config/perso"
+      LOCAL_HOME: "/home/{{ USER }}"

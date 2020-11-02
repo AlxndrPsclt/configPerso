@@ -13,6 +13,19 @@
       - tmux
     state: present
 
+- name: Ensure groups ansible and docker exist
+  become: yes
+  group:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - alex
+
+- name: Create users
+  become: yes
+  user:
+    name: "alex"
+    groups: wheel   # Empty by default.
 
 - name: Check if yay is already present
   command: pacman -Q yay
@@ -28,11 +41,29 @@
     force: yes
   when: is_yay_present.stdout == ""
 
+- name: Allow 'wheel' group to have passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
 - name: Install yay
   command: makepkg -si --noconfirm
   args:
     chdir: /tmp/yay
   when: is_yay_present.stdout == ""
+
+- name: Deactivale 'wheel' group passwordless sudo
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
 
 
   #  #http://brainxploit.com/2019/03/27/how-to-set-up-avahi-on-arch-linux/
