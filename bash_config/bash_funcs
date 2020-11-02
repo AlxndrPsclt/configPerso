@@ -205,8 +205,13 @@ connect() {
 	echo $chosen_network
 }
 
+connect() {
+	chosen_network = $(sudo iw dev wlan0 scan | grep SSID | awk '{print $2}' | fzf)
+	echo $chosen_network
+}
+
 # fuzzy grep open via ag with line number
-vg() {
+agvim() {
   local file
   local line
 
