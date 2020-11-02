@@ -73,6 +73,10 @@
     repo: 'https://github.com/VundleVim/Vundle.vim.git'
     dest: "{{ HOME }}/.vim/bundle/Vundle.vim"
 
+- name: Clone tpm for tmux plugins
+  git:
+    repo: 'git clone https://github.com/tmux-plugins/tpm '
+    dest: "{{ CONFIG_PERSO }}/tmux/plugins/tpm"
 
 - name: Register existence of workstation config links
   stat:
