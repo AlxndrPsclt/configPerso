@@ -78,7 +78,7 @@
 - name: Make sure the known hosts file exists
   file:
     path: "{{ ssh_known_hosts_file }}"
-    state: file
+    state: touch
     owner: "{{ USER }}"
     group: "wheel"
     mode: '0644'

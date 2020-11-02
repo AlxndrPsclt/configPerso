@@ -121,8 +121,9 @@
 #    state: directory
 
 - name: Copies files for network setup with systemd-networkd
+  become: true
   copy:
-    src: "{{ ansible_env.CONFIG_PERSO }}/network/*"
+    src: "{{ CONFIG_PERSO }}/network/"
     dest: /etc/systemd/network/
     owner: root
     group: root
