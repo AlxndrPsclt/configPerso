@@ -6,6 +6,8 @@
     #Minimal config
     - role: minimal
 
+    - role: keys
+
     - role: workstation
 
     - role: desktop
