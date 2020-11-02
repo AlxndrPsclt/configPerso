@@ -2,7 +2,6 @@ bash_config/bash_specifics
 qutebrowser/qsettings/QtProject.conf
 byobu/.ssh-agent
 vifm/vifminfo
-tmux/plugins/*
 vifm/vifm-help.txt
 tmux/plugins/*
 qutebrowser/userscripts/readability.html
