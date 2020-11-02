@@ -3,5 +3,6 @@ qutebrowser/qsettings/QtProject.conf
 byobu/.ssh-agent
 vifm/vifminfo
 vifm/vifm-help.txt
+vifm/vifminfo.json
 tmux/plugins/*
 qutebrowser/userscripts/readability.html
