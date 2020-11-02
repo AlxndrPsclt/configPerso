@@ -14,3 +14,8 @@ export F_CREATIONS=$F_DOCUMENTS/creations/
 export F_PROJECTS=$F_CREATIONS/projects/
 export F_PROG=$F_CREATIONS/prog/
 export F_MARKS=$MARKPATH
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+#export XDG_RUNTIME_DIR="$HOME/.xdg"
+

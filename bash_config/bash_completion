@@ -9,8 +9,6 @@ _completemarks() {
 
 complete -F _completemarks jump unmark
 
-#Tmuxinator completition
-source ~/.config/perso/tmux_config/tmuxinator.bash
 
 _ssh() 
 {

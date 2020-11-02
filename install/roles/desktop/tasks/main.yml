@@ -28,7 +28,8 @@
   become: yes
   pacman:
     name:
-      - qutebrowser
+#      - noto-fonts
+#      - qutebrowser
       - awesome-terminal-fonts
     state: present
 
@@ -165,6 +166,7 @@
   become: yes
   file:
     path: "/var/log/qutebrowser_scripts.log"
+    state: touch
     owner: alex
     group: wheel
     mode: '0644'
