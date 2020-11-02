@@ -197,7 +197,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.media_capture', True, 'https://teams.microsoft.com')
+config.set('content.media.audio_video_capture', True, 'https://teams.microsoft.com')
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
@@ -735,3 +735,4 @@ config.bind('}', 'scroll-page 0 0.5')
 config.set("colors.webpage.darkmode.enabled", True)
 
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]" {hint-url}')
+config.bind(',r', 'spawn --userscript readability')

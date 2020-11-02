@@ -13,14 +13,6 @@
       - tmux
     state: present
 
-- name: Ensure groups ansible and docker exist
-  become: yes
-  group:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - alex
-
 - name: Create users
   become: yes
   user:
