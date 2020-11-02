@@ -10,6 +10,8 @@ links_to_create :
   - { dest: '{{ HOME }}/.local/share/applications/defaults.list', src: '{{ CONFIG_PERSO }}/xdg-config/defaults.list' }
   - { dest: '{{ HOME }}/.reload_xresource.sh', src: '{{ CONFIG_PERSO }}/x/reload_xresource.sh' }
   - { dest: '{{ HOME }}/.urxvt', src: '{{ CONFIG_PERSO }}/urxvt' }
+  - { dest: '{{ HOME }}/.config/bspwm', src: '{{ CONFIG_PERSO }}/bspwm' }
+  - { dest: '{{ HOME }}/.config/sxhkd', src: '{{ CONFIG_PERSO }}/sxhkd' }
   - { dest: '{{ HOME }}/.xinitrc', src: '{{ CONFIG_PERSO }}/x/xinitrc' }
 #  - { dest: '{{ HOME }}/.config/conky', src: '{{ CONFIG_PERSO }}/conky' }
 #  - { dest: '{{ HOME }}/.config/i3', src: '{{ CONFIG_PERSO }}/i3/' }

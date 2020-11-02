@@ -8,6 +8,8 @@
       - xorg
       - xorg-xinit
       - lightdm
+      - bspwm
+      - sxhkd
       - rxvt-unicode
       - xclip
     state: present
@@ -18,9 +20,9 @@
     name:
       - pulseaudio
       - pulseaudio-alsa
-      - pulseaudio-bluetooth
       - bluez
       - bluez-utils
+      - pulseaudio-bluetooth
       - pamixer
     state: present
 
