@@ -119,8 +119,6 @@ fi
 [ -r /home/alex/.byobu/prompt ] && . /home/alex/.byobu/prompt   #byobu-prompt#
 
 
-#Tmuxinator config
-source ~/.config/perso/tmux_config/tmuxinator.bash
 
 export EDITOR='vim'
 
