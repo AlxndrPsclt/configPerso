@@ -230,3 +230,8 @@ replace() {
 sanitize() {
 	echo $1 | sed -e 's/[,.;/><|:&]//g' -e 's/ /_/g'
 }
+
+actions() {
+  which dmenu
+	echo -e " WIFI\n  BLT\n SOUND\n POWER" | dmenu -i -fn "Iosevka:size=60:style=bold"
+}
