@@ -7,6 +7,9 @@ super + u
 super + d
 	dmenu_run
 
+super + r
+	/home/alex/.config/perso/tools/actions.sh
+
 super + Escape
 	pkill -USR1 -x sxhkd
 
