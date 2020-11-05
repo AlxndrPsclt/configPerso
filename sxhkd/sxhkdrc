@@ -1,5 +1,14 @@
-hyper + u
-	notify-send "yo hyper sxhkdsperh"
+super + Return
+	st
 
 super + u
-	notify-send "yo super sxhkdsper HHHH"
+	urxvt
+
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+super + o ; {e,w,m}
+	{gvim,qutebrowser,thunderbird}
+
+XF86Audio{Raise,Lower}Volume
+	amixer -q set Master 5%{+,-}
