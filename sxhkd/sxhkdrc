@@ -4,6 +4,9 @@ super + Return
 super + u
 	urxvt
 
+super + d
+	dmenu_run
+
 super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
