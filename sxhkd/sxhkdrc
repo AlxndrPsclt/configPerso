@@ -4,6 +4,9 @@ super + Return
 super + u
 	urxvt
 
+super + i
+	qutebrowser
+
 super + d
 	dmenu_run
 
