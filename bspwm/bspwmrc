@@ -7,7 +7,7 @@ picom -b &
 killall "dunst"
 dunst &
 killall "feh"
-feh --bg-scale file:///home/alex/images/base.png &
+feh --bg-scale file:///home/alex/images/wallpapers/current &
 killall "redshift"
 redshift &
 
