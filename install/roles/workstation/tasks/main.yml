@@ -32,6 +32,7 @@
       - nmap
       - the_silver_searcher
       - fzf
+      - fd
       - vifm
       - mlocate
       - strace

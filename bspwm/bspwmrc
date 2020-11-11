@@ -26,5 +26,7 @@ bspc config single_monocle   true
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a pulsemixer state=floating
+bspc rule -a main-term desktop=^2
+st -c main-term tmux &
+
+bspc rule -a pulsemixer state=floating sticky=on

@@ -10,8 +10,8 @@ super + i
 super + d
 	dmenu_run
 
-super + r
-	/home/alex/.config/perso/tools/actions.sh
+super + space
+	/home/alex/.config/perso/tools/actions/actions.sh
 
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -31,6 +31,8 @@ super + grave
 	bspc desktop -f last
 
 
+super + a 
+  st -c pulsemixer pulsemixer
 
 super + o ; {e,w,m}
 	{gvim,qutebrowser,thunderbird}
