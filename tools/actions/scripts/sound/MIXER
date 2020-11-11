@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-st -c pulsemixer pulsemixer
+st -c mixer pulsemixer
