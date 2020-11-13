@@ -37,6 +37,7 @@
       - mlocate
       - strace
       - qrencode
+      - wget
       - youtube-dl
     state: present
 

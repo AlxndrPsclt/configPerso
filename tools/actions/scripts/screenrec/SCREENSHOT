@@ -1,5 +1,6 @@
-
-scrot ~/images/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f' ; notify-send 'Full desktop screenshot taken.'
+mkdir -p ~/images/screenrec/screenshot
+scrot ~/images/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'
+notify-send 'Full desktop screenshot taken.'
 
 # # Choose window
 bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window id:.*/ {print $4}'` ~/images/screenshots/$(date --iso-8601='seconds').png; notify-send 'Window screenshot taken.'"

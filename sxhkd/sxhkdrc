@@ -31,7 +31,7 @@ super + grave
 	bspc desktop -f last
 
 
-super + a 
+super + a
   st -c pulsemixer pulsemixer
 
 super + o ; {e,w,m}
@@ -41,6 +41,8 @@ super + o ; {e,w,m}
 super + shift + q
 	bspc node --close
 
-
 XF86Audio{Raise,Lower}Volume
 	amixer -q set Master 5%{+,-}
+
+super + p
+	/home/alex/.config/perso/pass/dpass
