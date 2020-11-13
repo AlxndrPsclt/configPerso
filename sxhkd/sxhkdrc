@@ -45,4 +45,4 @@ XF86Audio{Raise,Lower}Volume
 	amixer -q set Master 5%{+,-}
 
 super + p
-	/home/alex/.config/perso/pass/dpass
+	/home/alex/.config/perso/tools/actions/scripts/passwords/ASK

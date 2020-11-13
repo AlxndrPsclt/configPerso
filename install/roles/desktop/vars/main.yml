@@ -13,6 +13,8 @@ links_to_create :
   - { dest: '{{ HOME }}/.config/bspwm', src: '{{ CONFIG_PERSO }}/bspwm' }
   - { dest: '{{ HOME }}/.config/sxhkd', src: '{{ CONFIG_PERSO }}/sxhkd' }
   - { dest: '{{ HOME }}/.xinitrc', src: '{{ CONFIG_PERSO }}/x/xinitrc' }
+  - { dest: '{{ HOME }}/.gnupg/gpg-agent.conf', src: '{{ CONFIG_PERSO }}/gnupg/gpg-agent.conf' }
+  - { dest: '{{ HOME }}/.gnupg/pinentry-dmenu.conf', src: '{{ CONFIG_PERSO }}/gnupg/pinentry-dmenu.conf' }
 #  - { dest: '{{ HOME }}/.config/conky', src: '{{ CONFIG_PERSO }}/conky' }
 #  - { dest: '{{ HOME }}/.config/i3', src: '{{ CONFIG_PERSO }}/i3/' }
 #  - { dest: '{{ HOME }}/.config/rofi', src: '{{ CONFIG_PERSO }}/rofi' }

@@ -33,6 +33,7 @@ alias editbsp='vim -p ~/.config/perso/bspwm/bspwmrc ~/.config/perso/sxhkd/sxhkdr
 alias editsuckless='vim -p ~/apps/suckless/contxtl-st/config.def.h ~/apps/suckless/contxtl-dmenu/config.def.h '
 
 alias editinstall='vim -p ~/.config/perso/install/roles/*/tasks/main.yml ~/.config/perso/install/roles/*/vars/main.yml'
+alias editactions='vim -p ~/.config/perso/tools/actions/actions.sh ~/.config/perso/tools/actions'
 
 
 #TODO: install tor browser
