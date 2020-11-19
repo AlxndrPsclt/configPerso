@@ -31,7 +31,7 @@
   pacman:
     name:
 #      - noto-fonts
-#      - qutebrowser
+      - qutebrowser
       - awesome-terminal-fonts
     state: present
 
@@ -139,7 +139,17 @@
 
 - name: Create applications directory if it does not exist (will containing xdg-config)
   file:
-    path: "{{ ansible_env.HOME }}/.local/share/applications"
+    path: "{{ HOME }}/.local/share/applications"
+    state: directory
+
+- name: Create downloads directory if it does not exist
+  file:
+    path: "{{ HOME }}/downloads"
+    state: directory
+
+- name: Create music directory if it does not exist
+  file:
+    path: "{{ HOME }}/music"
     state: directory
 
 - name: Create symbolic link for desktop config tools

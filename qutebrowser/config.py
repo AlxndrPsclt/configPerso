@@ -39,7 +39,7 @@ c.backend = 'webengine'
 # Time interval (in milliseconds) between auto-saves of
 # config/cookies/etc.
 # Type: Int
-c.auto_save.interval = 15000
+c.auto_save.interval = 60000
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
@@ -330,7 +330,7 @@ c.tabs.position = 'top'
 #   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
 #   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
 #   - last-used: Select the previously selected tab.
-c.tabs.select_on_remove = 'next'
+c.tabs.select_on_remove = 'prev'
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
@@ -392,7 +392,7 @@ c.colors.completion.item.selected.border.bottom = '#4c566a'
 
 # Foreground color of the matched text in the completion.
 # Type: QtColor
-c.colors.completion.match.fg = '#fb2975'
+c.colors.completion.match.fg = '#b48ead'
 
 # Color of the scrollbar handle in the completion view.
 # Type: QssColor
@@ -434,7 +434,7 @@ c.colors.hints.fg = '#2e3440'
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
-c.colors.hints.bg = '#fb2975'
+c.colors.hints.bg = '#b48ead'
 
 # Font color for the matched part of hints.
 # Type: QtColor
@@ -446,7 +446,7 @@ c.colors.keyhint.fg = '#e5e9f0'
 
 # Highlight color for keys to complete the current keychain.
 # Type: QssColor
-c.colors.keyhint.suffix.fg = '#fb2975'
+c.colors.keyhint.suffix.fg = '#b48ead'
 
 # Background color of the keyhint widget.
 # Type: QssColor
@@ -650,13 +650,13 @@ c.colors.tabs.selected.even.bg = '#9ac1cc'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = 'white'
+c.colors.webpage.bg = '#2e3440'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = ['Hack', 'Oxygen Mono', 'xos4 Terminus', 'Terminus']
+c.fonts.default_family = ['Iosevka', 'Hack', 'Oxygen Mono', 'xos4 Terminus', 'Terminus']
 
 # Font used in the completion widget.
 # Type: Font
@@ -724,6 +724,7 @@ config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
 config.bind(',k', 'spawn --userscript keep_tracks.sh')
 config.bind('<Alt+Shift+Left>', 'tab-move -')
 config.bind('<Alt+Shift+Right>', 'tab-move +')
+# Change speed of youtube playlist
 config.bind('<Ctrl++>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = document.getElementsByClassName('html5-main-video')[0].playbackRate + 0.25")
 config.bind('<Ctrl+->', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = document.getElementsByClassName('html5-main-video')[0].playbackRate - 0.25")
 config.bind('<Ctrl+[>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 1")

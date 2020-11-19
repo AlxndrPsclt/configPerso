@@ -32,10 +32,12 @@
       - nmap
       - the_silver_searcher
       - fzf
+      - fd
       - vifm
       - mlocate
       - strace
       - qrencode
+      - wget
       - youtube-dl
     state: present
 
@@ -46,8 +48,7 @@
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.gitlab.priv"
 
 
-- name: Install virtualenv & cie using pip
-  become: yes
+- name: Install virtualenv & cie using pip     #do not become root for this; better skip thank break something
   pip:
     name:
       - virtualenv

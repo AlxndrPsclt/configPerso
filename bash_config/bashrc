@@ -151,3 +151,5 @@ export PATH="$PATH:~/.config/perso/tools"
 
 export MPD_HOST=~/.local/run/mpd/socket
 
+GPG_TTY=$(tty)
+export GPG_TTY

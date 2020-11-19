@@ -1,5 +1,5 @@
 [global]
-font = Iosevka Term 15
+font = Iosevka 20
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -79,7 +79,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 10
+transparency = 0
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -123,10 +123,10 @@ line_height = 100
 separator_height = 2
 
 # Padding between text and separator.
-padding = 6
+padding = 10
 
 # Horizontal padding.
-horizontal_padding = 6
+horizontal_padding = 10
 
 # Define a color for the separator.
 # possible values are:
@@ -155,7 +155,7 @@ max_icon_size = 80
 icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
 frame_width = 5
-frame_color = "#4C566A"
+frame_color =	"#81a1c1"
 
 [shortcuts]
 
@@ -181,24 +181,22 @@ context = ctrl+shift+period
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#665fb3"
-foreground = "#3B7C87"
-background = "#4C566A"
+frame_color = "#81a1c1"
+foreground = "#81a1c1"
+background = "#2e3440"
 #background = "#2B313C"
 timeout = 3
 
 [urgency_normal]
-frame_color =  "#4C566A"
-foreground = "#D8DEE9"
-background = "#4C566A"
-#background = "#2B313C"
+frame_color = "#81a1c1"
+foreground = "#2e3440"
+background = "#81a1c1"
 timeout = 5
 
 [urgency_critical]
 frame_color = "#BF616A"
-foreground = "#D8DEE9"
-background = "#4C566A"
-#background = "#2B313C"
+foreground = "#2e3440"
+background = "#BF616A"
 timeout = 8
 
 

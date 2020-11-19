@@ -8,7 +8,6 @@ links_to_create :
   - { dest: '{{ HOME }}/.bash_funcs', src: '{{ CONFIG_PERSO }}/bash_config/bash_funcs' }
   - { dest: '{{ HOME }}/.bash_completion', src: '{{ CONFIG_PERSO }}/bash_config/bash_completion' }
   - { dest: '{{ HOME }}/.bash_logout', src: '{{ CONFIG_PERSO }}/bash_config/bash_logout' }
-  - { dest: '{{ HOME }}/.byobu', src: '{{ CONFIG_PERSO }}/byobu' }
   - { dest: '{{ HOME }}/.config/vifm', src: '{{ CONFIG_PERSO }}/vifm' }
   - { dest: '{{ HOME }}/.tmux.conf', src: '{{ CONFIG_PERSO }}/tmux/tmux.conf' }
   - { dest: '{{ HOME }}/.config/zathura', src: '{{ CONFIG_PERSO }}/zathura' }
