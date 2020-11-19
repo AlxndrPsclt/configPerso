@@ -120,6 +120,7 @@ shop herboristerie plantes france herbs plants https://www.herboristerieduvalmon
 shop food crow farming https://www.crowdfarming.com/fr
 shop herb plant ethno botanic http://www.art-ethnobotanique.com/
 read alpine raspberry pi rpi bluetooth setup https://wiki.alpinelinux.org/wiki/Raspberry_Pi_3_-_Setting_Up_Bluetooth
+, \ https://www.amazon.fr/progress-tracker/package/ref=pe_3044141_248816771_302_E_DDE_instr?_encoding=UTF8&from=gp&itemId=&orderId=402-0765658-3833117&packageIndex=0&shipmentId=21813526825302
 read alpine tuto setup clean https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
 read tuto raspberry pi rpi pxe network boot https://blog.ronnyvdb.net/2020/05/10/howto-raspberry-pi-4-pxe-network-boot/
 read tool tags file system https://rffr.de/nhfs-nonhierarchical-file-system/
@@ -131,3 +132,15 @@ read tuto libreboot coreboot bios ivyrain software install https://github.com/n4
 read tutorial fstab https://linuxconfig.org/how-fstab-works-introduction-to-the-etc-fstab-file-on-linux
 read tutorial raspberry pi rpi bluetooth alsa bluez https://www.raspberry-pi-geek.de/ausgaben/rpg/2018/04/musik-per-bluetooth-an-einen-lautsprecher-senden/
 read tutorial apache guacamole remote desktop ssh thin client https://guacamole.apache.org/
+read solve python install problem pip vendor packages exist on disk https://bbs.archlinux.org/viewtopic.php?id=250717
+distributivism philosophy econony https://en.wikipedia.org/wiki/Distributism
+read tuto coreboot thinkpad x220 rpi https://tylercipriani.com/blog/2016/11/13/coreboot-on-the-thinkpad-x220-with-a-raspberry-pi/
+watch programming series tutorial how to make your own os from scratch https://www.youtube.com/playlist?list=PLxN4E629pPnKKqYsNVXpmCza8l0Jb6l8-&feature=share
+read tutorial coreboot structure https://medium.com/swlh/getting-started-with-coreboot-7ade78327e75
+read tutorial coreboot https://wiki.gentoo.org/wiki/Coreboot
+read tutorial coreboot explication of options https://coreboot.org/status/kconfig-options.html
+read tuto what is syslinux http://oldlinux.org/Linux.old/study/boot/syslinux/SYSLINUX%20-%20The%20Easy-to-use%20Linux%20Bootloader.htm
+read thinkpad x230 cpu list types mod screen https://xyte.ch/thinkpads/x230/
+tutorial x230 bios password remove https://www.youtube.com/watch?v=ANZjUPUYE7s
+shop x230 usb c barrel charging port mod https://www.tindie.com/products/mikepdiy/lenovo-charging-port-type-c-pd-x220-x230/
+read tutorial boot loader code in c++ https://www.apriorit.com/dev-blog/66-develop-boot-loader
