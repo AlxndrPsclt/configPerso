@@ -1,6 +1,6 @@
 all:
     hosts:
-      192.168.1.169
+      192.168.1.170
     vars:
       ansible_connection: ssh
       ansible_user: alex

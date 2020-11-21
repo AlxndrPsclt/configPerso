@@ -8,7 +8,7 @@
 #GPG#
 #####
 
-- name: Update repositories cache and install usefull packages
+- name: Update repositories cache and install package for encryption and keys
   become: yes
   pacman:
     name: 'gpgme'

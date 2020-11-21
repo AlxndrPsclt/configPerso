@@ -125,14 +125,14 @@
 #    path: "{{ ansible_env.HOME }}/.local/run/mpd"
 #    state: directory
 #
-- name: Allow 'wheel' group to have passwordless sudo
-  become: yes
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
-    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-    validate: visudo -cf %s
+#- name: Allow 'wheel' group to have passwordless sudo
+#  become: yes
+#  lineinfile:
+#    dest: /etc/sudoers
+#    state: present
+#    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
+#    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+#    validate: visudo -cf %s
 
 - name: Installing some software using yay
   yay:
@@ -140,21 +140,21 @@
       - bash-git-prompt
       - tmux-bash-completion-git
 
-- name: Deactivale 'wheel' group passwordless sudo
-  become: yes
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
-    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
-    validate: visudo -cf %s
+#- name: Deactivale 'wheel' group passwordless sudo
+#  become: yes
+#  lineinfile:
+#    dest: /etc/sudoers
+#    state: present
+#    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
+#    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
+#    validate: visudo -cf %s
 
-      #- name: enable service mpd
-      #  systemd:
-      #    name: mpd
-      #    scope: user
-      #    state: started
-      #    enabled: yes
-      #    masked: no
+#- name: enable service mpd
+#  systemd:
+#    name: mpd
+#    scope: user
+#    state: started
+#    enabled: yes
+#    masked: no
 
 

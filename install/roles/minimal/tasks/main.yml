@@ -33,14 +33,14 @@
     force: yes
   when: is_yay_present.stdout == ""
 
-- name: Allow 'wheel' group to have passwordless sudo
-  become: yes
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
-    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-    validate: visudo -cf %s
+    #- name: Allow 'wheel' group to have passwordless sudo
+    #  become: yes
+    #  lineinfile:
+    #    dest: /etc/sudoers
+    #    state: present
+    #    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
+    #    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    #    validate: visudo -cf %s
 
 - name: Install yay
   command: makepkg -si --noconfirm
@@ -48,43 +48,15 @@
     chdir: /tmp/yay
   when: is_yay_present.stdout == ""
 
-- name: Deactivale 'wheel' group passwordless sudo
-  become: yes
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
-    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
-    validate: visudo -cf %s
+    #- name: Deactivale 'wheel' group passwordless sudo
+    #  become: yes
+    #  lineinfile:
+    #    dest: /etc/sudoers
+    #    state: present
+    #    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
+    #    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
+    #    validate: visudo -cf %s
 
 
-  #  #http://brainxploit.com/2019/03/27/how-to-set-up-avahi-on-arch-linux/
-  #- name: Install packages for minimal install
-  #  become: yes
-  #  pacman:
-  #    name:
-  #      - avahi
-  #      - nss-mdns
-  #      - gtk3
-  #      - python-dbus
-  #      - python-gobject
-  #    state: present
-  #
-  #- name: Set to resolve MDNS names
-  #  become: yes
-  #  lineinfile:
-  #    dest: /etc/nsswitch.conf
-  #    state: present
-  #    regexp: '^hosts: files mymachines myhostname resolve \[\!UNAVAIL=return\] dns'
-  #    line: 'hosts: files mymachines myhostname mdns4_minimal \[NOTFOUND=return\] resolve \[\!UNAVAIL=return\] dns'
-  #
-  #- name: enable services avahi-daemon and ensure it is not masked
-  #  become: yes
-  #  systemd:
-  #    name: avahi-daemon
-  #    state: started
-  #    enabled: yes
-  #    masked: no
-  #
   #- debug: var=res
   #- meta: end_play    #Usefull for dev: ends the play right here

@@ -1,5 +1,6 @@
 #systemctl enable dhcpcd
-systemctl enable NetworkManager
+systemctl enable systemd-networkd
+systemctl enable systemd-resolved
 systemctl enable sshd.service
 
 #grub-install --target=i386-pc /dev/sda
@@ -28,6 +29,8 @@ useradd -m -s /bin/bash -g wheel -p alex alex
 echo -e "alex\nalex" | passwrd alex
 
 sed -i 's/^# %wheel ALL=(ALL)/%wheel ALL=(ALL)/' /etc/sudoers
+
+# TODO: Install rflector and execte  https://itsfoss.com/install-arch-linux/
 
 #bootctl --path=/boot install
 

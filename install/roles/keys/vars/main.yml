@@ -6,5 +6,5 @@ ssh_known_hosts:
   - gitlab.com
   - github.com
 
-links_to_create :
-  - { dest: '{{ HOME }}/.ssh/config', src: '{{ CONFIG_PERSO }}/ssh/config' }
+#links_to_create :
+#  - { dest: '{{ HOME }}/.ssh/config', src: '{{ CONFIG_PERSO }}/ssh/config' }
