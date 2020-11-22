@@ -242,3 +242,8 @@
     dest: "{{ HOME }}/apps/suckless/contxtl-st"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
+- name: Compile minimalistic greeter
+  shell: somescript.sh >> somelog.txt
+  args:
+    chdir: somedir/
+    creates: somelog.txt

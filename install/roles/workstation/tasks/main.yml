@@ -43,6 +43,17 @@
         #      - youtube-dl
     state: present
 
+- name: Copy wpa_supplicant file after decrypting it
+  become: yes
+  copy:
+    src: "{{ LOCAL_HOME }}/.config/perso/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
+    dest: "/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
+    decrypt: yes
+    owner: root
+    group: root
+    mode: 600
+    backup: no
+
 - name: enable service wpa_supplicant
   become: yes
   systemd:
@@ -51,16 +62,13 @@
     enabled: yes
     masked: no
 
-- name: Copy wpa_supplicant file after decrypting it
+- name: enable service wpa_supplicant@wlp2s0
   become: yes
-  copy:
-    src: "{{ LOCAL_HOME }}/.config/perso/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
-    dest: "/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
-    decrypt: yes
-    owner: root 
-    group: root 
-    mode: 400
-    backup: no
+  systemd:
+    name: wpa_supplicant@wlp2s0
+    state: started
+    enabled: yes
+    masked: no
 
 - name: Clone password-store from server
   git:

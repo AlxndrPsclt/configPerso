@@ -3,10 +3,10 @@ systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 systemctl enable sshd.service
 
-#grub-install --target=i386-pc /dev/sda
+grub-install --target=i386-pc /dev/sdb
 #grub-install --target=86_64-efi --efi-directory /boot/EFI/ --bootloader-id=GRUB /dev/sda
 
-#grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg
 
 
 

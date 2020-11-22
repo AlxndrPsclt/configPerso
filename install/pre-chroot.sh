@@ -15,6 +15,6 @@ mount /dev/sda4 /mnt/home
 mount /dev/sda1 /mnt/boot
 
 #then:
-pacstrap /mnt base base-devel linux linux-firmware sudo vim python dhcpcd networkmanager openssh sshpass git grub efibootmgr os-prober intel-ucode
+pacstrap /mnt base base-devel linux linux-firmware sudo vim python openssh git grub intel-ucode
 genfstab -U /mnt >> /mnt/etc/fstab
 #arch-chroot /mnt
