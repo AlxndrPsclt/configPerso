@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 wget https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/install/sda.dump
-cat sda.dump | sudo sfdisk /dev/sda
+cat sda.dump | sfdisk /dev/sda
 
 
 #Create partitions: / /home crypted and swap
