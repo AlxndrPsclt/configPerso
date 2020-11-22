@@ -1,20 +1,21 @@
 #!/usr/bin/env sh
 
-#Create partitions: /boot swap / /var /home
+wget https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/install/sda.dump
+cat sda.dump | sudo sfdisk /dev/sda
 
-mkfs.fat -F 32 /dev/sda1
+
+#Create partitions: / /home crypted and swap
+
+mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/sda2
 mkfs.ext4 /dev/sda3
-mkfs.ext4 /dev/sda4
-mkswap /dev/sda2
-swapon /dev/sda2
+mkswap /dev/sda4
+swapon /dev/sda4
 
 timectl set-ntp true
-mount /dev/sda3 /mnt
-mkdir /mnt/boot
+mount /dev/sda1 /mnt
 mkdir /mnt/home
-mkdir /mnt/var
-mount /dev/sda4 /mnt/home
-mount /dev/sda1 /mnt/boot
+mount /dev/sda2 /mnt/home
 
 #then:
 pacstrap /mnt base base-devel linux linux-firmware sudo vim python openssh git grub intel-ucode
