@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 #Create partitions: /boot swap / /var /home
 
 mkfs.fat -F 32 /dev/sda1
@@ -18,3 +20,6 @@ mount /dev/sda1 /mnt/boot
 pacstrap /mnt base base-devel linux linux-firmware sudo vim python openssh git grub intel-ucode
 genfstab -U /mnt >> /mnt/etc/fstab
 #arch-chroot /mnt
+
+
+
