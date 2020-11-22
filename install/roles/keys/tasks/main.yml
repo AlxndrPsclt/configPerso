@@ -8,7 +8,7 @@
 #GPG#
 #####
 
-- name: Update repositories cache and install package for encryption and keys
+- name: Install package for encryption and keys
   become: yes
   pacman:
     name: 'gpgme'
@@ -75,25 +75,25 @@
   args:
     creates: "{{ HOME }}/.ssh/id_ed22519"
 
-- name: Register existence of keysetup config links
-  stat:
-    path: "{{ item.dest }}"
-  loop: "{{ links_to_create }}"
-  register: link_register
-
-- name: Remove keysetup config file if some default exists (not links)
-  file:
-    path: "{{ item.stat.path }}"
-    state: absent
-  loop: "{{ link_register.results }}"
-  when: item.stat.islnk is defined and item.stat.islnk == False
-
-- name: Create symbolic link for keysetup config tools
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
-  loop: "{{ links_to_create }}"
+      #- name: Register existence of keysetup config links
+      #  stat:
+      #    path: "{{ item.dest }}"
+      #  loop: "{{ links_to_create }}"
+      #  register: link_register
+      #
+      #- name: Remove keysetup config file if some default exists (not links)
+      #  file:
+      #    path: "{{ item.stat.path }}"
+      #    state: absent
+      #  loop: "{{ link_register.results }}"
+      #  when: item.stat.islnk is defined and item.stat.islnk == False
+      #
+      #- name: Create symbolic link for keysetup config tools
+      #  file:
+      #    src: "{{ item.src }}"
+      #    dest: "{{ item.dest }}"
+      #    state: link
+      #  loop: "{{ links_to_create }}"
 
 - name: Make sure the known hosts file exists
   file:

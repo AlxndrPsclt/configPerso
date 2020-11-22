@@ -22,6 +22,7 @@
     value: vim
 
 
+
 - name: Install packages for workstation
   become: yes
   pacman:
@@ -38,8 +39,28 @@
       - strace
       - qrencode
       - wget
-      - youtube-dl
+      - wpa_supplicant
+        #      - youtube-dl
     state: present
+
+- name: enable service wpa_supplicant
+  become: yes
+  systemd:
+    name: wpa_supplicant
+    state: started
+    enabled: yes
+    masked: no
+
+- name: Copy wpa_supplicant file after decrypting it
+  become: yes
+  copy:
+    src: "{{ LOCAL_HOME }}/.config/perso/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
+    dest: "/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
+    decrypt: yes
+    owner: root 
+    group: root 
+    mode: 400
+    backup: no
 
 - name: Clone password-store from server
   git:
@@ -59,15 +80,17 @@
 
 - name: Clone personal bashconfig and other usefull configs
   git:
-    repo: 'https://github.com/AlxndrPsclt/configPerso.git'
+    repo: 'git@github.com:AlxndrPsclt/configPerso.git'
     dest: "{{ HOME }}/.config/perso"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
   #source $CONFIG_PERSO/tools/generateBashSpecifics.sh
 
 - name: Clone personal vimconfig
   git:
-    repo: 'https://github.com/AlxndrPsclt/dotvim.git'
+    repo: 'git@github.com:AlxndrPsclt/dotvim.git'
     dest: "{{ HOME }}/.vim"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
 - name: Clone Vundle for vim plugins
   git:
@@ -76,7 +99,7 @@
 
 - name: Clone tpm for tmux plugins
   git:
-    repo: 'git clone https://github.com/tmux-plugins/tpm '
+    repo: 'https://github.com/tmux-plugins/tpm.git'
     dest: "{{ CONFIG_PERSO }}/tmux/plugins/tpm"
 
 - name: Register existence of workstation config links
@@ -148,13 +171,4 @@
 #    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
 #    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
 #    validate: visudo -cf %s
-
-#- name: enable service mpd
-#  systemd:
-#    name: mpd
-#    scope: user
-#    state: started
-#    enabled: yes
-#    masked: no
-
 

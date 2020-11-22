@@ -213,3 +213,32 @@
     #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/tasks.git"
     #    dest: "{{ HOME }}/.task"
     #
+
+- name: Create apps directory if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/apps"
+    state: directory
+
+- name: Create apps/suckless directory if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/apps/suckless"
+    state: directory
+
+- name: Clone personal minimalistic greeter
+  git:
+    repo: "git@github.com:AlxndrPsclt/vitamin-greeter.git"
+    dest: "{{ HOME }}/apps/vitamin-greeter"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+
+- name: Clone personal dmenu build
+  git:
+    repo: "git@github.com:AlxndrPsclt/contxtl-dmenu.git"
+    dest: "{{ HOME }}/apps/suckless/contxtl-dmenu"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+
+- name: Clone personal st build
+  git:
+    repo: "git@github.com:AlxndrPsclt/contxtl-st.git"
+    dest: "{{ HOME }}/apps/suckless/contxtl-st"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+

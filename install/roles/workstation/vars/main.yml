@@ -19,5 +19,6 @@ links_to_create_sudo :
   - { dest: '/usr/local/bin/spass', src: '{{ HOME }}/.config/perso/pass/spass' }
 #  - { dest: '/etc/resolv.conf', src: '/run/systemd/resolve/resolv.conf' }
   - { dest: '/usr/bin/vifmi', src: '/home/alex/.config/perso/vifm/scripts/vifmrun' }
+  - { dest: '/etc/wpa_supplicant/wpa_supplicant-wlan0.conf', src: '/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf' }
 
 
