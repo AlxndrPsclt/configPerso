@@ -6,15 +6,17 @@ sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
-echo "avrocar2" > /etc/hostname
+echo "avrocar3" > /etc/hostname
 
 echo "127.0.0.1	localhost
 ::1		localhost
 127.0.1.1	avrocar3.localdomain	avrocar3" > /etc/hosts
 
 
+wget -O /etc/systemd/network/10-wired.network https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/network/10-wired.network
+wget -O /etc/systemd/network/25-wireless.network https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/network/25-wireless.network
 
-
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
