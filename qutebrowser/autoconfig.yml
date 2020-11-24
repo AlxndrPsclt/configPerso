@@ -6,11 +6,5 @@
 
 config_version: 2
 settings:
-  colors.webpage.darkmode.enabled:
-    global: true
-  tabs.favicons.show:
-    global: always
-  tabs.show:
-    global: switching
-  tabs.show_switching_delay:
-    global: 5000
+  statusbar.show:
+    global: in-mode

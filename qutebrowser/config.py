@@ -393,6 +393,9 @@ c.colors.completion.item.selected.border.bottom = '#4c566a'
 # Foreground color of the matched text in the completion.
 # Type: QtColor
 c.colors.completion.match.fg = '#b48ead'
+c.colors.completion.item.selected.match.fg = '#2e3440'
+#c.colors.completion.item.selected.match.fg = '#b48ead'
+
 
 # Color of the scrollbar handle in the completion view.
 # Type: QssColor
@@ -715,6 +718,12 @@ c.fonts.statusbar = '14pt default_family'
 # Font used for selected tabs.
 # Type: Font
 c.fonts.tabs.selected = '12pt default_family'
+
+c.tabs.show = 'switching'
+c.tabs.show_switching_delay = 5000
+
+c.statusbar.show = 'in-mode'
+
 
 # Font used for unselected tabs.
 # Type: Font
