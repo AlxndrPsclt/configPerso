@@ -1,13 +1,11 @@
-TODO: Find a way of seding sshd_config
-TODO: Create a color generator for backgrounds
+TODO: Organise and clean the color generator for wallpapers
 TODO: Centralize ssh/config file to share it between instances
 TODO: Encode standard locations such as .config/perso in variables
 TODO: Add compose key to new i3 config
-TODO: Add conky bluetooth indicator and applet
 TODO: Add autolock
 TODO: Add hibernate poweroff menu
-TODO: Change the byobu colorscheme
 TODO: Add brightness keys support
-TODO: Config dunst notifications
-TODO: Configure rofi
-TODO: Add commands to rofi: post some link on a fb group
+TODO: Add bluetooth menu
+TODO: Config suckless notifications
+TODO: Add commands to dmenu: post some link on a fb group
+TODO: Add automated tests for initial config; then final config

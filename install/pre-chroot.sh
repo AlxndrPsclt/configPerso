@@ -20,6 +20,9 @@
 #pacstrap /mnt base base-devel linux linux-firmware sudo vim python openssh git grub intel-ucode reflector
 #genfstab -U /mnt > /mnt/etc/fstab
 
+wget -O /mnt/etc/systemd/network/10-wired.network https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/network/10-wired.network
+wget -O /mnt/etc/systemd/network/25-wireless.network https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/network/25-wireless.network
+
 wget -O /mnt/root/post-chroot.sh https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/install/post-chroot.sh
 chmod u+x /mnt/root/post-chroot.sh
 arch-chroot /mnt /root/post-chroot.sh

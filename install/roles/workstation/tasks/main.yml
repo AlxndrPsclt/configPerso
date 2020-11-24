@@ -36,7 +36,7 @@
       - fd
       - vifm
       - mlocate
-      - strace
+      - strace  #A virer?
       - qrencode
       - wget
       - wpa_supplicant

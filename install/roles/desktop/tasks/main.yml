@@ -98,29 +98,12 @@
       - lightdm-mini-greeter
       - pulsemixer
 
-        #- name: enable service ly
-        #  systemd:
-        #    name: ly
-        #    state: started
-        #    enabled: yes
-        #    masked: no
-        #
-        #- name: Deactivale 'wheel' group passwordless sudo
-        #  become: yes
-        #  lineinfile:
-        #    dest: /etc/sudoers
-        #    state: present
-        #    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
-        #    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
-        #    validate: visudo -cf %s
-
     #TODO: Add xdg-handling
     #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
     #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
     #xdg-mime default org.pwmt.zathura.desktop application/pdf
     #xdg-mime default feh.desktop image/png
     #xdg-mime default feh.desktop image/jpg
-    #
 
 
 
@@ -198,11 +181,12 @@
     #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/password-store.git"
     #    dest: "{{ HOME }}/.password-store"
     #
-    #- name: Clone personal music diggings notes
-    #  git:
-    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/music-diggings.git"
-    #    dest: "{{ HOME }}/notes"
-    #
+- name: Clone personal music diggings notes
+  git:
+    repo: "git@gitlab.com:AlxndrPsclt/music-diggings.git"
+    dest: "{{ HOME }}/notes"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.gitlab.priv"
+
     #- name: Clone personal wallpapers folder
     #  git:
     #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
@@ -219,10 +203,7 @@
     path: "{{ ansible_env.HOME }}/apps"
     state: directory
 
-- name: Create apps/suckless directory if it does not exist
-  file:
-    path: "{{ ansible_env.HOME }}/apps/suckless"
-    state: directory
+
 
 - name: Clone personal minimalistic greeter
   git:
@@ -230,11 +211,60 @@
     dest: "{{ HOME }}/apps/vitamin-greeter"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
+- name: Copy lightdm.conf files
+  become: yes
+  copy:
+    src: "{{ HOME }}/.config/perso/lightdm/{{ item }}"
+    dest: "/etc/lightdm/{{ item }}"
+    remote_src: yes
+    owner: root
+    group: root
+    mode: 644
+    backup: no
+  loop:
+    - "lightdm.conf"
+    - "lightdm-mini-greeter.conf"
+
+- name: Compile minimalistic greeter
+  shell: ./makeinstall.sh
+  args:
+    chdir: "{{ HOME }}/apps/vitamin-greeter"
+    #creates: somelog.txt
+
+#- name: Install minimalistic greeter
+#  become: yes
+#  shell: make install
+#  args:
+#    chdir: "{{ HOME }}/apps/vitamin-greeter"
+
+- name: enable service lightdm
+  become: yes
+  systemd:
+    name: lightdm
+    state: started
+    enabled: yes
+    masked: no
+
+
+
+
+- name: Create apps/suckless directory if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/apps/suckless"
+    state: directory
+
+
 - name: Clone personal dmenu build
   git:
     repo: "git@github.com:AlxndrPsclt/contxtl-dmenu.git"
     dest: "{{ HOME }}/apps/suckless/contxtl-dmenu"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+
+- name: Compile minimalistic launcher menu
+  shell: ./makeinstall.sh
+  args:
+    chdir: "{{ HOME }}/apps/suckless/contxtl-dmenu"
+
 
 - name: Clone personal st build
   git:
@@ -242,8 +272,8 @@
     dest: "{{ HOME }}/apps/suckless/contxtl-st"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
-- name: Compile minimalistic greeter
-  shell: somescript.sh >> somelog.txt
+- name: Compile minimalistic terminal
+  shell: ./makeinstall.sh
   args:
-    chdir: somedir/
-    creates: somelog.txt
+    chdir: "{{ HOME }}/apps/suckless/contxtl-st"
+

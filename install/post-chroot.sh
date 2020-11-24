@@ -12,10 +12,7 @@ echo "127.0.0.1	localhost
 ::1		localhost
 127.0.1.1	avrocar3.localdomain	avrocar3" > /etc/hosts
 
-pacman -Sy wget reflector
-
-wget -O /etc/systemd/network/10-wired.network https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/network/10-wired.network
-wget -O /etc/systemd/network/25-wireless.network https://raw.githubusercontent.com/AlxndrPsclt/configPerso/master/network/25-wireless.network
+pacman -Sy --noconfirm reflector
 
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
