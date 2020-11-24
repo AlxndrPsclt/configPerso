@@ -352,11 +352,11 @@ c.colors.completion.fg = '#d8dee9'
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
-c.colors.completion.odd.bg = '#3b4252'
+c.colors.completion.odd.bg = '#2e3440'
 
 # Background color of the completion widget for even rows.
 # Type: QssColor
-c.colors.completion.even.bg = '#3b4252'
+c.colors.completion.even.bg = '#2e3440'
 
 # Foreground color of completion widget category headers.
 # Type: QtColor
@@ -364,23 +364,23 @@ c.colors.completion.category.fg = '#e5e9f0'
 
 # Background color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.bg = '#2e3440'
+c.colors.completion.category.bg = '#3b4252'
 
 # Top border color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.border.top = '#2e3440'
+c.colors.completion.category.border.top = '#3b4252'
 
 # Bottom border color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.border.bottom = '#2e3440'
+c.colors.completion.category.border.bottom = '#3b4252'
 
 # Foreground color of the selected completion item.
 # Type: QtColor
-c.colors.completion.item.selected.fg = '#eceff4'
+c.colors.completion.item.selected.fg = '#2e3440'
 
 # Background color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.bg = '#4c566a'
+c.colors.completion.item.selected.bg = '#81a1c1'
 
 # Top border color of the selected completion item.
 # Type: QssColor
@@ -396,11 +396,11 @@ c.colors.completion.match.fg = '#b48ead'
 
 # Color of the scrollbar handle in the completion view.
 # Type: QssColor
-c.colors.completion.scrollbar.fg = '#e5e9f0'
+c.colors.completion.scrollbar.fg = '#3b4252'
 
 # Color of the scrollbar in the completion view.
 # Type: QssColor
-c.colors.completion.scrollbar.bg = '#3b4252'
+c.colors.completion.scrollbar.bg = '#2e3440'
 
 # Background color for the download bar.
 # Type: QssColor
@@ -482,11 +482,11 @@ c.colors.messages.info.fg = '#e5e9f0'
 
 # Background color of an info message.
 # Type: QssColor
-c.colors.messages.info.bg = '#88c0d0'
+c.colors.messages.info.bg = '#81a1c1'
 
 # Border color of an info message.
 # Type: QssColor
-c.colors.messages.info.border = '#88c0d0'
+c.colors.messages.info.border = '#81a1c1'
 
 # Foreground color for prompts.
 # Type: QssColor
@@ -592,7 +592,7 @@ c.colors.statusbar.url.success.http.fg = '#e5e9f0'
 # Foreground color of the URL in the statusbar on successful load
 # (https).
 # Type: QssColor
-c.colors.statusbar.url.success.https.fg = '#46c9b3'
+c.colors.statusbar.url.success.https.fg = '#81a1c1'
 
 # Foreground color of the URL in the statusbar when there's a warning.
 # Type: QssColor
@@ -605,6 +605,8 @@ c.colors.tabs.bar.bg = '#2e3440'
 # Color for the tab indicator on errors.
 # Type: QtColor
 c.colors.tabs.indicator.error = '#bf616a'
+c.colors.tabs.indicator.stop = '#81a1c1'
+c.colors.tabs.indicator.start = '#2e3440'
 
 # Color gradient interpolation system for the tab indicator.
 # Type: ColorSystem
@@ -613,7 +615,7 @@ c.colors.tabs.indicator.error = '#bf616a'
 #   - hsv: Interpolate in the HSV color system.
 #   - hsl: Interpolate in the HSL color system.
 #   - none: Don't show a gradient.
-c.colors.tabs.indicator.system = 'none'
+c.colors.tabs.indicator.system = 'RGB'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
@@ -637,7 +639,7 @@ c.colors.tabs.selected.odd.fg = '#2e3440'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#88c0d0'
+c.colors.tabs.selected.odd.bg = '#81a1c1'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
@@ -645,12 +647,19 @@ c.colors.tabs.selected.even.fg = '#2e3440'
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#88c0d0'
+c.colors.tabs.selected.even.bg = '#81a1c1'
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
 c.colors.webpage.bg = '#2e3440'
+
+
+c.colors.contextmenu.menu.bg = '#2e3440'
+c.colors.contextmenu.menu.fg = '#e5e9f0'
+c.colors.contextmenu.selected.bg = '#81a1c1'
+c.colors.contextmenu.selected.fg = '#2e3440'
+c.colors.contextmenu.disabled.bg = '#4c566a'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
@@ -662,6 +671,7 @@ c.fonts.default_family = ['Iosevka', 'Hack', 'Oxygen Mono', 'xos4 Terminus', 'Te
 # Type: Font
 c.fonts.completion.entry = '14pt default_family'
 
+c.fonts.contextmenu = '14pt default_family'
 # Font used in the completion categories.
 # Type: Font
 c.fonts.completion.category = 'bold 14pt default_family'
