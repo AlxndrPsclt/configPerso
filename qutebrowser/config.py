@@ -733,7 +733,7 @@ config.bind('{', 'scroll-page 0 -0.5')
 config.bind('}', 'scroll-page 0 0.5')
 
 # Dark mode set
-config.set("colors.webpage.darkmode.enabled", True)
+config.set('colors.webpage.darkmode.enabled', True)
 
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]" {hint-url}')
 config.bind(',r', 'spawn --userscript readability')

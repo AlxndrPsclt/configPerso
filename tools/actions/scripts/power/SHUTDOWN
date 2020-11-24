@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
-systemctl shutdown
+#!/usr/bin/env sh
+poweroff
