@@ -176,11 +176,13 @@
     dest: "{{ HOME }}/notes"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.gitlab.priv"
 
-    #- name: Clone personal wallpapers folder
-    #  git:
-    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/wallpapers.git"
-    #    dest: "{{ HOME }}/image/wallpapers"
-    #
+- name: Clone personal wallpapers folder
+  git:
+    repo: "git@github.com:AlxndrPsclt/fundmntl-wallpapers.git"
+    dest: "{{ HOME }}/image/fundmntl-wallpapers"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+
+
     #- name: Clone personal tasklist
     #  git:
     #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/tasks.git"
