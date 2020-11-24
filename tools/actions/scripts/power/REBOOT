@@ -1,2 +1,7 @@
 #!/usr/bin/env sh
-systemctl reboot
+
+will=$(echo -e "yes\nno" | dmenu -p "Reboot the computer ?")
+
+if [[ $will == 'yes' ]]; then
+	reboot
+fi
