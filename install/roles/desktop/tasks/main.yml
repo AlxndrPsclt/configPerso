@@ -179,7 +179,7 @@
 - name: Clone personal wallpapers folder
   git:
     repo: "git@github.com:AlxndrPsclt/fundmntl-wallpapers.git"
-    dest: "{{ HOME }}/image/fundmntl-wallpapers"
+    dest: "{{ HOME }}/images/fundmntl-wallpapers"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
 
