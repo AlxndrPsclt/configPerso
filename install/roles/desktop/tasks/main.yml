@@ -84,7 +84,7 @@
 #      - i3lock-fancy-git
 #      - st-luke-git
 #      - vit
-      - lightdm-mini-greeter
+#- lightdm-mini-greeter
       - pulsemixer
 
     #TODO: Add xdg-handling
@@ -200,6 +200,13 @@
     dest: "{{ HOME }}/apps/vitamin-greeter"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
+- name: Compile minimalistic greeter
+  shell: ./makeinstall.sh
+  args:
+    chdir: "{{ HOME }}/apps/vitamin-greeter"
+    #creates: somelog.txt
+
+
 - name: Copy lightdm.conf files
   become: yes
   copy:
@@ -217,23 +224,10 @@
 - name: Configures lightdm greeter to log in specified user
   become: yes
   lineinfile:
-    dest: /etc/sudoers
+    dest: /etc/lightdm/lightdm-mini-greeter.conf
     state: present
-    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
-    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-    validate: visudo -cf %s
-
-- name: Compile minimalistic greeter
-  shell: ./makeinstall.sh
-  args:
-    chdir: "{{ HOME }}/apps/vitamin-greeter"
-    #creates: somelog.txt
-
-#- name: Install minimalistic greeter
-#  become: yes
-#  shell: make install
-#  args:
-#    chdir: "{{ HOME }}/apps/vitamin-greeter"
+    regexp: '^user = alex'
+    line: "user = {{ USER }}"
 
 - name: enable service lightdm
   become: yes
