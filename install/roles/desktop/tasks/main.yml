@@ -81,6 +81,7 @@
 #      - ttf-oxygen-gf
       - powerline-fonts-git
       - ttf-iosevka
+      - pinentry-dmenu
 #      - i3lock-fancy-git
 #      - st-luke-git
 #      - vit
