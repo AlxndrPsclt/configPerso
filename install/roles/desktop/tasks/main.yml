@@ -67,17 +67,6 @@
 #      - ffmpeg
     state: present
 
-##Add nixshell install
-
-#- name: Allow 'wheel' group to have passwordless sudo
-#  become: yes
-#  lineinfile:
-#    dest: /etc/sudoers
-#    state: present
-#    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
-#    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-#    validate: visudo -cf %s
-
 - name: Allow auto powering of bluetooth device on startup
   become: yes
   lineinfile:
@@ -224,6 +213,15 @@
   loop:
     - "lightdm.conf"
     - "lightdm-mini-greeter.conf"
+
+- name: Configures lightdm greeter to log in specified user
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
 
 - name: Compile minimalistic greeter
   shell: ./makeinstall.sh
