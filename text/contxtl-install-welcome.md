@@ -12,5 +12,7 @@ Depending on your relationship with technology, you might benefit from leaving y
 
 Don't try to redo what you know, learn.
 
+Observe.
+
 Whatever you do, rember to have fun.
 
