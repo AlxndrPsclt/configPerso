@@ -156,20 +156,21 @@
     group: wheel
     mode: '0644'
 
+- name: Enable service bluetooth
+  become: yes
+  systemd:
+    name: bluetooth
+    state: started
+    enabled: yes
+    masked: no
+
 - name: Create screencasting directory if it does not exist
   file:
     path: "{{ ansible_env.HOME }}/videos/screencapture"
     state: directory
 
 
-    ## Clones private repos (passwords and stuff)
-    #- include_vars: credentials.yml
-    #
-    #- name: Clone personal password vault
-    #  git:
-    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/password-store.git"
-    #    dest: "{{ HOME }}/.password-store"
-    #
+## Clones private repos
 - name: Clone personal music diggings notes
   git:
     repo: "git@gitlab.com:AlxndrPsclt/music-diggings.git"
