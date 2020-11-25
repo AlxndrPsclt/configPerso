@@ -408,7 +408,10 @@ c.colors.downloads.bar.bg = '#2e3440'
 
 # Color gradient stop for download backgrounds.
 # Type: QtColor
-c.colors.downloads.stop.bg = '#b48ead'
+c.colors.downloads.stop.bg = '#88c0d0'
+c.colors.downloads.start.bg = '#4c566a'
+c.colors.downloads.start.fg = '#88c0d0'
+c.colors.downloads.stop.fg = '#4c566a'
 
 # Color gradient interpolation system for download backgrounds.
 # Type: ColorSystem
@@ -518,7 +521,8 @@ c.colors.statusbar.insert.fg = '#3b4252'
 
 # Background color of the statusbar in insert mode.
 # Type: QssColor
-c.colors.statusbar.insert.bg = '#46c9b3'
+#c.colors.statusbar.insert.bg = '#46c9b3'
+c.colors.statusbar.insert.bg = '#81a1c1'
 
 # Foreground color of the statusbar in passthrough mode.
 # Type: QssColor
