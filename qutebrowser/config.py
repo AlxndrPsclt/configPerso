@@ -437,11 +437,11 @@ c.colors.hints.fg = '#2e3440'
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
-c.colors.hints.bg = '#b48ead'
+c.colors.hints.bg = '#88c0d0'
 
 # Font color for the matched part of hints.
 # Type: QtColor
-c.colors.hints.match.fg = '#5e81ac'
+c.colors.hints.match.fg = '#bf616a'
 
 # Text color for the keyhint widget.
 # Type: QssColor
@@ -453,7 +453,7 @@ c.colors.keyhint.suffix.fg = '#b48ead'
 
 # Background color of the keyhint widget.
 # Type: QssColor
-c.colors.keyhint.bg = '#3b4252'
+c.colors.keyhint.bg = '#81a1c1'
 
 # Foreground color of an error message.
 # Type: QssColor
