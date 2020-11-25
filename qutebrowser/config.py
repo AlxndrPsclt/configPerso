@@ -393,6 +393,9 @@ c.colors.completion.item.selected.border.bottom = '#4c566a'
 # Foreground color of the matched text in the completion.
 # Type: QtColor
 c.colors.completion.match.fg = '#b48ead'
+c.colors.completion.item.selected.match.fg = '#2e3440'
+#c.colors.completion.item.selected.match.fg = '#b48ead'
+
 
 # Color of the scrollbar handle in the completion view.
 # Type: QssColor
@@ -720,6 +723,12 @@ c.fonts.statusbar = '14pt default_family'
 # Type: Font
 c.fonts.tabs.selected = '12pt default_family'
 
+c.tabs.show = 'switching'
+c.tabs.show_switching_delay = 5000
+
+c.statusbar.show = 'in-mode'
+
+
 # Font used for unselected tabs.
 # Type: Font
 c.fonts.tabs.unselected = '12pt default_family'
@@ -747,7 +756,7 @@ config.bind('{', 'scroll-page 0 -0.5')
 config.bind('}', 'scroll-page 0 0.5')
 
 # Dark mode set
-config.set("colors.webpage.darkmode.enabled", True)
+config.set('colors.webpage.darkmode.enabled', True)
 
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]" {hint-url}')
 config.bind(',r', 'spawn --userscript readability')

@@ -1,2 +1,8 @@
-#!/usr/bin/env bash
-systemctl shutdown
+#!/usr/bin/env sh
+
+will=$(echo -e "yes\nno" | dmenu -p "Turn the computer off ?")
+
+if [[ $will == 'yes' ]]; then
+	poweroff
+fi
+
