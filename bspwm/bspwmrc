@@ -10,6 +10,7 @@ killall "feh"
 feh --bg-scale file:///home/alex/images/fundmntl-wallpapers/contxtl/current &
 killall "redshift"
 redshift &
+setxkbmap -option compose:ralt
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
