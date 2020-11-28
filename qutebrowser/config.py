@@ -393,7 +393,7 @@ c.colors.completion.item.selected.border.bottom = '#4c566a'
 # Foreground color of the matched text in the completion.
 # Type: QtColor
 c.colors.completion.match.fg = '#b48ead'
-c.colors.completion.item.selected.match.fg = '#2e3440'
+c.colors.completion.item.selected.match.fg = '#e5e9f0'
 #c.colors.completion.item.selected.match.fg = '#b48ead'
 
 
@@ -440,27 +440,27 @@ c.colors.hints.fg = '#2e3440'
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
-c.colors.hints.bg = '#b48ead'
+c.colors.hints.bg = '#88c0d0'
 
 # Font color for the matched part of hints.
 # Type: QtColor
-c.colors.hints.match.fg = '#5e81ac'
+c.colors.hints.match.fg = '#bf616a'
 
 # Text color for the keyhint widget.
 # Type: QssColor
-c.colors.keyhint.fg = '#e5e9f0'
+c.colors.keyhint.fg = '#2e3440'
 
 # Highlight color for keys to complete the current keychain.
 # Type: QssColor
-c.colors.keyhint.suffix.fg = '#b48ead'
+c.colors.keyhint.suffix.fg = '#e5e9f0'
 
 # Background color of the keyhint widget.
 # Type: QssColor
-c.colors.keyhint.bg = '#3b4252'
+c.colors.keyhint.bg = '#81a1c1'
 
 # Foreground color of an error message.
 # Type: QssColor
-c.colors.messages.error.fg = '#e5e9f0'
+c.colors.messages.error.fg = '#2e3440'
 
 # Background color of an error message.
 # Type: QssColor
@@ -472,7 +472,7 @@ c.colors.messages.error.border = '#bf616a'
 
 # Foreground color of a warning message.
 # Type: QssColor
-c.colors.messages.warning.fg = '#e5e9f0'
+c.colors.messages.warning.fg = '#2e3440'
 
 # Background color of a warning message.
 # Type: QssColor
