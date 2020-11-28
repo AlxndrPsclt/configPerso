@@ -44,5 +44,20 @@ super + shift + q
 XF86Audio{Raise,Lower}Volume
 	amixer -q set Master 5%{+,-}
 
+
+#XF86AudioMute
+#XF86AudioMicMute
+
+
+super + Prior
+	/home/alex/.config/perso/tools/actions/scripts/sound/UP
+
+super + Next
+	/home/alex/.config/perso/tools/actions/scripts/sound/DOWN
+
+
+XF86Audio{Raise,Lower}Volume
+	amixer -q set Master 5%{+,-}
+
 super + p
 	/home/alex/.config/perso/tools/actions/scripts/passwords/ASK

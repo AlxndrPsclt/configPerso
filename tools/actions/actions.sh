@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-notify-send `whoami`
+#notify-send `whoami`
 initial_dir=$(pwd)
 select_action () {
 
@@ -12,7 +12,7 @@ select_action () {
 	then
 		select_action "$selected"
 	else
-		. "$selected"
+		"./$selected"
 	fi
 
 }
