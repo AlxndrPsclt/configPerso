@@ -6,8 +6,23 @@ state="$(pulsemixer --get-mute)"
 
 if [[ $state == 1 ]]; then
 	mv ~/.config/perso/tools/actions/scripts/sound/MUTE ~/.config/perso/tools/actions/scripts/sound/UNMUTE
-	notify-send "MUTE"
+	notify-send " MUTE"
 else
 	mv ~/.config/perso/tools/actions/scripts/sound/UNMUTE ~/.config/perso/tools/actions/scripts/sound/MUTE
-	notify-send "UNMUTE"
+	notify-send " UNMUTE"
 fi
+
+
+
+passwords
+power
+screenrec
+sound
+
+
+ BLUETOOTH
+ PASSWORDS
+ POWER
+ SCREENRECS
+
+ WIFI

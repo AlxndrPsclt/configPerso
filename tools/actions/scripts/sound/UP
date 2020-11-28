@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
 pulsemixer --change-volume +5
-notify-send $(pulsemixer --get-volume | cut -d " " -f1)
+notify-send " $(pulsemixer --get-volume | cut -d " " -f1)"
