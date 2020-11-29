@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-st -c mixer pulsemixer
+if ! [[ $(pgrep mixer) ]]; then
+	st -c mixer pulsemixer
+fi

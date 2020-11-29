@@ -30,9 +30,8 @@ super + {_,shift + }{1-9,0}
 super + grave
 	bspc desktop -f last
 
-
 super + a
-  st -c pulsemixer pulsemixer
+	~/.config/perso/tools/actions/scripts/sound/MIXER
 
 super + o ; {e,w,m}
 	{gvim,qutebrowser,thunderbird}
@@ -61,3 +60,9 @@ XF86Audio{Raise,Lower}Volume
 
 super + p
 	/home/alex/.config/perso/tools/actions/scripts/passwords/ASK
+
+Print
+	/home/alex/.config/perso/tools/actions/scripts/screenshots/FULL_DESKTOP
+
+super + @Print
+	/home/alex/.config/perso/tools/actions/scripts/screenshots/SELECT_AREA
