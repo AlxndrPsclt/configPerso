@@ -41,10 +41,10 @@ super + shift + q
 	bspc node --close
 
 XF86Audio{Raise,Lower}Volume
-	amixer -q set Master 5%{+,-}
+	/home/alex/.config/perso/tools/actions/scripts/sound/{UP,DOWN}
 
-
-#XF86AudioMicMute
+XF86AudioMicMute
+	/home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE_MIC.sh
 
 XF86AudioMute
 	/home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE.sh

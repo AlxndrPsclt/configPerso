@@ -11,18 +11,3 @@ else
 	mv ~/.config/perso/tools/actions/scripts/sound/UNMUTE ~/.config/perso/tools/actions/scripts/sound/MUTE
 	notify-send " UNMUTE"
 fi
-
-
-
-passwords
-power
-screenrec
-sound
-
-
- BLUETOOTH
- PASSWORDS
- POWER
- SCREENRECS
-
- WIFI
