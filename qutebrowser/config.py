@@ -733,6 +733,9 @@ c.statusbar.show = 'in-mode'
 # Type: Font
 c.fonts.tabs.unselected = '12pt default_family'
 
+
+c.fonts.web.family.standard = 'Iosevka'
+
 # This setting can be used to map keys to other keys. When the key used
 # as dictionary-key is pressed, the binding for the key used as
 # dictionary-value is invoked instead. This is useful for global

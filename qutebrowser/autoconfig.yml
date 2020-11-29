@@ -6,9 +6,5 @@
 
 config_version: 2
 settings:
-  colors.webpage.darkmode.grayscale.all:
-    global: true
-  colors.webpage.darkmode.grayscale.images:
-    global: 0.1
-  colors.webpage.darkmode.policy.images:
-    global: always
+  fonts.web.family.standard:
+    global: Iosevka
