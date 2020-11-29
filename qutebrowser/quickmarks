@@ -155,3 +155,6 @@ read tutorial qutebrowser configuration options reference https://qutebrowser.or
 watch tutorial how to make chocolate from raw cocoa beans manual https://www.youtube.com/watch?v=hfrWPtjVuWU
 read tutorial coreboot x220 and tons of info, thickpad https://thiccpad.blogspot.com/
 read lib tutorial create cursor theme https://github.com/isaacrobinson2000/CursorCreate
+lib mpv thumbnails preview plugin https://github.com/TheAMM/mpv_thumbnail_script
+lib mpv simple webui web api https://github.com/open-dynaMIX/simple-mpv-webui
+lib mpv text to speech tts mpv https://github.com/jgreco/mpv-txt
