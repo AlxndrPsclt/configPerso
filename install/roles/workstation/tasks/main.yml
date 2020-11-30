@@ -30,6 +30,7 @@
       - python-pip
       - vim
       - htop
+      - mosh
       - nmap
       - the_silver_searcher
       - fzf
