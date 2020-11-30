@@ -12,8 +12,3 @@ CHOSEN_NETWORK_NAME=$(echo $CHOSEN_NETWORK | cut -d ' ' -f 2)
 
 notify-send "Connecting to $CHOSEN_NETWORK"
 wpa_cli -i wlp2s0 select_network $CHOSEN_NETWORK_ID
-
-#	notify-send "Connected to $CHOSEN_NETWORK"
-#else
-#	notify-send "Connection to $CHOSEN_NETWORK failed"
-#fi
