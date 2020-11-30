@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+connection_host=$(cat ~/.ssh/config ~/.ssh/configs/* | grep '^Host' | cut -d ' ' -f 2 | dmenu)
+#connection_user=$(cat /etc/passwd | cut -d ':' -f 1 | dmenu)
+
+notify-send "Connecting to $connection_host."
+st ssh $connection_host
