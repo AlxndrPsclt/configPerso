@@ -30,9 +30,8 @@ super + {_,shift + }{1-9,0}
 super + grave
 	bspc desktop -f last
 
-
 super + a
-  st -c pulsemixer pulsemixer
+	~/.config/perso/tools/actions/scripts/sound/MIXER
 
 super + o ; {e,w,m}
 	{gvim,qutebrowser,thunderbird}
@@ -42,7 +41,29 @@ super + shift + q
 	bspc node --close
 
 XF86Audio{Raise,Lower}Volume
+	/home/alex/.config/perso/tools/actions/scripts/sound/{UP,DOWN}
+
+XF86AudioMicMute
+	/home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE_MIC.sh
+
+XF86AudioMute
+	/home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE.sh
+
+super + Prior
+	/home/alex/.config/perso/tools/actions/scripts/sound/UP
+
+super + Next
+	/home/alex/.config/perso/tools/actions/scripts/sound/DOWN
+
+
+XF86Audio{Raise,Lower}Volume
 	amixer -q set Master 5%{+,-}
 
 super + p
 	/home/alex/.config/perso/tools/actions/scripts/passwords/ASK
+
+Print
+	/home/alex/.config/perso/tools/actions/scripts/screenshots/FULL_DESKTOP
+
+super + @Print
+	/home/alex/.config/perso/tools/actions/scripts/screenshots/SELECT_AREA

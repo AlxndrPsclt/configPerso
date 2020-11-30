@@ -10,6 +10,9 @@ killall "feh"
 feh --bg-scale file:///home/alex/images/fundmntl-wallpapers/contxtl/current &
 killall "redshift"
 redshift &
+wpa_cli -a ~/.config/perso/wpa_supplicant/notify-connections.sh &
+
+
 setxkbmap -option compose:ralt
 
 bspc monitor -d I II III IV V VI VII VIII IX X

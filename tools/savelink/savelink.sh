@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-folder=${1-~/documents/}
-class=${2-pop-finder}
-
 selected_tags=$(cat tags.list | fzf -m --marker "#" --expect=ctrl-space --print-query)
 
 echo $selected_tags
