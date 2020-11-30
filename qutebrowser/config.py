@@ -500,15 +500,15 @@ c.colors.prompts.fg = '#e5e9f0'
 
 # Border used around UI elements in prompts.
 # Type: String
-c.colors.prompts.border = '1px solid #2e3440'
+c.colors.prompts.border = '1px solid #e5e9f0'
 
 # Background color for prompts.
 # Type: QssColor
-c.colors.prompts.bg = '#434c5e'
+c.colors.prompts.bg = '#2e3440'
 
 # Background color for the selected item in filename prompts.
 # Type: QssColor
-c.colors.prompts.selected.bg = '#4c566a'
+c.colors.prompts.selected.bg = '#80a1c1'
 
 # Foreground color of the statusbar.
 # Type: QssColor
@@ -713,7 +713,7 @@ c.fonts.messages.warning = '10pt default_family'
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = '14pt sans-serif'
+c.fonts.prompts = '14pt default_family'
 
 # Font used in the statusbar.
 # Type: Font

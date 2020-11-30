@@ -6,7 +6,3 @@
 
 config_version: 2
 settings:
-  fonts.debug_console:
-    global: Iosevka
-  fonts.web.family.standard:
-    global: Iosevka

@@ -1,0 +1,25 @@
+{
+	/* 8 normal colors */
+	color: #3b4252; /* black   */
+	color: #bf616a; /* red     */
+	color: #a3be8c; /* green   */
+	color: #ebcb8b; /* yellow  */
+	color: #81a1c1; /* blue    */
+	color: #b48ead; /* magenta */
+	color: #88c0d0; /* cyan    */
+	color: #e5e9f0; /* white   */
+
+	/* 8 bright colors */
+	color: #4c566a; /* black   */
+	color: #bf616a; /* red     */
+	color: #a3be8c; /* green   */
+	color: #ebcb8b; /* yellow  */
+	color: #81a1c1; /* blue    */
+	color: #b48ead; /* magenta */
+	color: #8fbcbb; /* cyan    */
+	color: #eceff4; /* white   */
+
+	/* more colors can be added after 255 to use with DefaultXX */
+	color: #2e3440; /* background */
+	color: #d8dee9; /* foreground */
+}
