@@ -84,7 +84,7 @@ bt_disconnect_speaker() {
 
 qrterm() {
   qrencode -t UTF8 -o /tmp/qr.txt "$@" && cat /tmp/qr.txt
-  rm -f /tmp/qr.txt
+    rm -f /tmp/qr.txt
 }
 
 qrpass() {
@@ -232,42 +232,45 @@ ret() {
 }
 
 fzf_change_directory() {
-    local directory=$(
+  local directory=$(
       fd --type d | \
       fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview 'tree -C {} | head -100'
+      --preview 'tree -C {} | head -100'
       )
     if [[ -n $directory ]]; then
-        cd "$directory"
-    fi
+      cd "$directory"
+        fi
 }
 
 alias fcd='fzf_change_directory'
 
 fzf_find_edit() {
-    local file=$(
+  local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview 'bat --color=always --line-range :500 {}'
+      --preview 'bat --color=always --line-range :500 {}'
       )
     if [[ -n $file ]]; then
-        $EDITOR "$file"
-    fi
+      $EDITOR "$file"
+        fi
 }
 
 alias ffe='fzf_find_edit'
 
 fzf_git_log() {
-    local selections=$(
+  local selections=$(
       git ll --color=always "$@" |
-        fzf --ansi --no-sort --no-height \
-            --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-                       xargs -I@ sh -c 'git show --color=always @'"
+      fzf --ansi --no-sort --no-height \
+      --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+      xargs -I@ sh -c 'git show --color=always @'"
       )
     if [[ -n $selections ]]; then
-        local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
+      local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
         git show $commits
-    fi
+        fi
 }
 
 alias gll='fzf_git_log'
 
+allrecent() {
+  fd --changed-within ${1:-72h} . /home /etc
+}

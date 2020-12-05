@@ -114,3 +114,4 @@ alias today='date "+%Y-%m-%d"'
 alias now='date "+%H:%M:%S"'
 
 alias tmux='tmux attach || tmux'
+

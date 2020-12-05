@@ -763,3 +763,7 @@ config.set('colors.webpage.darkmode.enabled', True)
 
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]" {hint-url}')
 config.bind(',r', 'spawn --userscript readability')
+
+config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+
+config.bind(',ap', 'config-cycle content.user_stylesheets /home/alex/.config/perso/qutebrowser/themes/custom_css/solarized-dark-all-sites.css ""')
