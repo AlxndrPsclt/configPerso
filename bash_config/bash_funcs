@@ -246,31 +246,38 @@ alias fcd='fzf_change_directory'
 
 fzf_find_edit() {
   local file=$(
-      fzf --query="$1" --no-multi --select-1 --exit-0 \
+    fzf --query="$1" --no-multi --select-1 --exit-0 \
       --preview 'bat --color=always --line-range :500 {}'
-      )
-    if [[ -n $file ]]; then
-      $EDITOR "$file"
-        fi
+  )
+  if [[ -n $file ]]; then
+    $EDITOR "$file"
+  fi
 }
 
 alias ffe='fzf_find_edit'
 
 fzf_git_log() {
   local selections=$(
-      git ll --color=always "$@" |
-      fzf --ansi --no-sort --no-height \
-      --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-      xargs -I@ sh -c 'git show --color=always @'"
-      )
-    if [[ -n $selections ]]; then
-      local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
-        git show $commits
-        fi
+    git ll --color=always "$@" |
+    fzf --ansi --no-sort --no-height \
+    --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+    xargs -I@ sh -c 'git show --color=always @'"
+    )
+  if [[ -n $selections ]]; then
+    local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
+    git show $commits
+  fi
 }
 
 alias gll='fzf_git_log'
 
 allrecent() {
   fd --changed-within ${1:-72h} . /home /etc
+}
+
+extract_yml() {
+  if [ -n $1 ]; then
+    echo "---"
+    cat $1 | sed -n -e '/^```yml$/,/^```$/{ /^```yml$/d; s/^```$/---/; p; }'
+  fi
 }
