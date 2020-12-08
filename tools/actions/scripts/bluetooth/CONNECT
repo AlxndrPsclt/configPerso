@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+bluetooth_device=$(bluetoothctl -- devices | cut -f 2- -d ' ' | dmenu)
+
+bluetooth_device_mac=$(echo "$bluetooth_device" | cut -f 1 -d ' ')
+bluetooth_device_name=$(echo "$bluetooth_device" | cut -f 2 -d ' ')
+
+if [[ $bluetooth_device ]]; then
+  notify-send "Connecting to $bluetooth_device_name..."
+  bluetoothctl -- connect $bluetooth_device_mac
+fi

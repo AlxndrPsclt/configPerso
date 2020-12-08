@@ -171,6 +171,7 @@
     name:
       - bash-git-prompt
       - tmux-bash-completion-git
+      - go-yq
 
 #- name: Deactivale 'wheel' group passwordless sudo
 #  become: yes
