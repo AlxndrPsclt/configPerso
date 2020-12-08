@@ -7,7 +7,7 @@
 notify-send "The current URL: $QUTE_URL
 The current title: $QUTE_TITLE"
 
-already_exists=$(eval yq r ~/notes/trax.yml "(url==$QUTE_URL)")
+already_exists=$(yq r ~/notes/trax.yml "(url==$QUTE_URL)")
 
 notify-send "Does it already exist?"
 notify-send "$already_exists"
