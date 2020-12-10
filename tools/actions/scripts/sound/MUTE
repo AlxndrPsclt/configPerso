@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-#. ~/.config/perso/bash_config/
+#!/usr/bin/env sh
+
 pulsemixer --toggle-mute
 
 state="$(pulsemixer --get-mute)"

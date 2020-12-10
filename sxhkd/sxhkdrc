@@ -30,6 +30,9 @@ super + {_,shift + }{1-9,0}
 super + grave
 	bspc desktop -f last
 
+super + Tab
+	bspc node -f $(wmctrl -l | dmenu -i | cut -f 1 -d " ")
+
 super + a
 	~/.config/perso/tools/actions/scripts/sound/MIXER
 

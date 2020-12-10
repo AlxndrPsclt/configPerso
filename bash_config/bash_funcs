@@ -45,46 +45,12 @@ dockerxecl() {
 }
 
 bt_connect() {
-  bluetoothctl -- connect $(bluetoothctl -- devices | cut -f 2- -d ' ' | fzf | cut -f 1 -d ' ')
-}
-
-#BLuetooth functions
-bt_connect_headset() {
-  vvecho -e "connect $BT_HEADSET_MAC\n" | bluetoothctl
-}
-
-bt_disconnect_headset() {
-  echo -e "disconnect $BT_HEADSET_MAC\n" | bluetoothctl
-}
-
-bt_connect_bose_headset() {
-  echo -e "connect $BT_BOSEONEARWIRELESS_MAC\n" | bluetoothctl
-}
-
-bt_disconnect_bose_headset() {
-  echo -e "disconnect $BT_BOSEONEARWIRELESS_MAC\n" | bluetoothctl
-}
-
-
-bt_connect_speaker() {
-  echo -e "connect $BT_SPEAKER_MAC\n" | bluetoothctl
-}
-
-bt_disconnect_speaker() {
-  echo -e "disconnect $BT_SPEAKER_MAC\n" | bluetoothctl
-}
-
-bt_connect_anker_speaker() {
-  echo -e "connect $BT_ANKER_SPEAKER_MAC\n" | bluetoothctl
-}
-
-bt_disconnect_speaker() {
-  echo -e "disconnect $BT_ANKER_SPEAKER_MAC\n" | bluetoothctl
+  bluetoothctl -- connect $(bluetoothctl -- paired-devices | cut -f 2- -d ' ' | fzf | cut -f 1 -d ' ')
 }
 
 qrterm() {
   qrencode -t UTF8 -o /tmp/qr.txt "$@" && cat /tmp/qr.txt
-    rm -f /tmp/qr.txt
+  rm -f /tmp/qr.txt
 }
 
 qrpass() {
@@ -93,11 +59,7 @@ qrpass() {
     echo "Asked for empty password"
   else
     pass "$@" | tr -d '\n' | qrencode -t UTF8 -o /tmp/qr.txt && cat /tmp/qr.txt && rm /tmp/qr.txt
-      fi
-}
-
-vimo() {
-  $EDITOR "$(fzf --border --height=25)"
+  fi
 }
 
 smount() {
@@ -110,41 +72,40 @@ sumount() {
 
 paste2file() {
   DEFAULT=/tmp/clip.txt
-    FILE=${1-$DEFAULT}
+  FILE=${1-$DEFAULT}
   DIR=$(dirname "${FILE}")
-    if [ $FILE != $DEFAULT ] ; then
-      if [ -f $FILE ] ; then
-        if [ -w $FILE ]; then
-          read -p "File $FILE already exists; overwrite? y/n`echo $'\n> '` " yn
-            case $yn in
-            [Yy]* ) echo "Overwrite file";;
-  [Nn]* ) return ;;
-  esac
-        else
-          echo "The file $FILE exists and is not writable, using default: $DEFAULT"
-            FILE="$DEFAULT"
-            fi
+  if [ $FILE != $DEFAULT ] ; then
+    if [ -f $FILE ] ; then
+      if [ -w $FILE ]; then
+        read -p "File $FILE already exists; overwrite? y/n`echo $'\n> '` " yn
+        case $yn in
+          [Yy]* ) echo "Overwrite file";;
+          [Nn]* ) return ;;
+        esac
       else
-        if [ -w $DIR ]; then
-          :
-        else
-          echo "The file $FILE does not exist and cannot be created, using default: $DEFAULT"
-            FILE="$DEFAULT"
-            fi
-            fi
-            fi
-            xsel --output --clipboard > $FILE
+        echo "The file $FILE exists and is not writable, using default: $DEFAULT"
+        FILE="$DEFAULT"
+      fi
+    else
+      if [ -w $DIR ]; then
+        :
+      else
+        echo "The file $FILE does not exist and cannot be created, using default: $DEFAULT"
+        FILE="$DEFAULT"
+      fi
+    fi
+  fi
+  xsel --output --clipboard > $FILE
 
-            echo "Pasted clipboard content to $FILE"
-            NUMBER_OF_PASTED_LINES=$(wc -l /tmp/clip.txt | awk '{print $1}')
+  echo "Pasted clipboard content to $FILE"
+  NUMBER_OF_PASTED_LINES=$(wc -l /tmp/clip.txt | awk '{print $1}')
 
 
-            if [ $NUMBER_OF_PASTED_LINES -gt 6 ] ; then
-              echo "..."
-                fi
-                tail -6 $FILE
-                echo ""
-
+  if [ $NUMBER_OF_PASTED_LINES -gt 6 ] ; then
+    echo "..."
+  fi
+  tail -6 $FILE
+  echo ""
 }
 
 vimall() {
@@ -153,31 +114,29 @@ vimall() {
 
 screenrec() {
   output_filename="/home/alex/videos/screencapture/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
-    notify-send "Starting screen recording to file: $output_filename"
-    ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
-    notify-send "Screenrecording to $output_filename stopped"
+  notify-send "Starting screen recording to file: $output_filename"
+  ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
+  notify-send "Screenrecording to $output_filename stopped"
 
-    while true; do
-      read -p  "Screen recording to $output_filename stopped, do you want to keep it? (y/n) " choice
-  case "$choice" in
-        y|Y ) echo "Saved screencast to $output_filename"; break;;
-        n|N ) rm $output_filename; echo "Nothing saved"; return 1;;
-        * ) echo "invalid";;
-        esac
-          done
+  while true; do
+    read -p  "Screen recording to $output_filename stopped, do you want to keep it? (y/n) " choice
+    case "$choice" in
+      y|Y ) echo "Saved screencast to $output_filename"; break;;
+      n|N ) rm $output_filename; echo "Nothing saved"; return 1;;
+      * ) echo "invalid";;
+    esac
+  done
 
-          read -e -i "$output_filename" -p "Do you want to rename it? " new_name
-          if [[ -z "$new_name" ]];
-        then
-          echo "Done"
-          else
-            if [[ "$new_name" != "$output_filename" ]];
-        then
-          mv $output_filename $new_name
-          echo "Renamed to $new_name"
-          fi
-          echo "Done"
-          fi
+  read -e -i "$output_filename" -p "Do you want to rename it? " new_name
+  if [[ -z "$new_name" ]]; then
+    echo "Done"
+  else
+    if [[ "$new_name" != "$output_filename" ]]; then
+      mv $output_filename $new_name
+      echo "Renamed to $new_name"
+    fi
+    echo "Done"
+  fi
 }
 
 rlk () {
@@ -186,28 +145,27 @@ rlk () {
     link=$(readlink -f ./)
   else
     link=$(readlink -f $@)
-      fi
-      echo $link | copy
-      echo "Copied: $link"
+  fi
+  echo $link | copy
+  echo "Copied: $link"
 }
 
 
 connect() {
   chosen_network = $(sudo iw dev wlp2s0 scan | grep SSID | awk '{print $2}' | fzf)
-    echo $chosen_network
+  echo $chosen_network
 }
 
 # fuzzy grep open via ag with line number
 agvim() {
   local file
-    local line
+  local line
 
-    read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+  read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
 
-    if [[ -n $file ]]
-      then
-        vim $file +$line
-        fi
+  if [[ -n $file ]]; then
+    vim $file +$line
+  fi
 }
 
 replace() {
@@ -216,10 +174,6 @@ replace() {
 
 sanitize() {
   echo $1 | sed -e 's/[,.;/><|:&]//g' -e 's/ /_/g'
-}
-
-actions() {
-  echo -e ' WIFI\n  BLT\n SOUND\n POWER' | dmenu -i -fn 'Iosevka:size=40:style=bold' -nb '#2e3440' -nf '#81a1c1' -sb '#81a1c1' -sf '#2e3440'
 }
 
 # capture the output of a command so it can be retrieved with ret
@@ -233,13 +187,13 @@ ret() {
 
 fzf_change_directory() {
   local directory=$(
-      fd --type d | \
-      fzf --query="$1" --no-multi --select-1 --exit-0 \
-      --preview 'tree -C {} | head -100'
-      )
-    if [[ -n $directory ]]; then
-      cd "$directory"
-        fi
+    fd --type d | \
+    fzf --query="$1" --no-multi --select-1 --exit-0 \
+    --preview 'tree -C {} | head -100'
+  )
+  if [[ -n $directory ]]; then
+    cd "$directory"
+  fi
 }
 
 alias fcd='fzf_change_directory'
@@ -262,7 +216,7 @@ fzf_git_log() {
     fzf --ansi --no-sort --no-height \
     --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
     xargs -I@ sh -c 'git show --color=always @'"
-    )
+  )
   if [[ -n $selections ]]; then
     local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
     git show $commits
@@ -280,4 +234,256 @@ extract_yml() {
     echo "---"
     cat $1 | sed -n -e '/^```yml$/,/^```$/{ /^```yml$/d; s/^```$/---/; p; }'
   fi
+}
+
+
+# Marking and jumping functions
+export MARKPATH=$HOME/.marks
+function jump {
+  cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+  mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark {
+  rm -i $MARKPATH/$1
+}
+function marks {
+  ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+function sj {
+  jump $(ls ~/.marks | fzf)
+}
+function svim {
+  $EDITOR $(fd --type f . ./ | fzf)
+}
+function scd {
+  cd $(fd --type d . ./ | fzf)
+}
+
+
+
+
+function undozip(){
+  unzip -l "$1" |  awk 'BEGIN { OFS="" ; ORS="" } ; { for ( i=4; i<NF; i++ ) print $i " "; print $NF "\n" }' | xargs -I{} rm -r {}
+}
+
+
+
+function mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+
+
+n (){
+  ($* ; notify-send "Command over" "$*")
+}
+
+dockerxecl() {
+  docker exec -it $(docker ps -l -q) /bin/bash ;
+}
+
+bt_connect() {
+  bluetoothctl -- connect $(bluetoothctl -- paired-devices | cut -f 2- -d ' ' | fzf | cut -f 1 -d ' ')
+}
+
+qrterm() {
+  qrencode -t UTF8 -o /tmp/qr.txt "$@" && cat /tmp/qr.txt
+  rm -f /tmp/qr.txt
+}
+
+qrpass() {
+  if [ -z $@ ];
+  then
+    echo "Asked for empty password"
+  else
+    pass "$@" | tr -d '\n' | qrencode -t UTF8 -o /tmp/qr.txt && cat /tmp/qr.txt && rm /tmp/qr.txt
+  fi
+}
+
+smount() {
+  sudo mount `ls /dev/sd* /dev/mmc* | fzf` /mnt/`ls /mnt/ | fzf`
+}
+
+sumount() {
+  sudo umount /mnt/`ls /mnt/ | fzf`
+}
+
+paste2file() {
+  DEFAULT=/tmp/clip.txt
+  FILE=${1-$DEFAULT}
+  DIR=$(dirname "${FILE}")
+  if [ $FILE != $DEFAULT ] ; then
+    if [ -f $FILE ] ; then
+      if [ -w $FILE ]; then
+        read -p "File $FILE already exists; overwrite? y/n`echo $'\n> '` " yn
+        case $yn in
+          [Yy]* ) echo "Overwrite file";;
+          [Nn]* ) return ;;
+        esac
+      else
+        echo "The file $FILE exists and is not writable, using default: $DEFAULT"
+        FILE="$DEFAULT"
+      fi
+    else
+      if [ -w $DIR ]; then
+        :
+      else
+        echo "The file $FILE does not exist and cannot be created, using default: $DEFAULT"
+        FILE="$DEFAULT"
+      fi
+    fi
+  fi
+  xsel --output --clipboard > $FILE
+
+  echo "Pasted clipboard content to $FILE"
+  NUMBER_OF_PASTED_LINES=$(wc -l /tmp/clip.txt | awk '{print $1}')
+
+
+  if [ $NUMBER_OF_PASTED_LINES -gt 6 ] ; then
+    echo "..."
+  fi
+  tail -6 $FILE
+  echo ""
+}
+
+vimall() {
+  ag . -l | xargs bash -c '</dev/tty vim -p "$@"' ignoreme
+}
+
+screenrec() {
+  output_filename="/home/alex/videos/screencapture/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
+  notify-send "Starting screen recording to file: $output_filename"
+  ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
+  notify-send "Screenrecording to $output_filename stopped"
+
+  while true; do
+    read -p  "Screen recording to $output_filename stopped, do you want to keep it? (y/n) " choice
+    case "$choice" in
+      y|Y ) echo "Saved screencast to $output_filename"; break;;
+      n|N ) rm $output_filename; echo "Nothing saved"; return 1;;
+      * ) echo "invalid";;
+    esac
+  done
+
+  read -e -i "$output_filename" -p "Do you want to rename it? " new_name
+  if [[ -z "$new_name" ]]; then
+    echo "Done"
+  else
+    if [[ "$new_name" != "$output_filename" ]]; then
+      mv $output_filename $new_name
+      echo "Renamed to $new_name"
+    fi
+    echo "Done"
+  fi
+}
+
+rlk () {
+  if [ -z $@ ];
+  then
+    link=$(readlink -f ./)
+  else
+    link=$(readlink -f $@)
+  fi
+  echo $link | copy
+  echo "Copied: $link"
+}
+
+
+connect() {
+  chosen_network = $(sudo iw dev wlp2s0 scan | grep SSID | awk '{print $2}' | fzf)
+  echo $chosen_network
+}
+
+# fuzzy grep open via ag with line number
+agvim() {
+  local file
+  local line
+
+  read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+
+  if [[ -n $file ]]; then
+    vim $file +$line
+  fi
+}
+
+replace() {
+  grep -rl "$1" | xargs -n 1 sed -i "s/$1/$2/g"
+}
+
+sanitize() {
+  echo $1 | sed -e 's/[,.;/><|:&]//g' -e 's/ /_/g'
+}
+
+# capture the output of a command so it can be retrieved with ret
+cap () {
+  tee /tmp/capture.out
+}
+
+ret() {
+  cat /tmp/capture.out
+}
+
+fzf_change_directory() {
+  local directory=$(
+    fd --type d | \
+    fzf --query="$1" --no-multi --select-1 --exit-0 \
+    --preview 'tree -C {} | head -100'
+  )
+  if [[ -n $directory ]]; then
+    cd "$directory"
+  fi
+}
+
+alias fcd='fzf_change_directory'
+
+fzf_find_edit() {
+  local file=$(
+    fzf --query="$1" --no-multi --select-1 --exit-0 \
+      --preview 'bat --color=always --line-range :500 {}'
+  )
+  if [[ -n $file ]]; then
+    $EDITOR "$file"
+  fi
+}
+
+alias ffe='fzf_find_edit'
+
+fzf_git_log() {
+  local selections=$(
+    git ll --color=always "$@" |
+    fzf --ansi --no-sort --no-height \
+    --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+    xargs -I@ sh -c 'git show --color=always @'"
+  )
+  if [[ -n $selections ]]; then
+    local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
+    git show $commits
+  fi
+}
+
+alias gll='fzf_git_log'
+
+allrecent() {
+  fd --changed-within ${1:-72h} . /home /etc
+}
+
+extract_yml() {
+  if [ -n $1 ]; then
+    echo "---"
+    cat $1 | sed -n -e '/^```yml$/,/^```$/{ /^```yml$/d; s/^```$/---/; p; }'
+  fi
+}
+
+choose_from_cwds() {
+  for PROCID in $(pgrep '^bash$'); do
+      readlink -e /proc/$PROCID/cwd
+      done \
+        | sort -u \
+        | fzf
+      }
+alias jd='cd $(choose_from_cwds)'
+
+x() {
+  compgen -c | fzf
 }

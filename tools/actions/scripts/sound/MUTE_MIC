@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-#. ~/.config/perso/bash_config/
-
+#!/usr/bin/env sh
 
 default_source=$(pulsemixer --list-sources | grep Default | awk '{print substr($3, 1, length($3)-1)}')
 pulsemixer --toggle-mute --id $default_source
