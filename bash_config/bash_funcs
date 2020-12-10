@@ -485,5 +485,5 @@ choose_from_cwds() {
 alias jd='cd $(choose_from_cwds)'
 
 x() {
-  compgen -c | fzf
+  compgen -c | fzf-word
 }
