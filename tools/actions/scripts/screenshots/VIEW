@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+[ "$(ls -A ~/images/screenshots)" ] && sxiv -N preview -t ~/images/screenshots/* || notify-send "No screenshots yet"

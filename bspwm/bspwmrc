@@ -47,5 +47,6 @@ bspc rule -a pinentry state=floating sticky=on border=5 rectangle="$top_screen_p
 bspc rule -a Zathura state=tiled
 bspc rule -a man state=floating border=5
 bspc rule -a quick-editor state=floating border=5
+bspc rule -a preview state=floating border=5
 #bspc config -n .floating border_width 35 // doen't seem to work
 #bspc rule -a mixer state=floating sticky=on rectangle="$windowwidth"x"$windowheight"+"$windowx"+"$windowy"

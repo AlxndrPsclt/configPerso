@@ -11,6 +11,7 @@ links_to_create :
   - { dest: '{{ HOME }}/.config/vifm', src: '{{ CONFIG_PERSO }}/vifm' }
   - { dest: '{{ HOME }}/.tmux.conf', src: '{{ CONFIG_PERSO }}/tmux/tmux.conf' }
   - { dest: '{{ HOME }}/.config/zathura', src: '{{ CONFIG_PERSO }}/zathura' }
+  - { dest: '{{ HOME }}/.config/htop', src: '{{ CONFIG_PERSO }}/htop' }
 #  - { dest: '{{ HOME }}/.config/mpd', src: '{{ CONFIG_PERSO }}/mpd' }
 
 links_to_create_sudo :
