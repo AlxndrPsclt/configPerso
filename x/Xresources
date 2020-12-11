@@ -11,6 +11,8 @@ URxvt.scrollBar: false
 
 !URxvt.internalBorder:  20
 
+
+
 !ST
 !! Transparency (0-1):
 st.alpha: 1
@@ -69,6 +71,11 @@ st.font: Cousine for Powerline-18
 *.color14: nord7
 *.color15: nord6
 
+
+!Sxiv
+Sxiv.font: Iosevka:style=Regular:size=16
+Sxiv.background: nord0
+Sxiv.foreground: nord9
 
 
 
