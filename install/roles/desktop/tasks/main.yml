@@ -82,6 +82,7 @@
       - powerline-fonts-git
       - ttf-iosevka
       - pinentry-dmenu
+      - imagemagick
 #      - i3lock-fancy-git
 #      - st-luke-git
 #      - vit

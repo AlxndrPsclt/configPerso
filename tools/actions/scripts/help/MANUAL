@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-st -c "man" man $(apropos . | dmenu)

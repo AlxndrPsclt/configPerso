@@ -43,7 +43,7 @@ screenwidth=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
 screenheight=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $4}')
 
 top_screen_panel="$screenwidth"x$(($screenheight/3))"+-2+-2"
-large_centered_panel=$(($screenwidth*8/10))x$(($screenheight*8/10))"+0+0"
+large_centered_panel=$(($screenwidth*8/10))x$(($screenheight*8/10))"+$(($screenwidth*1/10))+$(($screenheight*1/10))"
 
 bspc rule -a mixer state=floating sticky=on border=5 rectangle="$top_screen_panel"
 bspc rule -a pinentry state=floating sticky=on border=5 rectangle="$top_screen_panel"

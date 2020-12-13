@@ -117,3 +117,6 @@ alias now='date "+%H:%M:%S"'
 
 alias tmux='tmux attach || tmux'
 
+alias packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+
+alias select_color='sxiv -N preview -to ~/.config/perso/colors/palette/*.gif | cut -d '-' -f2 | copy'

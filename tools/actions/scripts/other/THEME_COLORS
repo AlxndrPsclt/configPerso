@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+selected_color=$(sxiv -N preview -to ~/.config/perso/colors/palette/*.gif | cut -d '-' -f2)
+if [[ -n $selected_color ]]; then
+  echo "$selected_color" > copy
+  notify-send " Copied color $selected_color"
+fi

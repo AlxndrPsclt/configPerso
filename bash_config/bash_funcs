@@ -487,3 +487,10 @@ alias jd='cd $(choose_from_cwds)'
 x() {
   compgen -c | fzf-word
 }
+
+searchinstall() {
+  target=$(yay -Sl | fzf | cut -d " " -f2)
+  if [[ -n $target ]]; then
+    yay -Suy $target
+  fi
+}
