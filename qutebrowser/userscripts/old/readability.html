@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Holochain Code Review and Distributed Computing Thoughts | Crypto Briefing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        body {
+            margin: 40px auto;
+            max-width: 650px;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+        h1, h2, h3 {
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body><div><section class="article-content">
+
+
+<p>Holochain is not really like anything I’ve seen before, so this code review won’t be quite like anything you’ve read from me before. The Holochain scalable distributed computing model seems to be taking decentralization to a new level, but bloody hell, is this thing just too good to be true?</p>
+<hr class="bs-divider full small"><p id="664f" class="graf graf--p graf-after--p">Agent-centric, this is an interesting concept, something like blockchain is data centric, the consensus engine focuses on what bits of data they agree upon and then share this with each other to reach consensus.</p>
+<p class="graf graf--p graf-after--p">Now we need to quickly talk about another protocol called git. Git is used for source control management. Git is a DAG, but it isn’t managed in a data-centric way. Instead, let’s say you have 3 developers, each one is working on their own version of the code, when developer 1 is happy, he commits his code into git. When developer 2 is happy he also commits his code, git automatically merges 1 and 2 (because there aren’t any conflicts) when developer 3 merges however, we have a conflict, now developers 1, 2, and 3 have to come to consensus on their data.</p>
+<p class="graf graf--p graf-after--p"><strong>Holochain is calling this agent-centric. User driven consensus, as it were.</strong></p>
+<p id="7c39" class="graf graf--p graf-after--p">The interesting implication here is the differentiation of shared consensus. In the example above 1 and 2 originally had shared consensus since they needed to agree, 3 (until he did his commit), didn’t need any consensus from 1 and 2.</p>
+<p id="c874" class="graf graf--p graf-after--p">This is what holochains are accomplishing, each node can hold its own source of truth, and only if this needs to be shared with another do I need to do so. So I could build my own hosted dApp (or hApp) in my own hosted environment on top of Holochain, and unless I wanted to, I didn’t ever have to interact with the rest of the shared distributed hash table (DHT).</p>
+<figure id="1cf3" class="graf graf--figure graf-after--p">
+</figure><p id="3f54" class="graf graf--p graf-after--figure">I think the above is an important distinction. “A holochain is a validating distributed hash table (DHT) where every node enforces validation rules on data against the signed chains where the data originated, this is not consensus, and that is why this is “blockchain-like”.</p>
+<p id="ead5" class="graf graf--p graf-after--p">So the thing to note here, each person has their own copy of their hashchain, if I want to transfer funds to you, we both sign this in our own local copies, and then we share it to the outside world.</p>
+<p id="f153" class="graf graf--p graf-after--p">The idea here, is that not all data needs to be shared with everyone. If A and B wish to transfer value, and they agree, C doesn’t have to know about it. This is a good idea for systems where not all parties need to participate, social networks, chat programs, p2p platforms, things like shared document updates. It’s essentially a large scale hosted shared git repository for collaboration.</p>
+<p id="3a6f" class="graf graf--p graf-after--p">Holo, Holochain, Ceptr, and MetaCurrency are all the same thing, this is confusing at first, but MetaCurrency is the root, they have their next generation Operating System (Ceptr) and Ceptr is Holochain with Holo being their first real world application system.</p>
+<p id="ab32" class="graf graf--p graf-after--p">Project started around in December 2016. Back when dinosaurs ruled the Internet.</p>
+<p class="graf graf--p graf-after--p"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*l7VoGdLBb1oJ9uzTx6hmGw.png" data-src="https://cdn-images-1.medium.com/max/800/1*l7VoGdLBb1oJ9uzTx6hmGw.png"></p>
+<p id="5535" class="graf graf--p graf-after--figure">Lots of commits (of substance) good branch management, large contributor sample size.</p>
+<p id="af07" class="graf graf--p graf-after--p">The repo is a bit difficult to navigate, all the files are just thrown into the root, but we won’t care too much about that.</p>
+<p class="graf graf--p graf-after--p"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*mCJE9OQ8909AR_xRYIJAzg.png" data-src="https://cdn-images-1.medium.com/max/800/1*mCJE9OQ8909AR_xRYIJAzg.png"></p>
+<p id="81dd" class="graf graf--p graf-after--figure"><strong>First impressions, this is really good code. New standard kind of good.</strong></p>
+<p class="graf graf--p graf-after--figure"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*VrQ4Ah2bKZGlYeIsVV67Pg.png" data-src="https://cdn-images-1.medium.com/max/800/1*VrQ4Ah2bKZGlYeIsVV67Pg.png"></p>
+<p id="543a" class="graf graf--p graf-after--figure">A lot of production considerations already in. This code is scary good.</p>
+<p class="graf graf--p graf-after--figure"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*VlwgfCK_h8c1_cvaN2w_Og.png" data-src="https://cdn-images-1.medium.com/max/800/1*VlwgfCK_h8c1_cvaN2w_Og.png"></p>
+<p id="72e2" class="graf graf--p graf-after--figure">I love this code. File after file after file is just amazing. I’m going to be spending a lot more time here.</p>
+<p class="graf graf--p graf-after--figure"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*0erO-FwGn-9elbkgRqy3Fw.png" data-src="https://cdn-images-1.medium.com/max/800/1*0erO-FwGn-9elbkgRqy3Fw.png"></p>
+<p id="8fde" class="graf graf--p graf-after--figure">Credit given and optimization added. I can’t get enough of this code. <em>(Editor’s note: cold water thrown at Andre about this point.)</em></p>
+<p class="graf graf--p graf-after--figure"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*gelzQIH19wI4w7EVK-wZtg.png" data-src="https://cdn-images-1.medium.com/max/800/1*gelzQIH19wI4w7EVK-wZtg.png"></p>
+<p id="d755" class="graf graf--p graf-after--figure">Finally a mistake, sure, it’s just a spelling mistake, but I was started to get worried this code didn’t have any!</p>
+<p id="0048" class="graf graf--p graf-after--p">Guys, this is something else, after seeing the above code, I started exploring a bit more.</p>
+<p class="graf graf--p graf-after--p"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*kYyzJP3gsklZvjiE-g0E4g.png" data-src="https://cdn-images-1.medium.com/max/800/1*kYyzJP3gsklZvjiE-g0E4g.png"></p>
+<p id="fab4" class="graf graf--p graf-after--figure">Clutter, a fully distributed twitter built on holochain.</p>
+<p class="graf graf--p graf-after--figure"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*Igd_nZuHixpzPzr9v3BkKA.png" data-src="https://cdn-images-1.medium.com/max/800/1*Igd_nZuHixpzPzr9v3BkKA.png"></p>
+<p id="c05b" class="graf graf--p graf-after--figure">Holo Vault, built in permissioned, user controlled KYC. Just because.</p>
+<p class="graf graf--p graf-after--figure"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*xtxr4N4YVSQYKvv9hjiyzw.png" data-src="https://cdn-images-1.medium.com/max/800/1*xtxr4N4YVSQYKvv9hjiyzw.png"></p>
+<p id="35b3" class="graf graf--p graf-after--figure">Holochat, a distributed Slack. This is actually insane. There is so much here already. Everyone is going on about the new distributed Internet, here it is. Ready to be used.</p>
+<p id="d814" class="graf graf--p graf-after--p">And their model? What is the Holo token all about? So along with the new distributed Internet, comes the new distributed web hosting solution, that’s exactly what Holo is, if you are willing to host some websites in a distributed fashion, you get paid in Holo, you want to host your website? You pay some Holo. That simple.</p>
+<p id="41fd" class="graf graf--p graf-after--p">Now I know I normally only stick to the code, but I figured I need to look at some of their token metrics, this honestly seems too good.</p>
+<p class="graf graf--p graf-after--p"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*Wmeso9LZM8eC2v7T4dWk8w.png" data-src="https://cdn-images-1.medium.com/max/800/1*Wmeso9LZM8eC2v7T4dWk8w.png"></p>
+<p id="7859" class="graf graf--p graf-after--figure">What? Ok, so let’s break it down (and I had to read it a few times).</p>
+<p id="ecdb" class="graf graf--p graf-after--p">Total Supply? However many tokens are sold + 33%, essentially they are selling 75% of all tokens. Last time I checked, they were sitting at 8k ETH raised. So right now it’s $4.5m for 75% of tokens sold.</p>
+<p id="ef2a" class="graf graf--p graf-after--p">Oh, and did I mention they have a plug and play device you can buy?</p>
+<p class="graf graf--p graf-after--p"><img class="progressiveMedia-image js-progressiveMedia-image" src="https://cdn-images-1.medium.com/max/800/1*2wLNz9IzG_oWs8nINFYyoQ.png" data-src="https://cdn-images-1.medium.com/max/800/1*2wLNz9IzG_oWs8nINFYyoQ.png"></p>
+<p id="2371" class="graf graf--p graf-after--figure">Buy it, plug it in, start earning Holo. Surely it can’t be this easy? Right?</p>
+<h4>Holochain Code Review – Conclusion</h4>
+<p id="14cf" class="graf graf--p graf-after--p bs-shortcode-alert alert alert-success">This is something entirely new, and it isn’t a blockchain, this is a new kind of decentralized beast, but I love it.</p>
+<p><em><strong class="markup--strong markup--p-strong">Disclaimer</strong>: Crypto Briefing code reviews are performed by auditing what is on display in the master branch of the repo’s made available. This was performed as an educational review and any comments in the article are the opinion of the writer. It is normal for code to change rapidly, hence we timestamp our code reviews so that they present a snapshot at a moment in time. <strong>Information contained herein should not be used as any comment or advice on the project as a whole.</strong></em></p>
+<p>Holochain Code Review Timestamp: April 18th, 2018 at 20:46 GMT</p>
+
+<section class="article-footer">
+<div class="disclaimer">
+<input type="checkbox" class="disclaimer-toggle" id="disclaimer-toggle-3210">
+
+<div class="disclaimer-content">
+<p>The information on or accessed through this website is obtained from independent sources we believe to be accurate and reliable, but Decentral Media, Inc. makes no representation or warranty as to the timeliness, completeness, or accuracy of any information on or accessed through this website. Decentral Media, Inc. is not an investment advisor. We do not give personalized investment advice or other financial advice. The information on this website is subject to change without notice. Some or all of the information on this website may become outdated, or it may be or become incomplete or inaccurate. We may, but are not obligated to, update any outdated, incomplete, or inaccurate information.</p>
+<p>You should never make an investment decision on an ICO, IEO, or other investment based on the information on this website, and you should never interpret or otherwise rely on any of the information on this website as investment advice. We strongly recommend that you consult a licensed investment advisor or other qualified financial professional if you are seeking investment advice on an ICO, IEO, or other investment. We do not accept compensation in any form for analyzing or reporting on any ICO, IEO, cryptocurrency, currency, tokenized sales, securities, or commodities.</p>
+<p>See <a href="/terms-and-conditions" target="_blank" rel="noopener">full terms and conditions</a>.</p>
+</div>
+</div>
+</section>
+<p class="bottom-anchor"></p>
+</section>
+</div></body></html>

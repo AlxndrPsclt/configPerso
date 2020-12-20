@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 
 #Example of how to log errors from script
@@ -7,12 +7,16 @@
 #already_exists=$(yq r ~/notes/trax.yml "(url==${QUTE_URL})")
 
 select_tags_file() {
-  selected_tags=$(cat $1 | dmenu -p "$2"| tr '\n' ',' | sed 's/.\{1\}$//')
+  local dmenu_prompt=$1
+  local selected_tags=$(cat $tags_file | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
   echo $selected_tags
 }
 
-select_tags() {
-  selected_tags=$(echo -e "$1" | dmenu -p "$2"| tr '\n' ',' | sed 's/.\{1\}$//')
+select_tags_from_csv() {
+  local choices=$(csv2list "$1")
+  local dmenu_prompt="$2"
+  local selected_tags=$(echo -e "$choices" | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
+  notify-send "From select_tags_from_csv $selected_tags"
   echo $selected_tags
 }
 
@@ -27,19 +31,22 @@ join_tags() {
   echo $all_tags
 }
 
-all_tags=''
 
 add_tags() {
-  selected_tags=$(select_tags_file "$1" "$2") all_tags=$(join_tags "$all_tags" "$selected_tags")
-  notify-send "$all_tags"
+  if [[ -n $1 ]]; then
+    local tags_prompt=$1
+  else
+    local tags_prompt=$all_tags
+  fi
+  local selected_tags='placeholder'
+  local current_tags='placeholder'
 
   while [[ -n "$selected_tags" ]]; do
-    selected_tags=$(select_tags_file "$tags_file" "$all_tags")
-    all_tags=$(join_tags "$all_tags" "$selected_tags")
+    selected_tags=$(select_tags_file "$tags_prompt")
+    current_tags=$(join_tags "$all_tags" "$selected_tags")
+    all_tags=$(echo "$current_tags" | sed -E 's/,$//')
+    tags_prompt=$current_tags
   done
-
-  all_tags_final=${all_tags::-1}   #Removes last ,
-  echo "$all_tags_final"
 }
 
 list2csv() {
@@ -55,31 +62,35 @@ csv2list() {
 }
 
 remove_tags() {
-  remaining_tags_csv="$1"
-  remaining_tags_list=$(csv2list "$1")
-
-  to_remove_tags='placeholder_to_remove'
+  local to_remove_tag='placeholder_to_remove'
+  local remaining_tags="$all_tags"
 
   #TODO: Correct problem when tags are empty
-  while [[ $to_remove_tags ]]; do
-    to_remove_tags=$(select_tags "$remaining_tags_list" "DEL $remaining_tags_csv")
+  while [[ -n "$to_remove_tag" ]]; do
+    to_remove_tag=$(select_tags_from_csv "$all_tags" "DEL: ")
     #TODO: Correct problem of multiple selection of items to remove failing
-    remaining_tags_list_bis=$(echo "$remaining_tags_list" | sed "/^$to_remove_tags$/d")
-    remaining_tags_list="$remaining_tags_list_bis"
-    remaining_tags_csv=$(list2csv "$remaining_tags_list")
+    if [[ -n "$to_remove_tag" ]]; then
+      remaining_tags=$(echo "$all_tags" | sed -E "s/($to_remove_tag,|^$to_remove_tag$|,$to_remove_tag)//" | sed -E 's/,$//')
+      all_tags="$remaining_tags"
+      if [[ -z "$all_tags" ]]; then
+        unset to_remove_tag
+        add_tags "$tags_prompt"
+      fi
+    fi
   done
-  echo "$remaining_tags_csv"
   #all_tags=$(join_tags "$all_tags" "$selected_tags")
 }
 
 tags_file='/home/alex/.config/perso/tools/actions/data/music_tags'
 tags_prompt='Add tags :'
+all_tags=''
 
-all_tags_csv=$(add_tags $tags_file $tags_prompt)
+
+add_tags "$tags_prompt"
 
 while [[ $will!='Done' ]]; do
-  
-  will=$(echo -e "Done\nRemove some tags\nAdd more tags" | dmenu -p "$all_tags_csv")
+
+  will=$(echo -e "Done\nRemove some tags\nAdd more tags" | dmenu -p "$all_tags")
   will=${will:-"Done"}
 
   if [[ $will == 'Done' ]]; then
@@ -87,12 +98,10 @@ while [[ $will!='Done' ]]; do
     exit 0
   elif [[ $will == 'Remove some tags' ]]; then
     notify-send "Need to remove"
-    all_tags_csv_bis=$(remove_tags "$all_tags_csv")
-    all_tags_csv="$all_tags_csv_bis"
+    remove_tags
   elif [[ $will == 'Add more tags' ]]; then
     notify-send "Need to add"
     #TODO: Adds the handling of lists properly; to hide the already selected
-    all_tags_csv_bis=$(add_tags "$tags_file" "$all_tags_csv")
-    all_tags_csv="$all_tags_csv_bis"
-  fi 
+    add_tags
+  fi
 done
