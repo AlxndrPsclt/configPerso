@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
 
-#Example of how to log errors from script
-#whoami &>> /tmp/qtlog.txt
+tags_file=${1:-'/home/alex/.config/perso/tools/actions/data/music_tags'}
+tags_prompt=${2:-'Add tags :'}
+all_tags=${3:-''}
 
-#already_exists=$(yq r ~/notes/trax.yml "(url==${QUTE_URL})")
 
 select_tags_file() {
   local dmenu_prompt=$1
-  local selected_tags=$(cat $tags_file | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
+  local selected_tags=$(cat "$tags_file" | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
   echo $selected_tags
 }
 
@@ -16,7 +16,6 @@ select_tags_from_csv() {
   local choices=$(csv2list "$1")
   local dmenu_prompt="$2"
   local selected_tags=$(echo -e "$choices" | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
-  notify-send "From select_tags_from_csv $selected_tags"
   echo $selected_tags
 }
 
@@ -30,7 +29,6 @@ join_tags() {
   all_tags=${all_tags_comma::-1}   #Removes last ,
   echo $all_tags
 }
-
 
 add_tags() {
   if [[ -n $1 ]]; then
@@ -65,7 +63,6 @@ remove_tags() {
   local to_remove_tag='placeholder_to_remove'
   local remaining_tags="$all_tags"
 
-  #TODO: Correct problem when tags are empty
   while [[ -n "$to_remove_tag" ]]; do
     to_remove_tag=$(select_tags_from_csv "$all_tags" "DEL: ")
     #TODO: Correct problem of multiple selection of items to remove failing
@@ -78,12 +75,11 @@ remove_tags() {
       fi
     fi
   done
-  #all_tags=$(join_tags "$all_tags" "$selected_tags")
 }
 
-tags_file='/home/alex/.config/perso/tools/actions/data/music_tags'
-tags_prompt='Add tags :'
-all_tags=''
+
+
+
 
 
 add_tags "$tags_prompt"
@@ -94,14 +90,11 @@ while [[ $will!='Done' ]]; do
   will=${will:-"Done"}
 
   if [[ $will == 'Done' ]]; then
-    notify-send "Il faut save puis on se casse"
+    echo "$all_tags"
     exit 0
   elif [[ $will == 'Remove some tags' ]]; then
-    notify-send "Need to remove"
     remove_tags
   elif [[ $will == 'Add more tags' ]]; then
-    notify-send "Need to add"
-    #TODO: Adds the handling of lists properly; to hide the already selected
     add_tags
   fi
 done
