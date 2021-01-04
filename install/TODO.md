@@ -1,1 +1,0 @@
-- Finish network config by adding script to automatically import known wifi networks

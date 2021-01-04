@@ -10,8 +10,10 @@
 
 - name: Install package for encryption and keys
   become: yes
-  pacman:
-    name: 'gpgme'
+  apk:
+    update_cache: yes
+    name:
+      - gpgme
     state: present
 
 - name: Copy gpg key from local to host, needed to decrypt pass files
@@ -74,26 +76,6 @@
   shell: "ssh-keygen -t ed25519 -f {{ HOME }}/.ssh/id_ed22519 -q -N ''"
   args:
     creates: "{{ HOME }}/.ssh/id_ed22519"
-
-      #- name: Register existence of keysetup config links
-      #  stat:
-      #    path: "{{ item.dest }}"
-      #  loop: "{{ links_to_create }}"
-      #  register: link_register
-      #
-      #- name: Remove keysetup config file if some default exists (not links)
-      #  file:
-      #    path: "{{ item.stat.path }}"
-      #    state: absent
-      #  loop: "{{ link_register.results }}"
-      #  when: item.stat.islnk is defined and item.stat.islnk == False
-      #
-      #- name: Create symbolic link for keysetup config tools
-      #  file:
-      #    src: "{{ item.src }}"
-      #    dest: "{{ item.dest }}"
-      #    state: link
-      #  loop: "{{ links_to_create }}"
 
 - name: Make sure the known hosts file exists
   file:

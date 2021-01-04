@@ -1,12 +1,22 @@
 ---
 # tasks file for desktop
+- name: Install basic packages for alpine linux
+  become: yes
+  apk:
+    update_cache: yes
+    name:
+      - build-base
+      - ncurses    #necessary for st that need tic
+    state: present
 
 - name: Install packages for desktops
   become: yes
-  pacman:
+  apk:
+    update_cache: yes
     name:
-      - xorg
-      - xorg-xinit
+      - xorg-server
+      - xorg-server-dev
+        #- xorg-xinit
       - lightdm
       - bspwm
       - sxhkd
@@ -16,28 +26,29 @@
 
 - name: Install packages for audio
   become: yes
-  pacman:
+  apk:
     name:
       - pulseaudio
       - pulseaudio-alsa
-      - bluez
-      - bluez-utils
-      - pulseaudio-bluetooth
-      - pamixer
+        #      - bluez
+        #      - bluez-utils
+        #      - pulseaudio-bluetooth
+        #      - pamixer
+      - pulsemixer
     state: present
 
 - name: Install packages for desktops2B
   become: yes
-  pacman:
+  apk:
     name:
 #      - noto-fonts
       - qutebrowser
-      - awesome-terminal-fonts
+#      - awesome-terminal-fonts
     state: present
 
 - name: Install packages for desktops2C
   become: yes
-  pacman:
+  apk:
     name:
       - libnotify
       - chromium
@@ -45,7 +56,7 @@
 
 - name: Install packages for desktops 3
   become: yes
-  pacman:
+  apk:
     name:
       - zathura
       - zathura-pdf-poppler
@@ -65,29 +76,28 @@
       - light
 #      - task
 #      - ffmpeg
-    state: present
-
-- name: Allow auto powering of bluetooth device on startup
-  become: yes
-  lineinfile:
-    dest: /etc/bluetooth/main.conf
-    state: present
-    regexp: '^#AutoEnable=false'
-    line: 'AutoEnable=true'
-
-- name: Installing some software using yay
-  yay:
-    name:
-#      - ttf-oxygen-gf
-      - powerline-fonts-git
-      - ttf-iosevka
-      - pinentry-dmenu
       - imagemagick
-#      - i3lock-fancy-git
-#      - st-luke-git
-#      - vit
-#- lightdm-mini-greeter
-      - pulsemixer
+    state: present
+
+      #- name: Allow auto powering of bluetooth device on startup
+      #  become: yes
+      #  lineinfile:
+      #    dest: /etc/bluetooth/main.conf
+      #    state: present
+      #    regexp: '^#AutoEnable=false'
+      #    line: 'AutoEnable=true'
+
+      #- name: Installing some software using yay
+      #  yay:
+      #    name:
+      ##      - ttf-oxygen-gf
+      #      - powerline-fonts-git
+      #      - ttf-iosevka
+      #      - pinentry-dmenu
+      ##      - i3lock-fancy-git
+      ##      - st-luke-git
+      ##      - vit
+      ##- lightdm-mini-greeter
 
     #TODO: Add xdg-handling
     #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
@@ -162,13 +172,13 @@
     group: wheel
     mode: '0644'
 
-- name: Enable service bluetooth
-  become: yes
-  systemd:
-    name: bluetooth
-    state: started
-    enabled: yes
-    masked: no
+      #- name: Enable service bluetooth
+      #  become: yes
+      #  systemd:
+      #    name: bluetooth
+      #    state: started
+      #    enabled: yes
+      #    masked: no
 
 - name: Create screencasting directory if it does not exist
   file:
@@ -189,13 +199,6 @@
     dest: "{{ HOME }}/images/fundmntl-wallpapers"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
-
-    #- name: Clone personal tasklist
-    #  git:
-    #    repo: "https://oauth2:{{ gitlab_token }}@gitlab.com/AlxndrPsclt/tasks.git"
-    #    dest: "{{ HOME }}/.task"
-    #
-
 - name: Create apps directory if it does not exist
   file:
     path: "{{ ansible_env.HOME }}/apps"
@@ -209,11 +212,11 @@
     dest: "{{ HOME }}/apps/vitamin-greeter"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
-- name: Compile minimalistic greeter
-  shell: ./makeinstall.sh
-  args:
-    chdir: "{{ HOME }}/apps/vitamin-greeter"
-    #creates: somelog.txt
+      #- name: Compile minimalistic greeter
+      #  shell: ./makeinstall.sh
+      #  args:
+      #    chdir: "{{ HOME }}/apps/vitamin-greeter"
+      #    #creates: somelog.txt
 
 
 - name: Copy lightdm.conf files
@@ -240,11 +243,10 @@
 
 - name: enable service lightdm
   become: yes
-  systemd:
+  service:
     name: lightdm
     state: started
     enabled: yes
-    masked: no
 
 
 
@@ -260,6 +262,16 @@
     repo: "git@github.com:AlxndrPsclt/contxtl-dmenu.git"
     dest: "{{ HOME }}/apps/suckless/contxtl-dmenu"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+
+- name: Install dependencies for dmenu
+  become: yes
+  apk:
+    update_cache: yes
+    name:
+      # - libxinerama      #Seems useless for compilation of dmenu at least?
+      - libxinerama-dev
+      - libxft-dev
+    state: present
 
 - name: Compile minimalistic launcher menu
   shell: ./makeinstall.sh

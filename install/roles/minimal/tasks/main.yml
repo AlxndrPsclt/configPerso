@@ -3,61 +3,16 @@
 #
 
 # Installing basic tools needed for future installs
-
-- name: Install packages for minimal install
+- name: Install git package for minimal install
   become: yes
-  pacman:
+  apk:
     update_cache: yes
     name:
-      - base-devel
+      - vim
       - git
       - tmux
+      - python3
     state: present
 
-- name: Create users
-  become: yes
-  user:
-    name: "alex"
-    groups: wheel   # Empty by default.
-
-- name: Check if yay is already present
-  command: pacman -Q yay
-  changed_when: False
-  failed_when: False
-  register: is_yay_present
-
-- name: Clone yay repo
-  git:
-    repo: 'https://aur.archlinux.org/yay.git'
-    dest: '/tmp/yay'
-    depth: 1
-    force: yes
-  when: is_yay_present.stdout == ""
-
-    #- name: Allow 'wheel' group to have passwordless sudo
-    #  become: yes
-    #  lineinfile:
-    #    dest: /etc/sudoers
-    #    state: present
-    #    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
-    #    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-    #    validate: visudo -cf %s
-
-- name: Install yay
-  command: makepkg -si --noconfirm
-  args:
-    chdir: /tmp/yay
-  when: is_yay_present.stdout == ""
-
-    #- name: Deactivale 'wheel' group passwordless sudo
-    #  become: yes
-    #  lineinfile:
-    #    dest: /etc/sudoers
-    #    state: present
-    #    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
-    #    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
-    #    validate: visudo -cf %s
-
-
-  #- debug: var=res
-  #- meta: end_play    #Usefull for dev: ends the play right here
+#- debug: var=res
+#- meta: end_play    #Usefull for dev: ends the play right here

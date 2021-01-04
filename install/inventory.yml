@@ -1,6 +1,6 @@
 all:
     hosts:
-      avrocar3.local
+      192.168.1.30
     vars:
       USER: "alex"
       ansible_connection: ssh

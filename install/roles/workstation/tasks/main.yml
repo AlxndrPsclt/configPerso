@@ -25,10 +25,10 @@
 
 - name: Install packages for workstation
   become: yes
-  pacman:
+  apk:
+    update_cache: yes
     name:
-      - python-pip
-      - vim
+      - py3-pip
       - htop
       - mosh
       - nmap
@@ -37,39 +37,39 @@
       - fd
       - vifm
       - mlocate
-      - strace  #A virer?
-      - qrencode
+        #- qrencode
       - wget
-      - wpa_supplicant
+      - yq
+        #- wpa_supplicant
         #      - youtube-dl
     state: present
 
-- name: Copy wpa_supplicant file after decrypting it
-  become: yes
-  copy:
-    src: "{{ LOCAL_HOME }}/.config/perso/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
-    dest: "/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
-    decrypt: yes
-    owner: root
-    group: root
-    mode: 600
-    backup: no
+      #- name: Copy wpa_supplicant file after decrypting it
+      #  become: yes
+      #  copy:
+      #    src: "{{ LOCAL_HOME }}/.config/perso/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
+      #    dest: "/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf"
+      #    decrypt: yes
+      #    owner: root
+      #    group: root
+      #    mode: 600
+      #    backup: no
 
-- name: enable service wpa_supplicant
-  become: yes
-  systemd:
-    name: wpa_supplicant
-    state: started
-    enabled: yes
-    masked: no
+      #- name: enable service wpa_supplicant
+      #  become: yes
+      #  systemd:
+      #    name: wpa_supplicant
+      #    state: started
+      #    enabled: yes
+      #    masked: no
 
-- name: enable service wpa_supplicant@wlp2s0
-  become: yes
-  systemd:
-    name: wpa_supplicant@wlp2s0
-    state: started
-    enabled: yes
-    masked: no
+      #- name: enable service wpa_supplicant@wlp2s0
+      #  become: yes
+      #  systemd:
+      #    name: wpa_supplicant@wlp2s0
+      #    state: started
+      #    enabled: yes
+      #    masked: no
 
 - name: Clone password-store from server
   git:
@@ -83,7 +83,7 @@
     name:
       - virtualenv
       - virtualenvwrapper
-      - ansible
+#      - ansible
 #      - terminal_velocity
 
 
@@ -152,33 +152,9 @@
     state: link
   loop: "{{ links_to_create_sudo }}"
 
-#- name: Create local/run directory for mpd if it does not exist
-#  file:
-#    path: "{{ ansible_env.HOME }}/.local/run/mpd"
-#    state: directory
-#
-#- name: Allow 'wheel' group to have passwordless sudo
-#  become: yes
-#  lineinfile:
-#    dest: /etc/sudoers
-#    state: present
-#    regexp: '^# %wheel ALL=(ALL) NOPASSWD: ALL'
-#    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-#    validate: visudo -cf %s
-
-- name: Installing some software using yay
-  yay:
-    name:
-      - bash-git-prompt
-      - tmux-bash-completion-git
-      - go-yq
-
-#- name: Deactivale 'wheel' group passwordless sudo
-#  become: yes
-#  lineinfile:
-#    dest: /etc/sudoers
-#    state: present
-#    regexp: '^%wheel ALL=(ALL) NOPASSWD: ALL'
-#    line: '# %wheel ALL=(ALL) NOPASSWD: ALL'
-#    validate: visudo -cf %s
-
+    #- name: Installing some software using yay
+    #  yay:
+    #    name:
+    #      - bash-git-prompt
+    #      - tmux-bash-completion-git
+    #      - go-yq
