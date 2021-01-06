@@ -98,6 +98,9 @@ SPACESHIP_PROMPT_SUFFIXES_SHOW=false
 SPACESHIP_GIT_PREFIX=" on "
 SPACESHIP_DIR_TRUNC=4
 SPACESHIP_DIR_SHOW=true
+SPACESHIP_HOST_SHOW=always
+SPACESHIP_USER_SHOW=always
+SPACESHIP_USER_COLOR="blue"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -164,8 +167,6 @@ export EDITOR='vim'
 
 #. /usr/bin/virtualenvwrapper.sh
 
-#Git prompt
-LS_COLORS=$LS_COLORS:'ln=4;37:' ; export LS_COLOR
 
 export PATH="$PATH:~/.config/perso/tools"
 
