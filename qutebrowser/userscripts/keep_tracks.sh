@@ -5,9 +5,12 @@
 #whoami &>> /tmp/qtlog.txt
 
 
-already_exists=$(yq r ~/notes/trax.yml "(url==${QUTE_URL})")
+#already_exists=$(yq r ~/notes/trax.yml "(url==${QUTE_URL})")
+#already_exists=$(yq e ".[] | select(.url == \"$QUTE_URL\")" ~/notes/trax.yml)
+already_registered_tags=$(yq e ".[] | select(.url == \"$QUTE_URL\")" ~/notes/trax.yml | yq e '.tags' -)
+notify-send "$already_registered_tags"
 
-if [ -z "$already_exists" ]; then
+if [ -z "$already_registered_tags" ]; then
   notify-send "Saving track: $QUTE_TITLE
   The current URL: $QUTE_URL"
 
@@ -15,14 +18,15 @@ if [ -z "$already_exists" ]; then
 
   notify-send "$tags"
 
-  sed "s/TITLE/$QUTE_TITLE/" /home/alex/.config/perso/tools/actions/templates/track.yml.template | sed "s|URL|$QUTE_URL|" | sed "s/TAGS/$tags/" >> ~/notes/trax.yml
+  sed "s/TITLE/${QUTE_TITLE//&/\\&}/" /home/alex/.config/perso/tools/actions/templates/track.yml.template | sed "s/DATE/$(date +'%y-%m-%d %H:%M')/" | sed "s|URL|${QUTE_URL//&/\\&}|" |  sed "s/TAGS/$tags/" >> ~/notes/trax.yml
 
 else
   notify-send "Already exists"
-  tags=$(echo "$already_exists" | yq r - 'tags' | sed 's/^\[//' | sed 's/\]$//' | sed 's/ //g')
+  tags=$(echo "$already_registered_tags" | sed 's/^\[//' | sed 's/\]$//' | sed 's/ //g')
 
-  tags=$(sh /home/alex/.config/perso/qutebrowser/userscripts/select_tags.sh /home/alex/.config/perso/tools/actions/data/music_tags "$tags" "$tags")
-  yq w ~/notes/trax.yml "(url==$QUTE_URL) tags" "[$tags]"
+  tags=$(/home/alex/.config/perso/qutebrowser/userscripts/select_tags.sh /home/alex/.config/perso/tools/actions/data/music_tags "$tags" "$tags")
+
+  #yq w ~/notes/trax.yml "(url==$QUTE_URL) tags" "[$tags]"
 
 fi
 

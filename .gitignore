@@ -6,5 +6,9 @@ vifm/vifm-help.txt
 vifm/vifminfo.json
 tmux/plugins/*
 qutebrowser/userscripts/readability.html
-# tools/actions/scripts/sound/UNMUTE
+tools/actions/scripts/sound/UNMUTE
 tools/actions/scripts/sound/MUTE
+mpv/mpvHistory.log
+
+
+

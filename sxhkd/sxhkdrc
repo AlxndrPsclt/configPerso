@@ -58,7 +58,6 @@ super + Prior
 super + Next
 	/home/alex/.config/perso/tools/actions/scripts/sound/DOWN
 
-
 XF86Audio{Raise,Lower}Volume
 	amixer -q set Master 5%{+,-}
 
@@ -70,3 +69,10 @@ Print
 
 super + @Print
 	/home/alex/.config/perso/tools/actions/scripts/screenshots/SELECT_AREA
+
+super + m
+	/home/alex/.config/perso/tools/select_play_trax.sh
+
+super + y
+	/home/alex/.config/perso/tools/select_play_trax_by_thumbnail.sh
+

@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 tags_file=${1:-'/home/alex/.config/perso/tools/actions/data/music_tags'}
 tags_prompt=${2:-'Add tags :'}
 all_tags=${3:-''}
