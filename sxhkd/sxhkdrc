@@ -76,3 +76,6 @@ super + m
 super + y
 	/home/alex/.config/perso/tools/select_play_trax_by_thumbnail.sh
 
+super + w
+  /home/alex/.config/perso/tools/actions/scripts/wiki/WIKI_INDEX
+
