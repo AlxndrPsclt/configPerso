@@ -79,3 +79,11 @@ super + y
 super + w
   /home/alex/.config/perso/tools/actions/scripts/wiki/WIKI_INDEX
 
+super + W
+  /home/alex/.config/perso/tools/actions/scripts/wiki/WIKI_FOCUS_SESSION
+
+super + f 
+  bspc node -t '~fullscreen'
+
+super + t
+  notify-send "$(bspc query -T -d | jq -r .root)"

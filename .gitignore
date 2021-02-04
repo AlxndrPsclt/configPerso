@@ -8,6 +8,8 @@ tmux/plugins/*
 qutebrowser/userscripts/readability.html
 tools/actions/scripts/sound/UNMUTE
 tools/actions/scripts/sound/MUTE
+tools/actions/scripts/sound/UNMUTE_MIC
+tools/actions/scripts/sound/MUTE_MIC
 mpv/mpvHistory.log
 
 

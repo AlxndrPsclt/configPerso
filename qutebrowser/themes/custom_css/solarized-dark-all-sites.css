@@ -1,0 +1,82 @@
+essionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+imap <C-G>S <Plug>ISurround
+imap <C-G>s <Plug>Isurround
+imap <C-S> <Plug>Isurround
+imap <S-Tab> <Plug>SuperTabBackward
+inoremap <C-Tab> 	
+xnoremap <silent>  :call multiple_cursors#new("v", 0)
+nnoremap <silent>  :call multiple_cursors#new("n", 1)
+map + >
+nmap ,w,m <Plug>VimwikiMakeTomorrowDiaryNote
+nmap ,w,y <Plug>VimwikiMakeYesterdayDiaryNote
+nmap ,w,t <Plug>VimwikiTabMakeDiaryNote
+nmap ,w,w <Plug>VimwikiMakeDiaryNote
+nmap ,w,i <Plug>VimwikiDiaryGenerateLinks
+nmap ,wi <Plug>VimwikiDiaryIndex
+nmap ,ws <Plug>VimwikiUISelect
+nmap ,wt <Plug>VimwikiTabIndex
+nmap ,ww <Plug>VimwikiIndex
+nnoremap ,j :jumps
+nnoremap ,cwd :let @"=expand("%:p:h")
+nnoremap ,cwf :let @"=expand("%")
+nmap <silent> ,m :marks
+nmap <silent> ,D ?\d
+nmap <silent> ,d /\d
+nmap <silent> ,Z ]sw
+nmap <silent> ,z h]s1z=
+nmap <silent> ,sf :set spelllang=fr:echo "fr"
+nmap <silent> ,se :set spelllang=en:echo "en"
+nmap <silent> ,s :set spell!
+map - <
+nnoremap H :call ToggleHiddenAll()
+xmap S <Plug>VSurround
+nmap cS <Plug>CSurround
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+vmap gx <Plug>NetrwBrowseXVis
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+xnoremap <silent> g<M-n> :call multiple_cursors#select_all("v", 0)
+xnoremap <silent> gî :call multiple_cursors#select_all("v", 0)
+nnoremap <silent> g<M-n> :call multiple_cursors#select_all("n", 0)
+nnoremap <silent> gî :call multiple_cursors#select_all("n", 0)
+xnoremap <silent> g<C-N> :call multiple_cursors#new("v", 0)
+xnoremap <silent> g :call multiple_cursors#new("v", 0)
+nnoremap <silent> g<C-N> :call multiple_cursors#new("n", 0)
+nnoremap <silent> g :call multiple_cursors#new("n", 0)
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+nnoremap <silent> <Plug>SurroundRepeat .
+xnoremap <silent> <M-n> :call multiple_cursors#select_all("v", 0)
+nnoremap <silent> <M-n> :call multiple_cursors#select_all("n", 1)
+xnoremap <silent> <C-N> :call multiple_cursors#new("v", 0)
+nnoremap <silent> <C-N> :call multiple_cursors#new("n", 1)
+xnoremap <silent> <Plug>(Limelight) :Limelight
+nnoremap <silent> <Plug>(Limelight) :set opfunc=limelight#operatorg@
+nnoremap <F3> :CycleColorPrev
+nnoremap <F4> :CycleColorNext
+nmap <Right>ncmd l
+nmap <Left>ncmd h
+nmap <Down>ncmd j
+nmap <Up>ncmd k
+vmap <Right> <Nop>
+omap <Right> <Nop>
+vmap <Left> <Nop>
+omap <Left> <Nop>
+vmap <Down> <Nop>
+omap <Down> <Nop>
+vmap <Up> <Nop>
+omap <Up> <Nop>
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+imap 	 <Plug>SuperTabForward
+imap  <Plug>Isurround
+inoremap )

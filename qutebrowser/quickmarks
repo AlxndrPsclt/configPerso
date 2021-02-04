@@ -201,3 +201,6 @@ read bike coaster brake list of makers https://sheldonbrown.com/coaster-brakes.h
 lib mpv scripts library list https://github.com/mpv-player/mpv/wiki/User-Scripts
 read tutorial raspbian ethernet over usb network https://desertbot.io/blog/ssh-into-pi-zero-over-usb
 read tutorial boot rpi dtoverlay seeed voicecard https://radio-docs.netlify.app/docs-audio
+read linux device tree tutorial https://elinux.org/Device_Tree_Usage
+read tutorial rpi respeaker kernel overlay https://github.com/HinTak/RaspberryPi-Dev/
+read cgroups tutorial linux advanced https://sysadmincasts.com/episodes/14-introduction-to-linux-control-groups-cgroups

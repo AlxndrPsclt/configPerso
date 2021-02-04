@@ -8,6 +8,6 @@ else
   class_to_use="wiki" ;
 fi
 
-~/apps/suckless/focus-st/st -c "$class_to_use" -f "Cousine for Powerline:style=Regular:size=18" ~/.config/perso/focus/focusvim /home/alex/documents/2brain/index.md &
+~/apps/suckless/focus-st/st -c "$class_to_use" -f "Cousine for Powerline:style=Regular:size=18" ~/.config/perso/focus/focusvim -c "VimwikiMakeDiaryNote"
 
 
