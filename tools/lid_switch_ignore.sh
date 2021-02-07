@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo sed -i 's/^#HandleLidSwitch=ignore/HandleLidSwitch=ignore/' /etc/systemd/logind.conf 
+sudo systemctl restart systemd-logind

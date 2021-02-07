@@ -6,30 +6,5 @@
 
 config_version: 2
 settings:
-  bindings.commands:
-    global:
-      normal:
-        ',ap': config-cycle content.user_stylesheets /home/alex/.config/perso/qutebrowser/themes/custom_css/solarized-dark-all-sites.css
-          ""
-        ',c': spawn --userscript keep_ytchannel.sh
-        ',k': spawn --userscript keep_tracks.sh
-        ',r': spawn --userscript readability
-        <Alt+Shift+Left>: tab-move -
-        <Alt+Shift+Right>: tab-move +
-        <Ctrl++>: jseval document.getElementsByClassName('html5-main-video')[0].playbackRate
-          = document.getElementsByClassName('html5-main-video')[0].playbackRate +
-          0.25
-        <Ctrl+->: jseval document.getElementsByClassName('html5-main-video')[0].playbackRate
-          = document.getElementsByClassName('html5-main-video')[0].playbackRate -
-          0.25
-        <Ctrl+[>: jseval document.getElementsByClassName('html5-main-video')[0].playbackRate
-          = 1
-        <Ctrl+]>: jseval document.getElementsByClassName('html5-main-video')[0].playbackRate
-          = 2.5
-        M: hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]"
-          {hint-url}
-        polski: film dawne czasy las
-        xx: config-cycle statusbar.show always never;; config-cycle tabs.show always
-          never
-        '{': scroll-page 0 -0.5
-        '}': scroll-page 0 0.5
+  content.user_stylesheets:
+    global: /home/alex/.config/perso/qutebrowser/themes/custom_css/nord-dark-all-sites.css

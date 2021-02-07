@@ -204,3 +204,6 @@ read tutorial boot rpi dtoverlay seeed voicecard https://radio-docs.netlify.app/
 read linux device tree tutorial https://elinux.org/Device_Tree_Usage
 read tutorial rpi respeaker kernel overlay https://github.com/HinTak/RaspberryPi-Dev/
 read cgroups tutorial linux advanced https://sysadmincasts.com/episodes/14-introduction-to-linux-control-groups-cgroups
+read tutorial uboot boot pinephone https://bloggerbust.ca/post/how-to-update-uboot-for-postmarketos-on-the-pinephone/
+read tutorial full u-boot everything http://www.denx.de/wiki/DULG/Manual
+read tutorial lib anti bloat alternative light software linux https://github.com/mayfrost/guides/blob/master/ALTERNATIVES.md
