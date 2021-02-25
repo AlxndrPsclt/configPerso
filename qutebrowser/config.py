@@ -769,4 +769,3 @@ config.bind(',r', 'spawn --userscript readability')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 
 config.bind(',aa', 'config-cycle content.user_stylesheets /home/alex/.config/perso/qutebrowser/themes/custom_css/nord-dark-all-sites.css ""')
-config.bind(',ag', f'config-cycle content.user_stylesheets /home/alex/.config/perso/qutebrowser/themes/custom_css/{url}.css ""')

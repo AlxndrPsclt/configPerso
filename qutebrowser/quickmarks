@@ -207,3 +207,5 @@ read cgroups tutorial linux advanced https://sysadmincasts.com/episodes/14-intro
 read tutorial uboot boot pinephone https://bloggerbust.ca/post/how-to-update-uboot-for-postmarketos-on-the-pinephone/
 read tutorial full u-boot everything http://www.denx.de/wiki/DULG/Manual
 read tutorial lib anti bloat alternative light software linux https://github.com/mayfrost/guides/blob/master/ALTERNATIVES.md
+read tutorial troubleshooting postmarket os boot https://wiki.postmarketos.org/wiki/Troubleshooting:boot
+read tutorial pinebook pro setup zram manjaro https://louisabraham.github.io/articles/pinebook-pro-setup.html

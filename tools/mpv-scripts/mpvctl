@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# This script requires:
+# - that the directory $HOME/.mpv exist 
+# - that the program socat be installed
+# - that you start mpv with the unix socket feature pointing at that directory
+#   I recommend an alias in your .bashrc or equivalent file:
+#       alias mpv="mpv --input-unix-socket=$HOME/.mpv/socket"
+
+socket="/tmp/mpv-socket"
+
+command() {
+    # JSON preamble.
+    local tosend='{ "command": ['
+    # adding in the parameters.
+    for arg in "$@"; do
+        tosend="$tosend \"$arg\","
+    done
+    # closing it up.
+    tosend=${tosend%?}' ] }'
+    # send it along and ignore output.
+    # to print output just remove the redirection to /dev/null
+    echo $tosend | socat - $socket
+}
+
+# exit mpv
+[ "$1" = "stop" ] && command 'quit'
+# toggle play-pause
+[ "$1" = "play-pause" ] && command 'cycle' 'pause'
+# start playing
+[ "$1" = "pause" ] && command 'set' 'pause' 'yes'
+# stop playing
+[ "$1" = "play" ] && command 'set' 'pause' 'no'
+# play next item in playlist
+[ "$1" = "next" ] && command 'playlist_next'
+# play previous item in playlist
+[ "$1" = "previous" ] && command 'playlist_prev'
+# Get json playlist
+[ "$1" = "playlist" ] && command 'get_property' 'playlist'
+# Get json media title
+[ "$1" = "title" ] && command 'get_property' 'media-title'
+# Get json media metadata
+[ "$1" = "metadata" ] && command 'get_property' 'metadata'
+[ "$1" = "audio-params" ] && command 'get_property' 'audio-params'
+[ "$1" = "time-pos" ] && command 'get_property' 'time-pos'
+[ "$1" = "time-remaining" ] && command 'get_property' 'time-remaining'
+[ "$1" = "filtered-metadata" ] && command 'get_property' 'filtered-metadata'
+[ "$1" = "seek+" ] && command 'seek' '+5'
+[ "$1" = "seek-" ] && command 'seek' '-5'
+# add item(s) to playlist
+[ "$1" = "add" ] && shift &&
+    for video in "$@"; do
+        command 'loadfile' "$video" 'append-play';
+        command 'set' 'pause' 'no';
+    done;

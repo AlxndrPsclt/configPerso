@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+command=$(echo -e "seek+\nseek-\nstop\nplay-pause\npause\nplay\nnext\nprevious\nplaylist\ntitle\nmetadata\naudio-params\ntime-pos\ntime-remaining\nfiltered-metadata" | fzf)
+
+echo "mpvctl $command"
+
+/usr/local/bin/mpvctl "$command"

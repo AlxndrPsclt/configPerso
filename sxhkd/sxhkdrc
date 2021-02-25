@@ -64,6 +64,12 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioPlay
 	amixer -q set Master 5%{+,-}
 
+XF86AudioNext
+	/usr/local/bin/mpvctl seek+
+
+XF86AudioPrev
+	/usr/local/bin/mpvctl seek-
+
 super + p
 	/home/alex/.config/perso/tools/actions/scripts/passwords/ASK
 
