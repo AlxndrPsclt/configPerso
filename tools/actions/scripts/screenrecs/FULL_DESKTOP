@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+mkdir -p ~/videos/screenrecs
+
+
+#scrot ~/images/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'
+notify-send 'Not yet implemented'

@@ -58,6 +58,8 @@ bspc rule -a large_panel state=floating border=5 rectangle="$large_centered_pane
 bspc rule -a wikif state=fullscreen border=5 rectangle="$large_centered_panel"
 bspc rule -a focus state=fullscreen
 bspc rule -a Surf state=tiled
+bspc rule -a mpv:webcam state=floating sticky=on border=1 rectangle="320x240+996+478"
+
 #bspc config -n .floating border_width 35 // doen't seem to work
 #bspc rule -a mixer state=floating sticky=on rectangle="$windowwidth"x"$windowheight"+"$windowx"+"$windowy"
 
