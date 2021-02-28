@@ -264,6 +264,57 @@
 
 
 
+
+
+
+
+
+- name: Install zsh and spaceship theme
+  become: yes
+  apk:
+    name:
+      - zsh
+      - oh-my-zsh
+      - zsh-vcs
+    state: latest
+    update_cache: yes
+
+
+- name: Clone spaceship theme for oh-my-zsh
+  become: yes
+  git:
+    repo: "https://github.com/denysdovhan/spaceship-prompt.git"
+    dest: "/usr/share/oh-my-zsh/themes/spaceship-prompt"
+    depth: 1
+    accept_hostkey: yes
+
+
+- name: Create symbolic link for spaceship theme
+  become: yes
+  file:
+    src: "/usr/share/oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme"
+    dest: "/usr/share/oh-my-zsh/themes/spaceship.zsh-theme"
+    state: link
+
+
+
+- name: Install and conf tmux to get proper theming
+  become: yes
+  apk:
+    name:
+      - tmux
+      # tmux plugin manager tpm requires bash! WTF. Need to check how to avoid this, but included for now
+      - bash
+    state: latest
+    update_cache: yes
+
+
+
+
+
+
+
+
 - name: Create apps/suckless directory if it does not exist
   file:
     path: "{{ ansible_env.HOME }}/apps/suckless"

@@ -12,6 +12,7 @@
       - git
       - tmux
       - python3
+      - mosh
     state: present
 
 #- debug: var=res

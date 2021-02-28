@@ -97,4 +97,12 @@
   with_items: "{{ ssh_known_host_results.results }}"
   when: item.stdout == ""
 
+- name: Copy git{hub,lab} ssh config to allow interacting with the service
+  copy:
+    src: 'files/ssh_basic_config'
+    dest: "{{ HOME }}/.ssh/config"
+    owner: "{{ USER }}"
+    group: 'wheel'
+    mode: '0644'
+
   #- meta: end_play    #Usefull for dev: ends the play right here

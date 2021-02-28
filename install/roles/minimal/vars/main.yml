@@ -5,3 +5,5 @@
 #
 #  - { dest: '.ssh/rc', src: '{{ CONFIG_PERSO }}/ssh/rc' }
 #  - { dest: '.ssh/', src: '{{ CONFIG_PERSO }}/ssh/change_background_color.sh' }
+links_to_create:
+    - { dest: '{{ HOME }}/.zshrc', src: '{{ CONFIG_PERSO }}/zsh/zshrc' }
