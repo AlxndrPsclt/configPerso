@@ -244,6 +244,7 @@
   loop:
     - "lightdm.conf"
     - "lightdm-mini-greeter.conf"
+    - "Xsession"
 
 - name: Configures lightdm greeter to log in specified user
   become: yes
