@@ -36,6 +36,7 @@
       - fzf
       - fd
       - vifm
+      - rsync
       - mlocate
         #- qrencode
       - wget
@@ -87,7 +88,7 @@
 #      - terminal_velocity
 
 
-- name: Clone personal bashconfig and other usefull configs
+- name: Clone personal config and other usefull configs
   git:
     repo: 'git@github.com:AlxndrPsclt/configPerso.git'
     dest: "{{ HOME }}/.config/perso"

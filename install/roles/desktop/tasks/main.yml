@@ -74,6 +74,7 @@
       - tlp
       - feh
       - light
+      - font-iosevka-nerd
 #      - task
 #      - ffmpeg
       - imagemagick
@@ -107,10 +108,10 @@
     #xdg-mime default feh.desktop image/jpg
 
 
-- name: Install readabitity-lxml for readbility mode in qutebrowser
-  pip:
-    name:
-      - readability-lxml
+      #- name: Install readabitity-lxml for readbility mode in qutebrowser
+      #  pip:
+      #    name:
+      #      - readability-lxml
 
 
 - name: Register existence of desktop config links
@@ -212,11 +213,22 @@
     dest: "{{ HOME }}/apps/vitamin-greeter"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
-      #- name: Compile minimalistic greeter
-      #  shell: ./makeinstall.sh
-      #  args:
-      #    chdir: "{{ HOME }}/apps/vitamin-greeter"
-      #    #creates: somelog.txt
+- name: Install packages for mini (??) greeter
+  become: yes
+  apk:
+    name:
+      - autoconf
+      - automake
+      - gtk+3.0-dev
+      - lightdm-dev
+    state: present
+
+- name: Compile minimalistic greeter
+  become: yes
+  shell: ./makeinstall.sh
+  args:
+    chdir: "{{ HOME }}/apps/vitamin-greeter"
+    #creates: somelog.txt
 
 
 - name: Copy lightdm.conf files
@@ -286,6 +298,7 @@
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
 - name: Compile minimalistic terminal
+  become: yes
   shell: ./makeinstall.sh
   args:
     chdir: "{{ HOME }}/apps/suckless/contxtl-st"
