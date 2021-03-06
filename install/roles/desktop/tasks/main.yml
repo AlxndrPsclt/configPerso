@@ -31,12 +31,26 @@
       - pulseaudio
       - pulseaudio-alsa
       - bluez
-        #      - bluez
         #      - bluez-utils
         #      - pulseaudio-bluetooth
         #      - pamixer
       - pulsemixer
     state: present
+
+- name: enable service bluetooth
+  become: yes
+  service:
+    name: bluetooth
+    state: started
+    enabled: yes
+
+- name: Allow auto powering of bluetooth device on startup
+  become: yes
+  lineinfile:
+    dest: /etc/bluetooth/main.conf
+    state: present
+    regexp: '^#AutoEnable=false'
+    line: 'AutoEnable=true'
 
 - name: Install packages for desktops2B
   become: yes
@@ -81,13 +95,6 @@
       - imagemagick
     state: present
 
-      #- name: Allow auto powering of bluetooth device on startup
-      #  become: yes
-      #  lineinfile:
-      #    dest: /etc/bluetooth/main.conf
-      #    state: present
-      #    regexp: '^#AutoEnable=false'
-      #    line: 'AutoEnable=true'
 
       #- name: Installing some software using yay
       #  yay:
@@ -174,13 +181,6 @@
     group: wheel
     mode: '0644'
 
-      #- name: Enable service bluetooth
-      #  become: yes
-      #  systemd:
-      #    name: bluetooth
-      #    state: started
-      #    enabled: yes
-      #    masked: no
 
 - name: Create screencasting directory if it does not exist
   file:
