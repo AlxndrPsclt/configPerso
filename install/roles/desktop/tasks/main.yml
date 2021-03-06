@@ -322,7 +322,7 @@
     state: directory
 
 
-- name: Clone personal dmenu build
+- name: Clone personal dmenu source
   git:
     repo: "git@github.com:AlxndrPsclt/contxtl-dmenu.git"
     dest: "{{ HOME }}/apps/suckless/contxtl-dmenu"
@@ -344,7 +344,7 @@
     chdir: "{{ HOME }}/apps/suckless/contxtl-dmenu"
 
 
-- name: Clone personal st build
+- name: Clone personal st source
   git:
     repo: "git@github.com:AlxndrPsclt/contxtl-st.git"
     dest: "{{ HOME }}/apps/suckless/contxtl-st"
@@ -355,4 +355,28 @@
   shell: ./makeinstall.sh
   args:
     chdir: "{{ HOME }}/apps/suckless/contxtl-st"
+
+- name: Clone pinentry-dmenu
+  git:
+    repo: "https://github.com/ritze/pinentry-dmenu.git"
+    dest: "{{ HOME }}/apps/suckless/pinentry-dmenu.git"
+    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+
+- name: Install dependencies for pinentry-dmenu
+  become: yes
+  apk:
+    update_cache: yes
+    name:
+      # - libxinerama      #Seems useless for compilation of dmenu at least?
+      - libassuan-dev
+      - libconfig-dev
+      - gpgme-dev
+    state: present
+
+
+- name: Compile pinentry-dmenu
+  become: yes
+  shell: make clean install
+  args:
+    chdir: "{{ HOME }}/apps/suckless/pinentry-dmenu"
 
