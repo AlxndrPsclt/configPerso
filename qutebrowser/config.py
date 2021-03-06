@@ -767,3 +767,5 @@ config.bind(',r', 'spawn --userscript readability')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 
 config.bind(',ap', 'config-cycle content.user_stylesheets /home/alex/.config/perso/qutebrowser/themes/custom_css/solarized-dark-all-sites.css ""')
+
+config.load_autoconfig(False)

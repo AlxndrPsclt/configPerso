@@ -28,7 +28,6 @@ settings:
           = 2.5
         M: hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]"
           {hint-url}
-        polski: film dawne czasy las
         xx: config-cycle statusbar.show always never;; config-cycle tabs.show always
           never
         '{': scroll-page 0 -0.5
