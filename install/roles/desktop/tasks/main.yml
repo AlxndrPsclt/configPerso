@@ -30,6 +30,7 @@
     name:
       - pulseaudio
       - pulseaudio-alsa
+      - bluez
         #      - bluez
         #      - bluez-utils
         #      - pulseaudio-bluetooth
