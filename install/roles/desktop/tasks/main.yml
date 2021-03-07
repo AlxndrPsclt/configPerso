@@ -140,6 +140,21 @@
     path: "{{ HOME }}/.local/share/applications"
     state: directory
 
+- name: Create apps directory if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/apps"
+    state: directory
+
+- name: Create atelier directory if it does not exist
+  file:
+    path: "{{ HOME }}/atelier"
+    state: directory
+
+- name: Create documents directory if it does not exist
+  file:
+    path: "{{ HOME }}/documents"
+    state: directory
+
 - name: Create downloads directory if it does not exist
   file:
     path: "{{ HOME }}/downloads"
@@ -200,11 +215,6 @@
     repo: "git@github.com:AlxndrPsclt/fundmntl-wallpapers.git"
     dest: "{{ HOME }}/images/fundmntl-wallpapers"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
-
-- name: Create apps directory if it does not exist
-  file:
-    path: "{{ ansible_env.HOME }}/apps"
-    state: directory
 
 
 
