@@ -82,6 +82,7 @@
       - redshift
       - mpv
       - pass
+      - pass-contrib
       - wmctrl
       - xsel
       - scrot
