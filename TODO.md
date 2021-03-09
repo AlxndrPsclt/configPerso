@@ -1,7 +1,6 @@
 TODO: Organise and clean the color generator for wallpapers
 TODO: Centralize ssh/config file to share it between instances
 TODO: Encode standard locations such as .config/perso in variables
-TODO: Add compose key to new i3 config
 TODO: Add autolock
 TODO: Add hibernate poweroff menu
 TODO: Add brightness keys support

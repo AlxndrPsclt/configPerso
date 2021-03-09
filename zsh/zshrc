@@ -152,12 +152,17 @@ source ~/.config/perso/zsh/zsh_paths
 # ~/.bash_aliases, instead of adding them here directly.
 
 if [ -f ~/.config/perso/zsh/zsh_aliases ]; then
-  . ~/.config/perso/zsh/zsh_aliases
+  source ~/.config/perso/zsh/zsh_aliases
 fi
 
 # Function definitions
 if [ -f ~/.bash_funcs ]; then
-	.  ~/.bash_funcs
+  source  ~/.bash_funcs
+fi
+
+# Function definitions
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+  source /usr/share/fzf/key-bindings.zsh
 fi
 
 
