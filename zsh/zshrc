@@ -173,6 +173,12 @@ export EDITOR='vim'
 #. /usr/bin/virtualenvwrapper.sh
 
 
+export FZF_DEFAULT_OPTS='
+  --height 75% --multi --reverse
+    --bind ctrl-f:page-down,ctrl-b:page-up
+    '
+export FZF_ALT_C_COMMAND='fd --type d .'
+
 export PATH="$PATH:~/.config/perso/tools"
 
 GPG_TTY=$(tty)
