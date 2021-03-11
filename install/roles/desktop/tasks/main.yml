@@ -82,6 +82,7 @@
       - redshift
       - mpv
       - youtube-dl
+      - ffmpeg
       - pass
       - pass-contrib
       - wmctrl
