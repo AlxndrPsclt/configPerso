@@ -81,6 +81,7 @@
       - dunst
       - redshift
       - mpv
+      - youtube-dl
       - pass
       - pass-contrib
       - wmctrl
