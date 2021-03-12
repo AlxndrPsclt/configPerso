@@ -209,3 +209,4 @@ read tutorial full u-boot everything http://www.denx.de/wiki/DULG/Manual
 read tutorial lib anti bloat alternative light software linux https://github.com/mayfrost/guides/blob/master/ALTERNATIVES.md
 read tutorial troubleshooting postmarket os boot https://wiki.postmarketos.org/wiki/Troubleshooting:boot
 read tutorial pinebook pro setup zram manjaro https://louisabraham.github.io/articles/pinebook-pro-setup.html
+read tutorial scripts pinephone sms mms send https://gitlab.com/untidylamp/mmmpuppet/-/tree/master/tests
