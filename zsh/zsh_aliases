@@ -23,10 +23,7 @@ alias cdvim='cd ~/.vim'
 alias vim='vim -p'
 alias editvim='vim ~/.vim/vimrc'
 alias editssh='vim -p ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
-alias editbyobu='vim -p ~/.byobu/color.tmux ~/.byobu/blue.tmuxtheme ~/.byobu/datetime.tmux ~/.byobu/profile.tmux ~/.byobu/keybindings.tmux ~/.byobu/.tmux.conf'
-alias editbash='vim -p $F_CONFIG_BASH/bashrc $F_CONFIG_BASH/bash_aliases $F_CONFIG_BASH/bash_funcs $F_CONFIG_BASH/bash_specifics $F_CONFIG_BASH/bash_vars $F_CONFIG_BASH/profile $F_CONFIG_BASH/bash_completion $F_CONFIG_BASH/bash_paths'
-
-alias editi3='vim -p ~/.config/perso/i3/config ~/.config/perso/x/Xresources ~/.config/perso/rofi/launcher.rasi ~/.config/perso/rofi/window_switcher.rasi ~/.config/perso/rofi/social.rasi ~/.config/perso/dunst/dunstrc'
+alias editzsh='vim -p ~/.config/perso/zsh/*'
 alias editbsp='vim -p ~/.config/perso/bspwm/bspwmrc ~/.config/perso/sxhkd/sxhkdrc ~/.config/perso/dunst/dunstrc'
 alias editsuckless='vim -p ~/apps/suckless/contxtl-st/config.def.h ~/apps/suckless/contxtl-dmenu/config.def.h '
 
@@ -35,9 +32,6 @@ alias editactions='vim -p ~/.config/perso/tools/actions/actions.sh ~/.config/per
 
 alias editdata='vim -p ~/.config/perso/tools/actions/data/*'
 alias editmusic='vim -p ~/notes/trax.yml'
-
-#TODO: install tor browser
-alias torb='~/documents/Apps/Security/tor-browser_en-US/start-tor-browser'
 
 #TODO: Create a global config file for all these parameters
 alias versions='~/.config/perso/tools/versions.sh'

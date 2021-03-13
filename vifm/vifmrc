@@ -18,8 +18,6 @@
 " you will need to change this setting.
 
 set vicmd=vim
-" set vicmd=elvis\ -G\ termcap
-" set vicmd=vile
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal

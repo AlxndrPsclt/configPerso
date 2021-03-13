@@ -179,7 +179,7 @@ export FZF_DEFAULT_OPTS='
     '
 export FZF_ALT_C_COMMAND='fd --type d .'
 
-export PATH="$PATH:~/.config/perso/tools"
+export PATH="$PATH:/home/alex/.local/bin:~/.config/perso/tools"
 
 GPG_TTY=$(tty)
 export GPG_TTY
