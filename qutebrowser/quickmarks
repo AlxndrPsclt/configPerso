@@ -189,3 +189,5 @@ tutorial watch install sway full https://www.youtube.com/watch?v=hRIGYUWQfYU
 read blog michael suckless software open source void reflexions https://www.michaelwashere.net/page/2/
 read blog linux https://shibumi.dev/posts/
 search alpine linux packages https://pkgs.alpinelinux.org/packages
+alpine linux glibc https://github.com/sgerrand/alpine-pkg-glibc
+fedri messenger central communications https://github.com/getferdi/ferdi

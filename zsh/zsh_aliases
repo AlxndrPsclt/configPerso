@@ -96,6 +96,7 @@ alias pmsearch="pacman -Ss"
 alias pminstall="sudo pacman -Suy"
 
 alias yta="youtube-dl -x -f bestaudio/best"
+alias ytv="youtube-dl -f 244+bestaudio"
 
 alias myip="ip -br addr show"
 

@@ -73,9 +73,9 @@
     - '{{ LOCAL_HOME }}/.ssh/keys/*.priv'
 
 - name: Generate local SSH keys
-  shell: "ssh-keygen -t ed25519 -f {{ HOME }}/.ssh/id_ed22519 -q -N ''"
+  shell: "ssh-keygen -t ed25519 -f {{ HOME }}/.ssh/id_ed25519 -q -N ''"
   args:
-    creates: "{{ HOME }}/.ssh/id_ed22519"
+    creates: "{{ HOME }}/.ssh/id_ed25519"
 
 - name: Make sure the known hosts file exists
   file:
