@@ -70,6 +70,12 @@ XF86AudioNext
 XF86AudioPrev
 	/usr/local/bin/mpvctl seek-
 
+XF86MonBrightnessUp
+	light -A 10
+
+XF86MonBrightnessDown
+	light -U 10
+
 super + p
 	/home/alex/.config/perso/tools/actions/scripts/passwords/ASK
 

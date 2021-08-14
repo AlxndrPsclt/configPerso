@@ -11,7 +11,7 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+config.load_autoconfig(False)
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -748,8 +748,8 @@ c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctr
 # Bindings for normal mode
 config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
 config.bind(',k', 'spawn --userscript keep_tracks.sh')
-config.bind(',m', 'spawn /home/alex/.config/perso/tools/enqueueTrack.sh "{url}"')
-config.bind(',M', 'hint links spawn /home/alex/.config/perso/tools/enqueueTrack.sh "{hint-url}"')
+config.bind(',e', 'spawn /home/alex/.config/perso/tools/enqueueTrack.sh "{url}"')
+config.bind(',E', 'hint links spawn /home/alex/.config/perso/tools/enqueueTrack.sh "{hint-url}"')
 config.bind('<Alt+Shift+Left>', 'tab-move -')
 config.bind('<Alt+Shift+Right>', 'tab-move +')
 # Change speed of youtube playlist
@@ -759,6 +759,8 @@ config.bind('<Ctrl+[>', "jseval document.getElementsByClassName('html5-main-vide
 config.bind('<Ctrl+]>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 2.5")
 config.bind('{', 'scroll-page 0 -0.5')
 config.bind('}', 'scroll-page 0 0.5')
+config.bind(',m', 'jseval markX=window.scrollX; markY=window.scrollY; "Jumpmark placed"')
+config.bind(',M', 'jseval window.scrollTo(markX,markY); "Jumped."')
 
 # Dark mode set
 config.set('colors.webpage.darkmode.enabled', True)
