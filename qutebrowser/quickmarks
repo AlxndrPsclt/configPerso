@@ -212,3 +212,4 @@ read tutorial pinebook pro setup zram manjaro https://louisabraham.github.io/art
 read tutorial scripts pinephone sms mms send https://gitlab.com/untidylamp/mmmpuppet/-/tree/master/tests
 record audio linux raspberry pi zero rpi terminal http://mocha.freeshell.org/audio.html
 lib yaml terminal https://github.com/0k/shyaml
+rpi zero led strip https://medium.com/@larsongb/using-a-raspberry-pi-to-control-leds-38731b9db4
