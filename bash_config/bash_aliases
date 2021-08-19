@@ -35,7 +35,7 @@ alias editinstall='vim -p ~/.config/perso/install/roles/*/tasks/main.yml ~/.conf
 alias editactions='vim -p ~/.config/perso/tools/actions/actions.sh ~/.config/perso/tools/actions'
 
 alias editdata='vim -p ~/.config/perso/tools/actions/data/*'
-alias editmusic='vim -p ~/notes/trax.yml'
+alias editmusic='vim -p ~/notes/trax.yml ~/.config/perso/tools/actions/data/music_tags'
 
 #TODO: install tor browser
 alias torb='~/documents/Apps/Security/tor-browser_en-US/start-tor-browser'
