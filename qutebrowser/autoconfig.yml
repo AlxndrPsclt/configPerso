@@ -6,5 +6,8 @@
 
 config_version: 2
 settings:
-  content.notifications.enabled:
-    https://fr.aliexpress.com: false
+  aliases:
+    global:
+      foo: message-info foo
+      w: session-save
+      wq: quit --save

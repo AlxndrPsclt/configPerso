@@ -760,7 +760,7 @@ config.bind('<Ctrl+]>', "jseval document.getElementsByClassName('html5-main-vide
 config.bind('{', 'scroll-page 0 -0.5')
 config.bind('}', 'scroll-page 0 0.5')
 config.bind(',m', 'jseval markX=window.scrollX; markY=window.scrollY; "Jumpmark placed"')
-config.bind(',M', 'jseval window.scrollTo(markX,markY); "Jumped."')
+config.bind(',M', 'jseval markX2=window.scrollX; markY2=window.scrollY; window.scrollTo(markX,markY); markX=markX2; markY=markY2; "Jumped."')
 
 # Dark mode set
 config.set('colors.webpage.darkmode.enabled', True)

@@ -5,7 +5,7 @@ alias ls='ls --color=auto'
 alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
-alias llast='ls -Artls | tail -n1'
+alias llast='ls -Art | tail -n1'
 alias lll='ls -Ahtls'
 alias lll5='ls -Ahrtls | tail -n5 | tac'
 
