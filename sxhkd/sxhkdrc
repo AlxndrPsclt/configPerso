@@ -1,95 +1,101 @@
 super + Return
-	st
+  st
 
 super + u
-	urxvt
+  urxvt
 
 super + i
-	qutebrowser
+  qutebrowser
 
 super + d
-	dmenu_run
+  dmenu_run
+
+super + s
+  /home/alex/.config/perso/tools/actions/scripts/insert/emoji
 
 super + space
-	/home/alex/.config/perso/tools/actions/actions.sh
+  /home/alex/.config/perso/tools/actions/actions.sh
 
 super + Escape
-	pkill -USR1 -x sxhkd
+  pkill -USR1 -x sxhkd
 
 super + {Left, Down, Up, Right}
-	bspc node -f {west,south,north,east}
+  bspc node -f {west,south,north,east}
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+  bspc desktop -f {prev,next}.local
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+  bspc {desktop -f,node -d} '^{1-9,10}'
 
 super + grave
-	bspc desktop -f last
+  bspc desktop -f last
 
 super + Tab
-	bspc node -f $(wmctrl -l | dmenu -i | cut -f 1 -d " ")
+  bspc node -f $(wmctrl -l | dmenu -i | cut -f 1 -d " ")
+
+super + c
+  cat /home/alex/documents/flow/mvp/webapp/volumes/vuejs/app/src/assets/palette.css | dmenu -i | xclip -i -selection clipboard
 
 super + a
-	~/.config/perso/tools/actions/scripts/sound/MIXER
+  ~/.config/perso/tools/actions/scripts/sound/MIXER
 
 super + o ; {e,w,m}
-	{gvim,qutebrowser,thunderbird}
+  {gvim,qutebrowser,thunderbird}
 
 # close
 super + shift + q
-	bspc node --close
+  bspc node --close
 
 XF86Audio{Raise,Lower}Volume
-	/home/alex/.config/perso/tools/actions/scripts/sound/{UP,DOWN}
+  /home/alex/.config/perso/tools/actions/scripts/sound/{UP,DOWN}
 
 XF86AudioMicMute
-	/home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE_MIC.sh
+  /home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE_MIC.sh
 
 XF86AudioMute
-	/home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE.sh
+  /home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE.sh
 
 super + Prior
-	/home/alex/.config/perso/tools/actions/scripts/sound/UP
+  /home/alex/.config/perso/tools/actions/scripts/sound/UP
 
 super + Next
-	/home/alex/.config/perso/tools/actions/scripts/sound/DOWN
+  /home/alex/.config/perso/tools/actions/scripts/sound/DOWN
 
 XF86Audio{Raise,Lower}Volume
-	amixer -q set Master 5%{+,-}
+  amixer -q set Master 5%{+,-}
 
 XF86AudioPlay
-	amixer -q set Master 5%{+,-}
+  amixer -q set Master 5%{+,-}
 
 XF86AudioNext
-	/usr/local/bin/mpvctl seek+
+  /usr/local/bin/mpvctl seek+
 
 XF86AudioPrev
-	/usr/local/bin/mpvctl seek-
+  /usr/local/bin/mpvctl seek-
 
 XF86MonBrightnessUp
-	light -A 10
+  light -A 10
 
 XF86MonBrightnessDown
-	light -U 10
+  light -U 10
 
 super + p
-	/home/alex/.config/perso/tools/actions/scripts/passwords/ASK
+  /home/alex/.config/perso/tools/actions/scripts/passwords/ASK
 
 Print
-	/home/alex/.config/perso/tools/actions/scripts/screenshots/FULL_DESKTOP
+  /home/alex/.config/perso/tools/actions/scripts/screenshots/FULL_DESKTOP
 
 super + @Print
-	/home/alex/.config/perso/tools/actions/scripts/screenshots/SELECT_AREA
+  /home/alex/.config/perso/tools/actions/scripts/screenshots/SELECT_AREA
 
 super + m
-	/home/alex/.config/perso/tools/select_play_trax.sh
+  /home/alex/.config/perso/tools/select_play_trax.sh
 
 super + y
-	/home/alex/.config/perso/tools/select_play_trax_by_thumbnail.sh
+  /home/alex/.config/perso/tools/select_play_trax_by_thumbnail.sh
 
 super + w
   /home/alex/.config/perso/tools/actions/scripts/wiki/WIKI_INDEX
@@ -97,7 +103,7 @@ super + w
 super + W
   /home/alex/.config/perso/tools/actions/scripts/wiki/WIKI_FOCUS_SESSION
 
-super + f 
+super + f
   bspc node -t '~fullscreen'
 
 super + t

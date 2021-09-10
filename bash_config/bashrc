@@ -146,5 +146,12 @@ export PATH="$PATH:~/.config/perso/tools"
 
 export MPD_HOST=~/.local/run/mpd/socket
 
+
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.goflow" ] ; then
+    . "$HOME/.goflow"
+fi
+
 GPG_TTY=$(tty)
 export GPG_TTY

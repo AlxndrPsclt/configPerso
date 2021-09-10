@@ -273,3 +273,7 @@ find_network_rpis() {
 ssystemctl() {
   systemctl restart $(systemctl list-units -t service | cut -f 3 -d " " | grep service | fzf)
 }
+
+keyall() {
+  find . -maxdepth 1 -type f -print0 | xargs -0 -I {} keytag-all "{}"
+}

@@ -215,3 +215,16 @@ lib yaml terminal https://github.com/0k/shyaml
 rpi zero led strip https://medium.com/@larsongb/using-a-raspberry-pi-to-control-leds-38731b9db4
 linux terminal shell docker replace environement variables envsubst https://skofgar.ch/dev/2020/08/how-to-quickly-replace-environment-variables-in-a-file/
 jwt access token refresh tutorial https://dev.to/bahdcoder/the-ultimate-guide-to-jwt-client-side-auth-stop-using-local-storage-3an9
+flow hash quick https://github.com/google/highwayhash
+flow hash sign quick siphash https://github.com/veorq/SipHash/
+flow read bls cryptography signature quick https://en.wikipedia.org/wiki/BLS_digital_signature
+flow sign cryptography bls signature python bindings https://github.com/Chia-Network/bls-signatures/tree/main/python-bindings
+flow lib cryptography signature js bls https://github.com/ChainSafe/bls
+flow vuejs dark theme https://shouts.dev/create-multiple-themes-in-vuejs
+flow vuejs dark theme tutorial https://nuculabs.dev/2019/12/07/dark-theme-switch-with-vue-js/
+flow vuejs dark theme tutorial 2 https://developerbacon.ca/articles/making-a-vuejs-dark-theme-toggle/
+flow vuejs transition swipe slide css https://vuejs.org/v2/guide/transitions.html#Transition-Classes
+flow vuejs transition swipe slide javascript https://stackoverflow.com/questions/62797218/adding-left-and-right-swipe-with-vue#62798914
+flow json dump converter non serializable time https://code-maven.com/serialize-datetime-object-as-json-in-python
+cheat tailwindcss https://tailwindcomponents.com/cheatsheet/
+pinebook pro boot uboot https://forum.pine64.org/showthread.php?tid=11980
