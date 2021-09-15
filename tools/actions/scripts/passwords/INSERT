@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-folder=$(fd -t d . | dmenu)
+folder=$(fd -t d ~/.password-store | dmenu)
 
 if [[ -z $folder ]]; then
 	notify-send "No folder was selected"
@@ -10,5 +10,5 @@ fi
 username=$(cat ~/.config/perso/tools/actions/data/usernames | dmenu)
 
 
-pass insert
+#pass insert
 

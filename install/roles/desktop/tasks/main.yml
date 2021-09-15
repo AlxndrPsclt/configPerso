@@ -150,6 +150,13 @@
     dest: "{{ HOME }}/.local/share/qutebrowser/userscripts"
     state: link
 
+- name: Create symbolic link for qutebrowser greasemonkey scripts
+  become: yes
+  file:
+    src: "{{ CONFIG_PERSO }}/qutebrowser/greasemonkey"
+    dest: "{{ HOME }}/.local/share/qutebrowser/greasemonkey"
+    state: link
+
       #- name: Create virtualenvs required for qutebrowser userscripts
       #command: ~/.config/perso/qutebrowser/userscripts/virtualenvs/create_virtualenvs.sh
 

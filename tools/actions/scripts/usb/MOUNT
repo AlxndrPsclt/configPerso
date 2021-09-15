@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+to_mount=$(lsblk --noheadings --raw -o NAME,MOUNTPOINT | grep -Ev '^[[:alnum:]]*[[:space:]].+' | dmenu -i -p "What to mount?")
+[ -z to_mount ] || exit 1
+
+where_to_mount=$(find /mnt -mindepth 1 -maxdepth 1 | dmenu -i -p "Where to mount it?")
+[ -z where_to_mount ] || exit 1
+notify-send "$to_mount $where_to_mount"
+
+# notify-send $to_mount
