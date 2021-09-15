@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-passmenu
+passmenu && notify-send "Password copied"
