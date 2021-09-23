@@ -1,6 +1,7 @@
 export F_DOCUMENTS=$HOME/documents/
 export F_MUSIC=$HOME/music/
 export F_DOWNLOADS=$HOME/downloads/
+export D=$HOME/downloads/
 export F_PICTURES=$HOME/images/
 export F_VIDEOS=$HOME/videos/
 export F_SYNC=$HOME/sync/

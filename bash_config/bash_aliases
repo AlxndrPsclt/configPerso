@@ -60,7 +60,7 @@ alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
 
 
 #Git aliases
-alias gits='git status'
+alias gits='git status -u'
 alias gitd='git diff'
 alias gita='git add -A'
 alias gitc='git commit -m '
@@ -94,7 +94,8 @@ alias docker-ip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.
 alias whatismyip="curl https://ipinfo.io/ip"
 
 #Copy last executed docmmand to clipboard (needs X)
-alias copylast="history |tail -n2 |head -n1 | cut -d ' ' -f4- | copy"
+alias copylast="history | tail -n2 | head -n1 | cut -d ' ' -f2- | copy"
+#alias copylast="history | tail -n2 | head -n1 | cut -d ' ' -f4- | copy"
 alias cl=copylast
 
 alias listignored="find . -type f  | git check-ignore --stdin"
@@ -114,9 +115,11 @@ alias config='/usr/bin/git --git-dir=$HOME/.config/cfg-perso --work-tree=$HOME'
 alias today='date "+%Y-%m-%d"'
 alias now='date "+%H:%M:%S"'
 
-alias tmux='tmux attach || tmux'
+alias tmuxa='tmux attach || tmux'
 
 alias packages="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 
 alias select_color='sxiv -N preview -to ~/.config/perso/colors/palette/*.gif | cut -d '-' -f2 | copy'
 alias mpv="mpv --input-unix-socket=/tmp/mpv-socket"
+
+alias b="echo ~/atelier/flow/backups/"

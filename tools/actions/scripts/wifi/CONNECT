@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-CHOSEN_NETWORK=$(wpa_cli -i wlp3s0 list_network | sed 1d | awk '{print $1" "$2}' | dmenu)
+CHOSEN_NETWORK=$(wpa_cli -i wlp3s0 list_network | sed 1d | awk '{print $1" "$2}' | dmenu -i)
 
 if [[ ! $CHOSEN_NETWORK ]]; then
 	notify-send "No network chosen"

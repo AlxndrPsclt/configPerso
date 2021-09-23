@@ -155,3 +155,5 @@ fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+export B='/home/alex/atelier/flow/backups/'
