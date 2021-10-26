@@ -26,6 +26,9 @@ function scd {
   cd $(fd --type d . ./ | fzf)
 }
 
+function pminstall {
+  sudo pacman -Suy $(pacman -Ssq | fzf)
+}
 
 
 
@@ -267,7 +270,7 @@ genrand() {
 }
 
 find_network_rpis() {
-  sudo nmap -sP 192.168.43.0/24 | grep -i "b8:27:eb\|dc:a6:32" -B2
+  sudo nmap -sP 192.168.1.0/24 | grep -i "b8:27:eb\|dc:a6:32" -B2
 }
 
 ssystemctl() {

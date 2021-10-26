@@ -42,9 +42,6 @@ super + c
 super + a
   ~/.config/perso/tools/actions/scripts/sound/MIXER
 
-super + o ; {e,w,m}
-  {gvim,qutebrowser,thunderbird}
-
 # close
 super + shift + q
   bspc node --close

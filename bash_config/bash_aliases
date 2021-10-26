@@ -100,8 +100,7 @@ alias cl=copylast
 
 alias listignored="find . -type f  | git check-ignore --stdin"
 
-alias pmsearch="pacman -Ss"
-alias pminstall="sudo pacman -Suy"
+alias pmsearch="pacman -Ssq | fzf"
 
 alias yta="youtube-dl -x -f bestaudio/best"
 
