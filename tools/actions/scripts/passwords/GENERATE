@@ -25,6 +25,6 @@ fi
 echo "$folder/u.$domain"
 
 echo "$username" | pass insert -e "$folder/u.$domain"
-pass generate -n "$folder/p.$domain"
+pass generate -n "$folder/p.$domain" 18
 
 notify-send "Password generated for user $username for $folder/*.$domain"
