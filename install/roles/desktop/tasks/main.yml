@@ -94,37 +94,16 @@
       - light
       - font-iosevka-nerd
 #      - task
-#      - ffmpeg
       - imagemagick
     state: present
 
-
-      #- name: Installing some software using yay
-      #  yay:
-      #    name:
-      ##      - ttf-oxygen-gf
-      #      - powerline-fonts-git
-      #      - ttf-iosevka
-      #      - pinentry-dmenu
-      ##      - i3lock-fancy-git
-      ##      - st-luke-git
-      ##      - vit
-      ##- lightdm-mini-greeter
-
-    #TODO: Add xdg-handling
-    #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
-    #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
-    #xdg-mime default org.pwmt.zathura.desktop application/pdf
-    #xdg-mime default feh.desktop image/png
-    #xdg-mime default feh.desktop image/jpg
-
-
-- name: Install ueberzug and readabitity-lxml for readbility mode in qutebrowser
-  pip:
-    name:
-      #- readability-lxml
-      - ueberzug
-
+#    #TODO: Add xdg-handling
+#    #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
+#    #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
+#    #xdg-mime default org.pwmt.zathura.desktop application/pdf
+#    #xdg-mime default feh.desktop image/png
+#    #xdg-mime default feh.desktop image/jpg
+#
 
 - name: Register existence of desktop config links
   stat:
@@ -214,7 +193,7 @@
     dest: "{{ HOME }}/notes"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.gitlab.priv"
 
-- name: Clone personal wallpapers folder
+- name: Clone personnal wallpapers folder
   git:
     repo: "git@github.com:AlxndrPsclt/fundmntl-wallpapers.git"
     dest: "{{ HOME }}/images/fundmntl-wallpapers"
@@ -247,6 +226,7 @@
 
 
 - name: Copy lightdm.conf files
+  #There is a problem here: Xsession must be executable for the system to boot after login sccreen
   become: yes
   copy:
     src: "{{ HOME }}/.config/perso/lightdm/{{ item }}"
@@ -353,6 +333,7 @@
     state: present
 
 - name: Compile minimalistic launcher menu
+  become: yes
   shell: ./makeinstall.sh
   args:
     chdir: "{{ HOME }}/apps/suckless/contxtl-dmenu"
@@ -373,7 +354,7 @@
 - name: Clone pinentry-dmenu
   git:
     repo: "https://github.com/ritze/pinentry-dmenu.git"
-    dest: "{{ HOME }}/apps/suckless/pinentry-dmenu.git"
+    dest: "{{ HOME }}/apps/suckless/pinentry-dmenu"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
 - name: Install dependencies for pinentry-dmenu

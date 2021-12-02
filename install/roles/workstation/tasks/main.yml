@@ -42,7 +42,7 @@
       - wget
       - yq
         #- wpa_supplicant
-        #      - youtube-dl
+        #- youtube-dl
     state: present
 
       #- name: Copy wpa_supplicant file after decrypting it
