@@ -41,6 +41,9 @@
         #- qrencode
       - wget
       - yq
+      - docker
+      - docker-compose
+      - docker-compose-zsh-completion
         #- wpa_supplicant
         #- youtube-dl
     state: present
