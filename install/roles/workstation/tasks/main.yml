@@ -101,7 +101,7 @@
 
 - name: Clone personal vimconfig
   git:
-    repo: 'git@github.com:AlxndrPsclt/dotvim.git'
+    repo: 'github.com:AlxndrPsclt/mnml-vim.git'
     dest: "{{ HOME }}/.vim"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
@@ -155,10 +155,3 @@
     dest: "{{ item.dest }}"
     state: link
   loop: "{{ links_to_create_sudo }}"
-
-    #- name: Installing some software using yay
-    #  yay:
-    #    name:
-    #      - bash-git-prompt
-    #      - tmux-bash-completion-git
-    #      - go-yq
