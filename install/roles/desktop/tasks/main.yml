@@ -79,6 +79,7 @@
       - picom
 #      - conky
       - dunst
+      - libqrencode
       - dbus
       - dbus-openrc
       - dbus-x11
@@ -94,6 +95,7 @@
 #      - rtorrent
       - tlp
       - feh
+      - sxiv
       - light
       - font-iosevka-nerd
 #      - task

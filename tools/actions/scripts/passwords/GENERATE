@@ -1,0 +1,30 @@
+#!/usr/bin/env sh
+
+domain=$(sqlite3 ~/.local/share/qutebrowser/history.sqlite "select url from History ORDER BY atime DESC LIMIT 50;" | awk -F[/:] '{print $4}' | awk '!seen[$0]++' | dmenu -i -p "Which website?")
+
+if [[ -z $domain ]]; then
+	notify-send "No folder was selected"
+	exit 0
+fi
+
+folder=$(fd . -t d --base-directory '/home/alex/.password-store' | dmenu -i -p 'Password category?')
+
+if [[ -z $folder ]]; then
+	notify-send "No folder was selected"
+	exit 0
+fi
+
+username=$(cat ~/.config/perso/tools/actions/data/usernames | dmenu -i -p 'Username?')
+
+if [[ -z $username ]]; then
+	notify-send "No username was selected"
+	exit 0
+fi
+
+
+echo "$folder/u.$domain"
+
+echo "$username" | pass insert -e "$folder/u.$domain"
+pass generate -n "$folder/p.$domain" 18
+
+notify-send "Password generated for user $username for $folder/*.$domain"

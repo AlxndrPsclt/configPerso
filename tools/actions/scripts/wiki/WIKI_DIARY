@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+occupied_desktop=$(bspc query -T -d | jq -r .root)
+
+if [[ "$occupied_desktop" == "null" ]]; then
+  class_to_use="wikif" ;
+else
+  class_to_use="wiki" ;
+fi
+
+~/apps/suckless/focus-st/st -c "$class_to_use" -f "Cousine for Powerline:style=Regular:size=18" ~/.config/perso/focus/focusvim -c "VimwikiMakeDiaryNote"
+
+

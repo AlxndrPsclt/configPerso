@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+mpv --x11-name=webcam --no-osc --no-osd-bar  --profile=low-latency --untimed  av://v4l2:/dev/video0

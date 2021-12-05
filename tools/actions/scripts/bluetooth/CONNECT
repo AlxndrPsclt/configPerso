@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-bluetooth_device=$(bluetoothctl -- paired-devices | cut -f 2- -d ' ' | dmenu)
+bluetooth_device=$(bluetoothctl -- paired-devices | cut -f 2- -d ' ' | dmenu -i)
 
 bluetooth_device_mac=$(echo "$bluetooth_device" | cut -f 1 -d ' ')
 bluetooth_device_name=$(echo "$bluetooth_device" | cut -f 2- -d ' ')
