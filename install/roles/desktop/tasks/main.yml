@@ -79,6 +79,9 @@
       - picom
 #      - conky
       - dunst
+      - dbus
+      - dbus-openrc
+      - dbus-x11
       - redshift
       - mpv
       - youtube-dl
@@ -249,17 +252,19 @@
     regexp: '^user = alex'
     line: "user = {{ USER }}"
 
+- name: enable dbus
+  become: yes
+  service:
+    name: dbus
+    state: started
+    enabled: yes
+
 - name: enable service lightdm
   become: yes
   service:
     name: lightdm
     state: started
     enabled: yes
-
-
-
-
-
 
 
 
