@@ -35,15 +35,12 @@ bspc config gapless_monocle      true
 bspc rule -a main-term desktop=^2
 st -c main-term tmux &
 
-windowwidth=1366
-windowheight=400
-
-
 screenwidth=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
 screenheight=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $4}')
 
 top_screen_panel="$screenwidth"x$(($screenheight/3))"+-2+-2"
 large_centered_panel=$(($screenwidth*8/10))x$(($screenheight*8/10))"+$(($screenwidth*1/10))+$(($screenheight*1/10))"
+small_floating_panel=$(($screenwidth*3/10))x$(($screenheight*3/10))"+$(($screenwidth*7/10))+$(($screenheight*7/10))"
 
 bspc rule -a mixer state=floating sticky=on border=5 rectangle="$top_screen_panel"
 #bspc rule -a pinentry state=floating sticky=on border=5 rectangle="$top_screen_panel"
@@ -52,3 +49,4 @@ bspc rule -a man state=floating border=5
 bspc rule -a quick-editor state=floating border=5
 bspc rule -a preview state=floating border=5
 bspc rule -a Sxiv:preview state=floating border=5 rectangle="$large_centered_panel"
+bspc rule -a mpv:webcam state=floating border=5 rectangle="$small_floating_panel"

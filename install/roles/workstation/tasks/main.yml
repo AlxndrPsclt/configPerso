@@ -40,6 +40,7 @@
       - mlocate
         #- qrencode
       - wget
+      - curl
       - yq
       - docker
       - docker-compose

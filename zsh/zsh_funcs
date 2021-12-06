@@ -26,19 +26,9 @@ function scd {
   cd $(fd --type d . ./ | fzf)
 }
 
-
-
-
-function undozip(){
-  unzip -l "$1" |  awk 'BEGIN { OFS="" ; ORS="" } ; { for ( i=4; i<NF; i++ ) print $i " "; print $NF "\n" }' | xargs -I{} rm -r {}
-}
-
-
-
 function mcd() {
   mkdir -p "$1" && cd "$1";
 }
-
 
 n (){
   ($* ; notify-send "Command over" "$*")

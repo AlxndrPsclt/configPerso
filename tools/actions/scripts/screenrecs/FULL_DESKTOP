@@ -2,9 +2,7 @@
 
 mkdir -p ~/videos/screenrecs
 
-
-#scrot ~/images/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'
-#notify-send 'Not yet implemented'
 notify-send 'Recording screen...'
-ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :0.0+0,0 ~/videos/screenrecs/vuebug.mp4
+output_filename="/home/alex/videos/screenrecs/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
+ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+0,0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
 notify-send 'Screen recording saved.'

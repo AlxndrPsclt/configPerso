@@ -16,11 +16,9 @@ alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
 alias .5='cd ../../../../..'
 
-alias 'p'='cd -'
 alias d='du -sh *'
 
 alias cdvim='cd ~/.vim'
-alias vim='vim -p'
 alias editvim='vim ~/.vim/vimrc'
 alias editssh='vim -p ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
 alias editzsh='vim -p ~/.config/perso/zsh/*'
@@ -63,6 +61,7 @@ alias gitpom='git push -u origin master'
 alias gittree='git log --graph --abbrev-commit --oneline'
 alias gitswitch='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
 alias gitignore='wget https://www.gitignore.io/api/vim -O .gitignore'
+
 #Task aliases
 alias taska='task add'
 alias taskm='task modify'
@@ -71,7 +70,6 @@ alias taskaf='task add project:flow'
 alias taskafl='task add project:flow priority:L'
 alias taskafm='task add project:flow priority:M'
 alias taskafh='task add project:flow priority:H'
-
 
 alias vitf='vit project:flow'
 
@@ -98,11 +96,6 @@ alias pminstall="sudo pacman -Suy"
 alias yta="youtube-dl -x -f bestaudio/best"
 alias ytv="youtube-dl -f 244+bestaudio"
 
-alias myip="ip -br addr show"
-
-alias glusterstatus="sudo gluster peer status"
-alias glusterprobe="sudo gluster peer probe"
-
 alias config='/usr/bin/git --git-dir=$HOME/.config/cfg-perso --work-tree=$HOME'
 
 alias today='date "+%Y-%m-%d"'
@@ -111,5 +104,3 @@ alias now='date "+%H:%M:%S"'
 #alias tmux='tmux attach || tmux'
 
 alias tmux='tmux attach || tmux'
-
-alias select_color='sxiv -N preview -to ~/.config/perso/colors/palette/*.gif | cut -d '-' -f2 | copy'
