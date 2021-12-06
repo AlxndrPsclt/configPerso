@@ -155,9 +155,8 @@ if [ -f ~/.config/perso/zsh/zsh_aliases ]; then
   source ~/.config/perso/zsh/zsh_aliases
 fi
 
-# Function definitions
-if [ -f ~/.bash_funcs ]; then
-  source  ~/.bash_funcs
+if [ -f ~/.config/perso/zsh/zsh_funcs ]; then
+  source ~/.config/perso/zsh/zsh_funcs
 fi
 
 # Function definitions

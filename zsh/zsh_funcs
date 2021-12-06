@@ -106,33 +106,6 @@ vimall() {
   ag . -l | xargs bash -c '</dev/tty vim -p "$@"' ignoreme
 }
 
-screenrec() {
-  output_filename="/home/alex/videos/screencapture/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
-  notify-send "Starting screen recording to file: $output_filename"
-  ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
-  notify-send "Screenrecording to $output_filename stopped"
-
-  while true; do
-    read -p  "Screen recording to $output_filename stopped, do you want to keep it? (y/n) " choice
-    case "$choice" in
-      y|Y ) echo "Saved screencast to $output_filename"; break;;
-      n|N ) rm $output_filename; echo "Nothing saved"; return 1;;
-      * ) echo "invalid";;
-    esac
-  done
-
-  read -e -i "$output_filename" -p "Do you want to rename it? " new_name
-  if [[ -z "$new_name" ]]; then
-    echo "Done"
-  else
-    if [[ "$new_name" != "$output_filename" ]]; then
-      mv $output_filename $new_name
-      echo "Renamed to $new_name"
-    fi
-    echo "Done"
-  fi
-}
-
 rlk () {
   if [ -z $@ ];
   then
@@ -143,7 +116,6 @@ rlk () {
   echo $link | copy
   echo "Copied: $link"
 }
-
 
 connect() {
   chosen_network = $(sudo iw dev wlp2s0 scan | grep SSID | awk '{print $2}' | fzf)
@@ -162,6 +134,7 @@ agvim() {
   fi
 }
 
+# I don't understand thiss script right now; need to figure out what is goin on and how to use it or remove it"
 replace() {
   grep -rl "$1" | xargs -n 1 sed -i "s/$1/$2/g"
 }
@@ -219,8 +192,8 @@ fzf_git_log() {
 
 alias gll='fzf_git_log'
 
-allrecent() {
-  fd --changed-within ${1:-72h} . /home /etc
+function allrecent() {
+  fd --changed-within ${1:-48h} . /home /etc
 }
 
 extract_yml() {
@@ -230,19 +203,14 @@ extract_yml() {
   fi
 }
 
-
 choose_from_cwds() {
-  for PROCID in $(pgrep '^bash$'); do
+  for PROCID in $(pgrep '^zsh$'); do
       readlink -e /proc/$PROCID/cwd
       done \
         | sort -u \
         | fzf
       }
 alias jd='cd $(choose_from_cwds)'
-
-x() {
-  compgen -c | fzf-word
-}
 
 searchinstall() {
   target=$(yay -Sl | fzf | cut -d " " -f2)

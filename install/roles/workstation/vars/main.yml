@@ -2,12 +2,6 @@
 # vars file for workstation
 links_to_create :
 #  - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
-  - { dest: '{{ HOME }}/.bashrc', src: '{{ CONFIG_PERSO }}/bash_config/bashrc' }
-  - { dest: '{{ HOME }}/.bash_aliases', src: '{{ CONFIG_PERSO }}/bash_config/bash_aliases' }
-  - { dest: '{{ HOME }}/.profile', src: '{{ CONFIG_PERSO }}/bash_config/profile' }
-  - { dest: '{{ HOME }}/.bash_funcs', src: '{{ CONFIG_PERSO }}/bash_config/bash_funcs' }
-  - { dest: '{{ HOME }}/.bash_completion', src: '{{ CONFIG_PERSO }}/bash_config/bash_completion' }
-  - { dest: '{{ HOME }}/.bash_logout', src: '{{ CONFIG_PERSO }}/bash_config/bash_logout' }
   - { dest: '{{ HOME }}/.config/vifm', src: '{{ CONFIG_PERSO }}/vifm' }
   - { dest: '{{ HOME }}/.tmux.conf', src: '{{ CONFIG_PERSO }}/tmux/tmux.conf' }
   - { dest: '{{ HOME }}/.config/htop', src: '{{ CONFIG_PERSO }}/htop' }

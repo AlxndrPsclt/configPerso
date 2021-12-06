@@ -9,7 +9,6 @@ export F_NOTES=$HOME/notes/
 export F_ATELIER=$HOME/atelier/
 export F_COLLECTION=$F_MUSIC/collection
 export F_CONFIG=$HOME/.config/perso/
-export F_CONFIG_BASH=$F_CONFIG/bash_config/
 export F_ACTIONS=$F_CONFIG/tools/actions/scripts/
 export F_CREATIONS=$F_DOCUMENTS/creations/
 export F_PROJECTS=$F_CREATIONS/projects/
