@@ -205,11 +205,13 @@ extract_yml() {
 
 choose_from_cwds() {
   for PROCID in $(pgrep '^zsh$'); do
-      readlink -e /proc/$PROCID/cwd
-      done \
-        | sort -u \
-        | fzf
-      }
+      readlink -f /proc/$PROCID/cwd
+  done \
+    | sort -u \
+    | fzf --query="$1" --no-multi --select-1 --exit-0 \
+      --preview "ls -hra {}"
+}
+
 alias jd='cd $(choose_from_cwds)'
 
 searchinstall() {
