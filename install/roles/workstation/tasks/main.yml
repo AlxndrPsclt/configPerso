@@ -41,6 +41,7 @@
         #- qrencode
       - wget
       - curl
+      - jq
       - yq
       - docker
       - docker-compose
