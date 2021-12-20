@@ -50,3 +50,8 @@ bspc rule -a quick-editor state=floating border=5
 bspc rule -a preview state=floating border=5
 bspc rule -a Sxiv:preview state=floating border=5 rectangle="$large_centered_panel"
 bspc rule -a mpv:webcam state=floating border=5 rectangle="$small_floating_panel"
+
+bspc rule -a large_panel state=floating border=5 rectangle="$large_centered_panel"
+bspc rule -a wiki state=floating border=5 rectangle="$large_centered_panel"
+bspc rule -a wikif state=fullscreen border=5 rectangle="$large_centered_panel"
+bspc rule -a focus state=fullscreen
