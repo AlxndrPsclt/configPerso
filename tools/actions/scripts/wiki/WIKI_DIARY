@@ -8,6 +8,4 @@ else
   class_to_use="wiki" ;
 fi
 
-st -c "$class_to_use"  -f "Iosevka:size=24" ~/.config/perso/focus/focusvim
-
-
+st -c "$class_to_use"  -f "Iosevka:size=24" ~/.config/perso/focus/focusvim &
