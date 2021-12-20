@@ -8,5 +8,5 @@ else
   class_to_use="wiki" ;
 fi
 
-/home/alex/apps/suckless/focus-st/st -c "$class_to_use" -f "Cousine for Powerline:style=Regular:size=18" -e ~/.config/perso/focus/focusvim "-S ~/.vim/sessions/focus.vim"
+st -c "$class_to_use"  -f "Iosevka:size=24" -e ~/.config/perso/focus/focusvim "-S ~/.vim/sessions/focus.vim"
 

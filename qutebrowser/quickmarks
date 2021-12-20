@@ -181,3 +181,5 @@ fedri messenger central communications https://github.com/getferdi/ferdi
 pinebook pro pbpro hwacc hardware acceleration video v4l2 request https://forum.pine64.org/printthread.php?tid=9171
 pinebookpro pbpro info arch power bluetooth https://github.com/SvenKiljan/archlinuxarm-pbp/blob/main/FAQ.md#why-do-videos-not-play-smoothly
 selfhosted vpn wireguard best https://www.wireguard.com/#license
+k3s tutorial ha cluster cluster-init https://www.grottedubarbu.fr/k3s-multi-master/
+k3s tutorial ascinema kubernetes cluster master alpine linux https://asciinema.org/a/406059
