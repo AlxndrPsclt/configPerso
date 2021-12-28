@@ -15,7 +15,7 @@ redshift &
 wpa_cli -a ~/.config/perso/wpa_supplicant/notify-connections.sh &
 
 
-#setxkbmap -option compose:ralt
+setxkbmap -option compose:ralt
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

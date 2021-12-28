@@ -20,6 +20,7 @@
       - lightdm
       - bspwm
       - sxhkd
+      - setxkbmap
       - rxvt-unicode
       - xclip
     state: present

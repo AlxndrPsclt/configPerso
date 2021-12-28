@@ -3,6 +3,6 @@
 will=$(echo -e "yes\nno" | dmenu -p "Turn the computer off ?")
 
 if [[ $will == 'yes' ]]; then
-	poweroff
+  sudo poweroff
 fi
 
