@@ -2,6 +2,3 @@
 
 CHOSEN_NETWORK=$(wpa_cli -i wlp2s0 list_network | fzf | cut -f 1)
 wpa_cli -i wlp2s0 select_network $CHOSEN_NETWORK
-
-
-

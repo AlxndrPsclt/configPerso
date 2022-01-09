@@ -185,3 +185,5 @@ k3s tutorial ha cluster cluster-init https://www.grottedubarbu.fr/k3s-multi-mast
 k3s tutorial ascinema kubernetes cluster master alpine linux https://asciinema.org/a/406059
 vim run PluginInstall from terminal https://github.com/junegunn/vim-plug/issues/675
 mooc habitat leger https://mooc.hameaux-legers.org/?PagePrincipale
+tutorial pinia vuejs store https://vueschool.io/articles/vuejs-tutorials/pinia-an-alternative-vue-js-store/
+pine64 store clusterboard https://pine64.com/product/clusterboard-with-7-sopine-compute-module-slots/
