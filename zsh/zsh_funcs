@@ -103,7 +103,7 @@ paste2file() {
 }
 
 vimall() {
-  ag . -l | xargs bash -c '</dev/tty vim -p "$@"' ignoreme
+  ag . -l | xargs bash -c '</dev/tty vim "$@"' ignoreme
 }
 
 rlk () {
