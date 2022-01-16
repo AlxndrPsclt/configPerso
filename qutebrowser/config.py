@@ -763,6 +763,7 @@ config.set('colors.webpage.darkmode.enabled', True)
 
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]" {hint-url}')
 config.bind(',r', 'spawn --userscript readability')
+config.bind(',p', 'spawn --userscript playlist/addTrackToPlaylist.sh')
 
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 
