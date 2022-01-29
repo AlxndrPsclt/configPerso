@@ -9,7 +9,7 @@
       - ncurses    #necessary for st that need tic
     state: present
 
-- name: Install packages for desktops
+- name: Install packages for lanching desktop
   become: yes
   apk:
     update_cache: yes
@@ -22,7 +22,24 @@
       - sxhkd
       - setxkbmap
       - rxvt-unicode
+    state: present
+
+- name: Install packages for system desktop utilities
+  become: yes
+  apk:
+    name:
+      - dbus
+      - dbus-openrc
+      - dbus-x11
       - xclip
+      - wmctrl
+      - tlp
+      - redshift
+      - font-iosevka-nerd
+      - picom
+      - libnotify
+      - dunst
+#      - task
     state: present
 
 - name: Install packages for audio
@@ -53,55 +70,57 @@
     regexp: '^#AutoEnable=false'
     line: 'AutoEnable=true'
 
-- name: Install packages for desktops2B
+- name: Install qutebrowser
   become: yes
   apk:
     name:
 #      - noto-fonts
       - qutebrowser
-#      - awesome-terminal-fonts
     state: present
 
-- name: Install packages for desktops2C
+- name: Install chromium
   become: yes
   apk:
     name:
-      - libnotify
       - chromium
     state: present
 
-- name: Install packages for desktops 3
+- name: Install packages for desktop tools
+  become: yes
+  apk:
+    name:
+      - pass
+      - pass-contrib
+      - libqrencode
+      - light
+      - sxiv
+      - xsel
+      - scrot
+    state: present
+
+- name: Install packages for desktops documents suite
   become: yes
   apk:
     name:
       - zathura
       - zathura-pdf-poppler
-#      - rofi
-      - picom
-#      - conky
-      - dunst
-      - libqrencode
-      - dbus
-      - dbus-openrc
-      - dbus-x11
-      - redshift
+      - lowdown
+    state: present
+
+- name: Install packages for desktop pictures/video utilities
+  become: yes
+  apk:
+    name:
+      - feh
+      - imagemagick
       - mpv
       - youtube-dl
       - ffmpeg
-      - pass
-      - pass-contrib
-      - wmctrl
-      - xsel
-      - scrot
-#      - rtorrent
-      - tlp
-      - feh
-      - sxiv
-      - light
-      - font-iosevka-nerd
-#      - task
-      - imagemagick
     state: present
+
+
+
+
 
 #    #TODO: Add xdg-handling
 #    #xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http

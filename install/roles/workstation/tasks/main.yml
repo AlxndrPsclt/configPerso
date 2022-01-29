@@ -52,6 +52,8 @@
       - docker-compose
       - docker-compose-zsh-completion
       - shadow    #Adds usermod command
+      - github-cli
+      - github-cli-zsh-completion
         #- wpa_supplicant
         #- youtube-dl
     state: present
