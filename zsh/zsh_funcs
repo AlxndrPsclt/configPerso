@@ -57,11 +57,11 @@ qrpass() {
 }
 
 smount() {
-  sudo mount `ls /dev/sd* /dev/mmc* | fzf` /mnt/`ls /mnt/ | fzf`
+  sudo mount $(fd . /dev | grep "sd\|mmcblk" | fzf --preview=lsblk) $(fd . /mnt | grep "sdcard\|usb\|hdd")
 }
 
 sumount() {
-  sudo umount /mnt/`ls /mnt/ | fzf`
+  sudo umount $(fd . /mnt | grep "sdcard\|usb\|hdd" | fzf --preview=lsblk)
 }
 
 paste2file() {

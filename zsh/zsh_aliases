@@ -18,18 +18,21 @@ alias .5='cd ../../../../..'
 
 alias d='du -sh *'
 
+alias up='sudo apk update; sudo apk upgrade -Ua'
+alias logs='sudo less +F /var/log/messages'
+
 alias cdvim='cd ~/.vim'
 alias editvim='vim ~/.vim/vimrc'
-alias editssh='vim -p ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
-alias editzsh='vim -p ~/.config/perso/zsh/*'
-alias editbsp='vim -p ~/.config/perso/bspwm/bspwmrc ~/.config/perso/sxhkd/sxhkdrc ~/.config/perso/dunst/dunstrc'
-alias editsuckless='vim -p ~/apps/suckless/contxtl-st/config.def.h ~/apps/suckless/contxtl-dmenu/config.def.h '
+alias editssh='vim ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
+alias editzsh='vim ~/.config/perso/zsh/*'
+alias editbsp='vim ~/.config/perso/bspwm/bspwmrc ~/.config/perso/sxhkd/sxhkdrc ~/.config/perso/dunst/dunstrc'
+alias editsuckless='vim ~/apps/suckless/contxtl-st/config.def.h ~/apps/suckless/contxtl-dmenu/config.def.h '
 
-alias editinstall='vim -p ~/.config/perso/install/roles/*/tasks/main.yml ~/.config/perso/install/roles/*/vars/main.yml'
-alias editactions='vim -p ~/.config/perso/tools/actions/actions.sh ~/.config/perso/tools/actions'
+alias editinstall='vim ~/.config/perso/install/roles/*/tasks/main.yml ~/.config/perso/install/roles/*/vars/main.yml'
+alias editactions='vim ~/.config/perso/tools/actions/actions.sh ~/.config/perso/tools/actions'
 
-alias editdata='vim -p ~/.config/perso/tools/actions/data/*'
-alias editmusic='vim -p ~/notes/trax.yml'
+alias editdata='vim ~/.config/perso/tools/actions/data/*'
+alias editmusic='vim ~/notes/trax.yml'
 
 #TODO: Create a global config file for all these parameters
 alias versions='~/.config/perso/tools/versions.sh'
