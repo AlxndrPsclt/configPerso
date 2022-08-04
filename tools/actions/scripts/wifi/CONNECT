@@ -1,14 +1,11 @@
 #!/usr/bin/env sh
 
-CHOSEN_NETWORK=$(wpa_cli -i wlp3s0 list_network | sed 1d | awk '{print $1" "$2}' | dmenu -i)
+CHOSEN_NETWORK=$(nmcli -f NAME c -t | dmenu -i)
 
 if [[ ! $CHOSEN_NETWORK ]]; then
 	notify-send "No network chosen"
 	exit 1
 fi
 
-CHOSEN_NETWORK_ID=$(echo $CHOSEN_NETWORK | cut -d ' ' -f 1)
-CHOSEN_NETWORK_NAME=$(echo $CHOSEN_NETWORK | cut -d ' ' -f 2)
-
 notify-send "Connecting to $CHOSEN_NETWORK"
-wpa_cli -i wlp2s0 select_network $CHOSEN_NETWORK_ID
+nmcli c up "$CHOSEN_NETWORK" # TODO: Will not work now because you need to be root to activate a connexion; change this
