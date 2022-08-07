@@ -43,6 +43,10 @@ super + o ; {e,w,m}
 super + shift + q
   bspc node --close
 
+# kill
+super + x
+  xkill
+
 XF86Audio{Raise,Lower}Volume
   /home/alex/.config/perso/tools/actions/scripts/sound/{UP,DOWN}
 

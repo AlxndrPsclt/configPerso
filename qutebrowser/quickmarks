@@ -192,3 +192,15 @@ load tutorial web nfc https://web.dev/nfc/
 vuejs tutorial pinia https://programming.vip/docs/elegant-setup-functional-writing-encapsulation-into-your-enterprise-project.html
 qutebrowser basedir tutorial https://www.reddit.com/r/qutebrowser/comments/iv08f6/basedir_usage/
 LOAD animated qr codes https://github.com/AlexandrGraschenkov/QRCodes
+LOAD tutorial flask restfull api library https://ch-rowley.github.io/2021/10/24/How-to-marshal-data-with-Flask.html
+load local storage indexeddb tutorial library https://www.npmjs.com/package/@sifrr/storage#search
+load economics tech why dbanks are not acid http://highscalability.com/blog/2013/5/1/myth-eric-brewer-on-why-banks-are-base-not-acid-availability.html
+load gun chat https://gitter.im/amark/gun
+load mongodb mongo express admin interface http://localhost:8081/db/flow_0_1/account
+load excalidraw wireframes app https://excalidraw.com/?fbclid=IwAR3SY-rKp4Ks06aSXuwqDA7X-c5pNu6ESZDePxo98vxLFO06Q4Ilw2ipHPQ#room=e0156cb88ac1641af636,aD3lcV3BU1GexBosi7gTsw
+load gun js tutorial example great common patterns subscribe https://medium.com/@ajmeyghani/gundb-a-graph-database-in-javascript-3860a08d873c
+load gunjs keys trust encrypt https://github.com/Lightnet/gunjstrustsharekey
+load gun avatar generate from key https://gun-avatar.js.org/
+gun audio recorder https://gist.github.com/connor-davis/21bca918ac09488e5599f1446d4caefc
+gun gunstore store rest database get push put delete https://github.com/lmangani/gunstore.io
+load security reflexions on attacks and time https://gun.eco/docs/AXE#chats
