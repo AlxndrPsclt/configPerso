@@ -47,7 +47,7 @@ alias fgrep='fgrep --color=auto'
 #Pipe to clipboad via command | copy
 alias copy='xclip -sel clip'
 
-alias path='pwd | copy'
+alias cwd='pwd | copy; echo "copied current path"'
 
 #Random password generator
 alias genpass='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-22};echo;'
