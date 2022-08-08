@@ -11,6 +11,7 @@ tools/actions/scripts/sound/MUTE
 tools/actions/scripts/sound/UNMUTE_MIC
 tools/actions/scripts/sound/MUTE_MIC
 mpv/mpvHistory.log
+mpv/watch_later/*
 vifm/vifminfo.json_*
 
 

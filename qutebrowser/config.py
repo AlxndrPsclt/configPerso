@@ -411,10 +411,10 @@ c.colors.downloads.bar.bg = '#2e3440'
 
 # Color gradient stop for download backgrounds.
 # Type: QtColor
-c.colors.downloads.stop.bg = '#88c0d0'
 c.colors.downloads.start.bg = '#4c566a'
+c.colors.downloads.stop.bg = '#88c0d0'
 c.colors.downloads.start.fg = '#88c0d0'
-c.colors.downloads.stop.fg = '#4c566a'
+c.colors.downloads.stop.fg = '#2e3440'
 
 # Color gradient interpolation system for download backgrounds.
 # Type: ColorSystem
