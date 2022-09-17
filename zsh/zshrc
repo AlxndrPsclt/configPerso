@@ -86,9 +86,9 @@ SPACESHIP_PROMPT_ORDER=(
   host
   dir
   git
-  char
-  )
+  char)
 
+SPACESHIP_PROMPT_ASYNC=false    #Problems with async adding useless lines when opening a terminal
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_CHAR_SYMBOL=" ⚡"

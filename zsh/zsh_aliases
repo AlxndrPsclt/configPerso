@@ -109,3 +109,4 @@ alias now='date "+%H:%M:%S"'
 alias tmux='tmux attach || tmux'
 
 alias note='vim $(date +%F+%T).md'
+

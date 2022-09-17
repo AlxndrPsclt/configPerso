@@ -28,7 +28,7 @@
     value: "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 
-- name: Install packages for workstation
+- name: Install packages for workstation 1
   become: yes
   apk:
     update_cache: yes
@@ -44,10 +44,24 @@
       - rsync
       - mlocate
         #- qrencode
+    state: present
+
+- name: Install packages for workstation 2
+  become: yes
+  apk:
+    update_cache: yes
+    name:
       - wget
       - curl
       - jq
       - yq
+    state: present
+
+- name: Install packages for workstation 3
+  become: yes
+  apk:
+    update_cache: yes
+    name:
       - docker
       - docker-compose
       - docker-compose-zsh-completion
@@ -101,11 +115,11 @@
 #      - terminal_velocity
 
 
-- name: Clone personal config and other usefull configs
-  git:
-    repo: 'git@github.com:AlxndrPsclt/configPerso.git'
-    dest: "{{ HOME }}/.config/perso"
-    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+        #- name: Clone personal config and other usefull configs
+        #  git:
+        #    repo: 'git@github.com:AlxndrPsclt/configPerso.git'
+        #    dest: "{{ HOME }}/.config/perso"
+        #    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
   #source $CONFIG_PERSO/tools/generateBashSpecifics.sh
 

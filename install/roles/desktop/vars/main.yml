@@ -2,14 +2,12 @@
 # vars file for desktop
 links_to_create :
   - { dest: '{{ HOME }}/.Xresources', src: '{{ CONFIG_PERSO }}/x/Xresources' }
-  - { dest: '{{ HOME }}/.config/compton', src: '{{ CONFIG_PERSO }}/compton/compton.conf' }
   - { dest: '{{ HOME }}/.config/dunst', src: '{{ CONFIG_PERSO }}/dunst' }
   - { dest: '{{ HOME }}/.config/mpv', src: '{{ CONFIG_PERSO }}/mpv' }
   - { dest: '{{ HOME }}/.config/qutebrowser', src: '{{ CONFIG_PERSO }}/qutebrowser/' }
   - { dest: '{{ HOME }}/.config/zathura', src: '{{ CONFIG_PERSO }}/zathura' }
   - { dest: '{{ HOME }}/.local/share/applications/defaults.list', src: '{{ CONFIG_PERSO }}/xdg-config/defaults.list' }
   - { dest: '{{ HOME }}/.reload_xresource.sh', src: '{{ CONFIG_PERSO }}/x/reload_xresource.sh' }
-  - { dest: '{{ HOME }}/.urxvt', src: '{{ CONFIG_PERSO }}/urxvt' }
   - { dest: '{{ HOME }}/.config/bspwm', src: '{{ CONFIG_PERSO }}/bspwm' }
   - { dest: '{{ HOME }}/.config/sxhkd', src: '{{ CONFIG_PERSO }}/sxhkd' }
   - { dest: '{{ HOME }}/.xinitrc', src: '{{ CONFIG_PERSO }}/x/xinitrc' }

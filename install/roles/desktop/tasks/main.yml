@@ -32,7 +32,7 @@
       - dbus-openrc
       - dbus-x11
       - xclip
-      - wmctrl
+        #- wmctrl
       - tlp
       - redshift
       - font-iosevka-nerd
@@ -296,7 +296,7 @@
   apk:
     name:
       - zsh
-      - oh-my-zsh
+        #      - oh-my-zsh     # Removed because it is only in edge testing???
       - zsh-vcs
     state: latest
     update_cache: yes
