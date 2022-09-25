@@ -215,7 +215,7 @@ choose_from_cwds() {
   done \
     | sort -u \
     | fzf --query="$1" --no-multi --select-1 --exit-0 \
-      --preview "ls -hra {}"
+      --preview 'tree -C {} | head -100'
 }
 
 alias jd='cd $(choose_from_cwds)'
