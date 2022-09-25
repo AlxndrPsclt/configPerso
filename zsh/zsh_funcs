@@ -12,13 +12,7 @@ function unmark {
 function marks {
   ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
-function sj {
-  local selected_mark=$(ls ~/.marks | fzf)
-  echo $selected_mark
-  if [[ -n $selected_mark ]]; then
-    jump $selected_mark
-  fi
-}
+
 function svim {
   $EDITOR $(fd --type f . ./ | fzf)
 }
@@ -192,6 +186,18 @@ fzf_git_log() {
 
 alias gll='fzf_git_log'
 
+fzf_jump() {
+  local marks=$(
+    fd --type l . ~/.marks | \
+    fzf --query="$1" --no-multi --select-1 --exit-0 \
+    --preview 'tree -C {} | head -100'
+  )
+  if [[ -n $marks ]]; then
+    cd "$marks"
+  fi
+}
+alias sj='fzf_jump'
+
 function allrecent() {
   fd --changed-within ${1:-48h} . /home /etc
 }
@@ -214,13 +220,6 @@ choose_from_cwds() {
 
 alias jd='cd $(choose_from_cwds)'
 
-searchinstall() {
-  target=$(yay -Sl | fzf | cut -d " " -f2)
-  if [[ -n $target ]]; then
-    yay -Suy $target
-  fi
-}
-
 genrand() {
   rand_string=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8})
   echo "@$rand_string"
@@ -231,4 +230,9 @@ find_network_rpis() {
 }
 sapk() {
   doas apk add $(apk search | sed 's/\(.*\)-/\1 /'| sed 's/\(.*\)-/\1 /' | fzf | cut -d' ' -f1)
+}
+
+superdiff() {
+  file_to_diff=$(git diff $@ --name-only | fzf -m --ansi --preview 'git diff $@ --color=always -- {-1} | bat --color=always --line-range :500')
+  git diff --color=always $file_to_diff | bat
 }
