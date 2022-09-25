@@ -169,7 +169,7 @@ fzf_find_edit() {
   fi
 }
 
-alias ffe='fzf_find_edit'
+alias f='fzf_find_edit'
 
 fzf_git_log() {
   local selections=$(
@@ -193,7 +193,7 @@ fzf_jump() {
     --preview 'tree -C {} | head -100'
   )
   if [[ -n $marks ]]; then
-    cd "$marks"
+    cd -P "$marks"
   fi
 }
 alias sj='fzf_jump'
