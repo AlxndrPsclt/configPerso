@@ -214,7 +214,7 @@ choose_from_cwds() {
       readlink -f /proc/$PROCID/cwd
   done \
     | sort -u \
-    | fzf --query="$1" --no-multi --select-1 --exit-0 \
+    | fzf --query="$1" --no-multi --height=95% --select-1 --exit-0 \
       --preview 'tree -C {} | head -100'
 }
 
