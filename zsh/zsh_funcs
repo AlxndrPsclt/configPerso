@@ -238,7 +238,6 @@ superdiff() {
   then
     echo "No diff sected to inpect."
   else
-    echo "Diff selected!!"
     git diff --color=always "$file_to_diff" | bat --theme Nord
   fi
 }
