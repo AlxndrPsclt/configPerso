@@ -5,6 +5,7 @@ links_to_create :
   - { dest: '{{ HOME }}/.config/vifm', src: '{{ CONFIG_PERSO }}/vifm' }
   - { dest: '{{ HOME }}/.tmux.conf', src: '{{ CONFIG_PERSO }}/tmux/tmux.conf' }
   - { dest: '{{ HOME }}/.config/htop', src: '{{ CONFIG_PERSO }}/htop' }
+  - { dest: '{{ HOME }}/.config/lf', src: '{{ CONFIG_PERSO }}/lf' }
   - { dest: '{{ HOME }}/.zshrc', src: '{{ CONFIG_PERSO }}/zsh/zshrc' }
 #  - { dest: '{{ HOME }}/.config/mpd', src: '{{ CONFIG_PERSO }}/mpd' }
 
