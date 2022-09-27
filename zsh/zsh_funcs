@@ -194,6 +194,7 @@ fzf_jump() {
   )
   if [[ -n $marks ]]; then
     cd -P "$marks"
+    ls
   fi
 }
 alias sj='fzf_jump'
@@ -209,7 +210,7 @@ extract_yml() {
   fi
 }
 
-choose_from_cwds() {
+choose_from_current_working_directories() {
   for PROCID in $(pgrep '^zsh$'); do
       readlink -f /proc/$PROCID/cwd
   done \
@@ -218,7 +219,28 @@ choose_from_cwds() {
       --preview 'tree -C {} | head -100'
 }
 
-alias jd='cd $(choose_from_cwds)'
+choose_from_recently_accessed_directories() {
+    find ~/documents ~/apps ~/atelier ~/downloads ~/images ~/notes ~/videos ~/.config/perso /etc/ -type d -atime -1 2>&1 | grep -v "Permission denied" | grep -v ".git" \
+    | fzf --query="$1" --no-multi --height=95% --select-1 --exit-0 \
+      --preview 'tree -C {} | head -100'
+}
+
+alias jd='cd $(choose_from_recently_accessed_directories)'
+
+cpto() {
+  if [ -z $1 ];
+  then
+    echo "No files to copy"
+  else
+    destination=$(choose_from_recently_accessed_directories);
+    if [ -z $destination ];
+    then
+      echo "No chosen destination; no copy"
+    else
+      cp -r "$@" "$destination"
+    fi
+  fi
+}
 
 genrand() {
   rand_string=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8})
