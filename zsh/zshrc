@@ -182,3 +182,8 @@ export PATH="$PATH:/home/alex/.local/bin:~/.config/perso/tools"
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# pnpm
+export PNPM_HOME="/home/alex/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

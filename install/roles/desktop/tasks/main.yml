@@ -20,6 +20,7 @@
       - lightdm
       - bspwm
       - sxhkd
+      - xdpyinfo
       - setxkbmap
       - rxvt-unicode
     state: present
@@ -46,9 +47,12 @@
   become: yes
   apk:
     name:
-      - pulseaudio
-      - pulseaudio-alsa
-      - bluez
+      - pipewire
+      - wireplumber
+        #- bluez
+      - pipewire-pulse
+      - pipewire-spa-bluez
+      - pipewire-tools
         #      - bluez-utils
         #      - pulseaudio-bluetooth
         #      - pamixer
