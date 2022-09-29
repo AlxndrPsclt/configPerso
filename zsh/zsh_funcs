@@ -250,8 +250,10 @@ genrand() {
 find_network_rpis() {
   sudo nmap -sP 192.168.1.0/24 | grep -i "b8:27:eb\|dc:a6:32" -B2
 }
+
 sapk() {
-  doas apk add $(apk search | sed 's/\(.*\)-/\1 /'| sed 's/\(.*\)-/\1 /' | fzf | cut -d' ' -f1)
+  selected_package=$(apk search | sed 's/\(.*\)-/\1 /'| sed 's/\(.*\)-/\1 /' | fzf -m --ansi --height=95% --preview 'apk info {1}' | cut -d' ' -f1)
+  [[ -z "$selected_package" ]] && echo 'No package selected' || echo doas apk add "$selected_package"
 }
 
 superdiff() {
