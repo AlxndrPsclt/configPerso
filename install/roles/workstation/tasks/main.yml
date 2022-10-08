@@ -15,19 +15,6 @@
     scope: global
     value: 'alxndr.psclt@gmail.com'
 
-- name: Configs git editor
-  git_config:
-    name: core.editor
-    scope: global
-    value: vim
-
-- name: Add a setting to ~/.gitconfig for beautifull git log
-  community.general.git_config:
-    name: alias.ll
-    scope: global
-    value: "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-
 - name: Install packages for workstation 1
   become: yes
   apk:

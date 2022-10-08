@@ -7,6 +7,7 @@ links_to_create :
   - { dest: '{{ HOME }}/.config/htop', src: '{{ CONFIG_PERSO }}/htop' }
   - { dest: '{{ HOME }}/.config/lf', src: '{{ CONFIG_PERSO }}/lf' }
   - { dest: '{{ HOME }}/.zshrc', src: '{{ CONFIG_PERSO }}/zsh/zshrc' }
+  - { dest: '{{ HOME }}/.config/git', src: '{{ CONFIG_PERSO }}/git' }
 #  - { dest: '{{ HOME }}/.config/mpd', src: '{{ CONFIG_PERSO }}/mpd' }
 
 links_to_create_sudo :

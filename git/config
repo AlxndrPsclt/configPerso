@@ -1,0 +1,15 @@
+[user]
+	name = alxndrpsclt
+	email = alxndr.psclt@gmail.com
+[core]
+	editor = vim
+[alias]
+	ll = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
