@@ -87,7 +87,7 @@ alias docker-ip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.
 alias whatismyip='curl https://ipinfo.io/ip'
 
 #Copy last executed docmmand to clipboard (needs X)
-alias copylast='history | tac | fzf +s | cut -d " " -f 4- | copy'
+alias copylast='history | fzf +s --tac | cut -d " " -f 4- | copy'
 alias cl=copylast
 
 alias listignored='find . -type f  | git check-ignore --stdin'

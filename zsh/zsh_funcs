@@ -138,12 +138,20 @@ sanitize() {
 }
 
 # capture the output of a command so it can be retrieved with ret
-cap () {
+cap() {
   tee /tmp/capture.out
 }
 
 ret() {
   cat /tmp/capture.out
+}
+
+m() {
+  if [ -z "$1" ]; then
+    echo "No manual page to view was given; pass it as argument"
+  else
+    links -dump https://manpages.org/$1 | bat
+  fi
 }
 
 fzf_change_directory() {
