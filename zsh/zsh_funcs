@@ -180,7 +180,7 @@ fzf_git_log() {
   )
   if [[ -n $selections ]]; then
     local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
-    git show $commits
+    git show "$commits"
   fi
 }
 
@@ -232,7 +232,7 @@ cpto() {
   then
     echo "No files to copy"
   else
-    destination=$(choose_from_recently_accessed_directories);
+    destination=$(choose_from_current_working_directories);
     if [ -z $destination ];
     then
       echo "No chosen destination; no copy"
@@ -253,7 +253,7 @@ find_network_rpis() {
 
 sapk() {
   selected_package=$(apk search | sed 's/\(.*\)-/\1 /'| sed 's/\(.*\)-/\1 /' | fzf -m --ansi --height=95% --preview 'apk info {1}' | cut -d' ' -f1)
-  [[ -z "$selected_package" ]] && echo 'No package selected' || echo doas apk add "$selected_package"
+  [[ -z "$selected_package" ]] && echo 'No package selected' || doas apk add "$selected_package"
 }
 
 superdiff() {

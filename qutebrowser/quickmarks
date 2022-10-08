@@ -209,3 +209,5 @@ alpine tutorial rc rc-service rc-update list of base packages https://www.cyberc
 vim tutorial leader mapping vimrc https://tuckerchapman.com/2018/06/16/how-to-use-the-vim-leader-key/
 tutorial vim advanced https://thevaluable.dev/vim-expert/
 gun https://github.com/amark/gun
+tutorial raspberry pi rpi headless setup https://circuitdigest.com/microcontroller-projects/getting-started-with-raspberry-pi-zero-w-headless-setup-without-monitor
+lib p5.js p5 collision https://github.com/bmoren/p5.collide2D
