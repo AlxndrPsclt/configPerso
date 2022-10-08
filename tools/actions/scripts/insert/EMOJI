@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cat ~/.config/perso/tools/actions/data/emoji-data.txt | sed -e "s/^.*(//" | sed "s/)/ -/" | dmenu -i | sed -e "s/ -.*$//" | xclip -selection clipboard -i
+notify-send "Copied `xclip -selection clipboard -o`"
