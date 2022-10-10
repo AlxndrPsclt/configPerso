@@ -164,17 +164,13 @@ if [ -f /usr/share/fzf/key-bindings.zsh ]; then
   source /usr/share/fzf/key-bindings.zsh
 fi
 
-
-
-
 export EDITOR='vim'
 
 #. /usr/bin/virtualenvwrapper.sh
 
-
 export FZF_DEFAULT_OPTS='
   --height 75% --multi --reverse
-    --bind ctrl-f:page-down,ctrl-b:page-up
+    --bind ctrl-f:page-down,ctrl-b:page-up,ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all
     '
 export FZF_ALT_C_COMMAND='fd --type d .'
 

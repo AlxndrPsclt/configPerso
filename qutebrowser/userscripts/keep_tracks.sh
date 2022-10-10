@@ -7,7 +7,7 @@
 
 #already_exists=$(yq r ~/notes/trax.yml "(url==${QUTE_URL})")
 #already_exists=$(yq e ".[] | select(.url == \"$QUTE_URL\")" ~/notes/trax.yml)
-already_registered_tags=$(yq e ".[] | select(.url == \"$QUTE_URL\")" ~/notes/trax.yml | yq e '.tags' -)
+already_registered_tags=$(yq e '.[] | select(.url == \"$QUTE_URL\")' ~/notes/trax.yml | yq e '.tags' -)
 notify-send "$already_registered_tags"
 
 if [ -z "$already_registered_tags" ]; then
