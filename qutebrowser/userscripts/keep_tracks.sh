@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 
 #Example of how to log errors from script
@@ -7,28 +7,32 @@
 
 #already_exists=$(yq r ~/notes/trax.yml "(url==${QUTE_URL})")
 #already_exists=$(yq e ".[] | select(.url == \"$QUTE_URL\")" ~/notes/trax.yml)
-already_registered_tags=$(yq e '.[] | select(.url == \"$QUTE_URL\")' ~/notes/trax.yml | yq e '.tags' -)
-notify-send "$already_registered_tags"
+#already_registered_tags=$(yq e '.[] | select(.url == \"$QUTE_URL\")' ~/notes/trax.yml | yq e '.tags' -)
+#notify-send "$already_registered_tags"
 
-if [ -z "$already_registered_tags" ]; then
-  notify-send "Saving track: $QUTE_TITLE
-  The current URL: $QUTE_URL"
+notify-send "Saving track: $QUTE_TITLE
+The current URL: $QUTE_URL"
 
-  tags=$(sh /home/alex/.config/perso/qutebrowser/userscripts/select_tags.sh)
+tags=$(sh /home/alex/.config/perso/qutebrowser/userscripts/select_tags.sh)
 
-  notify-send "$tags"
+echo "Tags computed"
+echo "$tags"
+notify-send "$tags"
 
-  sed "s/TITLE/${QUTE_TITLE//&/\\&}/" /home/alex/.config/perso/tools/actions/templates/track.yml.template | sed "s/DATE/$(date +'%y-%m-%d %H:%M')/" | sed "s|URL|${QUTE_URL//&/\\&}|" |  sed "s/TAGS/$tags/" >> ~/notes/trax.yml
+echo $QUTE_TITLE
+echo $QUTE_URL
+echo $QUTEBROWSER_SCRIPTS_PATH
 
-else
-  notify-send "Already exists"
-  tags=$(echo "$already_registered_tags" | sed 's/^\[//' | sed 's/\]$//' | sed 's/ //g')
+sed "s/TITLE/${QUTE_TITLE//&/\\&}/" /home/alex/.config/perso/tools/actions/templates/track.yml.template | sed "s/DATE/$(date +'%y-%m-%d %H:%M')/" | sed "s|URL|${QUTE_URL//&/\\&}|" |  sed "s/TAGS/$tags/" >> ~/notes/trax.yml
 
-  tags=$(/home/alex/.config/perso/qutebrowser/userscripts/select_tags.sh /home/alex/.config/perso/tools/actions/data/music_tags "$tags" "$tags")
+#else
+#  notify-send "Already exists"
+#  tags=$(echo "$already_registered_tags" | sed 's/^\[//' | sed 's/\]$//' | sed 's/ //g')
+#
+#  tags=$(/home/alex/.config/perso/qutebrowser/userscripts/select_tags.sh /home/alex/.config/perso/tools/actions/data/music_tags "$tags" "$tags")
 
   #yq w ~/notes/trax.yml "(url==$QUTE_URL) tags" "[$tags]"
 
-fi
 
 #QUTEBROWSER_SCRIPTS_PATH="$HOME/.config/perso/qutebrowser/userscripts"
 #analysis=`virtualpy qutebrowserscript "$QUTEBROWSER_SCRIPTS_PATH/keep_tracks.py"`

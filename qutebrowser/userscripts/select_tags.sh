@@ -4,7 +4,6 @@ tags_file=${1:-'/home/alex/.config/perso/tools/actions/data/music_tags'}
 tags_prompt=${2:-'Add tags :'}
 all_tags=${3:-''}
 
-
 select_tags_file() {
   local dmenu_prompt=$1
   local selected_tags=$(cat "$tags_file" | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
@@ -30,7 +29,7 @@ join_tags() {
 }
 
 add_tags() {
-  if [[ -n $1 ]]; then
+  if [[ -n "$1" ]]; then
     local tags_prompt=$1
   else
     local tags_prompt=$all_tags
@@ -83,17 +82,17 @@ remove_tags() {
 
 add_tags "$tags_prompt"
 
-while [[ $will!='Done' ]]; do
+while [[ "$will"!='Done' ]]; do
 
-  will=$(echo -e "Done\nRemove some tags\nAdd more tags" | dmenu -p "$all_tags")
+  will=$(echo -e 'Done\nRemove some tags\nAdd more tags' | dmenu -p "$all_tags")
   will=${will:-"Done"}
 
-  if [[ $will == 'Done' ]]; then
+  if [[ "$will" = 'Done' ]]; then
     echo "$all_tags"
     exit 0
-  elif [[ $will == 'Remove some tags' ]]; then
+  elif [[ "$will" = 'Remove some tags' ]]; then
     remove_tags
-  elif [[ $will == 'Add more tags' ]]; then
+  elif [[ "$will" = 'Add more tags' ]]; then
     add_tags
   fi
 done
