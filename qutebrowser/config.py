@@ -748,6 +748,7 @@ c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctr
 # Bindings for normal mode
 config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
 config.bind(',k', 'spawn --userscript keep_tracks.sh')
+config.bind(' l', 'hint links userscript add_track_to_playlist.sh')
 config.bind('<Alt+Shift+Left>', 'tab-move -')
 config.bind('<Alt+Shift+Right>', 'tab-move +')
 # Change speed of youtube playlist
