@@ -19,10 +19,6 @@ echo "Tags computed"
 echo "$tags"
 notify-send "$tags"
 
-echo $QUTE_TITLE
-echo $QUTE_URL
-echo $QUTEBROWSER_SCRIPTS_PATH
-
 sed "s/TITLE/${QUTE_TITLE//&/\\&}/" /home/alex/.config/perso/tools/actions/templates/track.yml.template | sed "s/DATE/$(date +'%y-%m-%d %H:%M')/" | sed "s|URL|${QUTE_URL//&/\\&}|" |  sed "s/TAGS/$tags/" >> ~/notes/trax.yml
 
 #else
