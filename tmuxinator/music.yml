@@ -46,6 +46,6 @@ attach: false
 
 windows:
   - mpv:
-    - mpv $(fzf)
+    - mpv "$(fzf)"
   - bluetooth:
     - bluetoothctl

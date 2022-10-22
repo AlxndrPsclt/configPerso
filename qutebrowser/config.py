@@ -746,9 +746,6 @@ c.fonts.web.family.standard = 'Iosevka'
 c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctrl+m>': '<Return>', '<Ctrl+j>': '<Return>', '<Ctrl+i>': '<Tab>', '<Shift+Return>': '<Return>', '<Enter>': '<Return>', '<Shift+Enter>': '<Return>', '<Ctrl+Enter>': '<Ctrl+Return>', '<Alt+Right>': 'J', '<Alt+Left>': 'K'}
 
 # Bindings for normal mode
-config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
-config.bind(',k', 'spawn --userscript keep_tracks.sh')
-config.bind(' l', 'hint links userscript add_track_to_playlist.sh')
 config.bind('<Alt+Shift+Left>', 'tab-move -')
 config.bind('<Alt+Shift+Right>', 'tab-move +')
 # Change speed of youtube playlist
@@ -763,8 +760,11 @@ config.bind('}', 'scroll-page 0 0.5')
 config.set('colors.webpage.darkmode.enabled', True)
 
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]" {hint-url}')
-config.bind(',r', 'spawn --userscript readability')
-config.bind(',p', 'spawn --userscript playlist/addTrackToPlaylist.sh')
+config.bind(' r', 'spawn --userscript readability')
+config.bind(' p', 'spawn --userscript playlist/addTrackToPlaylist.sh')
+config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
+config.bind(',k', 'spawn --userscript keep_tracks.sh')
+config.bind(' l', 'hint links userscript add_track_to_playlist.sh')
 
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 

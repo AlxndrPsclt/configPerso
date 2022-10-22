@@ -213,3 +213,7 @@ tutorial raspberry pi rpi headless setup https://circuitdigest.com/microcontroll
 lib p5.js p5 collision https://github.com/bmoren/p5.collide2D
 library web vuejs vue3 3 slider circular https://github.com/freddie-nelson/vue3-slider
 tutorial webgl https://webglfundamentals.org/
+tutorial yq cheatsheet https://betterprogramming.pub/my-yq-cheatsheet-34f2b672ee58
+tutorial shell sh https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18
+tutorial posix specification https://pubs.opengroup.org/onlinepubs/9699919799/toc.htm
+tutorial sh ash shell debian https://linux.die.net/man/1/dash
