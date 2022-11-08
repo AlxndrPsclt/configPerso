@@ -45,7 +45,6 @@ root: /home/alex/music/play
 attach: false
 
 windows:
-  - mpv:
-    - mpv "$(fzf)"
-  - bluetooth:
-    - bluetoothctl
+  - playing:
+  - selected:
+    - cd trax/selected

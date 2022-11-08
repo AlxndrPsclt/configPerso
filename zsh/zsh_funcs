@@ -146,7 +146,7 @@ ret() {
   cat /tmp/capture.out
 }
 
-m() {
+manpages() {
   if [ -z "$1" ]; then
     echo "No manual page to view was given; pass it as argument"
   else
@@ -235,7 +235,7 @@ choose_from_recently_accessed_directories() {
 
 alias jd='cd $(choose_from_recently_accessed_directories)'
 
-cpto() {
+cp2() {
   if [ -z $1 ];
   then
     echo "No files to copy"
