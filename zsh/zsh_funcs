@@ -273,3 +273,10 @@ superdiff() {
     git diff --color=always "$file_to_diff" | bat --theme Nord
   fi
 }
+
+function PW_DEFAULT_SINK {
+  pw-dump PipeWire:Interface:Metadata | jq '.[] | select(.props."metadata.name" == "default").metadata[] | select(.key == "default.audio.sink").value.name'
+}
+function PW_DEFAULT_SOURCE {
+  pw-dump PipeWire:Interface:Metadata | jq '.[] | select(.props."metadata.name" == "default").metadata[] | select(.key == "default.audio.source").value.name'
+}

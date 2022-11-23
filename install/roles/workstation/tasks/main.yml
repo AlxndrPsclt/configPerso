@@ -70,22 +70,6 @@
       #    mode: 600
       #    backup: no
 
-      #- name: enable service wpa_supplicant
-      #  become: yes
-      #  systemd:
-      #    name: wpa_supplicant
-      #    state: started
-      #    enabled: yes
-      #    masked: no
-
-      #- name: enable service wpa_supplicant@wlp2s0
-      #  become: yes
-      #  systemd:
-      #    name: wpa_supplicant@wlp2s0
-      #    state: started
-      #    enabled: yes
-      #    masked: no
-
 - name: Clone password-store from server
   git:
     repo: 'git@gitlab.com:AlxndrPsclt/password-store.git'
