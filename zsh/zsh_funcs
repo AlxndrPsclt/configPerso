@@ -280,3 +280,20 @@ function PW_DEFAULT_SINK {
 function PW_DEFAULT_SOURCE {
   pw-dump PipeWire:Interface:Metadata | jq '.[] | select(.props."metadata.name" == "default").metadata[] | select(.key == "default.audio.source").value.name'
 }
+function fireSort {
+  from=$(fd -t f -a --full-path '/mnt/usb/collection' | fzf)
+  #from=$(fd -t f --full-path '/home/alex/music/collection' | fzf)
+  dest=$(fd -t d -a --full-path '/home/alex/music/collection/sets' | fzf)
+  if [[ -z $from ]]; then
+    echo 'No music selected'
+  else
+    if [[ -z $dest ]]; then
+      echo 'No destination selected'
+    else
+      echo 'Copying $from to $dest'
+      echo cp $from $dest
+    fi
+  fi
+  echo "$from"
+  echo "$dest"
+}
