@@ -3,4 +3,5 @@
 output_filename="/home/alex/music/recs/audiorec-`date "+%Y-%m-%d_%H-%M-%S"`.opus"
 notify-send "Recording audio clip"
 ffmpeg -f pulse -i $(PW_DEFAULT_SOURCE) -o $output_filename
-notify-send "Recording saved"
+echo "$output_filename" | xclip -i -selection clipboard
+notify-send "Recording saved. Path copied to clipboard"
