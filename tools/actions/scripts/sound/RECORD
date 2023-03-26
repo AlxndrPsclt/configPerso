@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 
 output_filename="/home/alex/music/recs/audiorec-`date "+%Y-%m-%d_%H-%M-%S"`.opus"
+
+alsactl info > /tmp/mic_info.yml
+yq eval '.[].id' mic_info.yml
+
 notify-send "Recording audio clip"
 ffmpeg -f pulse -i $(PW_DEFAULT_SOURCE) -o $output_filename
 echo "$output_filename" | xclip -i -selection clipboard

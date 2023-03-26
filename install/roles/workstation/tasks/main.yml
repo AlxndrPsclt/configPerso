@@ -22,6 +22,7 @@
     name:
       - py3-pip
       - htop
+      - colordiff
       - mosh
       - nmap
       - the_silver_searcher

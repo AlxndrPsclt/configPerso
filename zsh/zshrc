@@ -183,3 +183,4 @@ export GPG_TTY
 export PNPM_HOME="/home/alex/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+

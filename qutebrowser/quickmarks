@@ -224,3 +224,13 @@ free icons webdesign graphics https://icon-icons.com/
 wifi cisco catalyst 2960-CX router https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3560-cx-series-switches/datasheet-c78-733229.html
 lib miniupnp UPNPN server self-\hosted http://miniupnp.free.fr/
 vuejs tutorial transitions router https://learnvue.co/tutorials/vue-router-transitions
+mes rami https://www.messenger.com/t/1145719943
+vector fields visualisation tool graphic projections https://anvaka.github.io/fieldplay/?dt=0.01&fo=0.99989999999999&dp=0.007&cm=3&cx=-1.31555&cy=-0.3983000000000001&w=10.5763&h=10.5763&vf=%2F%2F%20p.x%20and%20p.y%20are%20current%20coordinates%0A%2F%2F%20v.x%20and%20v.y%20is%20a%20velocity%20at%20point%20p%0Avec2%20get_velocity%28vec2%20p%29%20%7B%0A%20%20vec2%20v%20%3D%20vec2%280.%2C%200.%29%3B%0A%0A%20%20%2F%2F%20change%20this%20to%20get%20a%20new%20vector%20field%0A%20%20v.x%20%3D%20%28p.x%2Bp.x%29*p.y%3B%0A%20%20v.y%20%3D%20p.y%3B%0A%0A%20%20return%20v%3B%0A%7D&pc=5000&code=%2F%2F%20p.x%20and%20p.y%20are%20current%20coordinates%0A%2F%2F%20v.x%20and%20v.y%20is%20a%20velocity%20at%20point%20p%0Avec2%20get_velocity%28vec2%20p%29%20%7B%0A%20%20vec2%20v%20%3D%20vec2%280.%2C%200.%29%3B%0A%0A%20%20%2F%2F%20change%20this%20to%20get%20a%20new%20vector%20field%0A%20%20v.x%20%3D%20%28p.x%2Bp.x%29*p.y%3B%0A%20%20v.y%20%3D%20p.y%3B%0A%0A%20%20return%20v%3B%0A%7D
+tutorial vite PWA https://vite-pwa-org.netlify.app/guide/auto-update.html
+load tuto pwa deep links intent manifest json https://stackoverflow.com/questions/45979191/deep-linking-from-web-to-pwa-standalone-version
+c https://www.amazon.fr/ref=nav_logo
+radio alpine linux tutorial autologin https://wiki.alpinelinux.org/wiki/Raspberry_Pi_3_-_Browser_Client
+gun docs frozen space https://gun.eco/docs/Frozen
+zero knowledge proofs tutorial protocol anonymous payments http://zerocash-project.org/how_zerocash_works
+ffpmeg streaming tutorial https://sonnati.wordpress.com/2011/08/30/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iv/
+ws2813 details https://www.suntechleds.com/info/ws2813-vs-ws2815-digital-programmablel-led-str-36642316.html
