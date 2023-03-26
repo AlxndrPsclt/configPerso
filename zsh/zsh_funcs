@@ -301,3 +301,11 @@ function fireSort {
 function keyall {
   find . -maxdepth 1 -type f -print0 | xargs -0 -I {} keytag-all "{}"
 }
+
+function gundiff {
+  mkdir -p /tmp/gundiff
+  touch /tmp/gundiff/last.yml
+  cat /home/alex/documents/load/load-mvp/gun/data/\! | yq e -P > /tmp/gundiff/new.yml
+  colordiff <(yq -P /tmp/gundiff/last.yml) <(yq -P /tmp/gundiff/new.yml);
+  mv /tmp/gundiff/new.yml /tmp/gundiff/last.yml
+}
