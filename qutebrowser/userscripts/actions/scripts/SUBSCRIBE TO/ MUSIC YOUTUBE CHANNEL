@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Get the URL of the current page from Qutebrowser's environment variables
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 youtube-url"
+  exit 1
+fi
+
+QUTE_URL="$1"
+
+# Use yt-dlp to get the channel ID
+CHANNEL_NAME=$(yt-dlp --print channel --skip-download "$QUTE_URL")
+CHANNEL_ID=$(yt-dlp --print channel_id --skip-download "$QUTE_URL")
+
+# Construct the RSS feed URL for the channel
+RSS_FEED_URL="https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}"
+
+sed -i '$d' ~/.config/perso/sfeed/sfeedrc
+
+echo "  feed \"${CHANNEL_NAME}\" \"${RSS_FEED_URL}\"" >> ~/.config/perso/sfeed/sfeedrc
+echo "}" >> ~/.config/perso/sfeed/sfeedrc

@@ -753,7 +753,7 @@ config.bind('<Ctrl+\>', "jseval document.getElementsByClassName('html5-main-vide
 config.bind("<Ctrl+'>", "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = document.getElementsByClassName('html5-main-video')[0].playbackRate - 0.25")
 config.bind('<Ctrl+[>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 1")
 config.bind('<Ctrl+]>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 2.5")
-config.bind('  ', "jseval document.getElementsByClassName('html5-main-video')[0].paused ? document.getElementsByClassName('html5-main-video')[0].play() : document.getElementsByClassName('html5-main-video')[0].pause();  'Toggle play'")
+config.bind('pp', "jseval document.getElementsByClassName('html5-main-video')[0].paused ? document.getElementsByClassName('html5-main-video')[0].play() : document.getElementsByClassName('html5-main-video')[0].pause();  'Toggle play'")
 config.bind('{', 'scroll-page 0 -0.5')
 config.bind('}', 'scroll-page 0 0.5')
 
@@ -761,11 +761,13 @@ config.bind('}', 'scroll-page 0 0.5')
 config.set('colors.webpage.darkmode.enabled', True)
 
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best[height<=480]" {hint-url}')
-config.bind(' r', 'spawn --userscript readability')
-config.bind(' p', 'spawn --userscript playlist/addTrackToPlaylist.sh')
+config.bind('r', 'spawn --userscript readability')
+#config.bind('p', 'spawn --userscript playlist/addTrackToPlaylist.sh')
 config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
 config.bind(',k', 'spawn --userscript keep_tracks.sh')
-config.bind(' l', 'hint links userscript add_track_to_playlist.sh')
+config.bind(',l', 'hint links userscript add_track_to_playlist.sh')
+config.bind(',k', 'spawn --userscript keep_tracks.sh')
+config.bind(', ', 'spawn --userscript actions/actions.sh')
 
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 
