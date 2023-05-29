@@ -100,6 +100,18 @@ vimall() {
   ag . -l | xargs bash -c '</dev/tty vim "$@"' ignoreme
 }
 
+vimrecent() {
+  files_to_edit=$(fd --changed-within ${1:-48h} . | fzf)
+  if [ -z $files_to_edit ];
+  then
+    echo "Nothing selected"
+  else
+    vim "$files_to_edit"
+  fi
+
+}
+
+
 rlk () {
   if [ -z $@ ];
   then
@@ -233,7 +245,14 @@ choose_from_recently_accessed_directories() {
       --preview 'tree -C {} | head -100'
 }
 
-alias jd='cd $(choose_from_recently_accessed_directories)'
+# DOC: jd: cd to recently visited folders via fzf
+alias jd='cd "$(choose_from_recently_accessed_directories)"'
+
+doc() {
+  echo "Hello! This are some usefull commands that you should use if you want to. They were defined in ~/.config/perso. You can add or chenge them if you want to!\n"
+  ag --no-filename '# DOC:' ~/.config/perso | sed '/ag --no-filename  "# DOC:"/d' | sed 's/# DOC: //' | grep -v '^$'
+}
+#alias doc='doc'
 
 cp2() {
   if [ -z $1 ];

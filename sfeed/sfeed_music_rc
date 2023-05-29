@@ -1,0 +1,13 @@
+sfeedpath="$HOME/music/feeds"
+
+# list of feeds to fetch:
+feeds() {
+  # feed <name> <feedurl> [basesiteurl] [encoding]
+  feed "Headphone Candy" "https://www.youtube.com/feeds/videos.xml?channel_id=UCUPNCFqQi-E-pRLx_1pPnyg"
+  feed "Bonzai All Stars" "https://www.youtube.com/feeds/videos.xml?channel_id=UCjL7_8Myfhyr2NnHbr51DRQ"
+  feed "Trance Classics" "https://www.youtube.com/feeds/videos.xml?channel_id=UCLz90dMxYYJjkTNCTAapp_w"
+  feed "Rayzeh" "https://www.youtube.com/feeds/videos.xml?channel_id=UC7t3crQwaLij5pULT1rBSBQ"
+  feed "Techno District" "https://www.youtube.com/feeds/videos.xml?channel_id=UCiebvVIoBUyvdGf6AM0TYEg"
+  feed "303Lovers" "https://www.youtube.com/feeds/videos.xml?channel_id=UC2FTBJd2QgYNskwcFl83T4g"
+  feed "qtasiorro" "https://www.youtube.com/feeds/videos.xml?channel_id=UCjXR5whXr1uy9J2Olp4Kvxw"
+}

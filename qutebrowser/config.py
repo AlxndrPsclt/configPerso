@@ -768,6 +768,7 @@ config.bind(',k', 'spawn --userscript keep_tracks.sh')
 config.bind(',l', 'hint links userscript add_track_to_playlist.sh')
 config.bind(',k', 'spawn --userscript keep_tracks.sh')
 config.bind(', ', 'spawn --userscript actions/actions.sh')
+config.bind('sub', 'spawn --userscript actions/actions.sh')
 
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 

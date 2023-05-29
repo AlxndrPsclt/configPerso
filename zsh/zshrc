@@ -184,3 +184,4 @@ export PNPM_HOME="/home/alex/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+export GOPATH="/home/alex/apps/environments/go"
