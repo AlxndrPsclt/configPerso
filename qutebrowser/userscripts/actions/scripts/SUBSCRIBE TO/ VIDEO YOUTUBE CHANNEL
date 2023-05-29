@@ -1,15 +1,21 @@
 #!/bin/sh
 
-# Get the URL of the current page from Qutebrowser's environment variables
+notify-send "Subscribing..."
 
 # Use yt-dlp to get the channel ID
-CHANNEL_NAME=$(yt-dlp --print channel --skip-download "$QUTE_URL")
-CHANNEL_ID=$(yt-dlp --print channel_id --skip-download "$QUTE_URL")
+CHANNEL_NAME=$(yt-dlp --print channel --playlist-end 1 --skip-download "$QUTE_URL")
+notify-send "to: $CHANNEL_NAME"
+
+CHANNEL_ID=$(yt-dlp --print channel_id --playlist-end 1 --skip-download "$QUTE_URL")
+notify-send "id: $CHANNEL_ID"
 
 # Construct the RSS feed URL for the channel
 RSS_FEED_URL="https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}"
 
-sed -i '$d' ~/.config/perso/sfeed/sfeedrc
 
-echo "  feed \"${CHANNEL_NAME}\" \"${RSS_FEED_URL}\"" >> ~/.config/perso/sfeed/sfeedrc
-echo "}" >> ~/.config/perso/sfeed/sfeedrc
+sed -i '$d' /home/alex/.config/perso/sfeed/sfeed_videos_rc
+
+echo "  feed \"${CHANNEL_NAME}\" \"${RSS_FEED_URL}\"" >> /home/alex/.config/perso/sfeed/sfeed_video_rc
+echo "}" >> /home/alex/.config/perso/sfeed/sfeed_video_rc
+
+notify-send "Subscribed to $CHANNEL_NAME"
