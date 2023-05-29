@@ -265,7 +265,7 @@ sapk() {
 }
 
 superdiff() {
-  file_to_diff=$(git diff $@ --name-only | fzf -m --ansi --height=95% --preview 'git diff $@ --color=always -- {-1} | bat --color=always --line-range :500')
+  file_to_diff=$(git diff "$@" --name-only | fzf -m --ansi --height=95% --preview 'git diff "$@" --color=always -- {-1} | bat --color=always --line-range :500')
   if [ -z $file_to_diff ];
   then
     echo "No diff sected to inpect."
