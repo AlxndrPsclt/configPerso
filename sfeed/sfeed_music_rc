@@ -10,4 +10,5 @@ feeds() {
   feed "Techno District" "https://www.youtube.com/feeds/videos.xml?channel_id=UCiebvVIoBUyvdGf6AM0TYEg"
   feed "303Lovers" "https://www.youtube.com/feeds/videos.xml?channel_id=UC2FTBJd2QgYNskwcFl83T4g"
   feed "qtasiorro" "https://www.youtube.com/feeds/videos.xml?channel_id=UCjXR5whXr1uy9J2Olp4Kvxw"
+  feed "Alberth beat" "https://www.youtube.com/feeds/videos.xml?channel_id=UCauUJ8HGgH6JNftbE7HuvDQ"
 }
