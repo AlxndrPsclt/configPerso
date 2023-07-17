@@ -101,3 +101,14 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+cmd preview-audio ${{
+    set -f
+    IFS=$'\n'
+    for f in $fx; do
+        mpv --really-quiet "$f" &
+        PID=$!
+        read
+        kill $PID
+    done
+}}

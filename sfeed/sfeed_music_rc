@@ -11,4 +11,10 @@ feeds() {
   feed "303Lovers" "https://www.youtube.com/feeds/videos.xml?channel_id=UC2FTBJd2QgYNskwcFl83T4g"
   feed "qtasiorro" "https://www.youtube.com/feeds/videos.xml?channel_id=UCjXR5whXr1uy9J2Olp4Kvxw"
   feed "Alberth beat" "https://www.youtube.com/feeds/videos.xml?channel_id=UCauUJ8HGgH6JNftbE7HuvDQ"
+  feed "Future Avenue" "https://www.youtube.com/feeds/videos.xml?channel_id=UCEtaz_gSs8AlaXPtOThcdYA"
+  feed "Filalete Official" "https://www.youtube.com/feeds/videos.xml?channel_id=UCA3ejST1kHkIUm2vyJjumoQ"
+  feed "Perc Trax" "https://www.youtube.com/feeds/videos.xml?channel_id=UClD1CwH1kTxvyXlfWeV8p4A"
+  feed "IReFLEXmusic" "https://www.youtube.com/feeds/videos.xml?channel_id=UCGnGHA1MsKzChUJ1LvbTC3w"
+  feed "Eurodance 90's" "https://www.youtube.com/feeds/videos.xml?channel_id=UCyn-wnFvuAbuCUg_yGSDceg"
+  feed "ohral_tv" "https://www.youtube.com/feeds/videos.xml?channel_id=UCIgRzu1f_uAOFBNueaCJmRg"
 }

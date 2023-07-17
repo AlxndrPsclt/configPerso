@@ -4,11 +4,11 @@
 
   roles:
     #Minimal config
-    #    - role: minimal
+    - role: minimal
 
-    #    - role: keys
+    - role: keys
 
-    #    - role: workstation
+    - role: workstation
 
     - role: desktop
 
