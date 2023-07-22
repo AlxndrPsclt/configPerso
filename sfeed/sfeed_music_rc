@@ -17,4 +17,10 @@ feeds() {
   feed "IReFLEXmusic" "https://www.youtube.com/feeds/videos.xml?channel_id=UCGnGHA1MsKzChUJ1LvbTC3w"
   feed "Eurodance 90's" "https://www.youtube.com/feeds/videos.xml?channel_id=UCyn-wnFvuAbuCUg_yGSDceg"
   feed "ohral_tv" "https://www.youtube.com/feeds/videos.xml?channel_id=UCIgRzu1f_uAOFBNueaCJmRg"
+  feed "Vampyrah Broadcasting" "https://www.youtube.com/feeds/videos.xml?channel_id=UCEtBDpCIe9_tKvxdXWfwTVA"
+  feed "Vampyrah Broadcasting" "https://www.youtube.com/feeds/videos.xml?channel_id=UCEtBDpCIe9_tKvxdXWfwTVA"
+  feed "UNDERGR8UND" "https://www.youtube.com/feeds/videos.xml?channel_id=UCa_RnmlK35DE2bmh7_kFCVw"
 }
+  feed "" ""
+  feed "" ""
+  feed "" ""

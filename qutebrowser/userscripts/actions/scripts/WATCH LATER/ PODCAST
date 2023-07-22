@@ -1,0 +1,16 @@
+#!/bin/sh
+
+notify-send "Adding a podcast to listen later..."
+
+# Use yt-dlp to get the channel ID
+TITLE=$(yt-dlp --print title --no-playlist --skip-download "$QUTE_URL")
+notify-send "to: $TITLE"
+
+TAGS=$(yt-dlp --print tags --no-playlist --skip-download "$QUTE_URL")
+URL=$(yt-dlp --print webpage_url --no-playlist --skip-download "$QUTE_URL")
+
+yq e -i ". += [{\"title\": \"$TITLE\", \"url\": \"$URL\", \"tags\": \"$TAGS\"}]" /home/alex/notes/bookmarks/podcast_later.yml
+
+yt-dlp --no-playlist --write-thumbnail -o "thumbnail:/home/alex/notes/bookmarks/thumbs/%(title)s" --skip-download "$QUTE_URL"
+
+notify-send "Saved $TITLE"
