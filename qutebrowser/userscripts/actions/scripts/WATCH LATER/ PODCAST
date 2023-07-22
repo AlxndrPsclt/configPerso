@@ -11,6 +11,6 @@ URL=$(yt-dlp --print webpage_url --no-playlist --skip-download "$QUTE_URL")
 
 yq e -i ". += [{\"title\": \"$TITLE\", \"url\": \"$URL\", \"tags\": \"$TAGS\"}]" /home/alex/notes/bookmarks/podcast_later.yml
 
-yt-dlp --no-playlist --write-thumbnail -o "thumbnail:/home/alex/notes/bookmarks/thumbs/%(title)s" --skip-download "$QUTE_URL"
+yt-dlp --no-playlist --write-thumbnail -o "thumbnail:/home/alex/notes/bookmarks/thumbs/podcast/%(title)s" --skip-download "$QUTE_URL"
 
 notify-send "Saved $TITLE"
