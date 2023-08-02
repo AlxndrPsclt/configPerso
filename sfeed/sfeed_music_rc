@@ -23,4 +23,15 @@ feeds() {
 }
   feed "" ""
   feed "" ""
-  feed "" ""
+  feed "A9000" "https://www.youtube.com/feeds/videos.xml?channel_id=UCIx1VUYp_35IhWE3s-sc1pQ"
+  feed "Crescent London" "https://www.youtube.com/feeds/videos.xml?channel_id=UCx9XW7BfcvgUjTVEF71DDgQ"
+  feed "Arben beratshuli" "https://www.youtube.com/feeds/videos.xml?channel_id=UCoGZDGHs-nqmOPWLPTFC03A"
+  feed "6277MISSION" "https://www.youtube.com/feeds/videos.xml?channel_id=UCDvjHDtA4Bjh5bSLuK4xd6Q"
+  feed "FingR86" "https://www.youtube.com/feeds/videos.xml?channel_id=UCF3yFnI5Ekvc-Wd9JTMRI6g"
+  feed "Warg" "https://www.youtube.com/feeds/videos.xml?channel_id=UCpzq8VM5-XEtq0AuosJPROA"
+  feed "Metaforique Radio" "https://www.youtube.com/feeds/videos.xml?channel_id=UC8iKuXohBjn20Pn2lgBfC4Q"
+  feed "PermasmokeSoundLab" "https://www.youtube.com/feeds/videos.xml?channel_id=UCwJIS-Fx4UrZ09K0CvN-eGg"
+  feed "Kultus Musiek" "https://www.youtube.com/feeds/videos.xml?channel_id=UCnjVI0v2NLFoaEhqwQX9AFQ"
+  feed "Platon Records" "https://www.youtube.com/feeds/videos.xml?channel_id=UCAiBTKyODV4Rbx9Xv1r-gLw"
+  feed "LIMO Recording Studio" "https://www.youtube.com/feeds/videos.xml?channel_id=UClNWOXfkCh-jKVn42WjAGsQ"
+}
