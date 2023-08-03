@@ -76,3 +76,17 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
   light -U 10
+
+super + s; l; r
+  "/home/alex/.config/perso/tools/actions/scripts/windows/⇄ LEFT AND RIGHT"
+
+super + s; u; d
+  "/home/alex/.config/perso/tools/actions/scripts/windows/⇅ UP AND DOWN"
+
+super + r
+  bspc node --resize right 20 0
+
+super + shift + r
+  bspc node --resize right -20 0
+
+
