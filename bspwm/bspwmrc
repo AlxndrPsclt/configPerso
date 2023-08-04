@@ -45,7 +45,7 @@ small_floating_panel=$(($screenwidth*3/10))x$(($screenheight*3/10))"+$(($screenw
 
 bspc rule -a mixer state=floating sticky=on border=5 rectangle="$top_screen_panel"
 
-#bspc rule -a GLFW-Application state=floating border=3 rectangle="$livecoding_panel"
+bspc rule -a GLFW-Application state=floating border=3 rectangle="$livecoding_panel"
 #
 #bspc rule -a pinentry state=floating sticky=on border=5 rectangle="$top_screen_panel"
 bspc rule -a Zathura state=tiled

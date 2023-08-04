@@ -24,7 +24,7 @@ alias cdvim='cd ~/.vim'
 alias editvim='vim ~/.vim/vimrc'
 alias editssh='vim ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
 alias editzsh="vim $F_CONFIG/zsh/*"
-alias editbsp="vim $F_CONFIG/bspwm/bspwmrc $F_CONFIG/sxhkd/sxhkdrc $F_CONFIG/dunst/dunstrc"
+alias editbsp="vim $F_CONFIG/bspwm/bspwmrc $F_CONFIG/sxhkd/sxhkdrc $F_CONFIG/dunst/dunstrc $F_CONFIG/picom/picom.conf"
 alias editsuckless='vim ~/apps/suckless/contxtl-st/config.def.h ~/apps/suckless/contxtl-dmenu/config.def.h'
 alias editsfeed='vim ~/.config/perso/sfeed/sfeed_music_rc'
 
