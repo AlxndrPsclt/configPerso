@@ -34,4 +34,5 @@ feeds() {
   feed "Kultus Musiek" "https://www.youtube.com/feeds/videos.xml?channel_id=UCnjVI0v2NLFoaEhqwQX9AFQ"
   feed "Platon Records" "https://www.youtube.com/feeds/videos.xml?channel_id=UCAiBTKyODV4Rbx9Xv1r-gLw"
   feed "LIMO Recording Studio" "https://www.youtube.com/feeds/videos.xml?channel_id=UClNWOXfkCh-jKVn42WjAGsQ"
+  feed "Sing Lee" "https://www.youtube.com/feeds/videos.xml?channel_id=UCfeiQaF_VrvA4Sl9--H-AkA"
 }
