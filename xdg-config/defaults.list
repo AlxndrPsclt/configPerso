@@ -1,3 +1,8 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
 #application/vnd.openxmlformats-officedocument.wordprocessingml.document=
+model/lst=glslViewer.desktop
+model/ply=glslViewer.desktop
+model/obj=glslViewer.desktop
+model/gltf-binary=glslViewer.desktop
+model/gltf+json=glslViewer.desktop

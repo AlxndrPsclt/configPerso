@@ -1,9 +1,9 @@
 #Terminal
 
   - Edit shortcuts
-      `$ eshortcuts`
-  - Pulls repository update from only one repo (not like apt-get update who updates everything)
-      `$ update-repo <tab> <tab>`
+      `$ editshortcuts`
+      `$ editzsh`
+      `$ editmusic`
 
 #Vim
 
@@ -22,9 +22,12 @@
 
 #Tmux
 
-  - Splits window vrtically
+  - Resize tmux windows (only horizontal for now)
+      `C-S-Left`
+      `C-S-Right`
+  - Splits window vertically
       `<C-F2\> % (Carefull on the function key)
-      `<C-a\> % (=5 on azerty)`
+      `<C-a\> % (=5 on querty)`
   - Splits window horizontaly
       `<S-F4\> % (Carefull on the function key)
-      `<C-a\> | (=* on azerty)`
+      `<C-a\> | (=Shift-* on querty)

@@ -3,7 +3,7 @@ alias ls='ls --color=auto'
 alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
-alias llast='ls -Artls | tail -n1'
+alias llast='ls -Artls | tail -n5'
 alias lll='ls -Ahtls'
 alias lll5='ls -Ahrtls | tail -n5 | tac'
 
@@ -19,18 +19,19 @@ alias d='du -sh *'
 alias up='doas apk update; doas apk upgrade -Ua'
 alias logs='doas less +F /var/log/messages'
 
+alias shortcuts="bat $F_CONFIG/tools/shortcuts.md"
+
 alias cdvim='cd ~/.vim'
 
 alias editvim='vim ~/.vim/vimrc'
 alias editssh='vim ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
 alias editzsh="vim $F_CONFIG/zsh/*"
+alias editshortcuts="vim $F_CONFIG/tools/shortcuts.md"
 alias editbsp="vim $F_CONFIG/bspwm/bspwmrc $F_CONFIG/sxhkd/sxhkdrc $F_CONFIG/dunst/dunstrc $F_CONFIG/picom/picom.conf"
 alias editsuckless='vim ~/apps/suckless/contxtl-st/config.def.h ~/apps/suckless/contxtl-dmenu/config.def.h'
-alias editsfeed='vim ~/.config/perso/sfeed/sfeed_music_rc'
-
+alias editsfeed='vim $F_CONFIG/sfeed/sfeed_music_rc'
 alias editinstall="vim $F_CONFIG/install/roles/*/tasks/main.yml $F_CONFIG/install/roles/*/vars/main.yml"
 alias editactions="vim $F_CONFIG/tools/actions/actions.sh $F_CONFIG/tools/actions"
-
 alias editdata="vim $F_CONFIG/tools/actions/data/*"
 alias editmusic='vim ~/notes/trax.yml'
 
@@ -64,6 +65,7 @@ alias gitpom='git push -u origin master'
 alias gittree='git log --graph --abbrev-commit --oneline'
 alias githttptossh='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
 alias gitignore='wget https://www.gitignore.io/api/vim -O .gitignore'
+alias licenseMIT='wget https://raw.githubusercontent.com/git/git-scm.com/main/MIT-LICENSE.txt'
 
 #Task aliases
 alias taska='task add'
@@ -107,3 +109,6 @@ alias now='date "+%H:%M:%S"'
 alias tmux='tmux attach || tmux'
 
 alias note='vim $(date +%F+%T).md'
+
+alias acmd='docker run -it -v $(pwd):/workdir ac'
+

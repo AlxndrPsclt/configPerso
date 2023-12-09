@@ -112,3 +112,5 @@ cmd preview-audio ${{
         kill $PID
     done
 }}
+
+map <.vue> open

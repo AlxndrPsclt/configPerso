@@ -1,0 +1,4 @@
+#!/bin/sh
+
+kill $(cat /tmp/ffmpeg_recording.pid)
+rm /tmp/ffmpeg_recording.pid

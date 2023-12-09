@@ -11,6 +11,7 @@ show_help() {
   echo "  -e  Ending frame (cannot be used with -l)"
   echo "  -l  Length in seconds (cannot be used with -e)"
   echo "  -p  Path to shader (default: /home/alex/documents/creations/graphics/visualisations/shaders/noiseExplorations/shaders/currentShader.frag)"
+  echo "  -t  Temporary folder to render pngs before video export (default: /tmp/renders)"
   echo "  -q  Quality (resolution preset, can be: 1080p, square1080p, half1080p, squarehalf1080p, 720p, square720p, 2160p, square2160p, 1440p, square1440p)"
   echo "  -h  Show this help message"
   exit 1
@@ -25,8 +26,9 @@ shader_path="/home/alex/documents/creations/graphics/visualisations/shaders/nois
 
 # Save the current working directory
 original_directory="$(pwd)"
+tmp_folder="/tmp/renders"
 
-while getopts ":w:h:s:e:f:r:l:p:q:" opt; do
+while getopts ":w:h:s:e:f:r:l:p:t:q:" opt; do
   case $opt in
     w)
       width="$OPTARG"
@@ -55,6 +57,9 @@ while getopts ":w:h:s:e:f:r:l:p:q:" opt; do
       ;;
     p)
       shader_path="$OPTARG"
+      ;;
+    t)
+      tmp_folder="$OPTARG"
       ;;
     q)
       quality="$OPTARG"
@@ -131,7 +136,7 @@ fi
 last_frame=$((end_frame - 1))
 
 # Create the folder if it doesn't exist
-target_folder="/tmp/renders/$render_name/"
+target_folder="$tmp_folder/$render_name/"
 mkdir -p "$target_folder"
 
 # If folder already contains pngs, ask the user what to do
@@ -192,7 +197,7 @@ fi
 echo "About to render $shader_path at resolution $width x $height with frame rate $frame_rate. $last_frame frames will be rendered as PNGs in the directory $target_folder."
 
 # Start glslViewer in the background
-glslViewer "$shader_path" --headless -w "$width" -h "$height" -e "frames,$start_frame,$end_frame,$frame_rate" --noncurses &
+glslViewer "$shader_path" --headless -w "$width" -h "$height" -e "frames,$start_frame,$end_frame,$frame_rate" --noncurses  -u_tex0 /home/alex/documents/creations/graphics/visualisations/shaders/noiseExplorations/shaders/videos/inside.mp4 &
 
 # Save the process ID
 glslViewer_pid=$!

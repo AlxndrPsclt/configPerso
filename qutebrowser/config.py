@@ -764,9 +764,9 @@ config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[height<=480]+bes
 config.bind(',r', 'spawn --userscript readability')
 #config.bind('p', 'spawn --userscript playlist/addTrackToPlaylist.sh')
 config.bind(',c', 'spawn --userscript keep_ytchannel.sh')
-config.bind(',k', 'spawn --userscript keep_tracks.sh')
 config.bind(',l', 'hint links userscript add_track_to_playlist.sh')
 config.bind(',k', 'spawn --userscript keep_tracks.sh')
+config.bind(',b', 'hint links userscript keep_hint.sh')
 config.bind(', ', 'spawn --userscript actions/actions.sh')
 config.bind('sub', 'spawn --userscript actions/actions.sh')
 

@@ -35,4 +35,8 @@ feeds() {
   feed "Platon Records" "https://www.youtube.com/feeds/videos.xml?channel_id=UCAiBTKyODV4Rbx9Xv1r-gLw"
   feed "LIMO Recording Studio" "https://www.youtube.com/feeds/videos.xml?channel_id=UClNWOXfkCh-jKVn42WjAGsQ"
   feed "Sing Lee" "https://www.youtube.com/feeds/videos.xml?channel_id=UCfeiQaF_VrvA4Sl9--H-AkA"
+  feed "piano and coffee records" "https://www.youtube.com/feeds/videos.xml?channel_id=UCgQjQEvGDMOP_L1pqnRLdbA"
+  feed "PrologueMusic" "https://www.youtube.com/feeds/videos.xml?channel_id=UCVRYhvRhOeuAkuAnmPpnVlA"
+  feed "Neutral Archive" "https://www.youtube.com/feeds/videos.xml?channel_id=UC3m_JHdic4XoJNOoTOiaysg"
+  feed "Compost Records" "https://www.youtube.com/feeds/videos.xml?channel_id=UCvg5ARam75rUX6Mv7BUHHfw"
 }
