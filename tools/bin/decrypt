@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Check if a file name is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <filename.gpg>"
+    exit 1
+fi
+
+ENCRYPTED_FILE=$1
+
+# Check if file exists and has .gpg extension
+if [ ! -f "$ENCRYPTED_FILE" ] || [ "${ENCRYPTED_FILE##*.}" != "gpg" ]; then
+    echo "File not found or not a .gpg file: $ENCRYPTED_FILE"
+    exit 1
+fi
+
+# Decrypt the file
+gpg --local-user etrnl@etrnl.etrnl --decrypt "$ENCRYPTED_FILE" > "${ENCRYPTED_FILE%.gpg}"
+
+# Check if decryption was successful
+if [ $? -eq 0 ]; then
+    # Remove the encrypted file if decryption was successful
+    rm "$ENCRYPTED_FILE"
+else
+    echo "Decryption failed for $ENCRYPTED_FILE"
+    exit 1
+fi
+
