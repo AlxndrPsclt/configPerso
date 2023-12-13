@@ -14,15 +14,20 @@ if [ ! -f "$ENCRYPTED_FILE" ] || [ "${ENCRYPTED_FILE##*.}" != "gpg" ]; then
     exit 1
 fi
 
+# Get the file permissions of the encrypted file
+PERMISSIONS=$(stat -c %a "$ENCRYPTED_FILE")
+
 # Decrypt the file
 gpg --local-user etrnl@etrnl.etrnl --decrypt "$ENCRYPTED_FILE" > "${ENCRYPTED_FILE%.gpg}"
 
 # Check if decryption was successful
 if [ $? -eq 0 ]; then
-    # Remove the encrypted file if decryption was successful
+    # Apply the same permissions to the decrypted file
+    chmod "$PERMISSIONS" "${ENCRYPTED_FILE%.gpg}"
+
+    # Remove the encrypted file
     rm "$ENCRYPTED_FILE"
 else
     echo "Decryption failed for $ENCRYPTED_FILE"
     exit 1
 fi
-

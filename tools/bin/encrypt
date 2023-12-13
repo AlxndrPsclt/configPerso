@@ -14,6 +14,9 @@ if [ ! -f "$FILE" ]; then
     exit 1
 fi
 
+# Get the file permissions
+PERMISSIONS=$(stat -c %a "$FILE")
+
 # Create backup directory if it doesn't exist
 BACKUP_DIR="/tmp/backups"
 mkdir -p "$BACKUP_DIR"
@@ -26,7 +29,10 @@ gpg --encrypt --recipient etrnl@etrnl.etrnl "$FILE"
 
 # Check if encryption was successful
 if [ $? -eq 0 ]; then
-    # Remove the original file if encryption was successful
+    # Apply the same permissions to the encrypted file
+    chmod "$PERMISSIONS" "$FILE.gpg"
+
+    # Remove the original file
     rm "$FILE"
 else
     echo "Encryption failed for $FILE"
