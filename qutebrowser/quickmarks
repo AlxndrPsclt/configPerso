@@ -255,3 +255,8 @@ read tutorial osc reference http://wiki.t-o-f.info/OSC/OSC
 tutorial rpi alpine install https://www.maxrodrigo.com/posts/how-to-install-alpine-on-raspberry-pi/
 read glitch pokemon https://sites.google.com/site/thezzazzglitch/home
 glitch pkmn 255 items https://pastebin.com/DfwS1Qbn
+read tutorial esp32 stepper motor TB6600 https://www.makerguides.com/esp32-and-tb6600-stepper-motor-driver/
+lib raspberry pi rpi gpio gpiozero https://gpiozero.readthedocs.io/en/latest/index.html
+read tutorial esp32 grove https://wiki.seeedstudio.com/XIAO-Kit-Courses/
+steeper motors specification list nema 17 https://reprap.org/wiki/NEMA_17_Stepper_motor
+ws2812 neopixels leds statistics best practices https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+cat ~/.config/perso/tools/actions/data/fontawesome-data.txt | dmenu -i | sed 's/^\([^ ]*\) .*/\1/' | xclip -selection clipboard -i
+notify-send "Copied `xclip -selection clipboard -o`"
+echo "$(xclip -selection clipboard -o)" | xargs xdotool type
