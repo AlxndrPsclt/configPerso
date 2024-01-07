@@ -95,7 +95,7 @@ alias cl=copylast
 
 alias listignored='find . -type f  | git check-ignore --stdin'
 
-alias yta='yt-dlp -x -f bestaudio/best'
+alias yta='yt-dlp -x -f bestaudio/best --no-playlist'
 alias ytamax='yt-dlp -x -f bestaudio/best --write-desktop-link --write-thumbnail --embed-thumbnail --prefer-free-formats'
 alias ytv='yt-dlp -f 244+bestaudio'
 

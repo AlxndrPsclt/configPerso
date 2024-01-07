@@ -16,6 +16,7 @@ fi
 
 # Get the file permissions
 PERMISSIONS=$(stat -c %a "$FILE")
+ORIGINAL_TIME=$(stat -c %y "$FILE")
 
 # Create backup directory if it doesn't exist
 BACKUP_DIR="/tmp/backups"
@@ -31,6 +32,8 @@ gpg --encrypt --recipient etrnl@etrnl.etrnl "$FILE"
 if [ $? -eq 0 ]; then
     # Apply the same permissions to the encrypted file
     chmod "$PERMISSIONS" "$FILE.gpg"
+    mv "$FILE.gpg" ".$FILE.gpg"
+    touch -d "$ORIGINAL_TIME" ".$FILE.gpg"
 
     # Remove the original file
     rm "$FILE"

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Configuration
-CONFIG_FILE="config.yml"
+CONFIG_FILE="/home/alex/.config/perso/tools/bin/config.yml"
 
 # Function to read value from YAML file
 read_yaml() {

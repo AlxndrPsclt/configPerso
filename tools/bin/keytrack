@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Check if an argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path_to_music_file>"
+    exit 1
+fi
+
+FILE="$1"
+BASENAME=$(basename "$FILE")
+DIRNAME=$(dirname "$FILE")
+
+# Check if the file already starts with a Camelot Key
+if echo "$BASENAME" | grep -qE '^[1-9]|1[0-2][AB] - '; then
+    echo "File already starts with a Camelot Key."
+    exit 0
+fi
+
+# Calculate the key of the music file
+KEY=$(keyfinder-cli -n camelot "$FILE" 2>&1)
+
+# Check if keyfinder-cli was successful
+if echo "$KEY" | grep -qE '^[1-9]|1[0-2][AB]$'; then
+    # Rename the file by prepending the key
+    NEWNAME="${DIRNAME}/${KEY} - ${BASENAME}"
+    mv "$FILE" "$NEWNAME"
+    echo "Renamed to: $NEWNAME"
+else
+    echo "Error calculating key or not an audio file: $KEY"
+    exit 1
+fi
+

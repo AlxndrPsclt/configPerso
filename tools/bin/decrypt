@@ -16,14 +16,23 @@ fi
 
 # Get the file permissions of the encrypted file
 PERMISSIONS=$(stat -c %a "$ENCRYPTED_FILE")
+ORIGINAL_TIME=$(stat -c %y "$ENCRYPTED_FILE")
 
 # Decrypt the file
-gpg --local-user etrnl@etrnl.etrnl --decrypt "$ENCRYPTED_FILE" > "${ENCRYPTED_FILE%.gpg}"
+
+DECRYPTED_FILE="${ENCRYPTED_FILE%.gpg}"
+gpg --local-user etrnl@etrnl.etrnl --decrypt "$ENCRYPTED_FILE" > "$DECRYPTED_FILE"
 
 # Check if decryption was successful
 if [ $? -eq 0 ]; then
     # Apply the same permissions to the decrypted file
-    chmod "$PERMISSIONS" "${ENCRYPTED_FILE%.gpg}"
+    chmod "$PERMISSIONS" "$DECRYPTED_FILE"
+
+    if [ -f "$DECRYPTED_FILE" ]; then
+        FINAL_FILE="${DECRYPTED_FILE#.}"
+        mv "$DECRYPTED_FILE" "$FINAL_FILE"
+        touch -d "$ORIGINAL_TIME" "$FINAL_FILE"
+    fi
 
     # Remove the encrypted file
     rm "$ENCRYPTED_FILE"
