@@ -2,6 +2,7 @@
 
 # Configuration
 CONFIG_FILE="/home/alex/.config/perso/tools/bin/config.yml"
+DECRYPT_SCRIPT="/home/alex/.config/perso/tools/bin/decrypt" # Replace with the actual path to your encryption script
 
 # Function to read value from YAML file
 read_yaml() {
@@ -11,14 +12,18 @@ read_yaml() {
 # Function to download file from IPFS
 download_from_ipfs() {
     CID_FILE=$1
-    FILENAME=${CID_FILE#@}
+    echo "CID_FILE: $CID_FILE"
+    FILENAME=${CID_FILE#@.}
+    echo "FILENAME: $FILENAME"
     IPFS_NODE=$(read_yaml "ipfs.node_get_address")
 
     # Read CID from file
     CID=$(cat $CID_FILE)
+    echo "CID: $CID"
 
     # Download file from IPFS using wget
     curl -L "$IPFS_NODE/ipfs/$CID" -o "$FILENAME"
+    #curl -L "$IPFS_NODE/ipfs/$CID" -o "$FILENAME"
 
     # Check if the download was successful
     if [ $? -ne 0 ]; then
@@ -27,21 +32,30 @@ download_from_ipfs() {
     fi
 
     # Remove CID file
-    rm $CID_FILE
+    echo rm $CID_FILE
+
+    echo "$FILENAME"
+    if [ "${FILENAME#.}" != "$FILENAME" ]; then
+      $DECRYPT_SCRIPT "$FILENAME"
+    else
+      echo "Error: Filename does not start with ."
+    fi
+
     echo "File downloaded from IPFS and CID file removed."
 }
 
 # Main script
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 @filename.ext"
+    echo "Usage: $0 @..filename.ext"
     exit 1
 fi
 
 FILENAME=$1
 
 # Check if the filename starts with '@'
-if [ "${FILENAME#@}" != "$FILENAME" ]; then
-    download_from_ipfs $FILENAME
+if [ "${FILENAME#@.}" != "$FILENAME" ]; then
+    echo "$FILENAME"
+    download_from_ipfs "$FILENAME"
 else
     echo "Error: Filename does not start with @."
 fi

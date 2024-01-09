@@ -1,0 +1,71 @@
+#!/bin/sh
+
+# Configuration
+CONFIG_FILE="/home/alex/.config/perso/tools/bin/config.yml"
+ENCRYPT_SCRIPT="/home/alex/.config/perso/tools/bin/encrypt" # Replace with the actual path to your encryption script
+
+# Function to read value from YAML file
+read_yaml() {
+    yq e ".$1" $CONFIG_FILE
+}
+
+# Function to add file to IPFS
+add_to_ipfs() {
+    FILENAME=$1
+    echo $FILENAME
+    OUTPUT_FILE="@.${FILENAME}"
+    echo $OUTPUT_FILE
+    IPFS_NODE=$(read_yaml "ipfs.node_add_address")
+
+    # Add file to IPFS using HTTP API
+    RESPONSE=$(curl -s -X POST -F file=@"$FILENAME" $IPFS_NODE/api/v0/add)
+
+    echo "$RESPONSE"
+
+    # Check if the response contains a valid CID
+    CID=$(echo $RESPONSE | cut -d '"' -f 8)
+    if [ -z "$CID" ] || [ "$CID" = "null" ]; then
+        echo "Error: File addition to IPFS failed."
+        exit 1
+    fi
+
+    # Save CID to a file and remove the original file
+    echo $CID > "$OUTPUT_FILE"
+    echo $CID
+    rm "$FILENAME"
+    echo "File added and original file removed. CID: $CID"
+}
+
+# Main script
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 [--dont-encrypt] filename.ext"
+    exit 1
+fi
+
+# Argument parsing
+ENCRYPT=true
+if [ "$1" = "--dont-encrypt" ]; then
+    ENCRYPT=false
+    shift
+fi
+
+FILENAME=$1
+
+
+# Check if the filename starts with '@.'
+if [ "${FILENAME#@.}" = "$FILENAME" ]; then
+    # Encrypt the file if required
+    if [ "$ENCRYPT" = true ]; then
+        $ENCRYPT_SCRIPT "$FILENAME"
+        if [ $? -ne 0 ]; then
+            echo "Encryption failed. Exiting."
+            exit 1
+        fi
+        FILENAME=".$FILENAME.gpg"
+    fi
+    echo "$FILENAME"
+    add_to_ipfs "$FILENAME"
+else
+    echo "Filename starts with @. Skipping."
+fi
+
