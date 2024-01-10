@@ -51,6 +51,8 @@ fi
 
 FILENAME=$1
 
+PERMISSIONS=$(stat -c %a "$FILENAME")
+ORIGINAL_TIME=$(stat -c %y "$FILENAME")
 
 # Check if the filename starts with '@.'
 if [ "${FILENAME#@.}" = "$FILENAME" ]; then
@@ -65,6 +67,18 @@ if [ "${FILENAME#@.}" = "$FILENAME" ]; then
     fi
     echo "$FILENAME"
     add_to_ipfs "$FILENAME"
+
+    if [ $? -eq 0 ]; then
+        # Apply the same permissions to the encrypted file
+        FILENAME="@.$FILENAME"
+        chmod "$PERMISSIONS" "$FILENAME"
+        touch -d "$ORIGINAL_TIME" "$FILENAME"
+    else
+        echo "Adding to IPFS failed for $FILENAME"
+        exit 1
+    fi
+
+
 else
     echo "Filename starts with @. Skipping."
 fi

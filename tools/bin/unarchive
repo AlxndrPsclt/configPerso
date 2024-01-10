@@ -29,10 +29,13 @@ download_from_ipfs() {
     if [ $? -ne 0 ]; then
         echo "Error: File download from IPFS failed."
         exit 1
+    else
+        chmod "$PERMISSIONS" "$FILENAME"
+        touch -d "$ORIGINAL_TIME" "$FILENAME"
     fi
 
     # Remove CID file
-    echo rm $CID_FILE
+    rm "$CID_FILE"
 
     echo "$FILENAME"
     if [ "${FILENAME#.}" != "$FILENAME" ]; then
@@ -51,6 +54,9 @@ if [ "$#" -ne 1 ]; then
 fi
 
 FILENAME=$1
+
+PERMISSIONS=$(stat -c %a "$FILENAME")
+ORIGINAL_TIME=$(stat -c %y "$FILENAME")
 
 # Check if the filename starts with '@'
 if [ "${FILENAME#@.}" != "$FILENAME" ]; then

@@ -18,13 +18,6 @@ fi
 PERMISSIONS=$(stat -c %a "$FILE")
 ORIGINAL_TIME=$(stat -c %y "$FILE")
 
-# Create backup directory if it doesn't exist
-BACKUP_DIR="/tmp/backups"
-mkdir -p "$BACKUP_DIR"
-
-# Backup the file
-cp "$FILE" "$BACKUP_DIR"
-
 # Encrypt the file
 gpg --encrypt --recipient etrnl@etrnl.etrnl "$FILE"
 
