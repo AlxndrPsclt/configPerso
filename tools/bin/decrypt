@@ -14,14 +14,20 @@ if [ ! -f "$ENCRYPTED_FILE" ] || [ "${ENCRYPTED_FILE##*.}" != "gpg" ]; then
     exit 1
 fi
 
-# Get the file permissions of the encrypted file
-PERMISSIONS=$(stat -c %a "$ENCRYPTED_FILE")
-ORIGINAL_TIME=$(stat -c %y "$ENCRYPTED_FILE")
+# Extract directory, filename, and extension
+DIR_PATH=$(dirname "$ENCRYPTED_FILE")
+FILE_NAME=$(basename "$ENCRYPTED_FILE")
+
+# Change to the file's directory
+cd "$DIR_PATH" || exit
+
+# Get the file permissions and original time
+PERMISSIONS=$(stat -c %a "$FILE_NAME")
+ORIGINAL_TIME=$(stat -c %y "$FILE_NAME")
 
 # Decrypt the file
-
-DECRYPTED_FILE="${ENCRYPTED_FILE%.gpg}"
-gpg --local-user etrnl@etrnl.etrnl --decrypt "$ENCRYPTED_FILE" > "$DECRYPTED_FILE"
+DECRYPTED_FILE="${FILE_NAME%.gpg}"
+gpg --local-user etrnl@etrnl.etrnl --decrypt "$FILE_NAME" > "$DECRYPTED_FILE"
 
 # Check if decryption was successful
 if [ $? -eq 0 ]; then
@@ -35,8 +41,8 @@ if [ $? -eq 0 ]; then
     fi
 
     # Remove the encrypted file
-    rm "$ENCRYPTED_FILE"
+    rm "$FILE_NAME"
 else
-    echo "Decryption failed for $ENCRYPTED_FILE"
+    echo "Decryption failed for $FILE_NAME"
     exit 1
 fi

@@ -49,7 +49,15 @@ if [ "$1" = "--dont-encrypt" ]; then
     shift
 fi
 
-FILENAME=$1
+FILEPATH=$1
+
+# Extract directory, filename, and extension
+DIRPATH=$(dirname "$FILEPATH")
+FILENAME=$(basename "$FILEPATH")
+
+# Change to the file's directory
+cd "$DIRPATH" || exit
+
 
 PERMISSIONS=$(stat -c %a "$FILENAME")
 ORIGINAL_TIME=$(stat -c %y "$FILENAME")

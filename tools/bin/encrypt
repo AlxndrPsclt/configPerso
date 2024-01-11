@@ -14,22 +14,29 @@ if [ ! -f "$FILE" ]; then
     exit 1
 fi
 
-# Get the file permissions
-PERMISSIONS=$(stat -c %a "$FILE")
-ORIGINAL_TIME=$(stat -c %y "$FILE")
+# Extract directory, filename, and extension
+DIR_PATH=$(dirname "$FILE")
+FILE_NAME=$(basename "$FILE")
+
+# Change to the file's directory
+cd "$DIR_PATH" || exit
+
+# Get the file permissions and original time
+PERMISSIONS=$(stat -c %a "$FILE_NAME")
+ORIGINAL_TIME=$(stat -c %y "$FILE_NAME")
 
 # Encrypt the file
-gpg --encrypt --recipient etrnl@etrnl.etrnl "$FILE"
+gpg --encrypt --recipient etrnl@etrnl.etrnl "$FILE_NAME"
 
 # Check if encryption was successful
 if [ $? -eq 0 ]; then
-    # Apply the same permissions to the encrypted file
-    chmod "$PERMISSIONS" "$FILE.gpg"
-    mv "$FILE.gpg" ".$FILE.gpg"
-    touch -d "$ORIGINAL_TIME" ".$FILE.gpg"
+    # Apply the same permissions to the encrypted file and rename
+    chmod "$PERMISSIONS" "$FILE_NAME.gpg"
+    mv "$FILE_NAME.gpg" ".$FILE_NAME.gpg"
+    touch -d "$ORIGINAL_TIME" ".$FILE_NAME.gpg"
 
     # Remove the original file
-    rm "$FILE"
+    rm "$FILE_NAME"
 else
     echo "Encryption failed for $FILE"
     exit 1
