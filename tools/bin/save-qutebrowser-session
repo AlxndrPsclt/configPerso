@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+yq e '.windows[].tabs[].history[] | [{"url": .url, "title": .title, "last_visited": .last_visited}]' -o=yaml /home/alex/.local/share/qutebrowser/sessions/_autosave.yml > /home/alex/notes/data/urls/_session.yml
+merge-yml-urls -o /home/alex/notes/data/urls/session.yml /home/alex/notes/data/urls/session.yml /home/alex/notes/data/urls/_session.yml
+rm /home/alex/notes/data/urls/_session.yml

@@ -1,93 +1,37 @@
 #!/bin/sh
 
-# Configuration
-CONFIG_FILE="/home/alex/.config/perso/tools/bin/config.yml"
-ENCRYPT_SCRIPT="/home/alex/.config/perso/tools/bin/encrypt" # Replace with the actual path to your encryption script
+archiveFile="/home/alex/.config/perso/tools/bin/archive.one" # Replace with the actual path to archiveFile.sh
 
-# Function to read value from YAML file
-read_yaml() {
-    yq e ".$1" $CONFIG_FILE
-}
 
-# Function to add file to IPFS
-add_to_ipfs() {
-    FILENAME=$1
-    echo $FILENAME
-    OUTPUT_FILE="@.${FILENAME}"
-    echo $OUTPUT_FILE
-    IPFS_NODE=$(read_yaml "ipfs.node_add_address")
-
-    # Add file to IPFS using HTTP API
-    RESPONSE=$(curl -s -X POST -F file=@"$FILENAME" $IPFS_NODE/api/v0/add)
-
-    echo "$RESPONSE"
-
-    # Check if the response contains a valid CID
-    CID=$(echo $RESPONSE | cut -d '"' -f 8)
-    if [ -z "$CID" ] || [ "$CID" = "null" ]; then
-        echo "Error: File addition to IPFS failed."
-        exit 1
-    fi
-
-    # Save CID to a file and remove the original file
-    echo $CID > "$OUTPUT_FILE"
-    echo $CID
-    rm "$FILENAME"
-    echo "File added and original file removed. CID: $CID"
-}
-
-# Main script
-if [ "$#" -lt 1 ]; then
-    echo "Usage: $0 [--dont-encrypt] filename.ext"
+# Check if a path is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path>"
     exit 1
 fi
 
-# Argument parsing
-ENCRYPT=true
-if [ "$1" = "--dont-encrypt" ]; then
-    ENCRYPT=false
-    shift
+TARGET_PATH=$1
+
+# Check if the path exists
+if [ ! -e "$TARGET_PATH" ]; then
+    echo "Path not found: $TARGET_PATH"
+    exit 1
 fi
 
-FILEPATH=$1
+# Function to check filename and archive
+check_and_archive() {
+    file=$1
+    # Check if file starts with @..
+    sh "$archiveFile" "$file"
+}
 
-# Extract directory, filename, and extension
-DIRPATH=$(dirname "$FILEPATH")
-FILENAME=$(basename "$FILEPATH")
+export check_and_archive
+export archiveFile
 
-# Change to the file's directory
-cd "$DIRPATH" || exit
+# If path is a file
+if [ -f "$TARGET_PATH" ]; then
+    check_and_archive "$TARGET_PATH"
 
-
-PERMISSIONS=$(stat -c %a "$FILENAME")
-ORIGINAL_TIME=$(stat -c %y "$FILENAME")
-
-# Check if the filename starts with '@.'
-if [ "${FILENAME#@.}" = "$FILENAME" ]; then
-    # Encrypt the file if required
-    if [ "$ENCRYPT" = true ]; then
-        $ENCRYPT_SCRIPT "$FILENAME"
-        if [ $? -ne 0 ]; then
-            echo "Encryption failed. Exiting."
-            exit 1
-        fi
-        FILENAME=".$FILENAME.gpg"
-    fi
-    echo "$FILENAME"
-    add_to_ipfs "$FILENAME"
-
-    if [ $? -eq 0 ]; then
-        # Apply the same permissions to the encrypted file
-        FILENAME="@.$FILENAME"
-        chmod "$PERMISSIONS" "$FILENAME"
-        touch -d "$ORIGINAL_TIME" "$FILENAME"
-    else
-        echo "Adding to IPFS failed for $FILENAME"
-        exit 1
-    fi
-
-
-else
-    echo "Filename starts with @. Skipping."
+# If path is a directory
+elif [ -d "$TARGET_PATH" ]; then
+    find "$TARGET_PATH" -type f -print0 | parallel -0 'file={}; sh '"$archiveFile"' "$file";'
 fi
-

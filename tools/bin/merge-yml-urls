@@ -1,0 +1,36 @@
+#!/bin/sh
+
+output_to_file=false
+output_file=""
+
+# Parse command line arguments
+while getopts "o:" opt; do
+  case $opt in
+    o)
+      output_to_file=true
+      output_file="$OPTARG"
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+# Check for the correct number of input files
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 [-o output_file] <file1> <file2>"
+    exit 1
+fi
+
+file1="$1"
+file2="$2"
+
+# Merge using yq and remove duplicates
+if [ "$output_to_file" = true ]; then
+  yq e '. += load("'"$file2"'") | unique_by(.url)' "$file1" > "$output_file"
+else
+  yq e '. += load("'"$file2"'") | unique_by(.url)' "$file1"
+fi

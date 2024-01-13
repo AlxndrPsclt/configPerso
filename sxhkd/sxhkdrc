@@ -5,7 +5,7 @@ super + u
   urxvt
 
 super + i
-  qutebrowser
+  qutebrowser -R
 
 super + d
   dmenu_run

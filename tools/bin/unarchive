@@ -1,77 +1,39 @@
 #!/bin/sh
 
-# Configuration
-CONFIG_FILE="/home/alex/.config/perso/tools/bin/config.yml"
-DECRYPT_SCRIPT="/home/alex/.config/perso/tools/bin/decrypt" # Replace with the actual path to your encryption script
+unarchiveFile="/home/alex/.config/perso/tools/bin/unarchive.one" 
 
-# Function to read value from YAML file
-read_yaml() {
-    yq e ".$1" $CONFIG_FILE
-}
 
-# Function to download file from IPFS
-download_from_ipfs() {
-    CID_FILE=$1
-    echo "CID_FILE: $CID_FILE"
-    FILENAME_AFTER_IPFS_DOWNLOAD=${CID_FILE#@.}
-    echo "FILENAME_AFTER_IPFS_DOWNLOAD: $FILENAME_AFTER_IPFS_DOWNLOAD"
-    IPFS_NODE=$(read_yaml "ipfs.node_get_address")
-
-    # Read CID from file
-    CID=$(cat "$CID_FILE")
-    echo "CID: $CID"
-
-    # Download file from IPFS using wget
-    echo curl -L "$IPFS_NODE/ipfs/$CID" -o "$FILENAME_AFTER_IPFS_DOWNLOAD"
-    curl -L "$IPFS_NODE/ipfs/$CID" -o "$FILENAME_AFTER_IPFS_DOWNLOAD"
-    #curl -L "$IPFS_NODE/ipfs/$CID" -o "$FILENAME_AFTER_IPFS_DOWNLOAD"
-
-    # Check if the download was successful
-    if [ $? -ne 0 ]; then
-        echo "Error: File download from IPFS failed."
-        exit 1
-    else
-        chmod "$PERMISSIONS" "$FILENAME_AFTER_IPFS_DOWNLOAD"
-        touch -d "$ORIGINAL_TIME" "$FILENAME_AFTER_IPFS_DOWNLOAD"
-    fi
-
-    # Remove CID file
-    rm "$CID_FILE"
-
-    if [ "${FILENAME_AFTER_IPFS_DOWNLOAD#.}" != "$FILENAME_AFTER_IPFS_DOWNLOAD" ]; then
-      $DECRYPT_SCRIPT "$FILENAME_AFTER_IPFS_DOWNLOAD"
-    else
-      echo "Error: Filename does not start with ."
-    fi
-
-    echo "File downloaded from IPFS and CID file removed."
-}
-
-# Main script
+# Check if a path is provided
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 @..filename.ext"
+    echo "Usage: $0 <path>"
     exit 1
 fi
 
+TARGET_PATH=$1
 
-FILEPATH=$1
-echo $FILEPATH
+# Check if the path exists
+if [ ! -e "$TARGET_PATH" ]; then
+    echo "Path not found: $TARGET_PATH"
+    exit 1
+fi
 
-# Extract directory, filename, and extension
-DIRPATH=$(dirname "$FILEPATH")
-FILENAME=$(basename "$FILEPATH")
+# Function to check filename and archive
+check_and_unarchive() {
+    file=$1
+    # Check if file starts with @..
+    sh "$unarchiveFile" "$file"
+}
 
-# Change to the file's directory
-cd "$DIRPATH" || exit
+export check_and_unarchive
+export unarchiveFile
 
-PERMISSIONS=$(stat -c %a "$FILENAME")
-ORIGINAL_TIME=$(stat -c %y "$FILENAME")
+# If path is a file
+if [ -f "$TARGET_PATH" ]; then
+    check_and_unarchive "$TARGET_PATH"
 
-# Check if the filename starts with '@'
-if [ "${FILENAME#@.}" != "$FILENAME" ]; then
-    echo "$FILENAME"
-    download_from_ipfs "$FILENAME"
-else
-    echo "Error: Filename does not start with @."
+# If path is a directory
+elif [ -d "$TARGET_PATH" ]; then
+    echo "Unarchiving $TARGET_PATH"
+    find "$TARGET_PATH" -type f -name "@..*" -print0 | parallel -0 'file={}; sh '"$unarchiveFile"' "$file";'
 fi
 
