@@ -30,7 +30,7 @@ file2="$2"
 
 # Merge using yq and remove duplicates
 if [ "$output_to_file" = true ]; then
-  yq e '. += load("'"$file2"'") | unique_by(.url)' "$file1" > "$output_file"
+  yq e '. += load("'"$file2"'") | unique_by(.url) | sort_by(.date) | reverse' "$file1" > "$output_file"
 else
-  yq e '. += load("'"$file2"'") | unique_by(.url)' "$file1"
+  yq e '. += load("'"$file2"'") | unique_by(.url) | sort_by(.date) | reverse' "$file1"
 fi

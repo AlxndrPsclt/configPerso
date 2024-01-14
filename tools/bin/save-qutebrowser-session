@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
-yq e '.windows[].tabs[].history[] | [{"url": .url, "title": .title, "last_visited": .last_visited}]' -o=yaml /home/alex/.local/share/qutebrowser/sessions/_autosave.yml > /home/alex/notes/data/urls/_session.yml
-merge-yml-urls -o /home/alex/notes/data/urls/session.yml /home/alex/notes/data/urls/session.yml /home/alex/notes/data/urls/_session.yml
+yq e '.windows[].tabs[].history[] | [{"url": .url, "title": .title, "date": .last_visited}]' -o=yaml /home/alex/.local/share/qutebrowser/sessions/_autosave.yml > /home/alex/notes/data/urls/_session.yml
+merge-yml-urls -o /home/alex/notes/data/urls/session2.yml /home/alex/notes/data/urls/session.yml /home/alex/notes/data/urls/_session.yml
+mv /home/alex/notes/data/urls/session2.yml /home/alex/notes/data/urls/session.yml
 rm /home/alex/notes/data/urls/_session.yml
