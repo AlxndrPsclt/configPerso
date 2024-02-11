@@ -211,7 +211,7 @@ config.set('content.register_protocol_handler', False, 'https://mail.google.com?
 # Number of commands to save in the command history. 0: no history / -1:
 # unlimited
 # Type: Int
-c.completion.cmd_history_max_items = 1000
+c.completion.cmd_history_max_items = 10000
 
 # Height (in pixels or as percentage of the window) of the completion.
 # Type: PercOrInt
@@ -774,4 +774,7 @@ config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.
 
 config.bind(',ap', 'config-cycle content.user_stylesheets /home/alex/.config/perso/qutebrowser/themes/custom_css/nord-dark-all-sites.css ""')
 
+config.set('content.autoplay', False)
+
 config.load_autoconfig(False)
+

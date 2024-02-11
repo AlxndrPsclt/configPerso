@@ -96,7 +96,9 @@
       - pass
       - pass-contrib
       - libqrencode
-      - light
+        # - light
+        # - replace with installation of backlight_control (currntly compiled from source (minimalist program)
+        # Attention: needs to be set in doas.conf to allow normal user to change brightness
       - sxiv
       - xsel
       - scrot

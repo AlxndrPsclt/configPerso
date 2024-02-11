@@ -14,7 +14,7 @@ function marks {
 }
 
 function svim {
-  $EDITOR $(fd --type f . ./ | fzf)
+  $EDITOR "$(fd --type f . ./ | fzf)"
 }
 function scd {
   cd $(fd --type d . ./ | fzf)

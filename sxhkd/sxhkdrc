@@ -33,6 +33,9 @@ super + grave
 super + Tab
   bspc node -f $(wmctrl -l | dmenu -i | cut -f 1 -d " ")
 
+super + l
+  gllock
+
 super + a
   ~/.config/perso/tools/actions/scripts/sound/MIXER
 
@@ -72,10 +75,10 @@ super + @Print
   /home/alex/.config/perso/tools/actions/scripts/screenshots/SELECT_AREA
 
 XF86MonBrightnessUp
-  light -A 10
+  backlight_control +5
 
 XF86MonBrightnessDown
-  light -U 10
+  backlight_control -5
 
 super + s; l; r
   "/home/alex/.config/perso/tools/actions/scripts/windows/⇄ LEFT AND RIGHT"

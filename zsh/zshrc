@@ -187,4 +187,4 @@ export PATH="$PNPM_HOME:$PATH"
 export GOPATH="/home/alex/apps/environments/go"
 
 #eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+#eval "$(zoxide init zsh)"

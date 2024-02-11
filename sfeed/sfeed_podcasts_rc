@@ -9,4 +9,6 @@ feeds() {
   feed "Rayzeh" "https://www.youtube.com/feeds/videos.xml?channel_id=UC7t3crQwaLij5pULT1rBSBQ"
   feed "Techno District" "https://www.youtube.com/feeds/videos.xml?channel_id=UCiebvVIoBUyvdGf6AM0TYEg"
   feed "303Lovers" "https://www.youtube.com/feeds/videos.xml?channel_id=UC2FTBJd2QgYNskwcFl83T4g"
+  feed "Thinking-Ape" "https://www.youtube.com/feeds/videos.xml?channel_id=UCo1qRcO1OehgkOD_fHsu_uQ"
+  feed "Educational Science" "https://www.youtube.com/feeds/videos.xml?channel_id=UCwY7LTu8sMLVGXlqFcsYJ5w"
 }

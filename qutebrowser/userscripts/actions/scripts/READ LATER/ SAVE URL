@@ -7,5 +7,6 @@ notify-send "to: $QUTE_TITLE"
 bookmarking_date=$(date -Iminutes)
 
 yq e -i ". += [{\"title\": \"$QUTE_TITLE\", \"url\": \"$QUTE_URL\", \"date\": \"$bookmarking_date\"}]" /home/alex/notes/data/urls/bookmarks.yml
+cat "$QUTE_TEXT" > /tmp/qute-text.txt
 
 notify-send "Saved $QUTE_TITLE"

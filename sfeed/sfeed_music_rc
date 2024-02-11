@@ -20,9 +20,6 @@ feeds() {
   feed "Vampyrah Broadcasting" "https://www.youtube.com/feeds/videos.xml?channel_id=UCEtBDpCIe9_tKvxdXWfwTVA"
   feed "Vampyrah Broadcasting" "https://www.youtube.com/feeds/videos.xml?channel_id=UCEtBDpCIe9_tKvxdXWfwTVA"
   feed "UNDERGR8UND" "https://www.youtube.com/feeds/videos.xml?channel_id=UCa_RnmlK35DE2bmh7_kFCVw"
-}
-  feed "" ""
-  feed "" ""
   feed "A9000" "https://www.youtube.com/feeds/videos.xml?channel_id=UCIx1VUYp_35IhWE3s-sc1pQ"
   feed "Crescent London" "https://www.youtube.com/feeds/videos.xml?channel_id=UCx9XW7BfcvgUjTVEF71DDgQ"
   feed "Arben beratshuli" "https://www.youtube.com/feeds/videos.xml?channel_id=UCoGZDGHs-nqmOPWLPTFC03A"
@@ -39,4 +36,8 @@ feeds() {
   feed "PrologueMusic" "https://www.youtube.com/feeds/videos.xml?channel_id=UCVRYhvRhOeuAkuAnmPpnVlA"
   feed "Neutral Archive" "https://www.youtube.com/feeds/videos.xml?channel_id=UC3m_JHdic4XoJNOoTOiaysg"
   feed "Compost Records" "https://www.youtube.com/feeds/videos.xml?channel_id=UCvg5ARam75rUX6Mv7BUHHfw"
+  feed "You Chew" "https://www.youtube.com/feeds/videos.xml?channel_id=UCOWZUKIyZ5qmKJ4MlqXjQfQ"
+  feed "Buddha's Lounge" "https://www.youtube.com/feeds/videos.xml?channel_id=UCWaZJ2Mu5zjfhZoEEMxs1MQ"
+  feed "Flock of Nazguls" "https://www.youtube.com/feeds/videos.xml?channel_id=UC3A-kapKRzdOpD7kMrd3Hdg"
+  feed "TAKEO SUZUKI Electronic Music" "https://www.youtube.com/feeds/videos.xml?channel_id=UCT2jd_TQIavx18GRtADTtWA"
 }

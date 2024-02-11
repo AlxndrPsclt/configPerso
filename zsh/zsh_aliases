@@ -6,6 +6,7 @@ alias l='ls -CF'
 alias llast='ls -Artls | tail -n5'
 alias lll='ls -Ahtls'
 alias lll5='ls -Ahrtls | tail -n5 | tac'
+alias l.='ls -d .* --color=auto'
 
 alias ..='cd ..'
 alias ...='cd ../../'
@@ -112,3 +113,10 @@ alias note='vim $(date +%F+%T).md'
 
 alias acmd='docker run -it -v $(pwd):/workdir ac'
 
+insert_command_output() {
+    # Replace 'your_command_here' with the command you want to run
+    local output="$(fzf)"
+    LBUFFER+="Coucou $output au revoir"
+}
+zle -N insert_command_output
+bindkey '^X^O' insert_command_output

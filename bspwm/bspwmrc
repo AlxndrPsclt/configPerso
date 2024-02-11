@@ -34,6 +34,9 @@ bspc config gapless_monocle      true
 
 bspc rule -a main-term desktop=^2
 st -c main-term tmux &
+bspc rule -a main-browser desktop=^3
+# qutebrowser -R &
+(echo "/home/alex/.local/share/qutebrowser/sessions/_autosave.yml" | entr save-qutebrowser-session) &
 
 screenwidth=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
 screenheight=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $4}')
