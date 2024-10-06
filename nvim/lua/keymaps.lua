@@ -31,6 +31,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<Left>',  ':BufferPrevious<cr>', { desc = 'Move focus to previous buffer' })
+vim.keymap.set('n', '<Right>', ':BufferNext<cr>', { desc = 'Move focus to next buffer'     })
+vim.keymap.set('n', 'O', ':Telescope find_files<cr>', { desc = 'Fuzzy open file with O'})
+vim.keymap.set('n', '<leader>c', ':Telescope commands<cr>', { desc = 'Fuzzy commands.'})
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

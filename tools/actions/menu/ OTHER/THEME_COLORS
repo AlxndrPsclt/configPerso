@@ -3,6 +3,6 @@
 selected_gif=$(nsxiv -N preview -to ~/.config/perso/colors/palette/*.gif)
 selected_color=$(echo "$selected_gif" | cut -d '-' -f2)
 if [[ -n $selected_color ]]; then
-  echo "$selected_color" | xclip -selection clipboard -i
+  echo "$selected_color" | wl-copy 
   notify-send -i "$selected_gif" " Copied color $selected_color"
 fi

@@ -73,7 +73,7 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym Control+Shift+q kill
+    bindsym $mod+Shift+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -213,7 +213,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 default_border pixel 0
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 2
+
+client.focused "#ffffff" "#8fbcbb" "#3b4352" "#9f1209"
+client.unfocused "#3b4352" "#3b4352" "#ffffff" "#9f1209"
+
+hide_edge_borders smart
+
+
 
 
 #
@@ -237,9 +245,10 @@ for_window [class="^.*"] border pixel 0
 input * xkb_options compose:ralt
 
 for_window [title="Pulsemixer"] floating enable
-for_window [title="Pulsemixer"] border pixel 2
-for_window [title="Pulsemixer"] resize set 1920 320
-for_window [title="Pulsemixer"] move position 3 0
+for_window [title="Pulsemixer"] border pixel 5
+for_window [title="Pulsemixer"] resize set 1366 320
+for_window [title="Pulsemixer"] move position 1 0
+for_window [app_id="sclang" ] move workspace 6
 
 
 include /etc/sway/config.d/*

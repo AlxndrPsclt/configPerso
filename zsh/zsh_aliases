@@ -35,7 +35,7 @@ alias editsfeed='vim $F_CONFIG/sfeed/sfeed_music_rc'
 alias editinstall="vim $F_CONFIG/install/roles/*/tasks/main.yml $F_CONFIG/install/roles/*/vars/main.yml"
 alias editactions="vim $F_CONFIG/tools/actions/actions.sh $F_CONFIG/tools/actions"
 alias editdata="vim $F_CONFIG/tools/actions/data/*"
-alias editmusic='vim ~/notes/trax.yml'
+alias editmusic="vim ~/notes/trax.yml $F_CONFIG/tools/actions/data/music_tags"
 
 #TODO: Create a global config file for all these parameters
 alias versions="$F_CONFIG/tools/versions.sh"

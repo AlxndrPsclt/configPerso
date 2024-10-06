@@ -43,4 +43,8 @@ feeds() {
   feed "Sounds of the Dawn" "https://www.youtube.com/feeds/videos.xml?channel_id=UC7brSEzOeLLb0l3QhAtdkgw"
   feed "Photon Swim Break" "https://www.youtube.com/feeds/videos.xml?channel_id=UCtVytf_TfA-ARa9o_rA2JrQ"
   feed "OBSIDIAN SOUNDFIELDS" "https://www.youtube.com/feeds/videos.xml?channel_id=UC7GZzOWjuG4wMua82uEguXQ"
+  feed "Alberth beat" "https://www.youtube.com/feeds/videos.xml?channel_id=UCauUJ8HGgH6JNftbE7HuvDQ"
+  feed "Spa In Disco Records / Fran Deeper" "https://www.youtube.com/feeds/videos.xml?channel_id=UC9e8BTlAvx0UOQLqMh29VTg"
+  feed "OnAScaleof1to10" "https://www.youtube.com/feeds/videos.xml?channel_id=UCGmIuTdopqESR-z7Mb727Dw"
+  feed "Rainwater Enema" "https://www.youtube.com/feeds/videos.xml?channel_id=UCYLuW_epoTKmPfl6x1vwPZg"
 }
