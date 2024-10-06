@@ -11,4 +11,5 @@ feeds() {
   feed "303Lovers" "https://www.youtube.com/feeds/videos.xml?channel_id=UC2FTBJd2QgYNskwcFl83T4g"
   feed "Thinking-Ape" "https://www.youtube.com/feeds/videos.xml?channel_id=UCo1qRcO1OehgkOD_fHsu_uQ"
   feed "Educational Science" "https://www.youtube.com/feeds/videos.xml?channel_id=UCwY7LTu8sMLVGXlqFcsYJ5w"
+  feed "The University of Chicago" "https://www.youtube.com/feeds/videos.xml?channel_id=UCGINcKuFbysZAslgL46KeOA"
 }

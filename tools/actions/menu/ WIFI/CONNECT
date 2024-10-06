@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+CHOSEN_NETWORK=$(nmcli -f NAME c -t | dmenu -i)
+
+if [[ ! $CHOSEN_NETWORK ]]; then
+	notify-send "No network chosen"
+	exit 1
+fi
+
+notify-send "Connecting to $CHOSEN_NETWORK"
+nmcli c up "$CHOSEN_NETWORK" # TODO: Will not work now because you need to be root to activate a connexion; change this

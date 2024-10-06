@@ -9,21 +9,21 @@
       - ncurses    #necessary for st that need tic
     state: present
 
-- name: Install packages for lanching desktop
-  become: yes
-  apk:
-    update_cache: yes
-    name:
-      - xorg-server
-      - xorg-server-dev
-        #- xorg-xinit
-      - lightdm
-      - bspwm
-      - sxhkd
-      - xdpyinfo
-      - setxkbmap
-      - rxvt-unicode
-    state: present
+#- name: Install packages for lanching desktop
+#  become: yes
+#  apk:
+#    update_cache: yes
+#    name:
+#      - xorg-server
+#      - xorg-server-dev
+#        #- xorg-xinit
+#      - lightdm
+#      - bspwm
+#      - sxhkd
+#      - xdpyinfo
+#      - setxkbmap
+#      - rxvt-unicode
+#    state: present
 
 - name: Install packages for system desktop utilities
   become: yes
@@ -31,22 +31,31 @@
     name:
       - dbus
       - dbus-openrc
-      - dbus-x11
-      - xclip
+      - mesa
+      - mesa-dri-gallium
+      - mesa-va-gallium
+      #- dbus-x11
+      #- xclip
         #- wmctrl
       - tlp
-      - redshift
-      - font-iosevka-nerd
-      - picom
-      - libnotify
-      - dunst
-#      - task
+      #- redshift
+      - font-iosevka
+      #- picom
+      #- libnotify
+      # - dunst
+      - mako
+      - swaybg
+      - sshfs
+      - libqrencode
+      - libqrencode-tools
+      # - task
     state: present
 
 - name: Install packages for audio
   become: yes
   apk:
     name:
+      - bluez
       - pipewire
       - wireplumber
         #- bluez
@@ -99,9 +108,9 @@
         # - light
         # - replace with installation of backlight_control (currntly compiled from source (minimalist program)
         # Attention: needs to be set in doas.conf to allow normal user to change brightness
-      - sxiv
-      - xsel
-      - scrot
+      #- sxiv
+      #- xsel
+      #- scrot
     state: present
 
 - name: Install packages for desktops documents suite
@@ -117,10 +126,10 @@
   become: yes
   apk:
     name:
-      - feh
+      #- feh
       - imagemagick
       - mpv
-      - youtube-dl
+      - yt-dlp
       - ffmpeg
     state: present
 
@@ -232,53 +241,53 @@
 
 
 
-- name: Clone personal minimalistic greeter
-  git:
-    repo: "git@github.com:AlxndrPsclt/vitamin-greeter.git"
-    dest: "{{ HOME }}/apps/vitamin-greeter"
-    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
-
-- name: Install packages for mini (??) greeter
-  become: yes
-  apk:
-    name:
-      - autoconf
-      - automake
-      - gtk+3.0-dev
-      - lightdm-dev
-    state: present
-
-- name: Compile minimalistic greeter
-  become: yes
-  shell: ./makeinstall.sh
-  args:
-    chdir: "{{ HOME }}/apps/vitamin-greeter"
-    #creates: somelog.txt
-
-
-- name: Copy lightdm.conf files
-  #There is a problem here: Xsession must be executable for the system to boot after login sccreen
-  become: yes
-  copy:
-    src: "{{ HOME }}/.config/perso/lightdm/{{ item }}"
-    dest: "/etc/lightdm/{{ item }}"
-    remote_src: yes
-    owner: root
-    group: root
-    mode: 644
-    backup: no
-  loop:
-    - "lightdm.conf"
-    - "lightdm-mini-greeter.conf"
-    - "Xsession"
-
-- name: Configures lightdm greeter to log in specified user
-  become: yes
-  lineinfile:
-    dest: /etc/lightdm/lightdm-mini-greeter.conf
-    state: present
-    regexp: '^user = alex'
-    line: "user = {{ USER }}"
+#- name: Clone personal minimalistic greeter
+#  git:
+#    repo: "git@github.com:AlxndrPsclt/vitamin-greeter.git"
+#    dest: "{{ HOME }}/apps/vitamin-greeter"
+#    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+#
+#- name: Install packages for mini (??) greeter
+#  become: yes
+#  apk:
+#    name:
+#      - autoconf
+#      - automake
+#      - gtk+3.0-dev
+#      - lightdm-dev
+#    state: present
+#
+#- name: Compile minimalistic greeter
+#  become: yes
+#  shell: ./makeinstall.sh
+#  args:
+#    chdir: "{{ HOME }}/apps/vitamin-greeter"
+#    #creates: somelog.txt
+#
+#
+#- name: Copy lightdm.conf files
+#  #There is a problem here: Xsession must be executable for the system to boot after login sccreen
+#  become: yes
+#  copy:
+#    src: "{{ HOME }}/.config/perso/lightdm/{{ item }}"
+#    dest: "/etc/lightdm/{{ item }}"
+#    remote_src: yes
+#    owner: root
+#    group: root
+#    mode: 644
+#    backup: no
+#  loop:
+#    - "lightdm.conf"
+#    - "lightdm-mini-greeter.conf"
+#    - "Xsession"
+#
+#- name: Configures lightdm greeter to log in specified user
+#  become: yes
+#  lineinfile:
+#    dest: /etc/lightdm/lightdm-mini-greeter.conf
+#    state: present
+#    regexp: '^user = alex'
+#    line: "user = {{ USER }}"
 
 - name: enable dbus
   become: yes
@@ -287,12 +296,12 @@
     state: started
     enabled: yes
 
-- name: enable service lightdm
-  become: yes
-  service:
-    name: lightdm
-    state: started
-    enabled: yes
+#- name: enable service lightdm
+#  become: yes
+#  service:
+#    name: lightdm
+#    state: started
+#    enabled: yes
 
 
 
@@ -337,6 +346,25 @@
     update_cache: yes
 
 
+- name: Install Oh My Zsh
+  shell: |
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: ~/.oh-my-zsh
+
+- name: Clone spaceship-prompt theme
+  git:
+    repo: 'https://github.com/spaceship-prompt/spaceship-prompt.git'
+    dest: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship-prompt'
+    depth: 1
+    force: yes
+
+- name: Symlink spaceship theme
+  file:
+    src: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship-prompt/spaceship.zsh-theme'
+    dest: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship.zsh-theme'
+    state: link
+
 
 
 
@@ -349,40 +377,40 @@
     state: directory
 
 
-- name: Clone personal dmenu source
-  git:
-    repo: "git@github.com:AlxndrPsclt/contxtl-dmenu.git"
-    dest: "{{ HOME }}/apps/suckless/contxtl-dmenu"
-    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
-
-- name: Install dependencies for dmenu
-  become: yes
-  apk:
-    update_cache: yes
-    name:
-      # - libxinerama      #Seems useless for compilation of dmenu at least?
-      - libxinerama-dev
-      - libxft-dev
-    state: present
-
-- name: Compile minimalistic launcher menu
-  become: yes
-  shell: ./makeinstall.sh
-  args:
-    chdir: "{{ HOME }}/apps/suckless/contxtl-dmenu"
-
-
-- name: Clone personal st source
-  git:
-    repo: "git@github.com:AlxndrPsclt/contxtl-st.git"
-    dest: "{{ HOME }}/apps/suckless/contxtl-st"
-    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
-
-- name: Compile minimalistic terminal
-  become: yes
-  shell: ./makeinstall.sh
-  args:
-    chdir: "{{ HOME }}/apps/suckless/contxtl-st"
+#- name: Clone personal dmenu source
+#  git:
+#    repo: "git@github.com:AlxndrPsclt/contxtl-dmenu.git"
+#    dest: "{{ HOME }}/apps/suckless/contxtl-dmenu"
+#    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+#
+#- name: Install dependencies for dmenu
+#  become: yes
+#  apk:
+#    update_cache: yes
+#    name:
+#      # - libxinerama      #Seems useless for compilation of dmenu at least?
+#      - libxinerama-dev
+#      - libxft-dev
+#    state: present
+#
+#- name: Compile minimalistic launcher menu
+#  become: yes
+#  shell: ./makeinstall.sh
+#  args:
+#    chdir: "{{ HOME }}/apps/suckless/contxtl-dmenu"
+#
+#
+#- name: Clone personal st source
+#  git:
+#    repo: "git@github.com:AlxndrPsclt/contxtl-st.git"
+#    dest: "{{ HOME }}/apps/suckless/contxtl-st"
+#    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
+#
+#- name: Compile minimalistic terminal
+#  become: yes
+#  shell: ./makeinstall.sh
+#  args:
+#    chdir: "{{ HOME }}/apps/suckless/contxtl-st"
 
 - name: Clone pinentry-dmenu
   git:

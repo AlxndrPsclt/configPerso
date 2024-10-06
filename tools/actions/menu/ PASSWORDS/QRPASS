@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+requested_pass_id=$(fd .gpg -t f --base-directory '/home/alex/.password-store' | sed 's/\.gpg$//' | dmenu -i -p 'Password category?')
+[ ! -z $requested_pass_id ] || exit 1
+requested_pass=$(pass "$requested_pass_id")
+[ ! -z "$requested_pass" ] || exit 1
+qrencode -o /tmp/qrcode.png -l M -s 4 -m 0 -t PNG --foreground=3b4252 --background=81a1c1 "$requested_pass" && \
+  notify-send -i /tmp/qrcode.png -t 20000 "Password $requested_pass_id" || notify-send "There was an error"
+rm /tmp/qrcode.png

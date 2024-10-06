@@ -283,6 +283,11 @@ sapk() {
   [[ -z "$selected_package" ]] && echo 'No package selected' || doas apk add "$selected_package"
 }
 
+sapkd() {
+  selected_package=$(apk list -I | cut -f1 -d' ' | sed -e 's/-r\d\+$//'| sed -e 's/\(.*\)-/\1 /' | cut -f1 -d' ' | fzf -m --ansi --height=95% --preview 'apk info {1}' | cut -d' ' -f1)
+  [[ -z "$selected_package" ]] && echo 'No package selected' || doas apk del "$selected_package"
+}
+
 superdiff() {
   file_to_diff=$(git diff "$@" --name-only | fzf -m --ansi --height=95% --preview 'git diff "$@" --color=always -- {-1} | bat --color=always --line-range :500')
   if [ -z $file_to_diff ];

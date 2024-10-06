@@ -1,0 +1,136 @@
+super + Return
+  st
+
+alt + Return
+  st
+
+super + u
+  urxvt
+
+super + i
+  qutebrowser -R
+
+super + d
+  dmenu_run
+
+super + space
+  /home/alex/.config/perso/tools/actions/actions.sh
+
+super + Escape
+  pkill -USR1 -x sxhkd
+
+super + {Left, Down, Up, Right}
+  bspc node -f {west,south,north,east}
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+  bspc desktop -f {prev,next}.local
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+  bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + grave
+  bspc desktop -f last
+
+super + Tab
+  bspc node -f $(wmctrl -l | dmenu -i | cut -f 1 -d " ")
+
+super + l
+  gllock
+
+super + a
+  ~/.config/perso/tools/actions/scripts/sound/MIXER
+
+# close
+super + shift + q
+  bspc node --close
+
+# kill
+super + x
+  xkill
+
+XF86Audio{Raise,Lower}Volume
+  /home/alex/.config/perso/tools/actions/scripts/sound/{UP,DOWN}
+
+XF86AudioMicMute
+  /home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE_MIC.sh
+
+XF86AudioMute
+  /home/alex/.config/perso/tools/actions/scripts/sound/.TOGGLE_MUTE.sh
+
+super + Prior
+  /home/alex/.config/perso/tools/actions/scripts/sound/UP
+
+super + Next
+  /home/alex/.config/perso/tools/actions/scripts/sound/DOWN
+
+super + p
+  /home/alex/.config/perso/tools/actions/scripts/passwords/ASK
+
+Print
+  /home/alex/.config/perso/tools/actions/scripts/screenshots/FULL_DESKTOP
+
+super + @Print
+  /home/alex/.config/perso/tools/actions/scripts/screenshots/SELECT_AREA
+
+XF86MonBrightnessUp
+  backlight_control +5
+
+XF86MonBrightnessDown
+  backlight_control -5
+
+#super + s; l; r
+#  "/home/alex/.config/perso/tools/actions/scripts/windows/⇄ LEFT AND RIGHT"
+
+#super + s; u; d
+#  "/home/alex/.config/perso/tools/actions/scripts/windows/⇅ UP AND DOWN"
+
+super + r
+  bspc node --resize right 20 0
+
+super + shift + r
+  bspc node --resize right -20 0
+
+super + v
+  bspc node --resize down 0 20
+
+super + shift + v
+  bspc node --resize down 0 -20
+
+super + shift + t
+  bspc node -t floating
+
+super + t
+  bspc node -t tiled
+
+super + f
+  bspc node -t fullscreen
+
+
+XF86AudioPlay
+  mpvctl pp
+
+XF86AudioNext
+  mpvctl next
+
+XF86AudioPrev
+  mpvctl prev
+
+shift + XF86AudioNext
+  mpvctl seek 10
+
+super + XF86AudioNext
+  mpvctl seek 30
+
+shift + super + XF86AudioNext
+  mpvctl seek 60
+
+shift + XF86AudioPrev
+  mpvctl seek -10
+
+super + XF86AudioPrev
+  mpvctl seek -30
+
+shift + super + XF86AudioPrev
+  mpvctl seek -60

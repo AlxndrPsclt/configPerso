@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+will=$(echo -e "yes\nno" | dmenu -p "Turn the computer off ?")
+
+if [[ $will == 'yes' ]]; then
+  sudo poweroff
+fi
+

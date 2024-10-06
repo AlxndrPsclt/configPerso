@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+chosen_pass=$(fd .gpg -t f -a ~/.password-store | sed 's|/home/alex/.password-store/||' | sed 's/\.gpg$//' | dmenu)
+
+if [[ ! -z $chosen_pass ]]; then
+  notify-send "Editing $chosen_pass"
+  st pass edit "$chosen_pass"
+else
+  notify-send "No password chosen"
+fi
+

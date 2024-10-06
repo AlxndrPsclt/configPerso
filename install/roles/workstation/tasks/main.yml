@@ -21,6 +21,7 @@
     update_cache: yes
     name:
       - py3-pip
+      - lsblk
       - htop
       - colordiff
       - mosh
@@ -28,7 +29,6 @@
       - the_silver_searcher
       - fzf
       - fd
-      - vifm
       - rsync
       - mlocate
         #- qrencode
@@ -43,6 +43,7 @@
       - curl
       - jq
       - yq
+      - lf
     state: present
 
 - name: Install packages for workstation 3
@@ -52,12 +53,12 @@
     name:
       - docker
       - docker-compose
-      - docker-compose-zsh-completion
+      #- docker-compose-zsh-completion
       - shadow    #Adds usermod command
       - github-cli
       - github-cli-zsh-completion
         #- wpa_supplicant
-        #- youtube-dl
+      - yt-dlp
     state: present
 
       #- name: Copy wpa_supplicant file after decrypting it
@@ -78,11 +79,11 @@
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.gitlab.priv"
 
 
-- name: Install virtualenv & cie using pip     #do not become root for this; better skip thank break something
-  pip:
-    name:
-      - virtualenv
-      - virtualenvwrapper
+#- name: Install virtualenv & cie using pip     #do not become root for this; better skip thank break something
+#  pip:
+#    name:
+#      - virtualenv
+#      - virtualenvwrapper
 #      - ansible
 #      - terminal_velocity
 
@@ -131,23 +132,23 @@
     state: link
   loop: "{{ links_to_create }}"
 
-- name: Register existence of workstation config links needing sudo
-  stat:
-    path: "{{ item.dest }}"
-  loop: "{{ links_to_create_sudo }}"
-  register: link_register_sudo
-
-- name: Remove file to create links (sudo)
-  file:
-    path: "{{ item.stat.path }}"
-    state: absent
-  loop: "{{ link_register_sudo.results }}"
-  when: item.stat.islnk is defined and item.stat.islnk == False
-
-- name: Create symbolic link for workstation tools needing sudo
-  become: true
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
-  loop: "{{ links_to_create_sudo }}"
+#- name: Register existence of workstation config links needing sudo
+#  stat:
+#    path: "{{ item.dest }}"
+#  loop: "{{ links_to_create_sudo }}"
+#  register: link_register_sudo
+#
+#- name: Remove file to create links (sudo)
+#  file:
+#    path: "{{ item.stat.path }}"
+#    state: absent
+#  loop: "{{ link_register_sudo.results }}"
+#  when: item.stat.islnk is defined and item.stat.islnk == False
+#
+#- name: Create symbolic link for workstation tools needing sudo
+#  become: true
+#  file:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    state: link
+#  loop: "{{ links_to_create_sudo }}"

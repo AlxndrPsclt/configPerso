@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+mkdir -p ~/images/screenshots
+
+scrot -s ~/images/screenshots/$(date --iso-8601='seconds').png
+#-e 'xclip -selection c -t image/png < $f'
+notify-send '  Selection screenshot taken.'

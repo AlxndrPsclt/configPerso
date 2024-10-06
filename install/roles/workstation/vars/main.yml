@@ -2,7 +2,6 @@
 # vars file for workstation
 links_to_create :
 #  - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
-  - { dest: '{{ HOME }}/.config/vifm', src: '{{ CONFIG_PERSO }}/vifm' }
   - { dest: '{{ HOME }}/.tmux.conf', src: '{{ CONFIG_PERSO }}/tmux/tmux.conf' }
   - { dest: '{{ HOME }}/.config/htop', src: '{{ CONFIG_PERSO }}/htop' }
   - { dest: '{{ HOME }}/.config/lf', src: '{{ CONFIG_PERSO }}/lf' }
@@ -12,10 +11,7 @@ links_to_create :
 
 links_to_create_sudo :
 #  - { dest: '/usr/share/bash-completion/completions/qrpass', src: '{{ CONFIG_PERSO }}/pass/qrpass' }
-#  - { dest: '/usr/local/bin/virtualpy', src: '{{ HOME }}/.config/perso/tools/virtualpy' }
 #  - { dest: '/usr/local/bin/spass', src: '{{ HOME }}/.config/perso/pass/spass' }
 #  - { dest: '/etc/resolv.conf', src: '/run/systemd/resolve/resolv.conf' }
-  - { dest: '/usr/local/bin/vifmi', src: '/home/alex/.config/perso/vifm/scripts/vifmrun' }
-#- { dest: '/etc/wpa_supplicant/wpa_supplicant-wlan0.conf', src: '/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf' }
-
-
+#  - { dest: '/usr/local/bin/vifmi', src: '/home/alex/.config/perso/vifm/scripts/vifmrun' }
+#  - { dest: '/etc/wpa_supplicant/wpa_supplicant-wlan0.conf', src: '/etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf' }

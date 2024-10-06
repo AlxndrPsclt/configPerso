@@ -16,15 +16,28 @@
       - gpgme
     state: present
 
+- name: Create .gpg directory if it does not exist
+  file:
+    path: "{{ ansible_env.HOME }}/.gpg"
+    state: directory
+
 - name: Copy gpg key from local to host, needed to decrypt pass files
   copy:
-    src: "{{ LOCAL_HOME }}/.gpg"
-    dest: "{{ HOME }}"
+    src: "{{ LOCAL_HOME }}/.gpg/basekey.gpg"
+    dest: "{{ HOME }}/.gpg"
     owner: "{{ USER }}"
     group: "wheel"
-    mode: '0744'
+    mode: '0644'
   register: new_key
 
+- name: Copy gpg key from local to host, needed to decrypt pass files
+  copy:
+    src: "{{ LOCAL_HOME }}/.gpg/basekey_sec.gpg"
+    dest: "{{ HOME }}/.gpg"
+    owner: "{{ USER }}"
+    group: "wheel"
+    mode: '0600'
+  register: new_key_sec
 
 - name: import public key
   shell: gpg --import {{ HOME }}/.gpg/basekey.gpg
@@ -43,66 +56,66 @@
 #SSH#
 #####
 
-- name: Create keys directory
-  become: yes
-  file:
-    path: "{{ HOME }}/.ssh/keys"
-    group: "wheel"
-    owner: "{{ USER }}"
-    mode: "0755"
-    state: directory
-
-- name: Copy public ssh deploy key from local to host, needed to clone configs
-  copy:
-    src: "{{ item }}"
-    dest: "{{ HOME }}/.ssh/keys/{{ item | basename }}"
-    owner: "{{ USER }}"
-    group: "wheel"
-    mode: '0755'
-  with_fileglob:
-    - '{{ LOCAL_HOME }}/.ssh/keys/*.pub'
-
-- name: Copy private ssh deploy key from local to host, needed to clone configs
-  copy:
-    src: "{{ item }}"
-    dest: "{{ HOME }}/.ssh/keys/{{ item | basename }}"
-    owner: "{{ USER }}"
-    group: "wheel"
-    mode: '0600'
-  with_fileglob:
-    - '{{ LOCAL_HOME }}/.ssh/keys/*.priv'
-
-- name: Generate local SSH keys
-  shell: "ssh-keygen -t ed25519 -f {{ HOME }}/.ssh/id_ed25519 -q -N ''"
-  args:
-    creates: "{{ HOME }}/.ssh/id_ed25519"
-
-- name: Make sure the known hosts file exists
-  file:
-    path: "{{ ssh_known_hosts_file }}"
-    state: touch
-    owner: "{{ USER }}"
-    group: "wheel"
-    mode: '0644'
-
-- name: Check host name availability
-  shell: "ssh-keygen -f {{ ssh_known_hosts_file }} -F {{ item }}"
-  loop: "{{ ssh_known_hosts }}"
-  register: ssh_known_host_results
-  ignore_errors: yes
-  changed_when: False
-
-- name: Scan the public key
-  shell: "{{ ssh_known_hosts_command}} {{ item.item }} >> {{ ssh_known_hosts_file }}"
-  with_items: "{{ ssh_known_host_results.results }}"
-  when: item.stdout == ""
-
-- name: Copy git{hub,lab} ssh config to allow interacting with the service
-  copy:
-    src: 'files/ssh_basic_config'
-    dest: "{{ HOME }}/.ssh/config"
-    owner: "{{ USER }}"
-    group: 'wheel'
-    mode: '0644'
+#- name: Create keys directory
+#  become: yes
+#  file:
+#    path: "{{ HOME }}/.ssh/keys"
+#    group: "wheel"
+#    owner: "{{ USER }}"
+#    mode: "0755"
+#    state: directory
+#
+#- name: Copy public ssh deploy key from local to host, needed to clone configs
+#  copy:
+#    src: "{{ item }}"
+#    dest: "{{ HOME }}/.ssh/keys/{{ item | basename }}"
+#    owner: "{{ USER }}"
+#    group: "wheel"
+#    mode: '0755'
+#  with_fileglob:
+#    - '{{ LOCAL_HOME }}/.ssh/keys/*.pub'
+#
+#- name: Copy private ssh deploy key from local to host, needed to clone configs
+#  copy:
+#    src: "{{ item }}"
+#    dest: "{{ HOME }}/.ssh/keys/{{ item | basename }}"
+#    owner: "{{ USER }}"
+#    group: "wheel"
+#    mode: '0600'
+#  with_fileglob:
+#    - '{{ LOCAL_HOME }}/.ssh/keys/*.priv'
+#
+#- name: Generate local SSH keys
+#  shell: "ssh-keygen -t ed25519 -f {{ HOME }}/.ssh/id_ed25519 -q -N ''"
+#  args:
+#    creates: "{{ HOME }}/.ssh/id_ed25519"
+#
+#- name: Make sure the known hosts file exists
+#  file:
+#    path: "{{ ssh_known_hosts_file }}"
+#    state: touch
+#    owner: "{{ USER }}"
+#    group: "wheel"
+#    mode: '0644'
+#
+#- name: Check host name availability
+#  shell: "ssh-keygen -f {{ ssh_known_hosts_file }} -F {{ item }}"
+#  loop: "{{ ssh_known_hosts }}"
+#  register: ssh_known_host_results
+#  ignore_errors: yes
+#  changed_when: False
+#
+#- name: Scan the public key
+#  shell: "{{ ssh_known_hosts_command}} {{ item.item }} >> {{ ssh_known_hosts_file }}"
+#  with_items: "{{ ssh_known_host_results.results }}"
+#  when: item.stdout == ""
+#
+#- name: Copy git{hub,lab} ssh config to allow interacting with the service
+#  copy:
+#    src: 'files/ssh_basic_config'
+#    dest: "{{ HOME }}/.ssh/config"
+#    owner: "{{ USER }}"
+#    group: 'wheel'
+#    mode: '0644'
 
   #- meta: end_play    #Usefull for dev: ends the play right here

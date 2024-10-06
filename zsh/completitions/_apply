@@ -1,0 +1,13 @@
+#compdef apply
+
+_apply_script() {
+    _arguments \
+        '-r[Recursively apply the script to all files in directories]' \
+        '-l[Enable logging of applied commands]' \
+        '-s[Specify the script to apply]:script:_files' \
+        '-a[Additional arguments to pass to the script]:arguments' \
+        '*:file_or_directory:_files'
+}
+
+_apply_script
+

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+bluetooth_device=$(bluetoothctl devices Connected | cut -f 2- -d ' ' | menu-contxtl)
+
+bluetooth_device_mac=$(echo "${bluetooth_device}" | cut -f 1 -d ' ')
+bluetooth_device_name=$(echo "${bluetooth_device}" | cut -f 2- -d ' ')
+
+if [[ "${bluetooth_device}" ]]; then
+  notify-send "Disconnecting from ${bluetooth_device_name}..."
+  bluetoothctl -- disconnect $bluetooth_device_mac
+fi

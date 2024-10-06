@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+mkdir -p ~/videos/screenrecs
+
+notify-send 'Recording screen...'
+output_filename="/home/alex/videos/screenrecs/screencast-`date "+%Y-%m-%d_%H-%M-%S"`.mkv"
+ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+0,0 -c:v libx264 -crf 30 -tune stillimage -preset ultrafast $output_filename
+notify-send 'Screen recording saved.'

@@ -6,6 +6,7 @@ export F_VIDEOS=$HOME/videos/
 export F_SYNC=$HOME/sync/
 export F_KEYS=$HOME/.ssh/keys/
 export F_NOTES=$HOME/notes/
+export F_BOOKMARKS=$HOME/notes/bookmarks
 export F_ATELIER=$HOME/atelier/
 export F_COLLECTION=$F_MUSIC/collection
 export F_CONFIG=$HOME/.config/perso/

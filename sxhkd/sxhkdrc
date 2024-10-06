@@ -1,6 +1,9 @@
 super + Return
   st
 
+alt + Return
+  st
+
 super + u
   urxvt
 
@@ -92,5 +95,45 @@ super + r
 super + shift + r
   bspc node --resize right -20 0
 
+super + v
+  bspc node --resize down 0 20
+
+super + shift + v
+  bspc node --resize down 0 -20
+
+super + shift + t
+  bspc node -t floating
+
+super + t
+  bspc node -t tiled
+
 super + f
-    bspc node -t floating
+  bspc node -t fullscreen
+
+
+XF86AudioPlay
+  mpvctl pp
+
+XF86AudioNext
+  mpvctl next
+
+XF86AudioPrev
+  mpvctl prev
+
+shift + XF86AudioNext
+  mpvctl seek 10
+
+super + XF86AudioNext
+  mpvctl seek 30
+
+shift + super + XF86AudioNext
+  mpvctl seek 60
+
+shift + XF86AudioPrev
+  mpvctl seek -10
+
+super + XF86AudioPrev
+  mpvctl seek -30
+
+shift + super + XF86AudioPrev
+  mpvctl seek -60

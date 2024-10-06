@@ -1,0 +1,63 @@
+#!/bin/sh
+
+SOCKET_PATH="/tmp/mpvsocket"
+
+send_command() {
+    echo "$1" | socat - $SOCKET_PATH
+}
+
+case $1 in
+    pp)
+        send_command '{ "command": ["cycle", "pause"] }'
+        ;;
+    play)
+        send_command '{ "command": ["set_property", "pause", false] }'
+        ;;
+    pause)
+        send_command '{ "command": ["set_property", "pause", true] }'
+        ;;
+    playlist)
+        send_command '{ "command": ["get_property", "playlist"] }'
+        ;;
+    next)
+        send_command '{ "command": ["playlist-next"] }'
+        ;;
+    prev)
+        send_command '{ "command": ["playlist-prev"] }'
+        ;;
+    add)
+        [ -n "$2" ] && send_command "{ \"command\": [\"loadfile\", \"$(realpath "$2")\", \"append-play\"] }"
+        ;;
+    seek)
+        [ -n "$2" ] && send_command "{ \"command\": [\"seek\", $2, \"relative\"] }"
+        ;;
+    clear)
+        send_command '{ "command": ["playlist-clear"] }'
+        ;;
+    current)
+        send_command '{ "command": ["get_property", "media-title"] }'
+        ;;
+    title)
+        send_command '{ "command": ["get_property", "media-title"] }'
+        ;;
+    metadata)
+        send_command '{ "command": ["get_property", "metadata"] }'
+        ;;
+    audio-params)
+        send_command '{ "command": ["get_property", "audio-params"] }'
+        ;;
+    time-pos)
+        send_command '{ "command": ["get_property", "time-pos"] }'
+        ;;
+    time-remaining)
+        send_command '{ "command": ["get_property", "time-remaining"] }'
+        ;;
+    filtered-metadata)
+        send_command '{ "command": ["get_property", "filtered-metadata"] }'
+        ;;
+    *)
+        echo "Unknown command: $1"
+        echo "Usage: $0 [play|pause|next|prev|add|seek|clear|current|title|metadata|audio-params|time-pos|time-remaining|filtered-metadata]"
+        ;;
+esac
+

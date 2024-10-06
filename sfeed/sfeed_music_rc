@@ -40,4 +40,7 @@ feeds() {
   feed "Buddha's Lounge" "https://www.youtube.com/feeds/videos.xml?channel_id=UCWaZJ2Mu5zjfhZoEEMxs1MQ"
   feed "Flock of Nazguls" "https://www.youtube.com/feeds/videos.xml?channel_id=UC3A-kapKRzdOpD7kMrd3Hdg"
   feed "TAKEO SUZUKI Electronic Music" "https://www.youtube.com/feeds/videos.xml?channel_id=UCT2jd_TQIavx18GRtADTtWA"
+  feed "Sounds of the Dawn" "https://www.youtube.com/feeds/videos.xml?channel_id=UC7brSEzOeLLb0l3QhAtdkgw"
+  feed "Photon Swim Break" "https://www.youtube.com/feeds/videos.xml?channel_id=UCtVytf_TfA-ARa9o_rA2JrQ"
+  feed "OBSIDIAN SOUNDFIELDS" "https://www.youtube.com/feeds/videos.xml?channel_id=UC7GZzOWjuG4wMua82uEguXQ"
 }

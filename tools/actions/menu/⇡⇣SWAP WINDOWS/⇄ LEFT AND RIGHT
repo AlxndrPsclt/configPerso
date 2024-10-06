@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+firstChildId=$(bspc query -T -d focused | jq '.root.firstChild.id')
+
+if [ "$firstChildId" == "null" ]; then
+  echo "No splits on this workspace."
+  exit 1
+fi
+
+secondChildId=$(bspc query -T -d focused | jq '.root.secondChild.id')
+
+if [ "$secondChildId" == "null" ]; then
+  echo "No splits on this workspace."
+  exit 1
+fi
+
+ bspc node "$firstChildId" --swap "$secondChildId"

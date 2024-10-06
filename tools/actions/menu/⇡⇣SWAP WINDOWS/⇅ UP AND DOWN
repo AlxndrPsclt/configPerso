@@ -1,0 +1,72 @@
+#!/bin/sh
+
+# use that later for better display (need to adjust dmenu size
+#
+
+# Check if the necessary splits exist in the first branch
+child_1=$(bspc query -T -d focused | jq '.root.firstChild.id')
+child_1_1=$(bspc query -T -d focused | jq '.root.firstChild.firstChild.id')
+child_1_2=$(bspc query -T -d focused | jq '.root.firstChild.secondChild.id')
+echo "$child_1"
+echo "$child_1_1"
+echo "$child_1_2"
+
+can_swap_in_first_branch="";
+if [ "$child_1" != "null" ] && [ "$child_1_1" != "null" ] && [ "$child_1_2" != "null" ]; then
+  echo "Possible to swap in first branch"
+  can_swap_in_first_branch="true";
+  #exit 1
+fi
+
+
+child_2=$(bspc query -T -d focused | jq '.root.secondChild.id')
+child_2_1=$(bspc query -T -d focused | jq '.root.secondChild.firstChild.id')
+child_2_2=$(bspc query -T -d focused | jq '.root.secondChild.secondChild.id')
+echo "$child_2"
+echo "$child_2_1"
+echo "$child_2_2"
+
+can_swap_in_second_branch="";
+if [ "$child_2" != "null" ] && [ "$child_2_1" != "null" ] && [ "$child_2_2" != "null" ]; then
+  echo "Possible to swap in second branch"
+  can_swap_in_second_branch="true";
+  #exit 1
+fi
+
+branch_to_swap="";
+if [[ "$can_swap_in_first_branch" && "$can_swap_in_second_branch" ]]; then
+  choice=$(echo -e "⇅_ LEFT SIDE\n_⇅ RIGHT SIDE" | dmenu)
+  if [[ "$choice" == "⇅_ LEFT SIDE" ]]; then
+    bspc node $child_1_1 --swap $child_1_2
+  else
+    if [[ "$choice" == "_⇅ RIGHT SIDE" ]]; then
+      bspc node $child_2_1 --swap $child_2_2
+    else
+      echo "The user did not choose what to swap, so doing nothing"
+    fi
+  fi
+else
+  if [[ "$can_swap_in_first_branch" ]]; then
+    bspc node $child_1_1 --swap $child_1_2
+  else
+    if [[ "$can_swap_in_second_branch" ]]; then
+      bspc node $child_2_1 --swap $child_2_2
+    fi
+  fi
+fi
+
+# Swap nodes in the first branch
+
+#bspc node $first_child --swap $second_child
+#
+## Check if the necessary splits exist in the second branch
+#first_child=$(bspc query -T -n $root | jq '.secondChild.firstChild.id')
+#second_child=$(bspc query -T -n $root | jq '.secondChild.secondChild.id')
+#if [ "$first_child" == "null" ] || [ "$second_child" == "null" ]; then
+#  echo "Necessary splits do not exist in the second branch"
+#  exit 1
+#fi
+#
+## Swap nodes in the second branch
+#bspc node $first_child --swap $second_child
+

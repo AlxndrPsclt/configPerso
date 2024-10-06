@@ -1,0 +1,21 @@
+#!/bin/sh
+
+notify-send "Subscribing..."
+
+# Use yt-dlp to get the channel ID
+CHANNEL_NAME=$(yt-dlp --print channel --playlist-end 1 --skip-download "$QUTE_URL")
+notify-send "to: $CHANNEL_NAME"
+
+CHANNEL_ID=$(yt-dlp --print channel_id --playlist-end 1 --skip-download "$QUTE_URL")
+notify-send "id: $CHANNEL_ID"
+
+# Construct the RSS feed URL for the channel
+RSS_FEED_URL="https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}"
+
+
+sed -i '$d' /home/alex/.config/perso/sfeed/sfeed_podcasts_rc
+
+echo "  feed \"${CHANNEL_NAME}\" \"${RSS_FEED_URL}\"" >> /home/alex/.config/perso/sfeed/sfeed_podcasts_rc
+echo "}" >> /home/alex/.config/perso/sfeed/sfeed_podcasts_rc
+
+notify-send "Subscribed to $CHANNEL_NAME"

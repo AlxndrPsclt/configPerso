@@ -6,14 +6,14 @@ all_tags=${3:-''}
 
 select_tags_file() {
   local dmenu_prompt=$1
-  local selected_tags=$(cat "$tags_file" | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
+  local selected_tags=$(cat "$tags_file" | menu-contxtl -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
   echo $selected_tags
 }
 
 select_tags_from_csv() {
   local choices=$(csv2list "$1")
   local dmenu_prompt="$2"
-  local selected_tags=$(echo -e "$choices" | dmenu -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
+  local selected_tags=$(echo -e "$choices" | menu-contxtl -p "$dmenu_prompt"| tr '\n' ',' | sed 's/.\{1\}$//')
   echo $selected_tags
 }
 
@@ -84,7 +84,7 @@ add_tags "$tags_prompt"
 
 while [[ "$will"!='Done' ]]; do
 
-  will=$(echo -e 'Done\nRemove some tags\nAdd more tags' | dmenu -p "$all_tags")
+  will=$(echo -e 'Done\nRemove some tags\nAdd more tags' | menu-contxtl -p "$all_tags")
   will=${will:-"Done"}
 
   if [[ "$will" = 'Done' ]]; then

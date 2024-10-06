@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+uuidgen | xclip -i -selection clipboard
+notify-send "New UUID in clipboard"

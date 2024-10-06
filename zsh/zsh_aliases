@@ -27,6 +27,7 @@ alias cdvim='cd ~/.vim'
 alias editvim='vim ~/.vim/vimrc'
 alias editssh='vim ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/configs/cluster.conf'
 alias editzsh="vim $F_CONFIG/zsh/*"
+alias editsway="vim $F_CONFIG/sway/*"
 alias editshortcuts="vim $F_CONFIG/tools/shortcuts.md"
 alias editbsp="vim $F_CONFIG/bspwm/bspwmrc $F_CONFIG/sxhkd/sxhkdrc $F_CONFIG/dunst/dunstrc $F_CONFIG/picom/picom.conf"
 alias editsuckless='vim ~/apps/suckless/contxtl-st/config.def.h ~/apps/suckless/contxtl-dmenu/config.def.h'
@@ -47,7 +48,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 #Pipe to clipboad via command | copy
-alias copy='xclip -sel clip'
+alias copy='wl-copy'
 
 alias cwd='pwd | copy; echo "copied current path"'
 

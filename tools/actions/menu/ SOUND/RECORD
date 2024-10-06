@@ -1,0 +1,57 @@
+#!/bin/sh
+
+set_volume() {
+    pactl set-source-volume "$1" 55%
+}
+
+get_pulseaudio_sources() {
+    pactl list sources short | awk '{print $2}'
+}
+
+select_microphone() {
+    case "$1" in
+        fzf)
+            get_pulseaudio_sources | fzf --prompt='Select a microphone: '
+            ;;
+        dmenu)
+            get_pulseaudio_sources | dmenu -l 10 -p 'Select a microphone: '
+            ;;
+    esac
+}
+
+# Default filename
+default_filename="/home/alex/documents/2brain/audionotes/audiorec_$(date +"%Y-%m-%d_%H:%M:%S").mp3"
+
+# Check for command line arguments
+if [ "$#" -gt 0 ]; then
+    SELECTOR="$1"
+    FILENAME="${2:-$default_filename}"
+else
+    SELECTOR="dmenu"
+    FILENAME="$default_filename"
+fi
+
+# Select microphone
+SELECTED_MIC="$(select_microphone "$SELECTOR")"
+
+# Check if a microphone was selected
+if [ -z "$SELECTED_MIC" ]; then
+    echo "No microphone selected. Exiting."
+    exit 1
+fi
+
+# Set the volume of the selected microphone to 55%
+set_volume "$SELECTED_MIC"
+
+# Start recording with compressor filter in the background
+ffmpeg -f pulse -i "$SELECTED_MIC" -filter_complex "acompressor=threshold=0.08:ratio=4:attack=50:release=1000" -ac 2 -ar 44100 "$FILENAME" &
+FFMPEG_PID=$!
+
+# Save PID to /tmp
+echo $FFMPEG_PID > /tmp/ffmpeg_recording.pid
+
+echo "Recording started. PID: $FFMPEG_PID"
+
+# You can stop the recording with: kill $FFMPEG_PID
+# Or using the PID file: kill $(cat /tmp/ffmpeg_recording.pid)
+

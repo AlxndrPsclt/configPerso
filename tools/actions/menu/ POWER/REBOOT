@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+will=$(echo -e "yes\nno" | dmenu -p "Reboot the computer ?")
+
+if [[ $will == 'yes' ]]; then
+	reboot
+fi

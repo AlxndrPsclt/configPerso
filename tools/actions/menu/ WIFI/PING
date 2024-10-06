@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+notify-send "Ping test"
+ping -c 3 google.com | sed -n '2,4p' | cut -d ' ' -f8 | xargs -L 1 notify-send 

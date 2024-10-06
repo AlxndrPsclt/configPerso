@@ -1,6 +1,6 @@
 all:
     hosts:
-      localhost:2222
+      localhost
     vars:
       USER: "alex"
       ansible_connection: ssh

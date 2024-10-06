@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+#bspc rule -o Sxiv state=floating
+[ "$(ls -A ~/images/screenshots)" ] && sxiv -N preview -o -t ~/images/screenshots/* || notify-send "No screenshots yet"

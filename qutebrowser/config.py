@@ -754,6 +754,8 @@ config.bind("<Ctrl+'>", "jseval document.getElementsByClassName('html5-main-vide
 config.bind('<Ctrl+[>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 1")
 config.bind('<Ctrl+]>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 2.5")
 config.bind('pp', "jseval document.getElementsByClassName('html5-main-video')[0].paused ? document.getElementsByClassName('html5-main-video')[0].play() : document.getElementsByClassName('html5-main-video')[0].pause();  'Toggle play'")
+config.bind("<Alt+S>", "jseval document.getElementsByClassName('html5-main-video')[0].currentTime = 1.5")
+config.bind("<Alt+D>", "jseval document.getElementsByClassName('html5-main-video')[0].currentTime = 2")
 config.bind('{', 'scroll-page 0 -0.5')
 config.bind('}', 'scroll-page 0 0.5')
 

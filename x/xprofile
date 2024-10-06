@@ -1,1 +1,2 @@
 /usr/libexec/pipewire-launcher &
+mpv --no-audio-display --input-ipc-server=/tmp/mpvsocket --idle &
