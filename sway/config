@@ -164,7 +164,7 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+g focus mode_toggle
-    
+
 
     # Move focus to the parent container
     #bindsym $mod+a focus parent
@@ -249,11 +249,13 @@ for_window [title="Pulsemixer"] border pixel 5
 for_window [title="Pulsemixer"] resize set 1366 320
 for_window [title="Pulsemixer"] move position 1 0
 for_window [app_id="sclang" ] move workspace 6
+for_window [app_id="mainTerminal" ] move workspace 2
 
 
 include /etc/sway/config.d/*
 
-exec foot tmux &
+exec foot -T "mainTerminal" tmux &
 exec /usr/libexec/pipewire-launcher &
 exec mpv --no-audio-display --input-ipc-server=/tmp/mpvsocket --idle &
+exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus > /var/log/dbus-user.log &
 exec mako &

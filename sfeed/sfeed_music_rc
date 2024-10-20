@@ -47,4 +47,8 @@ feeds() {
   feed "Spa In Disco Records / Fran Deeper" "https://www.youtube.com/feeds/videos.xml?channel_id=UC9e8BTlAvx0UOQLqMh29VTg"
   feed "OnAScaleof1to10" "https://www.youtube.com/feeds/videos.xml?channel_id=UCGmIuTdopqESR-z7Mb727Dw"
   feed "Rainwater Enema" "https://www.youtube.com/feeds/videos.xml?channel_id=UCYLuW_epoTKmPfl6x1vwPZg"
+  feed "O0ο0Ο" "https://www.youtube.com/feeds/videos.xml?channel_id=UCJEqaji6AEOFbv6V8ief5dg"
+  feed "yaoiboi92" "https://www.youtube.com/feeds/videos.xml?channel_id=UCiDbcjs9iZ2TcHWxZko4tKQ"
+  feed "Silent Flow" "https://www.youtube.com/feeds/videos.xml?channel_id=UCZLG1n9iogCyHEX46VTwVJg"
+  feed "Thalia's Touch" "https://www.youtube.com/feeds/videos.xml?channel_id=UC4v1rtPYNtn3KE0D3ejYX3A"
 }
