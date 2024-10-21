@@ -51,4 +51,5 @@ feeds() {
   feed "yaoiboi92" "https://www.youtube.com/feeds/videos.xml?channel_id=UCiDbcjs9iZ2TcHWxZko4tKQ"
   feed "Silent Flow" "https://www.youtube.com/feeds/videos.xml?channel_id=UCZLG1n9iogCyHEX46VTwVJg"
   feed "Thalia's Touch" "https://www.youtube.com/feeds/videos.xml?channel_id=UC4v1rtPYNtn3KE0D3ejYX3A"
+  feed "Hell Yeah Recordings" "https://www.youtube.com/feeds/videos.xml?channel_id=UCP9IpgMqkFP1tEFNil__XIw"
 }
