@@ -115,6 +115,8 @@ alias note='vim $(date +%F+%T).md'
 
 alias acmd='docker run -it -v $(pwd):/workdir ac'
 
+alias bar='printf "\e[41m%*s\e[0m\n" "$(tput cols)" ""'
+
 insert_command_output() {
     # Replace 'your_command_here' with the command you want to run
     local output="$(fzf)"
