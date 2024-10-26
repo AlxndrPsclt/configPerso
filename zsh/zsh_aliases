@@ -124,3 +124,5 @@ insert_command_output() {
 }
 zle -N insert_command_output
 bindkey '^X^O' insert_command_output
+
+alias activate='source venv/bin/activate'

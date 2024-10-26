@@ -780,3 +780,4 @@ config.set('content.autoplay', False)
 
 config.load_autoconfig(False)
 
+config.bind(',p', 'hint links spawn --userscript ear_play_link_qtb.sh')

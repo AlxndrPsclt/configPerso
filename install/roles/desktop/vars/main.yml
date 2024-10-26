@@ -3,6 +3,7 @@
 links_to_create :
 #  - { dest: '{{ HOME }}/.config/dunst', src: '{{ CONFIG_PERSO }}/dunst' }
   - { dest: '{{ HOME }}/.config/mpv', src: '{{ CONFIG_PERSO }}/mpv' }
+  - { dest: '{{ HOME }}/.config/mako', src: '{{ CONFIG_PERSO }}/mako' }
   - { dest: '{{ HOME }}/.config/qutebrowser', src: '{{ CONFIG_PERSO }}/qutebrowser/' }
   - { dest: '{{ HOME }}/.config/zathura', src: '{{ CONFIG_PERSO }}/zathura' }
   - { dest: '{{ HOME }}/.local/share/applications/defaults.list', src: '{{ CONFIG_PERSO }}/xdg-config/defaults.list' }

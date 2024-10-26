@@ -2,4 +2,4 @@
 
 pulsemixer --change-volume +5
 #wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+
-notify-send " $(pulsemixer --get-volume | cut -d " " -f1)"
+notify-send -c "sound" " $(pulsemixer --get-volume | cut -d " " -f1)"
