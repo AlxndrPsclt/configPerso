@@ -234,7 +234,7 @@
     dest: "{{ HOME }}/notes"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.gitlab.priv"
 
-- name: Clone personnal wallpapers folder
+- name: Clone personal wallpapers folder
   git:
     repo: "git@github.com:AlxndrPsclt/fundmntl-wallpapers.git"
     dest: "{{ HOME }}/images/fundmntl-wallpapers"
@@ -307,32 +307,32 @@
 
 
 
-- name: Install zsh and spaceship theme
-  become: yes
-  apk:
-    name:
-      - zsh
-        #      - oh-my-zsh     # Removed because it is only in edge testing???
-      - zsh-vcs
-    state: latest
-    update_cache: yes
-
-
-- name: Clone spaceship theme for oh-my-zsh
-  become: yes
-  git:
-    repo: "https://github.com/denysdovhan/spaceship-prompt.git"
-    dest: "/usr/share/oh-my-zsh/themes/spaceship-prompt"
-    depth: 1
-    accept_hostkey: yes
-
-
-- name: Create symbolic link for spaceship theme
-  become: yes
-  file:
-    src: "/usr/share/oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme"
-    dest: "/usr/share/oh-my-zsh/themes/spaceship.zsh-theme"
-    state: link
+#- name: Install zsh and spaceship theme
+#  become: yes
+#  apk:
+#    name:
+#      - zsh
+#        #      - oh-my-zsh     # Removed because it is only in edge testing???
+#      - zsh-vcs
+#    state: latest
+#    update_cache: yes
+#
+#
+#- name: Clone spaceship theme for oh-my-zsh
+#  become: yes
+#  git:
+#    repo: "https://github.com/denysdovhan/spaceship-prompt.git"
+#    dest: "/usr/share/oh-my-zsh/themes/spaceship-prompt"
+#    depth: 1
+#    accept_hostkey: yes
+#
+#
+#- name: Create symbolic link for spaceship theme
+#  become: yes
+#  file:
+#    src: "/usr/share/oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme"
+#    dest: "/usr/share/oh-my-zsh/themes/spaceship.zsh-theme"
+#    state: link
 
 
 
