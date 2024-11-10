@@ -248,9 +248,8 @@ for_window [title="Pulsemixer"] floating enable
 for_window [title="Pulsemixer"] border pixel 5
 for_window [title="Pulsemixer"] resize set 1366 320
 for_window [title="Pulsemixer"] move position 1 0
+for_window [title="mainTerminal" ] move workspace 2
 for_window [app_id="sclang" ] move workspace 6
-for_window [app_id="mainTerminal" ] move workspace 2
-
 
 include /etc/sway/config.d/*
 

@@ -749,7 +749,7 @@ c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctr
 config.bind('<Alt+Shift+Left>', 'tab-move -')
 config.bind('<Alt+Shift+Right>', 'tab-move +')
 # Change speed of youtube playlist
-config.bind('<Ctrl+\>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = document.getElementsByClassName('html5-main-video')[0].playbackRate + 0.25")
+config.bind('<Ctrl+\\>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = document.getElementsByClassName('html5-main-video')[0].playbackRate + 0.25")
 config.bind("<Ctrl+'>", "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = document.getElementsByClassName('html5-main-video')[0].playbackRate - 0.25")
 config.bind('<Ctrl+[>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 1")
 config.bind('<Ctrl+]>', "jseval document.getElementsByClassName('html5-main-video')[0].playbackRate = 2.5")

@@ -6,7 +6,10 @@
     update_cache: yes
     name:
       - build-base
-      - ncurses    #necessary for st that need tic
+      - cmake
+      - meson
+      - samurai
+      - ncurses
     state: present
 
 #- name: Install packages for lanching desktop
@@ -34,22 +37,18 @@
       - mesa
       - mesa-dri-gallium
       - mesa-va-gallium
-      #- dbus-x11
-      #- xclip
-        #- wmctrl
       - tlp
-      #- redshift
+      - wev
       - font-iosevka
-      #- picom
-      #- libnotify
-      # - dunst
       - mako
+      - sway
+      - foot
       - swaybg
       - sshfs
+      - util-linux-login
       - libqrencode
       - libqrencode-tools
       - socat
-      # - task
     state: present
 
 - name: Install packages for audio
@@ -105,6 +104,7 @@
     name:
       - pass
       - pass-contrib
+      - wl-clipboard
       - libqrencode
         # - light
         # - replace with installation of backlight_control (currntly compiled from source (minimalist program)
@@ -240,6 +240,26 @@
     dest: "{{ HOME }}/images/fundmntl-wallpapers"
     key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
 
+- name: Register existence of workstation config links needing sudo
+  stat:
+    path: "{{ item.dest }}"
+  loop: "{{ links_to_create_sudo }}"
+  register: link_register_sudo
+
+- name: Remove file to create links (sudo)
+  file:
+    path: "{{ item.stat.path }}"
+    state: absent
+  loop: "{{ link_register_sudo.results }}"
+  when: item.stat.islnk is defined and item.stat.islnk == False
+
+- name: Create symbolic link for workstation tools needing sudo
+  become: true
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop: "{{ links_to_create_sudo }}"
 
 
 #- name: Clone personal minimalistic greeter
@@ -247,7 +267,7 @@
 #    repo: "git@github.com:AlxndrPsclt/vitamin-greeter.git"
 #    dest: "{{ HOME }}/apps/vitamin-greeter"
 #    key_file: "{{ HOME }}/.ssh/keys/id_ed25519.deploy.github.priv"
-#
+
 #- name: Install packages for mini (??) greeter
 #  become: yes
 #  apk:
@@ -257,7 +277,7 @@
 #      - gtk+3.0-dev
 #      - lightdm-dev
 #    state: present
-#
+
 #- name: Compile minimalistic greeter
 #  become: yes
 #  shell: ./makeinstall.sh
@@ -333,49 +353,49 @@
 #    src: "/usr/share/oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme"
 #    dest: "/usr/share/oh-my-zsh/themes/spaceship.zsh-theme"
 #    state: link
+#
+#
+#
+#- name: Install and conf tmux to get proper theming
+#  become: yes
+#  apk:
+#    name:
+#      - tmux
+#      # tmux plugin manager tpm requires bash! WTF. Need to check how to avoid this, but included for now
+#      - bash
+#    state: latest
+#    update_cache: yes
+#
+#
+#- name: Install Oh My Zsh
+#  shell: |
+#    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#  args:
+#    creates: ~/.oh-my-zsh
+#
+#- name: Clone spaceship-prompt theme
+#  git:
+#    repo: 'https://github.com/spaceship-prompt/spaceship-prompt.git'
+#    dest: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship-prompt'
+#    depth: 1
+#    force: yes
+#
+#- name: Symlink spaceship theme
+#  file:
+#    src: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship-prompt/spaceship.zsh-theme'
+#    dest: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship.zsh-theme'
+#    state: link
 
 
 
-- name: Install and conf tmux to get proper theming
-  become: yes
-  apk:
-    name:
-      - tmux
-      # tmux plugin manager tpm requires bash! WTF. Need to check how to avoid this, but included for now
-      - bash
-    state: latest
-    update_cache: yes
-
-
-- name: Install Oh My Zsh
-  shell: |
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  args:
-    creates: ~/.oh-my-zsh
-
-- name: Clone spaceship-prompt theme
-  git:
-    repo: 'https://github.com/spaceship-prompt/spaceship-prompt.git'
-    dest: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship-prompt'
-    depth: 1
-    force: yes
-
-- name: Symlink spaceship theme
-  file:
-    src: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship-prompt/spaceship.zsh-theme'
-    dest: '{{ lookup("env", "ZSH_CUSTOM") }}/themes/spaceship.zsh-theme'
-    state: link
 
 
 
 
-
-
-
-- name: Create apps/suckless directory if it does not exist
-  file:
-    path: "{{ ansible_env.HOME }}/apps/suckless"
-    state: directory
+#- name: Create apps/suckless directory if it does not exist
+#  file:
+#    path: "{{ ansible_env.HOME }}/apps/suckless"
+#    state: directory
 
 
 #- name: Clone personal dmenu source

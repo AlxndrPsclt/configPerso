@@ -4,10 +4,14 @@ links_to_create :
 #  - { dest: '{{ HOME }}/.config/dunst', src: '{{ CONFIG_PERSO }}/dunst' }
   - { dest: '{{ HOME }}/.config/mpv', src: '{{ CONFIG_PERSO }}/mpv' }
   - { dest: '{{ HOME }}/.config/mako', src: '{{ CONFIG_PERSO }}/mako' }
+  - { dest: '{{ HOME }}/.config/sway', src: '{{ CONFIG_PERSO }}/sway' }
   - { dest: '{{ HOME }}/.config/qutebrowser', src: '{{ CONFIG_PERSO }}/qutebrowser/' }
   - { dest: '{{ HOME }}/.config/zathura', src: '{{ CONFIG_PERSO }}/zathura' }
   - { dest: '{{ HOME }}/.local/share/applications/defaults.list', src: '{{ CONFIG_PERSO }}/xdg-config/defaults.list' }
   - { dest: '{{ HOME }}/.gnupg/gpg-agent.conf', src: '{{ CONFIG_PERSO }}/gnupg/gpg-agent.conf' }
   - { dest: '{{ HOME }}/.gnupg/pinentry-dmenu.conf', src: '{{ CONFIG_PERSO }}/gnupg/pinentry-dmenu.conf' }
+
+links_to_create_sudo :
+  - { dest: '/usr/bin/dmenu-wl', src: '/usr/local/bin/bemenu-contxtl' }
 #  - { dest: '{{ HOME }}/.config/conky', src: '{{ CONFIG_PERSO }}/conky' }
 #  - { dest: '{{ HOME }}/.taskrc', src: '{{ CONFIG_PERSO }}/taskwarrior/taskrc' }
