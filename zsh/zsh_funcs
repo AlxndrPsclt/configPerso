@@ -162,7 +162,7 @@ manpages() {
   if [ -z "$1" ]; then
     echo "No manual page to view was given; pass it as argument"
   else
-    links -dump https://manpages.org/$1 | bat
+    links -dump https://manpages.org/$1 | bat -l man --theme Nord
   fi
 }
 

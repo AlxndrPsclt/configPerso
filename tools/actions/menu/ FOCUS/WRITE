@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-~/apps/suckless/focus-st/st -c "focus" -f "Cousine for Powerline:style=Regular:size=15" ~/.config/perso/focus/focusvim ~/documents/creation/brouillons/current.md
+#~/apps/suckless/focus-st/st -c "focus" -f "Cousine for Powerline:style=Regular:size=15" ~/.config/perso/focus/focusvim ~/documents/creation/brouillons/current.md
+
+foot -T "focus" -c /home/alex/.config/perso/focus/foot-focus/foot.ini ~/.config/perso/focus/focusvim ~/documents/creation/brouillons/current.md
 
 
