@@ -68,7 +68,7 @@ alias gitpom='git push -u origin master'
 alias gittree='git log --graph --abbrev-commit --oneline'
 alias githttptossh='sed -i "s/https:\/\/github\.com\//git@github\.com:/" "$(git rev-parse --show-toplevel)"/.git/config'
 alias gitignore='wget https://www.gitignore.io/api/vim -O .gitignore'
-alias licenseMIT='wget https://raw.githubusercontent.com/git/git-scm.com/main/MIT-LICENSE.txt'
+alias licenseMIT='cp /home/alex/notes/data/licences/LICENCE.MIT ./LICENCE.md'
 
 #Task aliases
 alias taska='task add'

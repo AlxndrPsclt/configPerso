@@ -188,6 +188,7 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+    bindsym $mod+m exec wtype alxndr.psclt@gmail.com
 #
 # Resizing containers:
 #
@@ -250,8 +251,11 @@ for_window [title="Pulsemixer"] border pixel 5
 for_window [title="Pulsemixer"] resize set 1366 320
 for_window [title="Pulsemixer"] move position 1 0
 for_window [app_id="sclang" ] move workspace 6
-for_window [app_id="mainTerminal" ] move workspace 2
+for_window [title="mainTerminal" ] move workspace 2
 for_window [title="focus"] fullscreen
+for_window [title="menu"] floating enable
+for_window [title="menu"] resize set 1366 520
+for_window [title="menu"] move position 1 0
 
 
 include /etc/sway/config.d/*
@@ -261,3 +265,5 @@ exec /usr/libexec/pipewire-launcher &
 exec mpv --no-audio-display --input-ipc-server=/tmp/mpvsocket --idle &
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus > /var/log/dbus-user.log &
 exec mako &
+exec eye monitor &
+exec /home/alex/.config/perso/tools/bin/shared-clipboard.sh &

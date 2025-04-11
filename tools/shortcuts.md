@@ -3,6 +3,7 @@
   - Edit shortcuts
       `$ editshortcuts`
       `$ editzsh`
+      `$ editsway`
       `$ editmusic`
 
 #Vim
@@ -19,6 +20,8 @@
       `SIMPLE ARROWS!!`
   - Move between splits
       `SIMPLE ARROWS!!`
+  - Insert current filename (The current filename is in the "% register, so you can insert it with:)
+      `<C-r>%`
 
 #Tmux
 
