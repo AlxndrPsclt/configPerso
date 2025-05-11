@@ -27,7 +27,7 @@ ORIGINAL_TIME=$(stat -c %y "$FILE_NAME")
 
 # Decrypt the file
 DECRYPTED_FILE="${FILE_NAME%.gpg}"
-gpg --local-user etrnl@etrnl.etrnl --decrypt "$FILE_NAME" > "$DECRYPTED_FILE"
+gpg --local-user alxndr.psclt@gmail.com --decrypt "$FILE_NAME" > "$DECRYPTED_FILE"
 
 # Check if decryption was successful
 if [ $? -eq 0 ]; then

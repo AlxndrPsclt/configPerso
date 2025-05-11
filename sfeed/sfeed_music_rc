@@ -55,4 +55,6 @@ feeds() {
   feed "Art:In:WorX" "https://www.youtube.com/feeds/videos.xml?channel_id=UCA9xfPhSI-__bvsyi5QmKZQ"
   feed "butch french" "https://www.youtube.com/feeds/videos.xml?channel_id=UCHgfNg6Gui6uvh9uKEIQJFg"
   feed "FullPupp Internasjonal" "https://www.youtube.com/feeds/videos.xml?channel_id=UCyIDzb2zOpQMYPq___Xuj2w"
+  feed "All Inn Records" "https://www.youtube.com/feeds/videos.xml?channel_id=UC_tUHiwyrfVhXZswsOxonpA"
+  feed "Humano Studios" "https://www.youtube.com/feeds/videos.xml?channel_id=UCKKezBu7Y4onrE3E-xaVpfw"
 }

@@ -26,7 +26,7 @@ PERMISSIONS=$(stat -c %a "$FILE_NAME")
 ORIGINAL_TIME=$(stat -c %y "$FILE_NAME")
 
 # Encrypt the file
-gpg --encrypt --recipient etrnl@etrnl.etrnl "$FILE_NAME"
+gpg --encrypt --recipient alxndr.psclt@gmail.com "$FILE_NAME"
 
 # Check if encryption was successful
 if [ $? -eq 0 ]; then

@@ -12,4 +12,7 @@ feeds() {
   feed "Thinking-Ape" "https://www.youtube.com/feeds/videos.xml?channel_id=UCo1qRcO1OehgkOD_fHsu_uQ"
   feed "Educational Science" "https://www.youtube.com/feeds/videos.xml?channel_id=UCwY7LTu8sMLVGXlqFcsYJ5w"
   feed "The University of Chicago" "https://www.youtube.com/feeds/videos.xml?channel_id=UCGINcKuFbysZAslgL46KeOA"
+  feed "Chaire de Philosophie à l'Hôpital" "https://www.youtube.com/feeds/videos.xml?channel_id=UCCayujRhOccycOt-eCXoLGw"
+  feed "Property and Freedom Society" "https://www.youtube.com/feeds/videos.xml?channel_id=UCNHAsCPp3tfbV3O3t7RxYMA"
+  feed "1Dime Radio" "https://www.youtube.com/feeds/videos.xml?channel_id=UCFQlxdYqyXXuxBkuodA7gfQ"
 }

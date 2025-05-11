@@ -1,0 +1,57 @@
+#!/usr/bin/env sh
+
+notify-send "Switching bluetooth!"
+DEVICE_MAC="14:3F:A6:AE:D9:49"
+DEVICE_NAME="DEVICE-NAME"
+REMOTE_USER="alex"
+REMOTE_HOST="meteor"
+
+check_connected() {
+    bluetoothctl devices Connected | grep -q "$DEVICE_MAC"
+}
+
+disconnect_local() {
+    echo "Disconnecting $DEVICE_MAC locally..."
+    notify-send "Disconnecting $DEVICE_MAC locally..."
+    bluetoothctl disconnect "$DEVICE_MAC"
+}
+
+connect_local() {
+    notify-send "Connecting $DEVICE_MAC locally..."
+    bluetoothctl connect "$DEVICE_MAC"
+}
+
+check_remote_connected() {
+    ssh -l "$REMOTE_USER" "$REMOTE_HOST" "bluetoothctl devices Connected | grep -q '$DEVICE_MAC'"
+}
+
+disconnect_remote() {
+    echo "Disconnecting $DEVICE_NAME on remote..."
+    notify-send "Disconnecting $DEVICE_MAC remotely..."
+    ssh -l "$REMOTE_USER" "$REMOTE_HOST" "bluetoothctl disconnect '$DEVICE_MAC'"
+}
+
+connect_remote() {
+    notify-send "Connecting $DEVICE_MAC remotely..."
+    echo "Connecting $DEVICE_NAME on remote..."
+    ssh -l "$REMOTE_USER" "$REMOTE_HOST" "bluetoothctl connect '$DEVICE_MAC'"
+}
+
+main() {
+    if check_connected; then
+        # Device is connected locally
+        disconnect_local
+        sleep 2
+        connect_remote
+    else
+        # Device is not connected locally
+        if check_remote_connected; then
+            # Device is connected on the remote machine
+            disconnect_remote
+        fi
+        # Connect locally
+        connect_local
+    fi
+}
+
+main

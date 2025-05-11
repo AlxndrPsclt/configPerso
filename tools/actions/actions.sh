@@ -6,7 +6,7 @@ initial_dir=$(pwd)
 select_action () {
   cd "$1"
 
-  selected=$((fd . --follow --exact-depth 1 ; fd . --follow --min-depth 2) | bemenu-contxtl)
+  selected=$((fd . --follow --exact-depth 1 ; fd . --follow --min-depth 2) | ask)
 
   if [ -d "$selected" ];
   then

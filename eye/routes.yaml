@@ -1,0 +1,41 @@
+hosts:
+  simgen001:
+    hostname: simgen001.local
+    port: 12345
+    tags:
+      - familyA
+      - familyB
+  simgen002:
+    hostname: simgen002.local
+    port: 12346
+    tags:
+      - familyA
+      - familyC
+
+routes:
+  routeA:
+    paths:
+      - "accelerometer"
+      - "zeroctl/F11"
+      - "zeroctl/*"
+    targets:
+      - simgen001
+      - familyA
+    rules:
+      - "some rule a"
+      - "some rule b"
+    processing:
+      - "some processing function f"
+      - "some processing function g"
+
+  routeB:
+    paths:
+      - "gyro/*"
+      - "compass/*"
+    targets:
+      - simgen002
+    rules:
+      - "gyro-specific rule"
+    processing:
+      - "processing function x"
+

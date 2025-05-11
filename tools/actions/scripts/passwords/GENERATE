@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-domain=$(sqlite3 ~/.local/share/qutebrowser/history.sqlite "select url from History ORDER BY atime DESC LIMIT 50;" | awk -F[/:] '{print $4}' | awk '!seen[$0]++' | dmenu -i -p "Which website?")
+domain=$(sqlite3 ~/.local/share/qutebrowser/history.sqlite "select url from History ORDER BY atime DESC LIMIT 50;" | awk -F[/:] '{print $4}' | awk '!seen[$0]++' | ask -p "Which website?")
 
 if [[ -z $domain ]]; then
 	notify-send "No folder was selected"
