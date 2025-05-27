@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.notifications.enabled:
-    https://www.messenger.com: false
+  content.media.audio_capture:
+    http://localhost:7777: true

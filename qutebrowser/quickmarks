@@ -312,3 +312,5 @@ read tutorial esp32 flash esptools https://docs.espressif.com/projects/esptool/e
 read beaconzone ble positioning indoors https://www.beaconzone.co.uk/blog/anchor-based-bluetooth-low-energy-ble-5-0-positioning/
 read linux read beacons https://www.beaconzone.co.uk/blog/detecting-beacons-on-linux-devices/
 e https://www.youtube.com/watch?v=iWbUtdx827g
+chat https://chatgpt.com/
+read esp32 cheap analysis https://sigmdel.ca/michel/ha/esp8266/super_mini_esp32c3_fr.html
