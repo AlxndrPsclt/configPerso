@@ -117,6 +117,8 @@ alias acmd='docker run -it -v $(pwd):/workdir ac'
 
 alias bar='printf "\e[41m%*s\e[0m\n" "$(tput cols)" ""'
 
+#alias fcp='cp "$(fzf)" "$(fd -t d | fzf)"'
+
 insert_command_output() {
     # Replace 'your_command_here' with the command you want to run
     local output="$(fzf)"
@@ -126,3 +128,14 @@ zle -N insert_command_output
 bindkey '^X^O' insert_command_output
 
 alias activate='source venv/bin/activate'
+
+alias dvim='docker run --rm -it \
+  -e HOST_UID=$(id -u) -e HOST_GID=$(id -g) \
+  -v $PWD:/workspace \
+  -w /workspace \
+  --name dvim \
+  docker-vim'
+
+alias dcb='docker-compose build'
+alias dcu='docker-compose up'
+

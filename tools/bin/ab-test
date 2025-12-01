@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+import argparse
+import os
+import random
+import shutil
+import yaml
+from collections import Counter
+
+def init(args):
+    outdir = args.folder
+    os.makedirs(outdir, exist_ok=True)
+
+    tracks = []
+    for i in range(args.times):
+        tracks.append(('A', args.fileA))
+        tracks.append(('B', args.fileB))
+    random.shuffle(tracks)
+
+    mapping = {}
+    for idx, (label, src) in enumerate(tracks, start=1):
+        dest = os.path.join(outdir, str(idx))
+        shutil.copy(src, dest)
+        mapping[idx] = label
+
+    meta = {
+            'fileA': args.fileA,
+            'fileB': args.fileB,
+            'mapping': mapping
+            }
+    with open(os.path.join(outdir, 'answers.yaml'), 'w') as f:
+        yaml.safe_dump(meta, f)
+
+    print(f"✅ Generated {len(tracks)} files in {outdir}/")
+    print(f"Answer key saved in {outdir}/answers.yaml")
+
+def run(args):
+    with open(args.answers, 'r') as f:
+        data = yaml.safe_load(f)
+
+    fileA = os.path.basename(data['fileA'])
+    fileB = os.path.basename(data['fileB'])
+    mapping = data['mapping']
+
+    print(f"AB Test: {fileA} (A) vs {fileB} (B)")
+    results = {}
+
+    for idx in sorted(mapping.keys(), key=int):
+        ans = None
+        while ans not in ('A', 'B'):
+            ans = input(f"Track {idx}: Is this A or B? ").strip().upper()
+        results[idx] = ans
+
+    # evaluation
+    truth = mapping
+    confusion = Counter((truth[int(k)], results[int(k)]) for k in results)
+    correct = sum(truth[int(k)] == results[int(k)] for k in results)
+    total = len(results)
+
+    print("\n=== Results ===")
+    print(f"Score: {correct}/{total} ({100*correct/total:.1f}%)\n")
+
+    labels = ['A','B']
+    print("Confusion Matrix:")
+    print("      Pred A  Pred B")
+    for true in labels:
+        row = []
+        for pred in labels:
+            row.append(confusion[(truered)])
+            print(f"True {true}:   {row[0]:>3}     {row[1]:>3}")
+
+    # small analysis
+    biasA = sum(results[int(k)] == 'A' for k in results)
+    biasB = sum(results[int(k)] == 'B' for k in results)
+    print(f"\nYou guessed A {biasA} times and B {biasB} times.")
+
+def main():
+    parser = argparse.ArgumentParser(prog="ab-test")
+    sub = parser.add_subparsers(dest="cmd")
+
+    p_init = sub.add_parser("init")
+    p_init.add_argument("-A", "--fileA", required=True)
+    p_init.add_argument("-B", "--fileB", required=True)
+    p_init.add_argument("-f", "--folder", default="AB")
+    p_init.add_argument("-x", "--times", type=int, default=5)
+    p_init.set_defaults(func=init)
+
+    p_run = sub.add_parser("run")
+    p_run.add_argument("-a", "--answers", required=True)
+    p_run.set_defaults(func=run)
+
+    args = parser.parse_args()
+    if not args.cmd:
+        parser.print_help()
+    else:
+        args.func(args)
+
+if __name__ == "__main__":
+    main()
+

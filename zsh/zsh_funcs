@@ -333,3 +333,55 @@ function gundiff {
   colordiff <(yq -P /tmp/gundiff/last.yml) <(yq -P /tmp/gundiff/new.yml);
   mv /tmp/gundiff/new.yml /tmp/gundiff/last.yml
 }
+
+function ctrlv() {
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: paste_and_bat <filename>"
+    return 1
+  fi
+
+  wl-paste > "$1" && bat --theme Nord "$1"
+}
+
+fcp() {
+    src=$(fzf) || return 1
+    [ -z "$src" ] && { echo "No file selected."; return 1; }
+
+    dest=$(fd -t d | fzf) || return 1
+    [ -z "$dest" ] && { echo "No destination selected."; return 1; }
+
+    if cp -- "$src" "$dest/"; then
+        echo "Copied: $src -> $dest/"
+    else
+        echo "Copy failed."
+        return 1
+    fi
+}
+
+fmv() {
+    src=$(fzf) || return 1
+    [ -z "$src" ] && { echo "No file selected."; return 1; }
+
+    dest=$(fd -t d | fzf) || return 1
+    [ -z "$dest" ] && { echo "No destination selected."; return 1; }
+
+    if cp -- "$src" "$dest/"; then
+        echo "Copied: $src -> $dest/"
+    else
+        echo "Copy failed."
+        return 1
+    fi
+}
+
+spek() {
+  local file outfile
+  if [[ -n "$1" ]]; then
+    file=$1
+  else
+    file=$(fzf --height=40% --reverse --preview 'file {}')
+    [[ -z "$file" ]] && return 1
+  fi
+
+  outfile=$(mktemp --suffix=.png)
+  sox "$file" -n spectrogram -o "$outfile" && imv "$outfile"
+}

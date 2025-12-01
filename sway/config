@@ -174,6 +174,8 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
     bindsym $mod+p exec /home/alex/.config/perso/tools/actions/scripts/passwords/ASK
     bindsym XF86AudioRaiseVolume exec /home/alex/.config/perso/tools/actions/scripts/sound/UP
     bindsym XF86AudioLowerVolume exec /home/alex/.config/perso/tools/actions/scripts/sound/DOWN
+    bindsym XF86MonBrightnessUp exec brightnessctl -d intel_backlight set 5+%
+    bindsym XF86MonBrightnessDown exec brightnessctl -d intel_backlight set 5-%
     bindsym $mod+space exec /home/alex/.config/perso/tools/actions/actions.sh
 
 #

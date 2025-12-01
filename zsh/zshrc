@@ -186,6 +186,7 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 export GOPATH="/home/alex/apps/environments/go"
+export PATH="$GOPATH/bin:$PATH"
 
 #eval "$(starship init zsh)"
 #eval "$(zoxide init zsh)"
@@ -207,3 +208,5 @@ if [ -f '/home/alex/atelier/amine/google-cloud-sdk/path.zsh.inc' ]; then . '/hom
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/alex/atelier/amine/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/alex/atelier/amine/google-cloud-sdk/completion.zsh.inc'; fi
+
+
