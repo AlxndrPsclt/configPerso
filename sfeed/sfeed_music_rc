@@ -57,4 +57,5 @@ feeds() {
   feed "FullPupp Internasjonal" "https://www.youtube.com/feeds/videos.xml?channel_id=UCyIDzb2zOpQMYPq___Xuj2w"
   feed "All Inn Records" "https://www.youtube.com/feeds/videos.xml?channel_id=UC_tUHiwyrfVhXZswsOxonpA"
   feed "Humano Studios" "https://www.youtube.com/feeds/videos.xml?channel_id=UCKKezBu7Y4onrE3E-xaVpfw"
+  feed "DJ Leaves" "https://www.youtube.com/feeds/videos.xml?channel_id=UCZ-yaGwNFtz6MckXuLhUa1Q"
 }
