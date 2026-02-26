@@ -55,6 +55,9 @@ case $1 in
     filtered-metadata)
         send_command '{ "command": ["get_property", "filtered-metadata"] }'
         ;;
+    load)
+        [ -n "$2" ] && send_command "{ \"command\": [\"loadfile\", \"$(realpath "$2")\", \"replace\"] }"
+        ;;
     *)
         echo "Unknown command: $1"
         echo "Usage: $0 [play|pause|next|prev|add|seek|clear|current|title|metadata|audio-params|time-pos|time-remaining|filtered-metadata]"

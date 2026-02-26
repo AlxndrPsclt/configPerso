@@ -1,11 +1,5 @@
-backup
-hyper-presence-database
-lighthouse
-meteor
-oracle.local
-simgen001.local
-simgen003.local
-simgen004.local
-simgen005.local
-simgen006.local
-zeroctl.local
+wg-retro
+wg-lighthouse
+wg-simgen
+wg-backup
+wg-recording

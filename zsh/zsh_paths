@@ -22,3 +22,5 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 #export XDG_RUNTIME_DIR="$HOME/.xdg"
 
+export NNN_FIFO="${XDG_RUNTIME_DIR:-/tmp}/nnn.fifo"
+export NNN_PLUG='f:fzfcd;p:preview'

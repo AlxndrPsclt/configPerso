@@ -1,0 +1,112 @@
+#!/bin/sh
+set -u
+
+: "${NNN_FIFO:=${XDG_RUNTIME_DIR:-/tmp}/nnn.fifo}"
+
+# Point this to your mpvctl script
+MPVCTL="${MPVCTL:-$HOME/.config/perso/tools/bin/mpvctl}"
+
+IMV_PID=""
+LAST_PATH=""
+LAST_KIND=""  # "audio" | "image" | "other"
+
+imv_stop() {
+  if [ -n "${IMV_PID:-}" ]; then
+    kill "$IMV_PID" 2>/dev/null || true
+    # in case it doesn't die immediately
+    sleep 0.05
+    kill -9 "$IMV_PID" 2>/dev/null || true
+  fi
+  IMV_PID=""
+}
+
+mpv_pause() {
+  [ -x "$MPVCTL" ] || return 0
+  "$MPVCTL" pause >/dev/null 2>&1 || true
+}
+
+mpv_load_and_play() {
+  f=$1
+  [ -x "$MPVCTL" ] || return 0
+
+  # Pause first so "previous track keeps playing" never happens
+  "$MPVCTL" pause >/dev/null 2>&1 || true
+
+  # Replace current track; if mpv can't open it, we stay paused (good).
+  "$MPVCTL" load "$f" >/dev/null 2>&1 || true
+
+  # Try to play (if load failed, mpv will typically remain paused or do nothing)
+  "$MPVCTL" play >/dev/null 2>&1 || true
+}
+
+cleanup() {
+  imv_stop
+  mpv_pause
+}
+trap 'cleanup' INT TERM HUP EXIT
+
+handle_path() {
+  p=$1
+
+  # Ignore empty
+  [ -n "$p" ] || return 0
+
+  # Dedup: nnn can emit same path multiple times while you linger
+  if [ "$p" = "$LAST_PATH" ]; then
+    return 0
+  fi
+  LAST_PATH="$p"
+
+  # Missing or directory => stop image preview, pause audio
+  if [ ! -e "$p" ] || [ -d "$p" ]; then
+    imv_stop
+    mpv_pause
+    LAST_KIND="other"
+    return 0
+  fi
+
+  mime=$(file -Lb --mime-type -- "$p" 2>/dev/null) || {
+    imv_stop
+    mpv_pause
+    LAST_KIND="other"
+    return 0
+  }
+
+  case "$mime" in
+    audio/*)
+      # Switching to audio: close any imv preview, switch track
+      imv_stop
+
+      # If you hover a different audio file: load+play it
+      mpv_load_and_play "$p"
+      LAST_KIND="audio"
+      ;;
+
+    image/*)
+      # Switching to image: pause audio, open image, keep focus in nnn via sway no_focus rule
+      mpv_pause
+      imv_stop
+
+      if command -v imv >/dev/null 2>&1; then
+        imv -- "$p" >/dev/null 2>&1 &
+        IMV_PID=$!
+      fi
+      LAST_KIND="image"
+      ;;
+
+    *)
+      # Everything else: stop image preview and pause audio
+      imv_stop
+      mpv_pause
+      LAST_KIND="other"
+      ;;
+  esac
+}
+
+# Main loop: exits when nnn closes the FIFO writer (i.e. nnn exits)
+while IFS= read -r path; do
+  handle_path "$path"
+done < "$NNN_FIFO"
+
+cleanup
+exit 0

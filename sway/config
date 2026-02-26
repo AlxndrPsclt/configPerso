@@ -25,6 +25,7 @@ set $term foot
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | bemenu | xargs swaymsg exec --
 set $menu /home/alex/apps/tools/menu.sh
+set $rerun_execute "/home/alex/.local/bin/rerun execute"
 
 ### Output configuration
 #
@@ -77,6 +78,7 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+t exec $rerun_execute
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
