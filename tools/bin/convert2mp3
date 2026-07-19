@@ -1,0 +1,31 @@
+#!/bin/sh
+set -eu
+
+[ "$#" -eq 1 ] || {
+  echo "usage: $0 file.flac" >&2
+  exit 1
+}
+
+in="$1"
+
+case "$in" in
+  *.flac) ;;
+  *)
+    echo "error: input must be a .flac file" >&2
+    exit 1
+    ;;
+esac
+
+out=${in%.flac}.mp3
+
+# avoid overwrite
+[ -e "$out" ] && {
+  echo "error: output exists: $out" >&2
+  exit 1
+}
+
+exec ffmpeg -i "$in" \
+  -map_metadata 0 \
+  -vn \
+  -c:a libmp3lame -qscale:a 0 \
+  "$out"

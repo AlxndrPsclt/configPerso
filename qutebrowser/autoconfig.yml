@@ -6,7 +6,6 @@
 
 config_version: 2
 settings:
-  statusbar.show:
-    global: always
-  tabs.show:
-    global: always
+  content.notifications.enabled:
+    https://13134916-mike-fraser.mp3.pm: false
+    https://s-fraser-musiz.mp3.pm: false

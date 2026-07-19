@@ -128,3 +128,6 @@ export MANPAGER="bat -l man --theme Nord"
 if [[ -n "${ZSH_PROFILE:-}" ]]; then
   zprof
 fi
+
+export SPEACHES_BASE_URL="http://wg-backup:8000"                                                                           
+export TRANSCRIPTION_MODEL_ID="Systran/faster-whisper-medium"

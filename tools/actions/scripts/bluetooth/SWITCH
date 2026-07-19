@@ -4,7 +4,7 @@ notify-send "Switching bluetooth!"
 DEVICE_MAC="14:3F:A6:AE:D9:49"
 DEVICE_NAME="DEVICE-NAME"
 REMOTE_USER="alex"
-REMOTE_HOST="meteor"
+REMOTE_HOST="wg-comet"
 
 check_connected() {
     bluetoothctl devices Connected | grep -q "$DEVICE_MAC"

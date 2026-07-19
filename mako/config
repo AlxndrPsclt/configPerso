@@ -10,6 +10,6 @@ border-size=0
 text-alignment=center
 
 [category=sound]
-width=160
+width=240
 default-timeout=2000
 #group-by=category

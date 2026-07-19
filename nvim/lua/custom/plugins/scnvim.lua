@@ -6,9 +6,15 @@ return {
       local scnvim = require('scnvim')  -- Import scnvim
       local map = scnvim.map            -- Import map
       local map_expr = scnvim.map_expr  -- Import map_expr
+      local sclang = vim.fn.expand('~/.local/bin/sclang-docker')
 
       scnvim.setup{
-        ensure_installed = true,
+        ensure_installed = false,
+
+        sclang = {
+          cmd = sclang,
+          args = {},
+        },
         keymaps = {
           ['<M-e>'] = map('editor.send_line', {'i', 'n'}),
           ['<C-e>'] = {
