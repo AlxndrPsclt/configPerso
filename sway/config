@@ -97,21 +97,16 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+#    bindsym $mod+$left focus left
+#    bindsym $mod+$down focus down
+#    bindsym $mod+$up focus up
+#    bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -146,10 +141,10 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
-		bindsym $mod+Shift+L move container to output left
-		bindsym $mod+Shift+R move container to output right
-		#bindsym $mod+Shift+Up    move container to output up
-		#bindsym $mod+Shift+Down  move container to output down
+    bindsym $mod+Shift+L move container to output left
+    bindsym $mod+Shift+R move container to output right
+#bindsym $mod+Shift+Up    move container to output up
+#bindsym $mod+Shift+Down  move container to output down
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -159,8 +154,8 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -176,7 +171,7 @@ output * bg /home/alex/images/fundmntl-wallpapers/contxtl/mountain.png fill
     #bindsym $mod+a focus parent
 
     bindsym $mod+a exec /home/alex/.config/perso/tools/actions/scripts/sound/MIXER
-    bindsym $mod+i exec /home/alex/.config/perso/tools/bin/copy_ip.sh
+    #bindsym $mod+i exec /home/alex/.config/perso/tools/bin/copy_ip.sh
     bindsym $mod+p exec /home/alex/.config/perso/tools/actions/scripts/passwords/ASK
     bindsym XF86AudioRaiseVolume exec /home/alex/.config/perso/tools/actions/scripts/sound/UP
     bindsym XF86AudioLowerVolume exec /home/alex/.config/perso/tools/actions/scripts/sound/DOWN
@@ -303,3 +298,7 @@ exec mako &
 exec eye monitor &
 exec /home/alex/.config/perso/tools/bin/shared-clipboard.sh &
 exec_always --no-startup-id download-dispatch-watch &
+
+# BEGIN fzfmenu -- managed by make config
+include /home/alex/.config/sway/config.d/fzfmenu.conf
+# END fzfmenu -- managed by make config
